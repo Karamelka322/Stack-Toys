@@ -1,3 +1,4 @@
+using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.Services;
 using CodeBase.Logic.Services.Assets;
 using CodeBase.Logic.Services.SceneLoad;
@@ -41,6 +42,7 @@ namespace CodeBase.Logic.Installers
             Container.BindInterfacesTo<SceneLoadService>().AsSingle();
             Container.BindInterfacesTo<AssetServices>().AsSingle();
             Container.BindInterfacesTo<WindowService>().AsSingle();
+            Container.BindInterfacesTo<InputService>().AsSingle();
         }
     }
 }

@@ -1,4 +1,5 @@
 using CodeBase.Data.ScriptableObjects.Levels;
+using CodeBase.Logic.General.Systems;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
 using Zenject;
 
@@ -21,6 +22,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindSystems()
         {
             Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyDragSystem>().AsSingle().NonLazy();
         }
     }
 }

@@ -1,87 +1,34 @@
 using System;
-using UniRx;
 using UnityEngine;
 
 namespace CodeBase.Logic.General.Services.Input
 {
-    public class InputService
+    public class InputService : IInputService, IDisposable
     {
-        
-    }
-
-    public class ClickModule
-    {
-        private readonly IDisposable _disposable;
-        
-        private Camera _camera;
-        private Vector3 _mousePosition;
+        private readonly ClickModule _clickModule;
 
         public event Action<Vector3> OnClickDown;
         public event Action<Vector3> OnClick;
         public event Action<Vector3> OnClickUp;
-        
-        public ClickModule()
+
+        public InputService()
         {
-            _disposable = Observable.EveryUpdate().Subscribe(OnUpdate);
+            _clickModule = new ClickModule();
+            
+            _clickModule.OnClickDown += OnClickDownInvoke;
+            _clickModule.OnClick += OnClickInvoke;
+            _clickModule.OnClickUp += OnClickUpInvoke;
         }
 
-        ~ClickModule()
+        public void Dispose()
         {
-            _disposable?.Dispose();
+            _clickModule.OnClickDown -= OnClickDownInvoke;
+            _clickModule.OnClick -= OnClickInvoke;
+            _clickModule.OnClickUp -= OnClickUpInvoke;
         }
 
-        private void OnUpdate(long tick)
-        {
-            if (TryClickDown(out _mousePosition))
-            {
-                OnClickDown?.Invoke(_mousePosition);
-            }
-            
-            if (TryClick(out _mousePosition))
-            {
-                OnClick?.Invoke(_mousePosition);
-            }
-            
-            if (TryClickUp(out _mousePosition))
-            {
-                OnClickUp?.Invoke(_mousePosition);
-            }
-        }
-
-        private static bool TryClickDown(out Vector3 mousePosition)
-        {
-            if (UnityEngine.Input.GetMouseButtonDown(0))
-            {
-                mousePosition = UnityEngine.Input.mousePosition;
-                return true;
-            }
-            
-            mousePosition = Vector3.zero;
-            return false;
-        }
-        
-        private static bool TryClick(out Vector3 mousePosition)
-        {
-            if (UnityEngine.Input.GetMouseButton(0))
-            {
-                mousePosition = UnityEngine.Input.mousePosition;
-                return true;
-            }
-            
-            mousePosition = Vector3.zero;
-            return false;
-        }
-        
-        private static bool TryClickUp(out Vector3 mousePosition)
-        {
-            if (UnityEngine.Input.GetMouseButtonUp(0))
-            {
-                mousePosition = UnityEngine.Input.mousePosition;
-                return true;
-            }
-            
-            mousePosition = Vector3.zero;
-            return false;
-        }
+        private void OnClickDownInvoke(Vector3 mousePosition) => OnClickDown?.Invoke(mousePosition);
+        private void OnClickInvoke(Vector3 mousePosition) => OnClick?.Invoke(mousePosition);
+        private void OnClickUpInvoke(Vector3 mousePosition) => OnClickUp?.Invoke(mousePosition);
     }
 }
