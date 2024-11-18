@@ -1,4 +1,4 @@
-namespace CodeBase.UI.Windows.Loading
+namespace CodeBase.Data.Constants
 {
     public static class ResourcesPaths
     {

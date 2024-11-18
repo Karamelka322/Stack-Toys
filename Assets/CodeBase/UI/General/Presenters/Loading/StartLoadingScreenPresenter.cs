@@ -1,6 +1,6 @@
-using CodeBase.UI.Windows.Loading;
+using CodeBase.UI.Interfaces.General.Windows.Loading;
 
-namespace CodeBase.UI.Scenes.Bootstrap.Presenters
+namespace CodeBase.UI.General.Presenters.Loading
 {
     public class StartLoadingScreenPresenter
     {

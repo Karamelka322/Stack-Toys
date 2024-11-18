@@ -1,3 +1,5 @@
+using CodeBase.Logic.Scenes.Bootstrap.Systems;
+using CodeBase.Logic.Scenes.Bootstrap.Systems.Ready;
 using Zenject;
 
 namespace CodeBase.Logic.Scenes.Bootstrap.Installers
@@ -11,7 +13,7 @@ namespace CodeBase.Logic.Scenes.Bootstrap.Installers
 
         private void BindSystems()
         {
-            // Container.Bind<>()
+            Container.BindInterfacesTo<BootstrapSceneReady>().AsSingle().NonLazy();
         }
     }
 }

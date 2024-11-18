@@ -1,6 +1,9 @@
+using CodeBase.UI.General.Mediators.Loading;
+using CodeBase.UI.Interfaces.General.Factories.Loading;
+using CodeBase.UI.Interfaces.General.Windows.Loading;
 using UnityEngine;
 
-namespace CodeBase.UI.Windows.Loading
+namespace CodeBase.UI.General.Windows.Loading
 {
     public class LoadingWindow : ILoadingWindow
     {

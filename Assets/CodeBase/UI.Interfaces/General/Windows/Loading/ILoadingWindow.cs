@@ -1,4 +1,4 @@
-namespace CodeBase.UI.Windows.Loading
+namespace CodeBase.UI.Interfaces.General.Windows.Loading
 {
     public interface ILoadingWindow
     {
