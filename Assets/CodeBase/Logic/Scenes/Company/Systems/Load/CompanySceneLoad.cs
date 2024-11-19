@@ -1,27 +1,32 @@
-using CodeBase.Data.ScriptableObjects.Levels;
-using CodeBase.Logic.Scenes.Company.Unity;
-using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using Zenject;
+using CodeBase.Logic.General.Factories.Toys;
+using CodeBase.Logic.Scenes.Company.Factories;
+using Cysharp.Threading.Tasks;
+using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Load
 {
-    public class CompanySceneLoad : IInitializable
+    public class CompanySceneLoad : ICompanySceneLoad
     {
-        private readonly ILevelsConfigProvider _levelsConfigProvider;
+        private readonly ILevelFactory _levelFactory;
+        private readonly IToyFactory _toyFactory;
 
-        public CompanySceneLoad(ILevelsConfigProvider levelsConfigProvider)
+        public BoolReactiveProperty IsLoaded { get; }
+        
+        public CompanySceneLoad(ILevelFactory levelFactory, IToyFactory toyFactory)
         {
-            _levelsConfigProvider = levelsConfigProvider;
+            _toyFactory = toyFactory;
+            _levelFactory = levelFactory;
+            IsLoaded = new BoolReactiveProperty();
+            
+            InitializeAsync().Forget();
         }
         
-        public async void Initialize()
+        private async UniTask InitializeAsync()
         {
-            var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync();
-            var level = Object.Instantiate(levelPrefab).GetComponent<Level>();
-
-            Camera.main.UpdateVolumeStack();
-            Camera.main.transform.position = level.CameraPoint.position;
+            var level = await _levelFactory.SpawnAsync();
+            var toy = await _toyFactory.SpawnAsync(level.ToyPoint.position);
+            
+            IsLoaded.Value = true;
         }
     }
 }

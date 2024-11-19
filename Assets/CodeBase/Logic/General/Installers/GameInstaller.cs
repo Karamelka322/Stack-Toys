@@ -41,7 +41,6 @@ namespace CodeBase.Logic.Installers
         {
             Container.BindInterfacesTo<SceneLoadService>().AsSingle();
             Container.BindInterfacesTo<AssetServices>().AsSingle();
-            Container.BindInterfacesTo<WindowService>().AsSingle();
             Container.BindInterfacesTo<InputService>().AsSingle();
         }
     }

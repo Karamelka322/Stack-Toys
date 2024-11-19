@@ -29,7 +29,7 @@ Material:
   - _RECEIVE_SHADOWS_OFF
   - _SPECULAR_SETUP
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -131,6 +131,6 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0.92309374, b: 0.8254717, a: 1}
     - _Color: {r: 1, g: 0.92309374, b: 0.82547176, a: 1}
-    - _EmissionColor: {r: 1, g: 0.31287426, b: 0.25, a: 1}
+    - _EmissionColor: {r: 1, g: 0.64993083, b: 0.6179246, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

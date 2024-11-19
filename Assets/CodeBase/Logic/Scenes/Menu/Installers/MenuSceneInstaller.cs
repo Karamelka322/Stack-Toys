@@ -1,3 +1,4 @@
+using CodeBase.Logic.Services.Window;
 using CodeBase.UI.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Scenes.Menu.Presenters.Menu;
@@ -11,9 +12,15 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
     {
         public override void InstallBindings()
         {
+            BindProviders();
             BindPresenters();
             BindFactories();
             BindSystems();
+        }
+
+        private void BindProviders()
+        {
+            Container.BindInterfacesTo<WindowCanvasProvider>().AsSingle();
         }
 
         private void BindSystems()

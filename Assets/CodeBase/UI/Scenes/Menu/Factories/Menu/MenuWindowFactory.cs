@@ -11,9 +11,9 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Menu
     public class MenuWindowFactory : IMenuWindowFactory
     {
         private readonly IAssetServices _assetServices;
-        private readonly IWindowService _windowService;
+        private readonly IWindowCanvasProvider _windowService;
 
-        public MenuWindowFactory(IAssetServices assetServices, IWindowService windowService)
+        public MenuWindowFactory(IAssetServices assetServices, IWindowCanvasProvider windowService)
         {
             _windowService = windowService;
             _assetServices = assetServices;

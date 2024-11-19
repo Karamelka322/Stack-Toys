@@ -11,9 +11,9 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
     public class LevelsWindowFactory : ILevelsWindowFactory
     {
         private readonly IAssetServices _assetServices;
-        private readonly IWindowService _windowService;
+        private readonly IWindowCanvasProvider _windowService;
 
-        public LevelsWindowFactory(IAssetServices assetServices, IWindowService windowService)
+        public LevelsWindowFactory(IAssetServices assetServices, IWindowCanvasProvider windowService)
         {
             _windowService = windowService;
             _assetServices = assetServices;
