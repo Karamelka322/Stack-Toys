@@ -24,8 +24,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         public override void Enter()
         {
+            var sliderValue = _companyMainWindow.GetSliderValue();
+            var sliderValueToRotation = SliderValueToRotation(sliderValue);
+            
             _toyMediator.transform.DOKill();
-            _toyMediator.transform.DORotate(Vector3.zero, MoveToStartRotationDuration);
+            _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, MoveToStartRotationDuration);
             
             _companyMainWindow.ShowSlider();
             _companyMainWindow.OnSliderChanged += OnSliderChanged;
@@ -38,7 +41,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         private void OnSliderChanged(float value)
         {
-            _toyMediator.transform.rotation = Quaternion.Euler(0, 0, 360 * value);
+            _toyMediator.transform.rotation = SliderValueToRotation(value);
+        }
+
+        private Quaternion SliderValueToRotation(float value)
+        {
+            return Quaternion.Euler(0, 0, 360 * value);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         void Close();
         void ShowSlider();
         void HideSlider();
+        float GetSliderValue();
     }
 }

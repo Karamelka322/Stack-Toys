@@ -2,7 +2,6 @@ using CodeBase.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
-using CodeBase.Logic.General.Systems;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
@@ -81,12 +80,16 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindSystems()
         {
             Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<ToyDragSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraScrolling>().AsSingle().NonLazy();
             
             Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyRotateState, ToyRotateState.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyDragState, ToyDragState.Factory>().AsSingle();
+            
             Container.BindFactory<ToyMediator, ToySelectTransition, ToySelectTransition.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyStartDragTransition, ToyStartDragTransition.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyEndDragTransition, ToyEndDragTransition.Factory>().AsSingle();
+            
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
 
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle();

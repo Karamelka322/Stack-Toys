@@ -1,4 +1,5 @@
 using System;
+using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.Scenes.Company.Providers;
@@ -15,6 +16,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         private readonly ILevelProvider _levelProvider;
         private readonly ICameraSettingsProvider _cameraSettingsProvider;
         private readonly IInputService _inputService;
+        private readonly IToyProvider _toyProvider;
         private readonly Camera _camera;
 
         private float _interpolation;
@@ -23,8 +25,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
             ICompanySceneLoad sceneLoad,
             ILevelProvider levelProvider,
             IInputService inputService,
+            IToyProvider toyProvider,
             ICameraSettingsProvider cameraSettingsProvider)
         {
+            _toyProvider = toyProvider;
             _cameraSettingsProvider = cameraSettingsProvider;
             _inputService = inputService;
             _levelProvider = levelProvider;

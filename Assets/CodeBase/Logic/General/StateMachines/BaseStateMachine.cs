@@ -84,13 +84,14 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
             state?.Exit();
             NotifyExitStateListeners(state);
 
+            _compositeDisposable?.Dispose();
+            _compositeDisposable = new CompositeDisposable();
+            
             foreach (var tuple in _stateTree.GetTransitions(state))
             {
                 tuple.Item2.Exit();
+                tuple.Item2.IsCompleted.Value = false;
             }
-            
-            _compositeDisposable?.Dispose();
-            _compositeDisposable = new CompositeDisposable();
         }
         
         /// <summary>

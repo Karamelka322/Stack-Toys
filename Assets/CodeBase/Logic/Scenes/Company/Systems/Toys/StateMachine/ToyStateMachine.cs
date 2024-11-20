@@ -1,9 +1,7 @@
-using System;
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
-using UnityEngine;
 using Zenject;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
@@ -12,19 +10,28 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
     {
         private readonly ToyMediator _toyMediator;
         
-        private readonly ToyRotateState.Factory _toyRotateStateFactory;
-        private readonly ToyBabbleState.Factory _toyBabbleStateFactory;
-        
-        private readonly ToySelectTransition.Factory _toySelectTransitionFactory;
+        private readonly ToyRotateState.Factory _rotateStateFactory;
+        private readonly ToyBabbleState.Factory _babbleStateFactory;
+        private readonly ToyDragState.Factory _dragStateFactory;
+
+        private readonly ToySelectTransition.Factory _selectTransitionFactory;
+        private readonly ToyStartDragTransition.Factory _startDragTransitionFactory;
+        private readonly ToyEndDragTransition.Factory _endDragTransitionFactory;
 
         public ToyStateMachine(ToyMediator toyMediator, 
             ToyBabbleState.Factory toyBabbleStateFactory,
             ToyRotateState.Factory toyRotateStateFactory,
-            ToySelectTransition.Factory toySelectTransitionFactory)
+            ToyDragState.Factory toyDragStateFactory,
+            ToySelectTransition.Factory toySelectTransitionFactory,
+            ToyStartDragTransition.Factory toyStartDragTransitionFactory,
+            ToyEndDragTransition.Factory toyEndDragTransitionFactory)
         {
-            _toyRotateStateFactory = toyRotateStateFactory;
-            _toySelectTransitionFactory = toySelectTransitionFactory;
-            _toyBabbleStateFactory = toyBabbleStateFactory;
+            _endDragTransitionFactory = toyEndDragTransitionFactory;
+            _startDragTransitionFactory = toyStartDragTransitionFactory;
+            _dragStateFactory = toyDragStateFactory;
+            _rotateStateFactory = toyRotateStateFactory;
+            _selectTransitionFactory = toySelectTransitionFactory;
+            _babbleStateFactory = toyBabbleStateFactory;
             _toyMediator = toyMediator;
             
             Launch();
@@ -34,17 +41,24 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
         
         protected override StateTree InstallStateTree()
         {
-            var babbleState = _toyBabbleStateFactory.Create(_toyMediator);
-            var rotateState = _toyRotateStateFactory.Create(_toyMediator);
+            var babbleState = _babbleStateFactory.Create(_toyMediator);
+            var rotateState = _rotateStateFactory.Create(_toyMediator);
+            var dragState = _dragStateFactory.Create(_toyMediator);
             
-            var selectTransition = _toySelectTransitionFactory.Create(_toyMediator);
+            var selectTransition = _selectTransitionFactory.Create(_toyMediator);
+            var startDragTransition = _startDragTransitionFactory.Create(_toyMediator);
+            var endDragTransition = _endDragTransitionFactory.Create(_toyMediator);
             
             var tree = new StateTree();
             
             tree.RegisterState(babbleState);
-            tree.RegisterState(rotateState);
-            
             tree.RegisterTransition(babbleState, selectTransition, rotateState);
+            
+            tree.RegisterState(rotateState);
+            tree.RegisterTransition(rotateState, startDragTransition, dragState);
+            
+            tree.RegisterState(dragState);
+            tree.RegisterTransition(dragState, endDragTransition, rotateState);
             
             return tree;
         }

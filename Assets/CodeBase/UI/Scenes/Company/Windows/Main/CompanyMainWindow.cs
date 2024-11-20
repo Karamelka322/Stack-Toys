@@ -40,6 +40,11 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         {
             _mediator.Slider.gameObject.SetActive(false);
         }
+
+        public float GetSliderValue()
+        {
+            return _mediator.Slider.value;
+        }
         
         private void OnSliderChangedInvoke(float value) => OnSliderChanged?.Invoke(value);
     }

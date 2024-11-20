@@ -31,5 +31,14 @@ namespace CodeBase.Logic.General.Commands
             
             return false;
         }
+
+        public bool HasUI(Vector3 clickPosition)
+        {
+            _pointerEventData.position = clickPosition;
+            
+            EventSystem.current.RaycastAll(_pointerEventData, _raycastResults);
+
+            return _raycastResults.Count > 0;
+        }
     }
 }
