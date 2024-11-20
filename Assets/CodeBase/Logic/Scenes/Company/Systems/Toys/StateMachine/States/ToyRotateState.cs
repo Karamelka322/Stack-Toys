@@ -1,7 +1,7 @@
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.UI.Scenes.Company.Elements.Toys.Rotator;
-using CodeBase.UI.Scenes.Company.Factories.Elements.Toys.Rotator;
+using CodeBase.UI.Scenes.Company.Windows.Main;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -9,33 +9,36 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 {
     public class ToyRotateState : BaseState
     {
+        private const float MoveToStartRotationDuration = 0.2f;
+        
         private readonly ToyMediator _toyMediator;
-        private readonly ToyRotatorElement.Factory _toyRotatorElementFactory;
-        private readonly IToyRotatorFactory _toyRotatorFactory;
+        private readonly ICompanyMainWindow _companyMainWindow;
 
-        public ToyRotateState(ToyMediator toyMediator, IToyRotatorFactory toyRotatorFactory, ToyRotatorElement.Factory toyRotatorElementFactory)
+        public ToyRotateState(ToyMediator toyMediator, ICompanyMainWindow companyMainWindow)
         {
-            _toyRotatorFactory = toyRotatorFactory;
-            _toyRotatorElementFactory = toyRotatorElementFactory;
+            _companyMainWindow = companyMainWindow;
             _toyMediator = toyMediator;
         }
 
         public class Factory : PlaceholderFactory<ToyMediator, ToyRotateState> { }
 
-        public override async void Enter()
+        public override void Enter()
         {
-            var rotatorMediator = await _toyRotatorFactory.SpawnAsync(_toyMediator.transform);
-            var rotatorElement = _toyRotatorElementFactory.Create(_toyMediator.transform, rotatorMediator);
-
-            rotatorElement.OnInput += OnInput;
+            _toyMediator.transform.DOKill();
+            _toyMediator.transform.DORotate(Vector3.zero, MoveToStartRotationDuration);
+            
+            _companyMainWindow.ShowSlider();
+            _companyMainWindow.OnSliderChanged += OnSliderChanged;
         }
 
-        private void OnInput(Vector3 normalizedDirection)
+        public override void Exit()
         {
-            var angleInRadians = Mathf.Atan2(normalizedDirection.y, normalizedDirection.x);
-            float angleInDegrees = (angleInRadians * Mathf.Rad2Deg + 360) % 360;
-            
-            _toyMediator.transform.rotation = Quaternion.Euler(0, 0, angleInDegrees - 180);
+            _companyMainWindow.OnSliderChanged -= OnSliderChanged;
+        }
+
+        private void OnSliderChanged(float value)
+        {
+            _toyMediator.transform.rotation = Quaternion.Euler(0, 0, 360 * value);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CodeBase.Logic.Scenes.Company.Providers
     {
         private readonly ILevelFactory _levelFactory;
 
-        public Level Level { get; private set; }
+        public LevelMediator Level { get; private set; }
 
         public LevelProvider(ILevelFactory levelFactory)
         {
@@ -15,7 +15,7 @@ namespace CodeBase.Logic.Scenes.Company.Providers
             _levelFactory.OnSpawn += OnLevelSpawn;
         }
 
-        private void OnLevelSpawn(Level level)
+        private void OnLevelSpawn(LevelMediator level)
         {
             Level = level;
         }

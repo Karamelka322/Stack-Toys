@@ -4,6 +4,6 @@ namespace CodeBase.Logic.Scenes.Company.Providers
 {
     public interface ILevelProvider
     {
-        Level Level { get; }
+        LevelMediator Level { get; }
     }
 }

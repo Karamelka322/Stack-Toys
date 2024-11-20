@@ -1,3 +1,4 @@
+using System;
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;

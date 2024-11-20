@@ -10,17 +10,17 @@ namespace CodeBase.Logic.Scenes.Company.Factories
     {
         private readonly ILevelsConfigProvider _levelsConfigProvider;
 
-        public event Action<Level> OnSpawn;
+        public event Action<LevelMediator> OnSpawn;
         
         public LevelFactory(ILevelsConfigProvider levelsConfigProvider)
         {
             _levelsConfigProvider = levelsConfigProvider;
         }
 
-        public async UniTask<Level> SpawnAsync()
+        public async UniTask<LevelMediator> SpawnAsync()
         {
             var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync();
-            var level = Object.Instantiate(levelPrefab).GetComponent<Level>();
+            var level = Object.Instantiate(levelPrefab).GetComponent<LevelMediator>();
 
             OnSpawn?.Invoke(level);
             

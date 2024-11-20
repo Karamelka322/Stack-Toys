@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UniRx;
 
 namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
@@ -11,8 +13,13 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
         private StateTree _stateTree;
         private BaseState _currentState;
 
+        private readonly List<(BaseState, Action)> _enterStateListeners;
+        private readonly List<(BaseState, Action)> _exitStateListeners;
+        
         protected BaseStateMachine()
         {
+            _enterStateListeners = new List<(BaseState, Action)>();
+            _exitStateListeners = new List<(BaseState, Action)>();
             _compositeDisposable = new CompositeDisposable();
         }
 
@@ -30,18 +37,26 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
         /// </summary>
         protected abstract StateTree InstallStateTree();
         
+        public void SubscribeToEnterState<TState>(Action callback) where TState : BaseState
+        {
+            var state = _stateTree.GetState(typeof(TState));
+            _enterStateListeners.Add((state, callback));
+        }
+        
+        public void SubscribeToExitState<TState>(Action callback) where TState : BaseState
+        {
+            var state = _stateTree.GetState(typeof(TState));
+            _exitStateListeners.Add((state, callback));
+        }
+        
         /// <summary>
         /// Войти в состояние
         /// </summary>
         /// <param name="state">Состояние в которое нужно войти</param>
         private void Enter<TState>(TState state) where TState : BaseState
         {
-            if (state == null)
-            {
-                return;
-            }
-            
-            state.Enter();
+            state?.Enter();
+            NotifyEnterStateListeners(state);
 
             foreach (var tuple in _stateTree.GetTransitions(state))
             {
@@ -66,12 +81,8 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
         /// <param name="state">Состояние из которого нужно выйти</param>
         private void Exit<TState>(TState state) where TState : BaseState
         {
-            if (state == null)
-            {
-                return;
-            }
-            
-            state.Exit();
+            state?.Exit();
+            NotifyExitStateListeners(state);
 
             foreach (var tuple in _stateTree.GetTransitions(state))
             {
@@ -93,7 +104,7 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
                 Exit(_currentState);
             }
             
-            _currentState = state;   
+            _currentState = state;
             Enter(_currentState);
         }
 
@@ -110,6 +121,28 @@ namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
             }
             
             ChangeState(nextState);
+        }
+        
+        private void NotifyEnterStateListeners<TState>(TState state) where TState : BaseState
+        {
+            foreach (var listener in _enterStateListeners)
+            {
+                if (listener.Item1 == state)
+                {
+                    listener.Item2?.Invoke();
+                }
+            }
+        }
+        
+        private void NotifyExitStateListeners<TState>(TState state) where TState : BaseState
+        {
+            foreach (var listener in _exitStateListeners)
+            {
+                if (listener.Item1 == state)
+                {
+                    listener.Item2?.Invoke();
+                }
+            }
         }
     }
 }

@@ -22,6 +22,10 @@ namespace CodeBase.Data.Constants
         {
             // UI
             public const string ToyRotator = "ToyRotator";
+            public const string MainWindow = "CompanyMainWindow";
+    
+            // Effects
+            public const string ToySelectEffect = "ToySelectEffect";
         }
     }
 }

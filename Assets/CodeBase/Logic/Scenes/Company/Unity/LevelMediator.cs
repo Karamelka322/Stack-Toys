@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Unity
 {
-    public class Level : MonoBehaviour
+    public class LevelMediator : MonoBehaviour
     {
         [SerializeField, Required] 
         private Transform _cameraStartPoint;

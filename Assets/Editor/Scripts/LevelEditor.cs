@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Editor.Scripts
 {
-    [CustomEditor(typeof(Level))]
+    [CustomEditor(typeof(LevelMediator))]
     public class LevelEditor : OdinEditor
     {
         private void OnSceneGUI()
         {
-            var level = target as Level;
+            var level = target as LevelMediator;
             
             if (level == null || level.CameraStartPoint == null || level.CameraEndPoint == null)
             {
