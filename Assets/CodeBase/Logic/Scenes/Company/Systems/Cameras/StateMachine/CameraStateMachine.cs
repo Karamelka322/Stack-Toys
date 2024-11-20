@@ -17,13 +17,16 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         private readonly CameraToyFollowState.Factory _toyFollowStateFactory;
         
         private readonly CameraToySelectTransition.Factory _toySelectTransitionFactory;
+        private readonly CameraToyUnselectTransition.Factory _toyUnselectTransitionFactory;
 
         public CameraStateMachine(
             ICompanySceneLoad sceneLoad, 
             CameraScrollState.Factory scrollStateFactory,
             CameraToyFollowState.Factory toyFollowStateFactory,
-            CameraToySelectTransition.Factory toySelectTransitionFactory)
+            CameraToySelectTransition.Factory toySelectTransitionFactory,
+            CameraToyUnselectTransition.Factory toyUnselectTransitionFactory)
         {
+            _toyUnselectTransitionFactory = toyUnselectTransitionFactory;
             _toyFollowStateFactory = toyFollowStateFactory;
             _toySelectTransitionFactory = toySelectTransitionFactory;
             _camera = Camera.main;
@@ -50,6 +53,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
             var toyFollowState = _toyFollowStateFactory.Create(_camera);
             
             var toySelectTransition = _toySelectTransitionFactory.Create();
+            var toyUnselectTransition = _toyUnselectTransitionFactory.Create();
             
             var tree = new StateTree();
             
@@ -57,6 +61,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
             tree.RegisterTransition(scrollState, toySelectTransition, toyFollowState);
 
             tree.RegisterState(toyFollowState);
+            tree.RegisterTransition(toyFollowState, toyUnselectTransition, scrollState);
             
             return tree;
         }

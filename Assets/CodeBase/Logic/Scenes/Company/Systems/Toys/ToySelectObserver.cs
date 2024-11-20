@@ -22,14 +22,26 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         
         private void OnToyAdd(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
-            addEvent.Value.Item2.SubscribeToExitState<ToyBabbleState>(() => OnToyReady(addEvent.Value.Item1));
+            addEvent.Value.Item2.SubscribeToEnterState<ToyRotateState>(
+                () => OnToySelect(addEvent.Value.Item1));
+            
+            addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(
+                () => OnToySet(addEvent.Value.Item1));
         }
         
-        private void OnToyReady(ToyMediator toyMediator)
+        private void OnToySelect(ToyMediator toyMediator)
         {
             Toy.Value = toyMediator;
         }
-        
+
+        private void OnToySet(ToyMediator toyMediator)
+        {
+            if (toyMediator == Toy.Value)
+            {
+                Toy.Value = null;
+            }
+        }
+
         public void Dispose()
         {
             _disposable?.Dispose();

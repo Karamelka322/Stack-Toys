@@ -9,7 +9,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
 {
     public class CameraToyFollowState : BaseState
     {
-        private const float MovementSpeed = 3;
+        private const float MovementSpeed = 2;
         
         private readonly Camera _camera;
         private readonly IInputService _inputService;

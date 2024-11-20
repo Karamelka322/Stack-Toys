@@ -13,19 +13,25 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
         private readonly ToyRotateState.Factory _rotateStateFactory;
         private readonly ToyBabbleState.Factory _babbleStateFactory;
         private readonly ToyDragState.Factory _dragStateFactory;
+        private readonly ToyTowerState.Factory _towerStartFactory;
 
         private readonly ToySelectTransition.Factory _selectTransitionFactory;
         private readonly ToyStartDragTransition.Factory _startDragTransitionFactory;
         private readonly ToyEndDragTransition.Factory _endDragTransitionFactory;
+        private readonly ToyTowerTransition.Factory _towerTransitionFactory;
 
         public ToyStateMachine(ToyMediator toyMediator, 
             ToyBabbleState.Factory toyBabbleStateFactory,
             ToyRotateState.Factory toyRotateStateFactory,
             ToyDragState.Factory toyDragStateFactory,
+            ToyTowerState.Factory towerStartFactory,
             ToySelectTransition.Factory toySelectTransitionFactory,
             ToyStartDragTransition.Factory toyStartDragTransitionFactory,
-            ToyEndDragTransition.Factory toyEndDragTransitionFactory)
+            ToyEndDragTransition.Factory toyEndDragTransitionFactory,
+            ToyTowerTransition.Factory toyTowerTransitionFactory)
         {
+            _towerTransitionFactory = toyTowerTransitionFactory;
+            _towerStartFactory = towerStartFactory;
             _endDragTransitionFactory = toyEndDragTransitionFactory;
             _startDragTransitionFactory = toyStartDragTransitionFactory;
             _dragStateFactory = toyDragStateFactory;
@@ -44,10 +50,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
             var babbleState = _babbleStateFactory.Create(_toyMediator);
             var rotateState = _rotateStateFactory.Create(_toyMediator);
             var dragState = _dragStateFactory.Create(_toyMediator);
+            var towerState = _towerStartFactory.Create(_toyMediator);
             
             var selectTransition = _selectTransitionFactory.Create(_toyMediator);
             var startDragTransition = _startDragTransitionFactory.Create(_toyMediator);
             var endDragTransition = _endDragTransitionFactory.Create(_toyMediator);
+            var towerTransition = _towerTransitionFactory.Create();
             
             var tree = new StateTree();
             
@@ -56,9 +64,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
             
             tree.RegisterState(rotateState);
             tree.RegisterTransition(rotateState, startDragTransition, dragState);
+            tree.RegisterTransition(rotateState, towerTransition, towerState);
             
             tree.RegisterState(dragState);
             tree.RegisterTransition(dragState, endDragTransition, rotateState);
+            
+            tree.RegisterState(towerState);
             
             return tree;
         }

@@ -92,10 +92,12 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyRotateState, ToyRotateState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyDragState, ToyDragState.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyTowerState, ToyTowerState.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToySelectTransition, ToySelectTransition.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyStartDragTransition, ToyStartDragTransition.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyEndDragTransition, ToyEndDragTransition.Factory>().AsSingle();
+            Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
 
@@ -103,6 +105,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();
             Container.BindFactory<Camera, CameraToyFollowState, CameraToyFollowState.Factory>().AsSingle();
             Container.BindFactory<CameraToySelectTransition, CameraToySelectTransition.Factory>().AsSingle();
+            Container.BindFactory<CameraToyUnselectTransition, CameraToyUnselectTransition.Factory>().AsSingle();
             Container.Bind<CameraStateMachine>().AsSingle().NonLazy();
             
             // UI - Windows
