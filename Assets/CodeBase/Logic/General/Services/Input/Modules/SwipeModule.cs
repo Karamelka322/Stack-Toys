@@ -46,7 +46,10 @@ namespace CodeBase.Logic.General.Services.Input
             var direction = viewportPoint - _previewPosition;
             _previewPosition = Vector3.Lerp(_previewPosition, viewportPoint, Time.deltaTime * Smooth);
 
-            OnSwipe?.Invoke(direction);
+            if (direction != Vector3.zero)
+            {
+                OnSwipe?.Invoke(direction);
+            }
         }
 
         private void OnClickUp(Vector3 clickPosition)

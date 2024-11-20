@@ -1,56 +1,47 @@
-using System;
-using CodeBase.Logic.General.Providers.Objects.Toys;
+using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.Scenes.Company.Providers;
-using CodeBase.Logic.Scenes.Company.Systems.Load;
-using UniRx;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using Zenject;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
+namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
 {
-    public class CameraScrolling : IDisposable
+    public class CameraScrollState : BaseState
     {
-        private readonly IDisposable _disposable;
+        private readonly IInputService _inputService;
         private readonly ILevelProvider _levelProvider;
         private readonly ICameraSettingsProvider _cameraSettingsProvider;
-        private readonly IInputService _inputService;
-        private readonly IToyProvider _toyProvider;
         private readonly Camera _camera;
 
         private float _interpolation;
 
-        public CameraScrolling(
-            ICompanySceneLoad sceneLoad,
-            ILevelProvider levelProvider,
+        public CameraScrollState(
+            Camera camera,
             IInputService inputService,
-            IToyProvider toyProvider,
+            ILevelProvider levelProvider,
             ICameraSettingsProvider cameraSettingsProvider)
         {
-            _toyProvider = toyProvider;
+            _camera = camera;
             _cameraSettingsProvider = cameraSettingsProvider;
-            _inputService = inputService;
             _levelProvider = levelProvider;
-            _camera = Camera.main;
-            
-            _disposable = sceneLoad.IsLoaded.Subscribe(OnSceneLoaded);
+            _inputService = inputService;
         }
         
-        private void OnSceneLoaded(bool isLoaded)
+        public class Factory :PlaceholderFactory<Camera, CameraScrollState> { }
+
+        public override void Enter()
         {
-            if (isLoaded == false)
-            {
-                return;
-            }
-
-            _inputService.OnSwipe += OnSwipe;
-
-            _camera.UpdateVolumeStack();
-
             SetStartPosition();
+            
+            _inputService.OnSwipe += OnSwipe;
         }
 
+        public override void Exit()
+        {
+            _inputService.OnSwipe -= OnSwipe;
+        }
+        
         private void SetStartPosition()
         {
             _camera.transform.position = _levelProvider.Level.CameraStartPoint.position;
@@ -66,12 +57,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
             
             _interpolation = Mathf.Clamp01(nextInterpolation);
             _camera.transform.position = Vector3.Lerp(startPosition, endPosition, _interpolation);
-        }
-
-        public void Dispose()
-        {
-            _disposable?.Dispose();
-            _inputService.OnSwipe += OnSwipe;
         }
     }
 }

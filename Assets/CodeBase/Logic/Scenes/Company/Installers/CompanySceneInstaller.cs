@@ -7,7 +7,10 @@ using CodeBase.Logic.Scenes.Company.Factories;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.States;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.Transitions;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
@@ -80,8 +83,12 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindSystems()
         {
             Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<CameraScrolling>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             
+            // Observers
+            Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
+            
+            // Toy
             Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyRotateState, ToyRotateState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyDragState, ToyDragState.Factory>().AsSingle();
@@ -92,6 +99,13 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
 
+            // Camera
+            Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();
+            Container.BindFactory<Camera, CameraToyFollowState, CameraToyFollowState.Factory>().AsSingle();
+            Container.BindFactory<CameraToySelectTransition, CameraToySelectTransition.Factory>().AsSingle();
+            Container.Bind<CameraStateMachine>().AsSingle().NonLazy();
+            
+            // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle();
         }
     }
