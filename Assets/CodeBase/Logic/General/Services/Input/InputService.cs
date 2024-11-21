@@ -13,6 +13,8 @@ namespace CodeBase.Logic.General.Services.Input
         public event Action<Vector3> OnClickUp;
         public event Action<Vector3> OnSwipe;
 
+        public bool IsClickPressed => _clickModule.IsClickPressed;
+        
         public InputService()
         {
             _clickModule = new ClickModule();

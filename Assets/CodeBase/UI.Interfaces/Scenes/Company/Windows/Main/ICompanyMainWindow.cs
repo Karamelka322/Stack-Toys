@@ -9,8 +9,6 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         
         UniTask OpenAsync();
         void Close();
-        void ShowSlider();
-        void HideSlider();
         float GetSliderValue();
     }
 }

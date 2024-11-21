@@ -26,6 +26,9 @@ namespace CodeBase.Logic.General.Factories.Toys
         {
             var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.Toy);
             var mediator = Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<ToyMediator>();
+            
+            mediator.Rigidbody.isKinematic = true;
+            mediator.Collider.isTrigger = true;
 
             var stateMachine = _toyStateMachineFactory.Create(mediator);
 

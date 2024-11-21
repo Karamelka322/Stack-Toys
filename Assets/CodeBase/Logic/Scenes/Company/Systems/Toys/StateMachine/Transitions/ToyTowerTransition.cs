@@ -10,8 +10,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
     {
         private readonly IRaycastCommand _raycastCommand;
         private readonly IInputService _inputService;
-
-        private bool _isSwipe;
+        
+        private bool _isClickPressed;
 
         public ToyTowerTransition(IInputService inputService, IRaycastCommand raycastCommand)
         {
@@ -23,28 +23,25 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
 
         public override void Enter()
         {
-            _isSwipe = false;
-            
+            _isClickPressed = _inputService.IsClickPressed;
             _inputService.OnClickUp += OnClickUp;
-            _inputService.OnSwipe += OnSwipe;
         }
 
         public override void Exit()
         {
             _inputService.OnClickUp -= OnClickUp;
-            _inputService.OnSwipe -= OnSwipe;
-        }
-
-        private void OnSwipe(Vector3 obj)
-        {
-            _isSwipe = true;
         }
 
         private void OnClickUp(Vector3 clickPosition)
         {
-            if (_isSwipe == false && _raycastCommand.HasUI(clickPosition) == false)
+            if (_isClickPressed == false && _raycastCommand.HasUI(clickPosition) == false)
             {
                 IsCompleted.Value = true;
+            }
+            
+            if (_isClickPressed)
+            {
+                _isClickPressed = false;
             }
         }
     }

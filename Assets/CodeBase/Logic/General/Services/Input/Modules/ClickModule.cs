@@ -15,6 +15,8 @@ namespace CodeBase.Logic.General.Services.Input
         public event Action<Vector3> OnClick;
         public event Action<Vector3> OnClickUp;
         
+        public bool IsClickPressed { get; private set; }
+        
         public ClickModule()
         {
             _disposable = Observable.EveryUpdate().Subscribe(OnUpdate);
@@ -24,11 +26,12 @@ namespace CodeBase.Logic.General.Services.Input
         {
             _disposable?.Dispose();
         }
-
+        
         private void OnUpdate(long tick)
         {
             if (TryClickDown(out _mousePosition))
             {
+                IsClickPressed = true;
                 OnClickDown?.Invoke(_mousePosition);
             }
             
@@ -39,6 +42,7 @@ namespace CodeBase.Logic.General.Services.Input
             
             if (TryClickUp(out _mousePosition))
             {
+                IsClickPressed = false;
                 OnClickUp?.Invoke(_mousePosition);
             }
         }

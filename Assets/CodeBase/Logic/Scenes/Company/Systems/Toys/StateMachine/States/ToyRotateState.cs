@@ -30,7 +30,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             _toyMediator.transform.DOKill();
             _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, MoveToStartRotationDuration);
             
-            _companyMainWindow.ShowSlider();
             _companyMainWindow.OnSliderChanged += OnSliderChanged;
         }
 

@@ -3,6 +3,7 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
 {
@@ -24,6 +25,11 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
         {
             if (toy == null)
             {
+                if (_effect != null)
+                {
+                    Object.Destroy(_effect);
+                }
+                
                 return;
             }
             

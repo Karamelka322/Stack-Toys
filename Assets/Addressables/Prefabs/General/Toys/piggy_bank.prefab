@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4767067302250838886}
   - component: {fileID: 8468981583083566275}
   - component: {fileID: 5936635639126917129}
-  - component: {fileID: 1290301600784106398}
+  - component: {fileID: 2085059089692602859}
   m_Layer: 0
   m_Name: piggy_bank
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1290301600784106398
+--- !u!64 &2085059089692602859
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8573035904137657774}
   - component: {fileID: 4969285767750869619}
+  - component: {fileID: 3187513457027442928}
+  - component: {fileID: 6329866935290345192}
   m_Layer: 0
   m_Name: piggy_bank
   m_TagString: Untagged
@@ -151,3 +153,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407eb5808cdb432b93735aa1fa8dcfe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 6329866935290345192}
+  _rigidbodyObserver: {fileID: 3187513457027442928}
+  _collider: {fileID: 2085059089692602859}
+  _meshRenderer: {fileID: 5936635639126917129}
+--- !u!114 &3187513457027442928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057400856407385876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e923ebdd58734708a095831ea0a7496b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 6329866935290345192}
+--- !u!54 &6329866935290345192
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057400856407385876}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 56
+  m_CollisionDetection: 0

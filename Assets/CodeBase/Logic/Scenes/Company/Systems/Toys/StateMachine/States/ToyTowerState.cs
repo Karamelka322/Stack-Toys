@@ -1,6 +1,5 @@
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Unity.Toys;
-using UnityEngine;
 using Zenject;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
@@ -18,12 +17,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         public override void Enter()
         {
-            _toyMediator.gameObject.AddComponent<Rigidbody>();
-        }
-
-        public override void Exit()
-        {
-            
+            _toyMediator.Rigidbody.isKinematic = false;
+            _toyMediator.Collider.isTrigger = false;
         }
     }
 }

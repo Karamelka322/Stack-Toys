@@ -4,6 +4,7 @@ using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories;
+using CodeBase.Logic.Scenes.Company.Level;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
@@ -84,9 +85,11 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         {
             Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
             
             // Observers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
             
             // Toy
             Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
@@ -100,6 +103,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
+            Container.Bind<ToySpawner>().AsSingle().NonLazy();
 
             // Camera
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();

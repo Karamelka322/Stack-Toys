@@ -1,7 +1,10 @@
+using System;
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
+using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.Scenes.Company.Providers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -12,18 +15,16 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
         private const float MovementSpeed = 2;
         
         private readonly Camera _camera;
-        private readonly IInputService _inputService;
         private readonly IToySelectObserver _toySelectObserver;
         private readonly ILevelProvider _levelProvider;
 
+        private IDisposable _disposable;
         private float _interpolation;
 
-        public CameraToyFollowState(Camera camera, IInputService inputService,
-            IToySelectObserver toySelectObserver, ILevelProvider levelProvider)
+        public CameraToyFollowState(Camera camera, IToySelectObserver toySelectObserver, ILevelProvider levelProvider)
         {
             _levelProvider = levelProvider;
             _toySelectObserver = toySelectObserver;
-            _inputService = inputService;
             _camera = camera;
         }
 
@@ -31,15 +32,15 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
 
         public override void Enter()
         {
-            _inputService.OnSwipe += OnSwipe;
+            _disposable = Observable.EveryUpdate().Subscribe(OnUpdate);
         }
 
         public override void Exit()
         {
-            _inputService.OnSwipe -= OnSwipe;
+            _disposable?.Dispose();
         }
 
-        private void OnSwipe(Vector3 direction)
+        private void OnUpdate(long tick)
         {
             var startPosition = _levelProvider.Level.CameraStartPoint.position;
             var endPosition = _levelProvider.Level.CameraEndPoint.position;

@@ -1,6 +1,7 @@
 using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Scenes.Company.Level;
 using UnityEngine;
 using Zenject;
 
@@ -8,14 +9,16 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 {
     public class ToyDragState : BaseState
     {
+        private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IInputService _inputService;
         private readonly ToyMediator _toyMediator;
         private readonly Camera _camera;
-        
+
         private Vector3 _offset;
 
-        public ToyDragState(ToyMediator toyMediator, IInputService inputService)
+        public ToyDragState(ToyMediator toyMediator, IInputService inputService, ILevelBorderSystem levelBorderSystem)
         {
+            _levelBorderSystem = levelBorderSystem;
             _camera = Camera.main;
             _toyMediator = toyMediator;
             _inputService = inputService;
@@ -37,7 +40,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         private void OnClick(Vector3 clickPosition)
         {
-            _toyMediator.transform.position = ClickToWorldPosition(clickPosition) - _offset;
+            var worldPosition = ClickToWorldPosition(clickPosition) - _offset;
+            var clampPosition = _levelBorderSystem.Clamp(_toyMediator, worldPosition);
+            
+            _toyMediator.transform.position = clampPosition;
         }
 
         private Vector3 ClickToWorldPosition(Vector3 clickPosition)
@@ -45,12 +51,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             var ray = _camera.ScreenPointToRay(clickPosition);
             
             var distance = Vector3.Distance(ray.origin, _toyMediator.transform.position);
-            var nextPosition = ray.origin + ray.direction * distance;
-            nextPosition.z = _toyMediator.transform.position.z;
+            var worldPositiom = ray.origin + ray.direction * distance;
+            worldPositiom.z = _toyMediator.transform.position.z;
             
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * distance, Color.red);
             
-            return nextPosition;
+            return worldPositiom;
         }
     }
 }

@@ -9,5 +9,6 @@ namespace CodeBase.Logic.General.Services.Input
         event Action<Vector3> OnClick;
         event Action<Vector3> OnClickUp;
         event Action<Vector3> OnSwipe;
+        bool IsClickPressed { get; }
     }
 }
