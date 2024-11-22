@@ -1,3 +1,4 @@
+using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.UI.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Scenes.Menu.Factories.Menu;
@@ -20,7 +21,11 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
 
         private void BindProviders()
         {
+            // Objects
             Container.BindInterfacesTo<WindowCanvasProvider>().AsSingle();
+            
+            // Data
+            Container.BindInterfacesTo<CompanyLevelsSaveDataProvider>().AsSingle();
         }
 
         private void BindSystems()

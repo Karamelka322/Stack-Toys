@@ -9,6 +9,10 @@ namespace CodeBase.UI.Scenes.Company.Mediators.Windows.Main
         [SerializeField, Required] 
         private Slider _slider;
 
+        [SerializeField, Required] 
+        private Button _pauseButton;
+        
         public Slider Slider => _slider;
+        public Button PauseButton => _pauseButton;
     }
 }

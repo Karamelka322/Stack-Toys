@@ -25,7 +25,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
         {
             _mediator = await _levelsWindowFactory.SpawnAsync();
             
-            _mediator.OpenNextSceneButton.onClick.AddListener(OnOpenNextSceneButtonClicked);
+            // _mediator.OpenNextSceneButton.onClick.AddListener(OnOpenNextSceneButtonClicked);
         }
 
         public void Close()
@@ -35,7 +35,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
 
         private void OnOpenNextSceneButtonClicked()
         {
-            _mediator.OpenNextSceneButton.onClick.RemoveAllListeners();
+            // _mediator.OpenNextSceneButton.onClick.RemoveAllListeners();
 
             _sceneLoadService.LoadScene(SceneNames.Company);
         }

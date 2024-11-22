@@ -1,14 +1,13 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CodeBase.UI.Scenes.Menu.Mediators.Windows.Levels
 {
     public class LevelsWindowMediator : MonoBehaviour
     {
         [SerializeField, Required] 
-        private Button _openNextSceneButton;
+        private Transform _levelsParent;
 
-        public Button OpenNextSceneButton => _openNextSceneButton;
+        public Transform LevelsParent => _levelsParent;
     }
 }

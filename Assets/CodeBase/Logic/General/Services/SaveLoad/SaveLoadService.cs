@@ -1,0 +1,36 @@
+using CodeBase.Data.Constants;
+using CodeBase.Logic.Interfaces.General.Services.Files;
+using CodeBase.Logic.Interfaces.General.Services.SaveLoad;
+using CodeBase.Logic.Interfaces.General.Services.SaveLoad.Formatters;
+using JetBrains.Annotations;
+
+namespace CodeBase.Logic.General.Services.SaveLoad
+{
+    /// <summary>
+    /// Для сохранения\загрузки данных
+    /// </summary>
+    [UsedImplicitly]
+    public class SaveLoadService : ISaveLoadService
+    {
+        private readonly IBinaryFormatter _binaryFormatter;
+        private readonly IFileService _fileService;
+
+        public SaveLoadService(IBinaryFormatter binaryFormatter, IFileService fileService)
+        {
+            _fileService = fileService;
+            _binaryFormatter = binaryFormatter;
+        }
+
+        public void Save<TData>(TData data) where TData : class
+        {
+            var obj = _binaryFormatter.Serialize(data);
+            _fileService.SaveToFile(obj, data.GetType().Name, DataStorageFormats.Binary);
+        }
+
+        public TData Load<TData>() where TData : class
+        {
+            var obj = _fileService.LoadFile(typeof(TData).Name, DataStorageFormats.Binary);
+            return _binaryFormatter.Deserialize<TData>(obj as byte[]);
+        }
+    }
+}

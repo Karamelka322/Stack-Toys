@@ -1,10 +1,9 @@
-using CodeBase.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
+using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
+using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
-using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
-using CodeBase.Logic.General.Providers.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
