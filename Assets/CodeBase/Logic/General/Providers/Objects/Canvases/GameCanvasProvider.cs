@@ -1,8 +1,9 @@
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
 using CodeBase.UI.Interfaces.General.Factories.Canvases;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.Services.Window
+namespace CodeBase.Logic.General.Providers.Objects.Canvases
 {
     public class GameCanvasProvider : IGameCanvasProvider
     {

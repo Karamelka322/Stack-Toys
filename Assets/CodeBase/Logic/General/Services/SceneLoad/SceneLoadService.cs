@@ -1,9 +1,8 @@
-using CodeBase.Logic.Interfaces.Services.SceneLoad;
+using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-namespace CodeBase.Logic.Services.SceneLoad
+namespace CodeBase.Logic.General.Services.SceneLoad
 {
     public class SceneLoadService : ISceneLoadService
     {

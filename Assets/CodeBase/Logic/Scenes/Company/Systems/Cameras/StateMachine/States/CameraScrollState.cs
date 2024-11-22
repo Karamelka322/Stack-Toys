@@ -1,11 +1,11 @@
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
-using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
-using CodeBase.Logic.General.Services.Input;
-using CodeBase.Logic.Scenes.Company.Providers;
+using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.Interfaces.General.Providers.ScriptableObjects.Cameras;
+using CodeBase.Logic.Interfaces.General.Services.Input;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
+namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
 {
     public class CameraScrollState : BaseState
     {

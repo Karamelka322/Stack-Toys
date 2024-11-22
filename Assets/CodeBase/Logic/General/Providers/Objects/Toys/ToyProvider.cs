@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using UniRx;
 

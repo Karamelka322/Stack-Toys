@@ -1,5 +1,5 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.Assets;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.UI.Interfaces.General.Factories.Canvases;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

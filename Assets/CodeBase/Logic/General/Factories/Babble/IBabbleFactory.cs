@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
+namespace CodeBase.Logic.General.Factories.Babble
 {
     public interface IBabbleFactory
     {

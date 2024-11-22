@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using CodeBase.Logic.Interfaces.Services.Assets;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace CodeBase.Logic.Services.Assets
+namespace CodeBase.Logic.General.Services.Assets
 {
     public class AssetServices : IAssetServices
     {

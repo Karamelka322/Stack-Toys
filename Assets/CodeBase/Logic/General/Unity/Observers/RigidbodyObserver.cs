@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Toys
+namespace CodeBase.Logic.General.Unity.Observers
 {
     [RequireComponent(typeof(Rigidbody))]
     public class RigidbodyObserver : MonoBehaviour

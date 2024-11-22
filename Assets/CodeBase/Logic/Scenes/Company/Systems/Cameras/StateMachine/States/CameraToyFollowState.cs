@@ -1,14 +1,12 @@
 using System;
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
-using CodeBase.Logic.General.Commands;
-using CodeBase.Logic.General.Services.Input;
-using CodeBase.Logic.Scenes.Company.Providers;
-using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.States
+namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
 {
     public class CameraToyFollowState : BaseState
     {

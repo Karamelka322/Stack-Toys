@@ -1,10 +1,11 @@
 using System;
-using CodeBase.Data.ScriptableObjects.Levels;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
 using Object = UnityEngine.Object;
 
-namespace CodeBase.Logic.Scenes.Company.Factories
+namespace CodeBase.Logic.Scenes.Company.Factories.Levels
 {
     public class LevelFactory : ILevelFactory
     {
@@ -19,7 +20,7 @@ namespace CodeBase.Logic.Scenes.Company.Factories
 
         public async UniTask<LevelMediator> SpawnAsync()
         {
-            var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync();
+            var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync(0);
             var level = Object.Instantiate(levelPrefab).GetComponent<LevelMediator>();
 
             OnSpawn?.Invoke(level);

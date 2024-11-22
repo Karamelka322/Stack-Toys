@@ -1,23 +1,33 @@
 using CodeBase.Data.ScriptableObjects.Levels;
+using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
+using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Providers.ScriptableObjects.Cameras;
+using CodeBase.Logic.General.Providers.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Scenes.Company.Factories;
-using CodeBase.Logic.Scenes.Company.Level;
+using CodeBase.Logic.Scenes.Company.Factories.Levels;
+using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
-using CodeBase.Logic.Scenes.Company.Providers;
+using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.States;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.Transitions;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
+using CodeBase.Logic.Scenes.Company.Systems.Finish;
+using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
-using CodeBase.Logic.Services.Window;
-using CodeBase.UI.Scenes.Company.Elements.Toys.Rotator;
-using CodeBase.UI.Scenes.Company.Factories.Elements.Toys.Rotator;
+using CodeBase.UI.Scenes.Company.Factories.Elements.Toys;
+using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
+using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
+using CodeBase.UI.Scenes.Company.Mediators.Elements.Toys;
+using CodeBase.UI.Scenes.Company.Presenters.Windows;
+using CodeBase.UI.Scenes.Company.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Windows.Main;
 using UnityEngine;
 using Zenject;
@@ -57,6 +67,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<CompanyFinishWindowFactory>().AsSingle();
         }
 
         private void BindProviders()
@@ -79,6 +90,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyFinishWindowPresenter>().AsSingle().NonLazy();
         }
 
         private void BindSystems()
@@ -90,6 +102,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // Observers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
+            Container.BindInterfacesTo<FinishObserver>().AsSingle();
             
             // Toy
             Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
@@ -114,6 +127,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle();
+            Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle();
         }
     }
 }

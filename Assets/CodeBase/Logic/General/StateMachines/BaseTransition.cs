@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
+namespace CodeBase.Logic.General.StateMachines
 {
     /// <summary>
     /// Базовая реализация логики перехода между состояниями

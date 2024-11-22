@@ -1,11 +1,12 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.Assets;
-using CodeBase.Logic.Services.Window;
-using CodeBase.UI.Scenes.Company.Elements.Toys.Rotator;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.UI.Interfaces.Scenes.Company.Factories.Elements.Toys;
+using CodeBase.UI.Scenes.Company.Mediators.Elements.Toys;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.UI.Scenes.Company.Factories.Elements.Toys.Rotator
+namespace CodeBase.UI.Scenes.Company.Factories.Elements.Toys
 {
     public class ToyRotatorFactory : IToyRotatorFactory
     {

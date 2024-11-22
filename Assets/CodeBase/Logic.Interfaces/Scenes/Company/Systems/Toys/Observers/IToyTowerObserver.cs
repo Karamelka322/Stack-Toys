@@ -1,7 +1,7 @@
 using CodeBase.Logic.General.Unity.Toys;
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Toys
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers
 {
     public interface IToyTowerObserver
     {

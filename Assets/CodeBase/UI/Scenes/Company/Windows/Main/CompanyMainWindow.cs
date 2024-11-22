@@ -1,6 +1,10 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
+using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
+using CodeBase.UI.Scenes.Company.Mediators.Windows.Main;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using Object = UnityEngine.Object;

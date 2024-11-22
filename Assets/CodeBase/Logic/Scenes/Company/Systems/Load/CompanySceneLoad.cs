@@ -1,5 +1,6 @@
 using CodeBase.Logic.General.Factories.Toys;
-using CodeBase.Logic.Scenes.Company.Factories;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using Cysharp.Threading.Tasks;
 using UniRx;
 

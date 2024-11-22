@@ -1,8 +1,8 @@
-using CodeBase.UI.Scenes.Company.Elements.Toys.Rotator;
+using CodeBase.UI.Scenes.Company.Mediators.Elements.Toys;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.UI.Scenes.Company.Factories.Elements.Toys.Rotator
+namespace CodeBase.UI.Interfaces.Scenes.Company.Factories.Elements.Toys
 {
     public interface IToyRotatorFactory
     {

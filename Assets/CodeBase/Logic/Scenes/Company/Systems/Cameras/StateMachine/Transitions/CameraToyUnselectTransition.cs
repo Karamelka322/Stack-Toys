@@ -1,12 +1,11 @@
 using System;
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
+using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.Transitions
+namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions
 {
     public class CameraToyUnselectTransition : BaseTransition
     {

@@ -1,4 +1,4 @@
-namespace CodeBase.Logic.Interfaces.Services.SceneLoad
+namespace CodeBase.Logic.Interfaces.General.Services.SceneLoad
 {
     public interface ISceneLoadService
     {

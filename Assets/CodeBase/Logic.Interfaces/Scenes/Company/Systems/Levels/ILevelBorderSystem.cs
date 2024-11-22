@@ -1,7 +1,7 @@
 using CodeBase.Logic.General.Unity.Toys;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Level
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels
 {
     public interface ILevelBorderSystem
     {

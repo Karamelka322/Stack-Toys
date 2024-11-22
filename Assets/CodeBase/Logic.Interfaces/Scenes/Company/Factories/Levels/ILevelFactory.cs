@@ -2,7 +2,7 @@ using System;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
 
-namespace CodeBase.Logic.Scenes.Company.Factories
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels
 {
     public interface ILevelFactory
     {

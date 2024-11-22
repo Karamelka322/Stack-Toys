@@ -1,4 +1,4 @@
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
+using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;

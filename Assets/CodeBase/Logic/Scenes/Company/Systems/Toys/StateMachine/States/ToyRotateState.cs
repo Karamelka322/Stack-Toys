@@ -1,5 +1,6 @@
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
+using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using CodeBase.UI.Scenes.Company.Windows.Main;
 using DG.Tweening;
 using UnityEngine;

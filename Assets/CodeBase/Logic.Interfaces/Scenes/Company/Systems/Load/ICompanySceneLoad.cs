@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Load
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load
 {
     public interface ICompanySceneLoad
     {

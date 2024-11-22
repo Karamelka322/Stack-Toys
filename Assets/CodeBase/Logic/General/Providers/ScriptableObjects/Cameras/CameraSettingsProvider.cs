@@ -1,6 +1,7 @@
 using CodeBase.Data.Constants;
 using CodeBase.Data.ScriptableObjects.Cameras;
-using CodeBase.Logic.Interfaces.Services.Assets;
+using CodeBase.Logic.Interfaces.General.Providers.ScriptableObjects.Cameras;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 
 namespace CodeBase.Logic.General.Providers.ScriptableObjects.Cameras

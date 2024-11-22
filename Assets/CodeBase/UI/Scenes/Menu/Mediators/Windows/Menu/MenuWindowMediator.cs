@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CodeBase.UI.Scenes.Menu.Mediators.Menu
+namespace CodeBase.UI.Scenes.Menu.Mediators.Windows.Menu
 {
     public class MenuWindowMediator : MonoBehaviour
     {

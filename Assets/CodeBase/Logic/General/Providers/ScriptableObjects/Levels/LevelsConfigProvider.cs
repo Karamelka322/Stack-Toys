@@ -1,9 +1,11 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.Assets;
+using CodeBase.Data.Models.Levels;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Data.ScriptableObjects.Levels
+namespace CodeBase.Logic.General.Providers.ScriptableObjects.Levels
 {
     public class LevelsConfigProvider : ILevelsConfigProvider
     {
@@ -18,11 +20,22 @@ namespace CodeBase.Data.ScriptableObjects.Levels
             _prepareResourcesTask = UniTask.Lazy(PrepareResources);
         }
 
-        public async UniTask<GameObject> GetLevelPrefabAsync()
+        public async UniTask<GameObject> GetLevelPrefabAsync(int index)
         {
             await _prepareResourcesTask;
 
-            var prefab = await _assetServices.LoadAsync(_config.LevelPrefab);
+            var assetReferenceGameObject = _config.Levels[index].LevelAsset;
+            var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
+            
+            return prefab;
+        }
+        
+        public async UniTask<GameObject> GetToyPrefabAsync()
+        {
+            await _prepareResourcesTask;
+
+            var assetReferenceGameObject = _config.Levels[0].ToyAssets[0];
+            var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
             
             return prefab;
         }

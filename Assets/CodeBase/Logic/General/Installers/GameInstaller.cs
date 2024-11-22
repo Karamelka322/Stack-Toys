@@ -1,15 +1,13 @@
+using CodeBase.Logic.General.Services.Assets;
 using CodeBase.Logic.General.Services.Input;
-using CodeBase.Logic.Services;
-using CodeBase.Logic.Services.Assets;
-using CodeBase.Logic.Services.SceneLoad;
-using CodeBase.Logic.Services.Window;
+using CodeBase.Logic.General.Services.SceneLoad;
 using CodeBase.UI.General.Factories.Canvases;
 using CodeBase.UI.General.Factories.Loading;
 using CodeBase.UI.General.Presenters.Loading;
 using CodeBase.UI.General.Windows.Loading;
 using Zenject;
 
-namespace CodeBase.Logic.Installers
+namespace CodeBase.Logic.General.Installers
 {
     public class GameInstaller : MonoInstaller
     {

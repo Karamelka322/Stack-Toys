@@ -1,8 +1,9 @@
 using System;
-using CodeBase.Logic.Scenes.Company.Factories;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
 
-namespace CodeBase.Logic.Scenes.Company.Providers
+namespace CodeBase.Logic.Scenes.Company.Providers.Objects.Levels
 {
     public class LevelProvider : ILevelProvider, IDisposable
     {

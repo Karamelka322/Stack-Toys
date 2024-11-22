@@ -1,5 +1,5 @@
 using CodeBase.UI.Scenes.Menu.Mediators;
-using CodeBase.UI.Scenes.Menu.Mediators.Menu;
+using CodeBase.UI.Scenes.Menu.Mediators.Windows.Menu;
 using Cysharp.Threading.Tasks;
 
 namespace CodeBase.UI.Interfaces.Scenes.Menu.Factories.Menu

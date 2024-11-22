@@ -1,12 +1,12 @@
 using System;
-using CodeBase.Logic.General.Commands;
-using CodeBase.Logic.General.Services.Input;
+using CodeBase.Logic.Interfaces.General.Commands;
+using CodeBase.Logic.Interfaces.General.Services.Input;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.UI.Scenes.Company.Elements.Toys.Rotator
+namespace CodeBase.UI.Scenes.Company.Mediators.Elements.Toys
 {
     public class ToyRotatorElement
     {

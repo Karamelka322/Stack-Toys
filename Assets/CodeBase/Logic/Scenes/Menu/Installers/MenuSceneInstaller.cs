@@ -1,4 +1,4 @@
-using CodeBase.Logic.Services.Window;
+using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.UI.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Scenes.Menu.Presenters.Menu;

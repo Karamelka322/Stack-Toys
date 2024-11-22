@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeBase.UI.Scenes.Company.Elements.Toys.Rotator
+namespace CodeBase.UI.Scenes.Company.Mediators.Elements.Toys
 {
     public class ToyRotatorMediator : MonoBehaviour
     {

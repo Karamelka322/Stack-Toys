@@ -1,7 +1,8 @@
 using System;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Scenes.Company.Providers;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using Cysharp.Threading.Tasks;
 using UniRx;
 

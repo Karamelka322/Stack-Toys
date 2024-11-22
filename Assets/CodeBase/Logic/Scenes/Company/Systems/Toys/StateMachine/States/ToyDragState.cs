@@ -1,7 +1,8 @@
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Services.Input;
+using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Scenes.Company.Level;
+using CodeBase.Logic.Interfaces.General.Services.Input;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using UnityEngine;
 using Zenject;
 

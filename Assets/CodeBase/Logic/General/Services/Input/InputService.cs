@@ -1,4 +1,6 @@
 using System;
+using CodeBase.Logic.General.Services.Input.Modules;
+using CodeBase.Logic.Interfaces.General.Services.Input;
 using UnityEngine;
 
 namespace CodeBase.Logic.General.Services.Input

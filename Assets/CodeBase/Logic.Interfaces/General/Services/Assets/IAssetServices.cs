@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CodeBase.Logic.Interfaces.Services.Assets
+namespace CodeBase.Logic.Interfaces.General.Services.Assets
 {
     public interface IAssetServices
     {

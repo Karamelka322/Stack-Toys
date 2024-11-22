@@ -5,7 +5,6 @@ namespace CodeBase.Data.Constants
         // Prefabs
         public const string Canvas = "Canvas";
         public const string ToyBabble = "Toy_Babble";
-        public const string Toy = "Toy";
         
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
@@ -23,7 +22,8 @@ namespace CodeBase.Data.Constants
             // UI
             public const string ToyRotator = "ToyRotator";
             public const string MainWindow = "CompanyMainWindow";
-    
+            public const string FinishWindow = "CompanyFinishWindow";
+
             // Effects
             public const string ToySelectEffect = "ToySelectEffect";
         }

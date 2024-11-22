@@ -1,5 +1,5 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.SceneLoad;
+using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Bootstrap.Systems.Ready

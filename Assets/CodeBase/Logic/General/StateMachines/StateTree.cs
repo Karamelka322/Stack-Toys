@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes
+namespace CodeBase.Logic.General.StateMachines
 {
     /// <summary>
     /// Дерево состояний

@@ -1,10 +1,12 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.Assets;
-using CodeBase.Logic.Interfaces.Services.Window;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
+using CodeBase.UI.Scenes.Company.Mediators.Windows.Main;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.UI.Scenes.Company.Windows.Main
+namespace CodeBase.UI.Scenes.Company.Factories.Windows.Main
 {
     public class CompanyMainWindowFactory : ICompanyMainWindowFactory
     {

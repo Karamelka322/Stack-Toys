@@ -1,8 +1,8 @@
 using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.Services.Assets;
-using CodeBase.Logic.Interfaces.Services.Window;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.UI.Interfaces.Scenes.Menu.Factories.Levels;
-using CodeBase.UI.Scenes.Menu.Mediators.Levels;
+using CodeBase.UI.Scenes.Menu.Mediators.Windows.Levels;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

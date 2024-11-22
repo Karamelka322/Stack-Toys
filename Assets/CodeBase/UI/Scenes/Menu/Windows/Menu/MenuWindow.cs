@@ -1,7 +1,7 @@
 using CodeBase.UI.Interfaces.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Levels;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
-using CodeBase.UI.Scenes.Menu.Mediators.Menu;
+using CodeBase.UI.Scenes.Menu.Mediators.Windows.Menu;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

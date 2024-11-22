@@ -1,12 +1,12 @@
 using System;
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.States;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.Transitions;
-using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
+namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
 {
     public class CameraStateMachine : BaseStateMachine
     {

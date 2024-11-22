@@ -1,6 +1,8 @@
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
 using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Services.Input;
+using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.Interfaces.General.Commands;
+using CodeBase.Logic.Interfaces.General.Services.Input;
 using UnityEngine;
 using Zenject;
 

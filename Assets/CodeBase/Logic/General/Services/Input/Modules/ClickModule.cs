@@ -2,7 +2,7 @@ using System;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Services.Input
+namespace CodeBase.Logic.General.Services.Input.Modules
 {
     public class ClickModule
     {

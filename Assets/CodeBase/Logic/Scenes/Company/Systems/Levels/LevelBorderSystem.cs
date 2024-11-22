@@ -1,12 +1,13 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Scenes.Company.Providers;
-using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Unity;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Level
+namespace CodeBase.Logic.Scenes.Company.Systems.Levels
 {
     public class LevelBorderSystem : IDisposable, ILevelBorderSystem
     {

@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-namespace CodeBase.UI.Scenes.Company.Windows.Main
+namespace CodeBase.UI.Interfaces.Scenes.Company.Windows.Main
 {
     public interface ICompanyMainWindow
     {

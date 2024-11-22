@@ -1,6 +1,6 @@
 using CodeBase.Logic.Scenes.Company.Unity;
 
-namespace CodeBase.Logic.Scenes.Company.Providers
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels
 {
     public interface ILevelProvider
     {

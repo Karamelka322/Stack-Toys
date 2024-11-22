@@ -1,4 +1,4 @@
-using CodeBase.UI.Scenes.Menu.Mediators.Levels;
+using CodeBase.UI.Scenes.Menu.Mediators.Windows.Levels;
 using Cysharp.Threading.Tasks;
 
 namespace CodeBase.UI.Interfaces.Scenes.Menu.Factories.Levels

@@ -1,5 +1,6 @@
 using System;
-using CodeBase.CodeBase.Logic.Scenes.World.Systems.Heroes;
+using CodeBase.Logic.General.Factories.Babble;
+using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using DG.Tweening;
 using UniRx;

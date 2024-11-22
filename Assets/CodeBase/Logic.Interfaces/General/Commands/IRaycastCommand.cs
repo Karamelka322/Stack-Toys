@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Commands
+namespace CodeBase.Logic.Interfaces.General.Commands
 {
     public interface IRaycastCommand
     {
