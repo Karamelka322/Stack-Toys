@@ -4,6 +4,7 @@ using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
 {
@@ -37,11 +38,11 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
             return _config.Levels.Length;
         }
         
-        public async UniTask<GameObject> GetToyPrefabAsync()
+        public async UniTask<GameObject[]> GetToyPrefabsAsync(int levelIndex)
         {
             await _prepareResourcesTask;
 
-            var assetReferenceGameObject = _config.Levels[0].ToyAssets[0];
+            var assetReferenceGameObject = _config.Levels[levelIndex].ToyAssets;
             var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
             
             return prefab;

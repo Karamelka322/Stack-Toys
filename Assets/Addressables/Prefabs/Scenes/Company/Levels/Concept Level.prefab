@@ -1887,7 +1887,7 @@ MonoBehaviour:
   _toyPoint: {fileID: 4127626794507256480}
   _floor: {fileID: 7881739349221821219}
   _originPoint: {fileID: 6137371079844280694}
-  _height: 3.3
+  _height: 1
   _width: 5.5
 --- !u!1 &5508661216749290613
 GameObject:

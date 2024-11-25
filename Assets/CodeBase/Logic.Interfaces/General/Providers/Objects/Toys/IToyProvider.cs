@@ -7,5 +7,6 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Objects.Toys
     public interface IToyProvider
     {
         ReactiveCollection<(ToyMediator, ToyStateMachine)> Toys { get; }
+        void Dispose();
     }
 }

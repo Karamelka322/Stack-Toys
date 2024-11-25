@@ -7,6 +7,6 @@ namespace CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels
     public interface ILevelFactory
     {
         event Action<LevelMediator> OnSpawn;
-        UniTask<LevelMediator> SpawnAsync();
+        UniTask<LevelMediator> SpawnAsync(int levelIndex);
     }
 }

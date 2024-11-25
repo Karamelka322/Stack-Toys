@@ -23,6 +23,6 @@ namespace CodeBase.Logic.Interfaces.General.Services.Assets
         /// Загрузить ассет по адрессабл имени
         /// </summary>
         /// <param name="assetReferenceGameObjects">Массив ассут референсов</param>
-        UniTask<GameObject[]> LoadGroupAsync(AssetReferenceGameObject[] assetReferenceGameObjects);
+        UniTask<GameObject[]> LoadAsync(AssetReferenceGameObject[] assetReferenceGameObjects);
     }
 }

@@ -23,6 +23,7 @@ namespace CodeBase.Logic.General.Providers.Objects.Toys
         
         public void Dispose()
         {
+            Toys?.Dispose();
             _toyFactory.OnSpawn -= OnSpawn;
         }
         

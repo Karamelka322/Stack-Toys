@@ -1,5 +1,7 @@
 using System;
+using CodeBase.Logic.General.Services.Windows;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
@@ -11,7 +13,7 @@ using Object = UnityEngine.Object;
 
 namespace CodeBase.UI.Scenes.Company.Windows.Main
 {
-    public class CompanyMainWindow : ICompanyMainWindow
+    public class CompanyMainWindow : BaseWindow, ICompanyMainWindow
     {
         private readonly ICompanyMainWindowFactory _companyMainWindowFactory;
         private readonly IToySelectObserver _toySelectObserver;
@@ -20,13 +22,14 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
 
         public event Action<float> OnSliderChanged;
         
-        public CompanyMainWindow(ICompanyMainWindowFactory companyMainWindowFactory, IToySelectObserver toySelectObserver)
+        public CompanyMainWindow(ICompanyMainWindowFactory companyMainWindowFactory,
+            IToySelectObserver toySelectObserver, IWindowService windowService) : base(windowService)
         {
             _toySelectObserver = toySelectObserver;
             _companyMainWindowFactory = companyMainWindowFactory;
         }
 
-        public async UniTask OpenAsync()
+        public override async UniTask OpenAsync()
         {
             _mediator = await _companyMainWindowFactory.SpawnAsync();
             _mediator.Slider.onValueChanged.AddListener(OnSliderChangedInvoke);
@@ -36,7 +39,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
             HideSlider();
         }
 
-        public void Close()
+        public override void Close()
         {
             _mediator.Slider.onValueChanged.RemoveAllListeners();
             Object.Destroy(_mediator.gameObject);

@@ -1,3 +1,4 @@
+using System.Linq;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 
@@ -12,6 +13,39 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
             _playerSaveDataProvider = playerSaveDataProvider;
             
             TryInitData();
+        }
+        
+        public int GetCurrentLevel()
+        {
+            return _playerSaveDataProvider.GetCompanyLevelsData().CurrentLevel;
+        }
+        
+        public void SetCurrentLevel(int levelIndex)
+        {
+            ref var data = ref _playerSaveDataProvider.GetCompanyLevelsData();
+            data.CurrentLevel = levelIndex;
+        }
+        
+        public void SetTargetLevel(int levelIndex)
+        {
+            ref var data = ref _playerSaveDataProvider.GetCompanyLevelsData();
+            data.TargetLevel = levelIndex;
+        }
+        
+        public int GetTargetLevel()
+        {
+            return _playerSaveDataProvider.GetCompanyLevelsData().TargetLevel;
+        }
+        
+        public void SetCompletedLevel(int index)
+        {
+            ref var data = ref _playerSaveDataProvider.GetCompanyLevelsData();
+
+            if (data.CompletedLevels.Contains(index) == false && index < CompanyConstants.NumberOfLevels - 1)
+            {
+                data.CompletedLevels.Add(index);
+                data.TargetLevel = data.CompletedLevels.Max();
+            }
         }
 
         public bool HasOpenedLevel(int index)

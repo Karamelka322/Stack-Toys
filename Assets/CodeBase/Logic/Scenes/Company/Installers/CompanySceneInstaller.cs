@@ -1,5 +1,6 @@
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
+using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
@@ -71,9 +72,12 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindProviders()
         {
-            // ScriptableObjects
+            // Data - ScriptableObjects
             Container.BindInterfacesTo<LevelsConfigProvider>().AsSingle();
             Container.BindInterfacesTo<CameraSettingsProvider>().AsSingle();
+            
+            // Data - Saves
+            Container.BindInterfacesTo<CompanyLevelsSaveDataProvider>().AsSingle();
             
             // Objects
             Container.BindInterfacesTo<LevelProvider>().AsSingle();
@@ -95,9 +99,11 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindSystems()
         {
             Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanySceneUnload>().AsSingle();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
-            
+
             // Observers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
@@ -122,11 +128,11 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<Camera, CameraToyFollowState, CameraToyFollowState.Factory>().AsSingle();
             Container.BindFactory<CameraToySelectTransition, CameraToySelectTransition.Factory>().AsSingle();
             Container.BindFactory<CameraToyUnselectTransition, CameraToyUnselectTransition.Factory>().AsSingle();
-            Container.Bind<CameraStateMachine>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CameraStateMachine>().AsSingle().NonLazy();
             
             // UI - Windows
-            Container.BindInterfacesTo<CompanyMainWindow>().AsSingle();
-            Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle();
+            Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle().NonLazy();
         }
     }
 }

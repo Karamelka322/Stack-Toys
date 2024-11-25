@@ -7,6 +7,7 @@ namespace CodeBase.Data.Saves
     public class CompanyLevelsSaveData
     {
         public int CurrentLevel;
+        public int TargetLevel;
         
         public List<int> CompletedLevels = new();
         public List<int> ClosedLevels = new();

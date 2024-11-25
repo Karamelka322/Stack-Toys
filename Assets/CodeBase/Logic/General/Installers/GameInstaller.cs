@@ -21,18 +21,13 @@ namespace CodeBase.Logic.General.Installers
             BindProviders();
             BindFactories();
             BindWindows();
-            BindPresenters();
             BindServices();
+            BindPresenters();
         }
 
         private void BindProviders()
         {
             Container.BindInterfacesTo<PlayerSaveDataProvider>().AsSingle();
-        }
-
-        private void BindPresenters()
-        {
-            Container.Bind<StartLoadingScreenPresenter>().AsSingle().NonLazy();
         }
 
         private void BindFactories()
@@ -55,6 +50,11 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<SaveLoadService>().AsSingle();
             Container.BindInterfacesTo<BinaryFormatter>().AsSingle();
             Container.BindInterfacesTo<WindowService>().AsSingle();
+        }
+
+        private void BindPresenters()
+        {
+            Container.Bind<StartLoadingScreenPresenter>().AsSingle().NonLazy();
         }
     }
 }

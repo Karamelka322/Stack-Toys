@@ -18,9 +18,9 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Levels
             _levelsConfigProvider = levelsConfigProvider;
         }
 
-        public async UniTask<LevelMediator> SpawnAsync()
+        public async UniTask<LevelMediator> SpawnAsync(int levelIndex)
         {
-            var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync(0);
+            var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync(levelIndex);
             var level = Object.Instantiate(levelPrefab).GetComponent<LevelMediator>();
 
             OnSpawn?.Invoke(level);

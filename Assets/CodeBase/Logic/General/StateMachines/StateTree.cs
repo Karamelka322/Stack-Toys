@@ -11,6 +11,9 @@ namespace CodeBase.Logic.General.StateMachines
         private readonly List<BaseState> _states = new();
         private readonly List<(BaseState, BaseTransition, BaseState)> _transitions = new();
 
+        public IReadOnlyCollection<BaseState> States => _states;
+        public IReadOnlyCollection<(BaseState, BaseTransition, BaseState)> Transitions => _transitions;
+        
         /// <summary>
         /// Зарегистрировать состояние. Нельзя зарегистрировать два одинаковых состояния
         /// </summary>

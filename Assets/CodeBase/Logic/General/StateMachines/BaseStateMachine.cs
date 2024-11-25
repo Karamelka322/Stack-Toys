@@ -32,6 +32,18 @@ namespace CodeBase.Logic.General.StateMachines
             ChangeState(_stateTree.GetFirstState());
         }
 
+        public void Reset()
+        {
+            _currentState?.Exit();
+
+            var transitions = _stateTree.GetTransitions(_currentState);
+
+            foreach (var transition in transitions)
+            {
+                transition.Item2.Exit();
+            }
+        }
+
         /// <summary>
         /// Инициализация дерева состояний
         /// </summary>

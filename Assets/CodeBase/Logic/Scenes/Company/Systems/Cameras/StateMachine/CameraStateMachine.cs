@@ -1,5 +1,6 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
 {
-    public class CameraStateMachine : BaseStateMachine
+    public class CameraStateMachine : BaseStateMachine, ICameraStateMachine
     {
         private readonly IDisposable _disposable;
         private readonly Camera _camera;
@@ -35,6 +36,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
             _disposable = sceneLoad.IsLoaded.Subscribe(OnSceneLoaded);
         }
 
+        public void Dispose()
+        {
+            _disposable?.Dispose();
+            Reset();
+        }
+
         private void OnSceneLoaded(bool isLoaded)
         {
             if (isLoaded == false)
@@ -43,8 +50,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
             }
             
             Launch();
-            
-            _disposable?.Dispose();
         }
 
         protected override StateTree InstallStateTree()
