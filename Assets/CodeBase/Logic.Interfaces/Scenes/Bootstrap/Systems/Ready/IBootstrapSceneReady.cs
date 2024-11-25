@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Bootstrap.Systems.Ready
+namespace CodeBase.Logic.Interfaces.Scenes.Bootstrap.Systems.Ready
 {
     public interface IBootstrapSceneReady
     {

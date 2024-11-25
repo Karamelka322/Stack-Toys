@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.UI.General.Mediators.Loading
+namespace CodeBase.UI.General.Mediators.Windows.Loading
 {
     public class LoadingWindowMediator : MonoBehaviour
     {

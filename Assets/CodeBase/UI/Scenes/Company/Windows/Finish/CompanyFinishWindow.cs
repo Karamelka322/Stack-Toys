@@ -2,6 +2,7 @@ using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Services.Windows;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Finish;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Finish;

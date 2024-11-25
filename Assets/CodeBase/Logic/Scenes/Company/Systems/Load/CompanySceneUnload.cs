@@ -1,6 +1,7 @@
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
-using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Load
 {

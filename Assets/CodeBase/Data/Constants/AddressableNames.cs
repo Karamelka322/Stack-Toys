@@ -9,6 +9,8 @@ namespace CodeBase.Data.Constants
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
         public const string CameraSettings = "Camera_Settings";
+
+        public const string PauseWindow = "Pause_Window";
         
         public static class MenuScene
         {

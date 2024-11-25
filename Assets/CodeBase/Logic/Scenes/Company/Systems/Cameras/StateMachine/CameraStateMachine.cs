@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;

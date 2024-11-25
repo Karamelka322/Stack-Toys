@@ -1,5 +1,5 @@
-using CodeBase.UI.General.Mediators.Loading;
-using CodeBase.UI.Interfaces.General.Factories.Loading;
+using CodeBase.UI.General.Mediators.Windows.Loading;
+using CodeBase.UI.Interfaces.General.Factories.Windows.Loading;
 using CodeBase.UI.Interfaces.General.Windows.Loading;
 using UnityEngine;
 

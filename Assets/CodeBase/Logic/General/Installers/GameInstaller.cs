@@ -7,7 +7,7 @@ using CodeBase.Logic.General.Services.SaveLoad.Formatters;
 using CodeBase.Logic.General.Services.SceneLoad;
 using CodeBase.Logic.General.Services.Windows;
 using CodeBase.UI.General.Factories.Canvases;
-using CodeBase.UI.General.Factories.Loading;
+using CodeBase.UI.General.Factories.Windows.Loading;
 using CodeBase.UI.General.Presenters.Loading;
 using CodeBase.UI.General.Windows.Loading;
 using Zenject;

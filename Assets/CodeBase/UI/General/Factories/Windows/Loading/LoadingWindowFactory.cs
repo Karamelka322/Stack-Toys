@@ -1,9 +1,9 @@
 using CodeBase.Data.Constants;
-using CodeBase.UI.General.Mediators.Loading;
-using CodeBase.UI.Interfaces.General.Factories.Loading;
+using CodeBase.UI.General.Mediators.Windows.Loading;
+using CodeBase.UI.Interfaces.General.Factories.Windows.Loading;
 using UnityEngine;
 
-namespace CodeBase.UI.General.Factories.Loading
+namespace CodeBase.UI.General.Factories.Windows.Loading
 {
     public class LoadingWindowFactory : ILoadingWindowFactory
     {

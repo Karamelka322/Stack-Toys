@@ -1,4 +1,4 @@
-namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras
 {
     public interface ICameraStateMachine
     {
