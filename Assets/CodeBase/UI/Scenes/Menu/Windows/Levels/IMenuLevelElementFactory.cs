@@ -5,8 +5,8 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
 {
     public interface IMenuLevelElementFactory
     {
-        UniTask<MenuLevelElementMediator> SpawnCompletedVariantAsync(Transform parent);
-        UniTask<MenuLevelElementMediator> SpawnOpenedVariantAsync(Transform parent);
-        UniTask<MenuLevelElementMediator> SpawnClosedVariantAsync(Transform parent);
+        UniTask<CompletedMenuLevelElement> SpawnCompletedVariantAsync(int levelIndex, Transform parent);
+        UniTask<OpenedMenuLevelElement> SpawnOpenedVariantAsync(int levelIndex, Transform parent);
+        UniTask<ClosedMenuLevelElement> SpawnClosedVariantAsync(int levelIndex, Transform parent);
     }
 }

@@ -1,5 +1,5 @@
-using CodeBase.Data.Constants;
-using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
+using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.UI.Interfaces.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Levels;
 using CodeBase.UI.Scenes.Menu.Mediators.Windows.Levels;
@@ -8,36 +8,29 @@ using UnityEngine;
 
 namespace CodeBase.UI.Scenes.Menu.Windows.Levels
 {
-    public class LevelsWindow : ILevelsWindow
+    public class LevelsWindow : BaseWindow, ILevelsWindow
     {
         private readonly ILevelsWindowFactory _levelsWindowFactory;
-        private readonly ISceneLoadService _sceneLoadService;
+        private readonly IWindowService _windowService;
 
         private LevelsWindowMediator _mediator;
 
-        public LevelsWindow(ILevelsWindowFactory levelsWindowFactory, ISceneLoadService sceneLoadService)
+        public LevelsWindow(ILevelsWindowFactory levelsWindowFactory, IWindowService windowService) : base(windowService)
         {
-            _sceneLoadService = sceneLoadService;
+            _windowService = windowService;
             _levelsWindowFactory = levelsWindowFactory;
         }
 
-        public async UniTask OpenAsync()
+        public override async UniTask OpenAsync()
         {
             _mediator = await _levelsWindowFactory.SpawnAsync();
-            
-            // _mediator.OpenNextSceneButton.onClick.AddListener(OnOpenNextSceneButtonClicked);
+            _mediator.BackButton.onClick.AddListener(() => _windowService.CloseAsync<LevelsWindow>());
         }
 
-        public void Close()
+        public override void Close()
         {
+            _mediator.BackButton.onClick.RemoveAllListeners();
             Object.Destroy(_mediator.gameObject);
-        }
-
-        private void OnOpenNextSceneButtonClicked()
-        {
-            // _mediator.OpenNextSceneButton.onClick.RemoveAllListeners();
-
-            _sceneLoadService.LoadScene(SceneNames.Company);
         }
     }
 }

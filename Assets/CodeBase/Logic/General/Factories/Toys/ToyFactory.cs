@@ -1,5 +1,4 @@
 using System;
-using CodeBase.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;

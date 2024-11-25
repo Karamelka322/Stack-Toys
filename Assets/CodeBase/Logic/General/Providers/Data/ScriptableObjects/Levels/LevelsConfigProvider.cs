@@ -1,5 +1,5 @@
 using CodeBase.Data.Constants;
-using CodeBase.Data.Models.Levels;
+using CodeBase.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
@@ -28,6 +28,13 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
             var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
             
             return prefab;
+        }
+
+        public async UniTask<int> GetNumberOfLevelsAsync()
+        {
+            await _prepareResourcesTask;
+            
+            return _config.Levels.Length;
         }
         
         public async UniTask<GameObject> GetToyPrefabAsync()

@@ -15,9 +15,9 @@ namespace CodeBase.Data.Constants
             // UI
             public const string MenuWindow = "Menu_Window";
             public const string LevelsWindow = "Levels_Window";
-            public const string CompletedLevelElement = "CompletedLevelButton";
-            public const string ClosedLevelElement = "ClosedLevelButton";
-            public const string OpenedLevelElement = "OpenedLevelButton";
+            public const string CompletedLevelElement = "CompletedLevelElement";
+            public const string ClosedLevelElement = "ClosedLevelElement";
+            public const string OpenedLevelElement = "OpenedLevelElement";
         }
         
         public static class CompanyScene

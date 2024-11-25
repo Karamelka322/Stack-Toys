@@ -3,6 +3,7 @@ using CodeBase.Logic.Interfaces.General.Services.Files;
 using CodeBase.Logic.Interfaces.General.Services.SaveLoad;
 using CodeBase.Logic.Interfaces.General.Services.SaveLoad.Formatters;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace CodeBase.Logic.General.Services.SaveLoad
 {
@@ -27,9 +28,15 @@ namespace CodeBase.Logic.General.Services.SaveLoad
             _fileService.SaveToFile(obj, data.GetType().Name, DataStorageFormats.Binary);
         }
 
-        public TData Load<TData>() where TData : class
+        public TData Load<TData>() where TData : class, new()
         {
             var obj = _fileService.LoadFile(typeof(TData).Name, DataStorageFormats.Binary);
+            
+            if (obj is byte[] { Length: 0 })
+            {
+                return new TData();
+            }
+            
             return _binaryFormatter.Deserialize<TData>(obj as byte[]);
         }
     }

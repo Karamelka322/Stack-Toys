@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CodeBase.Data.ScriptableObjects.Levels
+namespace CodeBase.Data.Models.Levels
 {
     [Serializable]
     public class LevelConfigData

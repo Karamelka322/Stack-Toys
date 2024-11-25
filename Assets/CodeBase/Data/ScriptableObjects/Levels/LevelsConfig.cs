@@ -1,9 +1,9 @@
 using CodeBase.Data.Constants;
-using CodeBase.Data.ScriptableObjects.Levels;
+using CodeBase.Data.Models.Levels;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeBase.Data.Models.Levels
+namespace CodeBase.Data.ScriptableObjects.Levels
 {
     [CreateAssetMenu(menuName = AssetMenuConstants.ScriptableObjects + nameof(LevelsConfig), fileName = nameof(LevelsConfig))]
     public class LevelsConfig : ScriptableObject

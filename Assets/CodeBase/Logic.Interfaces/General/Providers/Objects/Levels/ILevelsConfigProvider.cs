@@ -7,5 +7,6 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Objects.Levels
     {
         UniTask<GameObject> GetLevelPrefabAsync(int index);
         UniTask<GameObject> GetToyPrefabAsync();
+        UniTask<int> GetNumberOfLevelsAsync();
     }
 }

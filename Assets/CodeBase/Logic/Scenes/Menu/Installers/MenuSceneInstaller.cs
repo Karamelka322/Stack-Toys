@@ -14,9 +14,9 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
         public override void InstallBindings()
         {
             BindProviders();
-            BindPresenters();
             BindFactories();
             BindSystems();
+            BindPresenters();
         }
 
         private void BindProviders()
@@ -30,14 +30,22 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
 
         private void BindSystems()
         {
-            Container.BindInterfacesTo<MenuWindow>().AsSingle();
-            Container.BindInterfacesTo<LevelsWindow>().AsSingle();
+            Container.BindInterfacesTo<MenuWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<LevelsWindow>().AsSingle().NonLazy();
         }
 
         private void BindFactories()
         {
+            // UI - Windows
             Container.BindInterfacesTo<MenuWindowFactory>().AsSingle();
             Container.BindInterfacesTo<LevelsWindowFactory>().AsSingle();
+            
+            // UI - Elements
+            Container.BindInterfacesTo<MenuLevelElementFactory>().AsSingle();
+            
+            Container.BindFactory<MenuLevelElementMediator, int, OpenedMenuLevelElement, OpenedMenuLevelElement.Factory>();
+            Container.BindFactory<MenuLevelElementMediator, int, ClosedMenuLevelElement, ClosedMenuLevelElement.Factory>();
+            Container.BindFactory<MenuLevelElementMediator, int, CompletedMenuLevelElement, CompletedMenuLevelElement.Factory>();
         }
 
         private void BindPresenters()

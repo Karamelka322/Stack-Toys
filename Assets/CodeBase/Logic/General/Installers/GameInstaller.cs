@@ -3,7 +3,9 @@ using CodeBase.Logic.General.Services.Assets;
 using CodeBase.Logic.General.Services.Files;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.General.Services.SaveLoad;
+using CodeBase.Logic.General.Services.SaveLoad.Formatters;
 using CodeBase.Logic.General.Services.SceneLoad;
+using CodeBase.Logic.General.Services.Windows;
 using CodeBase.UI.General.Factories.Canvases;
 using CodeBase.UI.General.Factories.Loading;
 using CodeBase.UI.General.Presenters.Loading;
@@ -51,6 +53,8 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<InputService>().AsSingle();
             Container.BindInterfacesTo<FileService>().AsSingle();
             Container.BindInterfacesTo<SaveLoadService>().AsSingle();
+            Container.BindInterfacesTo<BinaryFormatter>().AsSingle();
+            Container.BindInterfacesTo<WindowService>().AsSingle();
         }
     }
 }

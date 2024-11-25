@@ -13,7 +13,9 @@ namespace CodeBase.UI.Scenes.Company.Factories.Windows.Main
         private readonly IAssetServices _assetServices;
         private readonly IWindowCanvasProvider _windowCanvasProvider;
 
-        public CompanyMainWindowFactory(IAssetServices assetServices, IWindowCanvasProvider windowCanvasProvider)
+        public CompanyMainWindowFactory(
+            IAssetServices assetServices,
+            IWindowCanvasProvider windowCanvasProvider)
         {
             _windowCanvasProvider = windowCanvasProvider;
             _assetServices = assetServices;

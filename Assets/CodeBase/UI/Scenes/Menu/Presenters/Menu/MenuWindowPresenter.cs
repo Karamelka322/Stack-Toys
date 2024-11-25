@@ -1,13 +1,15 @@
-using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
+using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Services.Windows;
+using CodeBase.UI.Scenes.Menu.Windows.Menu;
 using Cysharp.Threading.Tasks;
 
 namespace CodeBase.UI.Scenes.Menu.Presenters.Menu
 {
     public class MenuWindowPresenter
     {
-        public MenuWindowPresenter(IMenuWindow menuWindow)
+        public MenuWindowPresenter(IWindowService windowService)
         {
-            menuWindow.OpenAsync().Forget();
+            windowService.OpenAsync<MenuWindow>().Forget();
         }
     }
 }
