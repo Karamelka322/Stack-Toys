@@ -3,6 +3,7 @@ using CodeBase.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras
 {
@@ -25,6 +26,13 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras
             await _prepareResourcesTask;
 
             return _config.ScrollingSpeed;
+        }
+        
+        public async UniTask<Vector3> GetOffsetAsync()
+        {
+            await _prepareResourcesTask;
+
+            return _config.Offset;
         }
 
         private async UniTask PrepareResourcesAsync()

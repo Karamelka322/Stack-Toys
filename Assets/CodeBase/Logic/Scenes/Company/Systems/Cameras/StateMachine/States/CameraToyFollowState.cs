@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using UniRx;
 using UnityEngine;
@@ -15,12 +16,18 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
         private readonly Camera _camera;
         private readonly IToySelectObserver _toySelectObserver;
         private readonly ILevelProvider _levelProvider;
+        private readonly ILevelBorderSystem _levelBorderSystem;
 
         private IDisposable _disposable;
         private float _interpolation;
 
-        public CameraToyFollowState(Camera camera, IToySelectObserver toySelectObserver, ILevelProvider levelProvider)
+        public CameraToyFollowState(
+            Camera camera,
+            IToySelectObserver toySelectObserver,
+            ILevelBorderSystem levelBorderSystem,
+            ILevelProvider levelProvider)
         {
+            _levelBorderSystem = levelBorderSystem;
             _levelProvider = levelProvider;
             _toySelectObserver = toySelectObserver;
             _camera = camera;
@@ -38,12 +45,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
             _disposable?.Dispose();
         }
 
-        private void OnUpdate(long tick)
+        private async void OnUpdate(long tick)
         {
-            var startPosition = _levelProvider.Level.CameraStartPoint.position;
-            var endPosition = _levelProvider.Level.CameraEndPoint.position;
+            var startPosition = await _levelBorderSystem.GetCameraStartPointAsync();
+            var endPosition = await _levelBorderSystem.GetCameraEndPointAsync();
 
-            var maxDistance = Vector3.Distance(startPosition, endPosition);
+            var maxDistance = startPosition != endPosition ? Vector3.Distance(startPosition, endPosition) : 1;
             
             var toyClampPosition = _toySelectObserver.Toy.Value.transform.position;
             toyClampPosition.z = startPosition.z;

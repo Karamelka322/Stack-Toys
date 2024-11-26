@@ -17,7 +17,7 @@ namespace Editor.CodeBase
                 return;
             }
 
-            TrySetCameraPointGizmo(level);
+            // TrySetCameraPointGizmo(level);
             TrySetLevelBorderGizmo(level);
         }
 
@@ -43,15 +43,15 @@ namespace Editor.CodeBase
             Handles.DrawLine(bottomRight, topRight);
         }
 
-        private static void TrySetCameraPointGizmo(LevelMediator level)
-        {
-            if (level.CameraStartPoint == null || level.CameraEndPoint == null)
-            {
-                return;
-            }
-            
-            Handles.color = Color.red;  // Устанавливаем цвет линии
-            Handles.DrawLine(level.CameraStartPoint.position, level.CameraEndPoint.position);
-        }
+        // private static void TrySetCameraPointGizmo(LevelMediator level)
+        // {
+        //     if (level.CameraStartPoint == null || level.CameraEndPoint == null)
+        //     {
+        //         return;
+        //     }
+        //     
+        //     Handles.color = Color.red;  // Устанавливаем цвет линии
+        //     Handles.DrawLine(level.CameraStartPoint.position, level.CameraEndPoint.position);
+        // }
     }
 }

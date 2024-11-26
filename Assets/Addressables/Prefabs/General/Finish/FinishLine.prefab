@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1273214488513841558
 MeshRenderer:
@@ -206,7 +206,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3795318790582451076
 MeshRenderer:
@@ -377,7 +377,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &514180243810233687
 MeshRenderer:
@@ -548,7 +548,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2900991010862466080
 MeshRenderer:
@@ -718,7 +718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.329, y: 0.169}
+  m_AnchoredPosition: {x: 2.385, y: 0.169}
   m_SizeDelta: {x: 0.6947, y: 0.3992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6728445338321202413
@@ -890,7 +890,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1179258956093013657
 MeshRenderer:
@@ -1110,7 +1110,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1592502328847150268
 MeshRenderer:
@@ -1281,7 +1281,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4007570855843515688
 MeshRenderer:
@@ -1452,7 +1452,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8230109488437900342
 MeshRenderer:
@@ -1623,7 +1623,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8568363733034211307
 MeshRenderer:
@@ -1794,7 +1794,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7450482195023368200
 MeshRenderer:
@@ -1965,7 +1965,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8022830023440963837
 MeshRenderer:
@@ -2136,7 +2136,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5883181906848291541
 MeshRenderer:
@@ -2478,7 +2478,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5010398839786185529
 MeshRenderer:
@@ -2649,7 +2649,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6096134973727540686
 MeshRenderer:
@@ -2820,7 +2820,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8439456366072577243
 MeshRenderer:
@@ -2991,7 +2991,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4613059526431734074
 MeshRenderer:
@@ -3241,7 +3241,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.16961111, y: 1.3444}
+  m_SizeDelta: {x: 0.2, y: 1.3444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2818411349887044602
 MeshRenderer:
