@@ -14,7 +14,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
 {
     public class LevelBorderSystem : IDisposable, ILevelBorderSystem
     {
-        private const float TopBorder = 7.5f;
+        private const float TopBorder = 4f;
         
         private readonly ICameraSettingsProvider _cameraSettingsProvider;
         private readonly ILevelProvider _levelProvider;
@@ -22,6 +22,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
 
         private LevelMediator _level;
 
+        public Vector3 OriginPoint { get; private set; }
         public Vector3 BottomLeftPoint { get; private set; }
         public Vector3 BottomRightPoint { get; private set; }
         public Vector3 TopLeftPoint { get; private set; }
@@ -46,6 +47,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
             }
         
             _level = _levelProvider.Level;
+
+            OriginPoint = _level.OriginPoint.position;
             
             BottomLeftPoint = _level.OriginPoint.position - _level.OriginPoint.right * _level.Width / 2f;
             BottomRightPoint = _level.OriginPoint.position + _level.OriginPoint.right * _level.Width / 2f;

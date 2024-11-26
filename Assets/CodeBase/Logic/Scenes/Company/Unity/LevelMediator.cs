@@ -6,9 +6,6 @@ namespace CodeBase.Logic.Scenes.Company.Unity
     public class LevelMediator : MonoBehaviour
     {
         [SerializeField, Required] 
-        private Transform _toyPoint;
-
-        [SerializeField, Required] 
         private GameObject _floor;
         
         [SerializeField, Required] 
@@ -20,7 +17,6 @@ namespace CodeBase.Logic.Scenes.Company.Unity
         [SerializeField, Required] 
         private float _width;
 
-        public Transform ToyPoint => _toyPoint;
         public GameObject Floor => _floor;
         public Transform OriginPoint => _originPoint;
         public float Height => _height;
