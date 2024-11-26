@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
