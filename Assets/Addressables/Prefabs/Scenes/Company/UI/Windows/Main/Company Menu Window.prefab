@@ -814,3 +814,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2920449652225748963}
+  _pauseButton: {fileID: 8828530787458503925}

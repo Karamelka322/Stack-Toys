@@ -1,4 +1,5 @@
 using CodeBase.Logic.General.Factories.Babble;
+using CodeBase.Logic.General.Factories.Finish;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
@@ -22,6 +23,8 @@ using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
+using CodeBase.UI.General.Factories.Windows.Pause;
+using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Scenes.Company.Factories.Elements.Toys;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
@@ -57,6 +60,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<LevelFactory>().AsSingle();
             Container.BindInterfacesTo<ToyFactory>().AsSingle();
             Container.BindInterfacesTo<BabbleFactory>().AsSingle();
+            Container.BindInterfacesTo<FinishLineFactory>().AsSingle();
             
             // Game - Effects
             Container.BindInterfacesTo<ToySelectEffectFactory>().AsSingle();
@@ -68,6 +72,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindowFactory>().AsSingle();
             Container.BindInterfacesTo<CompanyFinishWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<PauseWindowFactory>().AsSingle();
         }
 
         private void BindProviders()
@@ -103,6 +108,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
 
             // Observers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
@@ -133,6 +139,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle().NonLazy();
+            Container.Bind<PauseWindow>().AsSingle().NonLazy();
         }
     }
 }

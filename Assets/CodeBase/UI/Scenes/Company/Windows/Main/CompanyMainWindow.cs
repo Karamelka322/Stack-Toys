@@ -4,6 +4,7 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
+using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using CodeBase.UI.Scenes.Company.Mediators.Windows.Main;
@@ -17,6 +18,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
     {
         private readonly ICompanyMainWindowFactory _companyMainWindowFactory;
         private readonly IToySelectObserver _toySelectObserver;
+        private readonly IWindowService _windowService;
 
         private CompanyMainWindowMediator _mediator;
 
@@ -25,6 +27,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         public CompanyMainWindow(ICompanyMainWindowFactory companyMainWindowFactory,
             IToySelectObserver toySelectObserver, IWindowService windowService) : base(windowService)
         {
+            _windowService = windowService;
             _toySelectObserver = toySelectObserver;
             _companyMainWindowFactory = companyMainWindowFactory;
         }
@@ -32,6 +35,8 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         public override async UniTask OpenAsync()
         {
             _mediator = await _companyMainWindowFactory.SpawnAsync();
+            
+            _mediator.PauseButton.onClick.AddListener(OnPauseButtonClicked);
             _mediator.Slider.onValueChanged.AddListener(OnSliderChangedInvoke);
 
             _toySelectObserver.Toy.Subscribe(OnSelectableToyChanged);
@@ -48,6 +53,11 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         public float GetSliderValue()
         {
             return _mediator.Slider.value;
+        }
+        
+        private void OnPauseButtonClicked()
+        {
+            _windowService.OpenAsync<PauseWindow>().Forget();
         }
 
         private void OnSelectableToyChanged(ToyMediator toyMediator)

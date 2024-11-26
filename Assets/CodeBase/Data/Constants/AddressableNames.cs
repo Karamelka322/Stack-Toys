@@ -11,7 +11,8 @@ namespace CodeBase.Data.Constants
         public const string CameraSettings = "Camera_Settings";
 
         public const string PauseWindow = "Pause_Window";
-        
+        public const string FinishLine = "FinishLine";
+
         public static class MenuScene
         {
             // UI
