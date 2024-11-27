@@ -1,12 +1,14 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -24,6 +26,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IToyFactory _toyFactory;
         private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IToyProvider _toyProvider;
+        private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
+        private readonly ILevelsConfigProvider _levelsConfigProvider;
+        private readonly IToyCountObserver _toyCountObserver;
+        private readonly IToyDestroyer _toyDestroyer;
 
         private readonly CompositeDisposable _compositeDisposable;
 
@@ -33,9 +39,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             IToyTowerObserver toyTowerObserver,
             IToyFactory toyFactory,
             IToyProvider toyProvider,
+            IToyDestroyer toyDestroyer,
             ICompanySceneLoad companySceneLoad,
+            IToyCountObserver toyCountObserver,
+            ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
+            ILevelsConfigProvider levelsConfigProvider,
             ILevelBorderSystem levelBorderSystem)
         {
+            _toyDestroyer = toyDestroyer;
+            _toyCountObserver = toyCountObserver;
+            _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
+            _levelsConfigProvider = levelsConfigProvider;
             _toyProvider = toyProvider;
             _levelBorderSystem = levelBorderSystem;
             _toyFactory = toyFactory;
@@ -43,10 +57,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
             _compositeDisposable = new CompositeDisposable();
 
+            toyTowerObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
             companySceneLoad.IsLoaded.Subscribe(OnSceneLoad).AddTo(_compositeDisposable);
-            _toyTowerObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
 
-            _toyTowerObserver.OnTowerFallen += OnTowerFallen;
+            _toyDestroyer.OnDestroyAll += OnTowerDestroy;
         }
 
         private void OnSceneLoad(bool isLoaded)
@@ -61,16 +75,18 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         public void Dispose()
         {
-            _toyTowerObserver.OnTowerFallen -= OnTowerFallen;
             _compositeDisposable?.Dispose();
         }
 
-        private void OnIncreaseToyTower(CollectionAddEvent<ToyMediator> addEvent)
+        private void OnIncreaseToyTower(CollectionAddEvent<ToyMediator> toy)
         {
-            SpawnAsync().Forget();
+            if (_toyCountObserver.LeftAvailableNumberOfToys.Value > 0)
+            {
+                SpawnAsync().Forget();
+            }
         }
-
-        private void OnTowerFallen()
+        
+        private void OnTowerDestroy()
         {
             SpawnAsync().Forget();
         }
@@ -78,7 +94,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private async UniTask SpawnAsync()
         {
             var point = GetSpawnPoint();
-            var toy = await _toyFactory.SpawnAsync(point);
+            var prefab = await GetToyPrefabAsync();
+            var toy = _toyFactory.Spawn(prefab, point);
 
             _toyProvider.Register(toy.Item1, toy.Item2);
             OnSpawn?.Invoke(toy.Item1, toy.Item2);
@@ -100,6 +117,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             {
                 return _levelBorderSystem.OriginPoint + Vector3.up * maxHeight + Vector3.up * OffsetFromFinishLine;
             }
+        }
+
+        private async UniTask<GameObject> GetToyPrefabAsync()
+        {
+            var currentLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
+            var prefabs = await _levelsConfigProvider.GetToyPrefabsAsync(currentLevel);
+
+            return prefabs[_toyProvider.Toys.Count];
         }
     }
 }

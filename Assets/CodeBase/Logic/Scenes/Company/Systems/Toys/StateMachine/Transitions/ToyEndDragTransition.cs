@@ -13,9 +13,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
     {
         private readonly ToyMediator _toyMediator;
         private readonly IInputService _inputService;
-        private readonly IRaycastCommand _raycastCommand;
+        private readonly IClickCommand _raycastCommand;
 
-        public ToyEndDragTransition(ToyMediator toyMediator, IInputService inputService, IRaycastCommand raycastCommand)
+        public ToyEndDragTransition(ToyMediator toyMediator, IInputService inputService, IClickCommand raycastCommand)
         {
             _raycastCommand = raycastCommand;
             _inputService = inputService;

@@ -7,6 +7,7 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using UniRx;
+using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
 {
@@ -15,6 +16,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
         private readonly IToySpawner _toySpawner;
         private readonly ILevelProvider _levelProvider;
         private readonly IDisposable _disposable;
+        private readonly CompositeDisposable _compositeDisposable;
 
         private IDisposable _toySetDisposable;
 
@@ -24,21 +26,38 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
         public ToyTowerObserver(IToyProvider toyProvider, ILevelProvider levelProvider)
         {
             Tower = new ReactiveCollection<ToyMediator>();
+            _compositeDisposable = new CompositeDisposable();
+            
             _levelProvider = levelProvider;
 
-            _disposable = toyProvider.Toys.ObserveAdd().Subscribe(OnSpawnToy);
+            toyProvider.Toys.ObserveAdd().Subscribe(OnSpawnToy).AddTo(_compositeDisposable);
+            toyProvider.Toys.ObserveRemove().Subscribe(OnRemoveToy).AddTo(_compositeDisposable);
         }
 
         public void Dispose()
         {
+            _compositeDisposable?.Dispose();
             _disposable?.Dispose();
             _toySetDisposable?.Dispose();
-            Tower?.Dispose();
+        }
+
+        private void Reset()
+        {
+            _toySetDisposable?.Dispose();
+            Tower.Clear();
         }
 
         private void OnSpawnToy(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
             addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(() => OnToySet(addEvent.Value.Item1));
+        }
+        
+        private void OnRemoveToy(CollectionRemoveEvent<(ToyMediator, ToyStateMachine)> addEvent)
+        {
+            if (Tower.Contains(addEvent.Value.Item1))
+            {
+                Reset();
+            }
         }
 
         private void OnToySet(ToyMediator toyMediator)
@@ -53,7 +72,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             {
                 return;
             }
-         
+            
             _toySetDisposable?.Dispose();
 
             if (TryAddNewTowerElement(toyMediator))
@@ -62,8 +81,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             }
             else
             {
-                _toySetDisposable?.Dispose();
-                Tower.Clear();
+                Reset();
                 OnTowerFallen?.Invoke();
             }
         }

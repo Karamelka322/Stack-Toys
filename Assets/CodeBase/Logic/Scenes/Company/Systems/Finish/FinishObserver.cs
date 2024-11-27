@@ -3,7 +3,6 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
-using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using UniRx;
 using UnityEngine;
 
@@ -18,11 +17,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
 
         public FinishObserver(IToyTowerObserver towerObserver, ILevelBorderSystem levelBorderSystem)
         {
-            IsFinished = new BoolReactiveProperty();
-            
             _levelBorderSystem = levelBorderSystem;
+            
+            IsFinished = new BoolReactiveProperty();
 
             _disposable = towerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
+        }
+
+        public void Dispose()
+        {
+            _disposable?.Dispose();
+            IsFinished?.Dispose();
         }
 
         private void OnAddToy(CollectionAddEvent<ToyMediator> addEvent)
@@ -47,12 +52,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             }
             
             return false;
-        }
-
-        public void Dispose()
-        {
-            _disposable?.Dispose();
-            IsFinished?.Dispose();
         }
     }
 }

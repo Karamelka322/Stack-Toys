@@ -10,12 +10,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
 {
     public class ToyTowerTransition : BaseTransition
     {
-        private readonly IRaycastCommand _raycastCommand;
+        private readonly IClickCommand _raycastCommand;
         private readonly IInputService _inputService;
         
         private bool _isClickPressed;
 
-        public ToyTowerTransition(IInputService inputService, IRaycastCommand raycastCommand)
+        public ToyTowerTransition(IInputService inputService, IClickCommand raycastCommand)
         {
             _raycastCommand = raycastCommand;
             _inputService = inputService;

@@ -1,3 +1,4 @@
+using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Finish;
 using CodeBase.Logic.General.Factories.Toys;
@@ -34,7 +35,6 @@ using CodeBase.UI.Scenes.Company.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Windows.Main;
 using UnityEngine;
 using Zenject;
-using RaycastCommand = CodeBase.Logic.General.Commands.RaycastCommand;
 
 namespace CodeBase.Logic.Scenes.Company.Installers
 {
@@ -51,7 +51,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindCommands()
         {
-            Container.BindInterfacesTo<RaycastCommand>().AsSingle();
+            Container.BindInterfacesTo<ClickCommand>().AsSingle();
         }
 
         private void BindFactories()
@@ -111,6 +111,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
 
             // Observers
+            Container.BindInterfacesTo<ToyCountObserver>().AsSingle();
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
             Container.BindInterfacesTo<FinishObserver>().AsSingle();

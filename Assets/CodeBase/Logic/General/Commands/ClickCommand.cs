@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 
 namespace CodeBase.Logic.General.Commands
 {
-    public class RaycastCommand : IRaycastCommand
+    public class ClickCommand : IClickCommand
     {
         private readonly PointerEventData _pointerEventData;
         private readonly List<RaycastResult> _raycastResults;
 
-        public RaycastCommand()
+        public ClickCommand()
         {
             _pointerEventData = new PointerEventData(EventSystem.current);
             _raycastResults = new List<RaycastResult>();

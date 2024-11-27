@@ -6,6 +6,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
     public interface IToyDestroyer
     {
-        event Action<ToyMediator, ToyStateMachine> OnDestroy;
+        event Action OnDestroyAll;
     }
 }

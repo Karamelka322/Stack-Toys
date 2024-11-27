@@ -17,7 +17,7 @@ namespace CodeBase.UI.Scenes.Company.Mediators.Elements.Toys
         private readonly Transform _target;
         private readonly ToyRotatorMediator _mediator;
         private readonly IInputService _inputService;
-        private readonly IRaycastCommand _raycastCommand;
+        private readonly IClickCommand _raycastCommand;
 
         private Vector2 _startStickAnchoredPosition;
         private bool _isStickSelected;
@@ -28,7 +28,7 @@ namespace CodeBase.UI.Scenes.Company.Mediators.Elements.Toys
             Transform target,
             ToyRotatorMediator mediator,
             IInputService inputService,
-            IRaycastCommand raycastCommand)
+            IClickCommand raycastCommand)
         {
             _raycastCommand = raycastCommand;
             _inputService = inputService;
