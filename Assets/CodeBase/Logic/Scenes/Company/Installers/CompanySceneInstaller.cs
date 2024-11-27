@@ -127,7 +127,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
-            Container.Bind<ToySpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToySpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyDestroyer>().AsSingle().NonLazy();
 
             // Camera
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();

@@ -11,7 +11,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
 {
     public class FinishObserver : IFinishObserver, IDisposable
     {
-        private readonly IToyTowerObserver _towerObserver;
         private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IDisposable _disposable;
 
@@ -22,9 +21,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             IsFinished = new BoolReactiveProperty();
             
             _levelBorderSystem = levelBorderSystem;
-            _towerObserver = towerObserver;
 
-            _disposable = _towerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
+            _disposable = towerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
         }
 
         private void OnAddToy(CollectionAddEvent<ToyMediator> addEvent)

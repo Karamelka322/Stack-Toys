@@ -14,8 +14,6 @@ namespace CodeBase.Logic.General.Factories.Toys
         private readonly ToyStateMachine.Factory _toyStateMachineFactory;
         private readonly ILevelsConfigProvider _levelsConfigProvider;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
-
-        public event Action<ToyMediator, ToyStateMachine> OnSpawn;
         
         public ToyFactory(
             ToyStateMachine.Factory toyStateMachineFactory,
@@ -27,7 +25,7 @@ namespace CodeBase.Logic.General.Factories.Toys
             _toyStateMachineFactory = toyStateMachineFactory;
         }
 
-        public async UniTask<ToyMediator> SpawnAsync(Vector3 position)
+        public async UniTask<(ToyMediator, ToyStateMachine)> SpawnAsync(Vector3 position)
         {
             var currentLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
             var prefabs = await _levelsConfigProvider.GetToyPrefabsAsync(currentLevel);
@@ -38,9 +36,7 @@ namespace CodeBase.Logic.General.Factories.Toys
 
             var stateMachine = _toyStateMachineFactory.Create(mediator);
 
-            OnSpawn?.Invoke(mediator, stateMachine);
-            
-            return mediator;
+            return (mediator, stateMachine);
         }
     }
 }

@@ -1,17 +1,20 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
-    public class ToySpawner : IDisposable
+    public class ToySpawner : IToySpawner, IDisposable
     {
         private const float DistanceToFinish = 3f;
         private const float OffsetFromFinishLine = 1.1f;
@@ -20,15 +23,20 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IToyFactory _toyFactory;
         private readonly ILevelBorderSystem _levelBorderSystem;
+        private readonly IToyProvider _toyProvider;
 
         private readonly CompositeDisposable _compositeDisposable;
+
+        public event Action<ToyMediator, ToyStateMachine> OnSpawn;
         
         public ToySpawner(
             IToyTowerObserver toyTowerObserver,
             IToyFactory toyFactory,
+            IToyProvider toyProvider,
             ICompanySceneLoad companySceneLoad,
             ILevelBorderSystem levelBorderSystem)
         {
+            _toyProvider = toyProvider;
             _levelBorderSystem = levelBorderSystem;
             _toyFactory = toyFactory;
             _toyTowerObserver = toyTowerObserver;
@@ -37,6 +45,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
             companySceneLoad.IsLoaded.Subscribe(OnSceneLoad).AddTo(_compositeDisposable);
             _toyTowerObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
+
+            _toyTowerObserver.OnTowerFallen += OnTowerFallen;
         }
 
         private void OnSceneLoad(bool isLoaded)
@@ -46,23 +56,32 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
                 return;
             }
 
-            Spawn();
+            SpawnAsync().Forget();
         }
 
         public void Dispose()
         {
+            _toyTowerObserver.OnTowerFallen -= OnTowerFallen;
             _compositeDisposable?.Dispose();
         }
 
         private void OnIncreaseToyTower(CollectionAddEvent<ToyMediator> addEvent)
         {
-            Spawn();
+            SpawnAsync().Forget();
         }
 
-        private void Spawn()
+        private void OnTowerFallen()
+        {
+            SpawnAsync().Forget();
+        }
+
+        private async UniTask SpawnAsync()
         {
             var point = GetSpawnPoint();
-            _toyFactory.SpawnAsync(point).Forget();
+            var toy = await _toyFactory.SpawnAsync(point);
+
+            _toyProvider.Register(toy.Item1, toy.Item2);
+            OnSpawn?.Invoke(toy.Item1, toy.Item2);
         }
 
         private Vector3 GetSpawnPoint()

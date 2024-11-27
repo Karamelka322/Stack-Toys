@@ -12,36 +12,38 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
 {
     public class ToyTowerObserver : IToyTowerObserver, IDisposable
     {
-        private readonly IToyProvider _toyProvider;
-        private readonly IDisposable _disposable;
+        private readonly IToySpawner _toySpawner;
         private readonly ILevelProvider _levelProvider;
+        private readonly IDisposable _disposable;
+
+        private IDisposable _toySetDisposable;
 
         public ReactiveCollection<ToyMediator> Tower { get; }
+        public event Action OnTowerFallen;
 
         public ToyTowerObserver(IToyProvider toyProvider, ILevelProvider levelProvider)
         {
-            _levelProvider = levelProvider;
             Tower = new ReactiveCollection<ToyMediator>();
-            _toyProvider = toyProvider;
+            _levelProvider = levelProvider;
 
-            _disposable = _toyProvider.Toys.ObserveAdd().Subscribe(OnToyAdded);
+            _disposable = toyProvider.Toys.ObserveAdd().Subscribe(OnSpawnToy);
         }
 
         public void Dispose()
         {
             _disposable?.Dispose();
+            _toySetDisposable?.Dispose();
             Tower?.Dispose();
         }
 
-        private void OnToyAdded(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
+        private void OnSpawnToy(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
-            addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(
-                () => OnToySet(addEvent.Value.Item1));
+            addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(() => OnToySet(addEvent.Value.Item1));
         }
 
         private void OnToySet(ToyMediator toyMediator)
         {
-            var disposable = toyMediator.RigidbodyObserver.IsSleeping.Subscribe(
+            _toySetDisposable = toyMediator.RigidbodyObserver.IsSleeping.Subscribe(
                 isSleeping => OnSleepValueChanged(toyMediator, isSleeping));
         }
 
@@ -51,21 +53,39 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             {
                 return;
             }
-            
-            if (IsTowerStanding() == false)
-            {
-                return;
-            }
-            
-            if (IsTowerChainPreserved() == false)
-            {
-                return;
-            }
-            
-            if (IsTowerSource(toyMediator) || IsNewTowerElement(toyMediator))
+         
+            _toySetDisposable?.Dispose();
+
+            if (TryAddNewTowerElement(toyMediator))
             {
                 Tower.Add(toyMediator);
             }
+            else
+            {
+                _toySetDisposable?.Dispose();
+                Tower.Clear();
+                OnTowerFallen?.Invoke();
+            }
+        }
+
+        private bool TryAddNewTowerElement(ToyMediator toyMediator)
+        {
+            if (CheckTowerStanding() == false)
+            {
+                return false;
+            }
+
+            if (IsTowerChainPreserved() == false)
+            {
+                return false;
+            }
+
+            if (IsTowerSource(toyMediator) || IsNewTowerElement(toyMediator))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsTowerSource(ToyMediator toyMediator)
@@ -110,7 +130,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             return true;
         }
 
-        private bool IsTowerStanding()
+        private bool CheckTowerStanding()
         {
             foreach (var toyMediator in Tower)
             {

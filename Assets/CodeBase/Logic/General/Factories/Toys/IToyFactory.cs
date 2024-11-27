@@ -8,7 +8,6 @@ namespace CodeBase.Logic.General.Factories.Toys
 {
     public interface IToyFactory
     {
-        UniTask<ToyMediator> SpawnAsync(Vector3 position);
-        event Action<ToyMediator, ToyStateMachine> OnSpawn;
+        UniTask<(ToyMediator, ToyStateMachine)> SpawnAsync(Vector3 position);
     }
 }
