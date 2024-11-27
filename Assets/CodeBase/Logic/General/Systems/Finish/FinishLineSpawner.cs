@@ -1,9 +1,11 @@
 using System;
+using CodeBase.Logic.Interfaces.General.Factories.Finish;
+using CodeBase.Logic.Interfaces.General.Systems.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Factories.Finish
+namespace CodeBase.Logic.General.Systems.Finish
 {
     public class FinishLineSpawner : IFinishLineSpawner, IDisposable
     {

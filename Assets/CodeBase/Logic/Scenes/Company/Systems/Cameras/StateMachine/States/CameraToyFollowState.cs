@@ -1,8 +1,8 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
-using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -15,20 +15,16 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
         
         private readonly Camera _camera;
         private readonly IToySelectObserver _toySelectObserver;
-        private readonly ILevelProvider _levelProvider;
-        private readonly ILevelBorderSystem _levelBorderSystem;
+        private readonly ICameraBorderSystem _cameraBorderSystem;
 
         private IDisposable _disposable;
-        private float _interpolation;
 
         public CameraToyFollowState(
             Camera camera,
             IToySelectObserver toySelectObserver,
-            ILevelBorderSystem levelBorderSystem,
-            ILevelProvider levelProvider)
+            ICameraBorderSystem cameraBorderSystem)
         {
-            _levelBorderSystem = levelBorderSystem;
-            _levelProvider = levelProvider;
+            _cameraBorderSystem = cameraBorderSystem;
             _toySelectObserver = toySelectObserver;
             _camera = camera;
         }
@@ -47,8 +43,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
 
         private async void OnUpdate(long tick)
         {
-            var startPosition = await _levelBorderSystem.GetCameraStartPointAsync();
-            var endPosition = await _levelBorderSystem.GetCameraEndPointAsync();
+            var startPosition = await _cameraBorderSystem.GetCameraStartPointAsync();
+            var endPosition = await _cameraBorderSystem.GetCameraEndPointAsync();
 
             var maxDistance = startPosition != endPosition ? Vector3.Distance(startPosition, endPosition) : 1;
             
@@ -59,9 +55,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
 
             var distanceToToy = Vector3.Distance(startPosition, toyClampPosition);
 
-            _interpolation = Mathf.Lerp(_interpolation, distanceToToy / maxDistance, Time.deltaTime * MovementSpeed);
+            var interpolation = await _cameraBorderSystem.GetInterpolationAsync();
+            var nextInterpolation = Mathf.Lerp(interpolation, distanceToToy / maxDistance, Time.deltaTime * MovementSpeed);
             
-            _camera.transform.position = Vector3.Lerp(startPosition, endPosition, _interpolation);
+            _camera.transform.position = Vector3.Lerp(startPosition, endPosition, nextInterpolation);
         }
     }
 }

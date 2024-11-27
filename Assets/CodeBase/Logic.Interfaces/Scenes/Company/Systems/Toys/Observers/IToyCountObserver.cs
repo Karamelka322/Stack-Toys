@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers
 {
     public interface IToyCountObserver
     {

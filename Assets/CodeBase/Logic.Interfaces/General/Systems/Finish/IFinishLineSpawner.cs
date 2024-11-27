@@ -1,4 +1,4 @@
-namespace CodeBase.Logic.General.Factories.Finish
+namespace CodeBase.Logic.Interfaces.General.Systems.Finish
 {
     public interface IFinishLineSpawner
     {

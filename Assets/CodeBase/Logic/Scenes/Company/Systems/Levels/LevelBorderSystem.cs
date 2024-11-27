@@ -1,21 +1,18 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Unity;
-using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Levels
 {
-    public class LevelBorderSystem : IDisposable, ILevelBorderSystem
+    public class LevelBorderSystem : ILevelBorderSystem, IDisposable
     {
         private const float TopBorder = 4f;
         
-        private readonly ICameraSettingsProvider _cameraSettingsProvider;
         private readonly ILevelProvider _levelProvider;
         private readonly IDisposable _disposable;
 
@@ -27,12 +24,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
         public Vector3 TopLeftPoint { get; private set; }
         public Vector3 TopRightPoint { get; private set; }
         
-        public LevelBorderSystem(
-            ICompanySceneLoad companySceneLoad,
-            ILevelProvider levelProvider,
-            ICameraSettingsProvider cameraSettingsProvider)
+        public LevelBorderSystem(ICompanySceneLoad companySceneLoad, ILevelProvider levelProvider)
         {
-            _cameraSettingsProvider = cameraSettingsProvider;
             _levelProvider = levelProvider;
 
             _disposable = companySceneLoad.IsLoaded.Subscribe(OnSceneLoad);
@@ -67,24 +60,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
                 _level.OriginPoint.position.y + max, (_level.OriginPoint.up * _level.Height).y - max + TopBorder);
             
             return clampPosition;
-        }
-
-        public async UniTask<Vector3> GetCameraStartPointAsync()
-        {
-            var offset = await _cameraSettingsProvider.GetOffsetAsync();
-            var position = _level.OriginPoint.position + offset;
-            
-            return position;
-        }
-
-        public async UniTask<Vector3> GetCameraEndPointAsync()
-        {
-            var startPosition = await GetCameraStartPointAsync();
-            var endPosition = startPosition;
-            
-            endPosition.y = Mathf.Max(startPosition.y, _level.Height);
-
-            return endPosition;
         }
 
         public void Dispose()

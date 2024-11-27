@@ -2,7 +2,7 @@ using CodeBase.Logic.General.Unity.Finish;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Factories.Finish
+namespace CodeBase.Logic.Interfaces.General.Factories.Finish
 {
     public interface IFinishLineFactory
     {

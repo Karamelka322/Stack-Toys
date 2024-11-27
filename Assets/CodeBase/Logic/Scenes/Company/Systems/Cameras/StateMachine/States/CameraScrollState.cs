@@ -1,7 +1,8 @@
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.General.Services.Input;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
+using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using UnityEngine;
 using Zenject;
 
@@ -11,28 +12,28 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
     {
         private readonly IInputService _inputService;
         private readonly ICameraSettingsProvider _cameraSettingsProvider;
-        private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly Camera _camera;
-
-        private float _interpolation;
+        private readonly ICameraBorderSystem _cameraBorderSystem;
 
         public CameraScrollState(
             Camera camera,
             IInputService inputService,
-            ILevelBorderSystem levelBorderSystem,
+            ICameraBorderSystem cameraBorderSystem,
             ICameraSettingsProvider cameraSettingsProvider)
         {
-            _levelBorderSystem = levelBorderSystem;
+            _cameraBorderSystem = cameraBorderSystem;
             _camera = camera;
             _cameraSettingsProvider = cameraSettingsProvider;
             _inputService = inputService;
+
+            SetStartPosition();
         }
         
         public class Factory :PlaceholderFactory<Camera, CameraScrollState> { }
 
         public override void Enter()
         {
-            SetStartPosition();
+            // SetStartPosition();
             
             _inputService.OnSwipe += OnSwipe;
         }
@@ -44,20 +45,21 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States
         
         private async void SetStartPosition()
         {
-            _camera.transform.position = await _levelBorderSystem.GetCameraStartPointAsync();
+            _camera.transform.position = await _cameraBorderSystem.GetCameraStartPointAsync();
         }
 
         private async void OnSwipe(Vector3 direction)
         {
-            var startPosition = await _levelBorderSystem.GetCameraStartPointAsync();
-            var endPosition = await _levelBorderSystem.GetCameraEndPointAsync();
+            var startPosition = await _cameraBorderSystem.GetCameraStartPointAsync();
+            var endPosition = await _cameraBorderSystem.GetCameraEndPointAsync();
             var speed = await _cameraSettingsProvider.GetScrollingSpeedAsync();
 
             var distance = startPosition != endPosition ? Vector3.Distance(startPosition, endPosition) : 1;
-            var nextInterpolation = _interpolation - direction.y * (Time.deltaTime * speed) / distance;
+            var interpolation = await _cameraBorderSystem.GetInterpolationAsync();
+            var nextInterpolation = interpolation - direction.y * (Time.deltaTime * speed) / distance;
+            nextInterpolation = Mathf.Clamp01(nextInterpolation);
             
-            _interpolation = Mathf.Clamp01(nextInterpolation);
-            _camera.transform.position = Vector3.Lerp(startPosition, endPosition, _interpolation);
+            _camera.transform.position = Vector3.Lerp(startPosition, endPosition, nextInterpolation);
         }
     }
 }

@@ -660,7 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floor: {fileID: 7881739349221821219}
   _originPoint: {fileID: 6137371079844280694}
-  _height: 2
+  _height: 10
   _width: 5.5
 --- !u!1 &5647942209934302730
 GameObject:

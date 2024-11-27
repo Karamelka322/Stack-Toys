@@ -9,7 +9,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
 {
     public class ToySelectTransition : BaseTransition
     {
-        private const float DistanceToSelect = 1f;
+        private const float DistanceToSelect = 1.2f;
         
         private readonly IInputService _inputService;
         private readonly ToyMediator _toyMediator;
