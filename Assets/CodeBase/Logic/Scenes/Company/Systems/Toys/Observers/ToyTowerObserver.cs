@@ -114,7 +114,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             
             foreach (var collision in toyMediator.RigidbodyObserver.Collisions)
             {
-                if (_levelProvider.Level.Floor.gameObject == collision.gameObject)
+                if (_levelProvider.Level.Value.Floor.gameObject == collision.gameObject)
                 {
                     return true;
                 }

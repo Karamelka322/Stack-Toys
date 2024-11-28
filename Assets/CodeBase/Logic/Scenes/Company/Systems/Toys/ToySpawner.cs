@@ -41,7 +41,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             IToyFactory toyFactory,
             IToyProvider toyProvider,
             IToyDestroyer toyDestroyer,
-            ICompanySceneLoad companySceneLoad,
+            ILevelSpawner companySceneLoad,
             IToyCountObserver toyCountObserver,
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
             ILevelsConfigProvider levelsConfigProvider,
@@ -76,6 +76,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         public void Dispose()
         {
+            _toyDestroyer.OnDestroyAll -= OnTowerDestroy;
             _compositeDisposable?.Dispose();
         }
 

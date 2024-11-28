@@ -104,7 +104,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindSystems()
         {
-            Container.BindInterfacesTo<CompanySceneLoad>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<LevelSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanySceneUnload>().AsSingle();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();

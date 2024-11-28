@@ -1,4 +1,3 @@
-using System;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
@@ -11,8 +10,6 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Levels
     {
         private readonly ILevelsConfigProvider _levelsConfigProvider;
 
-        public event Action<LevelMediator> OnSpawn;
-        
         public LevelFactory(ILevelsConfigProvider levelsConfigProvider)
         {
             _levelsConfigProvider = levelsConfigProvider;
@@ -23,8 +20,6 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Levels
             var levelPrefab = await _levelsConfigProvider.GetLevelPrefabAsync(levelIndex);
             var level = Object.Instantiate(levelPrefab).GetComponent<LevelMediator>();
 
-            OnSpawn?.Invoke(level);
-            
             return level;
         }
     }

@@ -24,7 +24,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         public async UniTask<Vector3> GetCameraStartPointAsync()
         {
             var offset = await _cameraSettingsProvider.GetOffsetAsync();
-            var position = _levelProvider.Level.OriginPoint.position + offset;
+            var position = _levelProvider.Level.Value.OriginPoint.position + offset;
             
             return position;
         }
@@ -34,7 +34,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
             var startPosition = await GetCameraStartPointAsync();
             var endPosition = startPosition;
             
-            endPosition.y = Mathf.Max(startPosition.y, _levelProvider.Level.Height);
+            endPosition.y = Mathf.Max(startPosition.y, _levelProvider.Level.Value.Height);
 
             return endPosition;
         }

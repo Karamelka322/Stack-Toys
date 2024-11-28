@@ -13,7 +13,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
     {
         private const float TopBorder = 4f;
         
-        private readonly ILevelProvider _levelProvider;
         private readonly IDisposable _disposable;
 
         private LevelMediator _level;
@@ -24,21 +23,19 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
         public Vector3 TopLeftPoint { get; private set; }
         public Vector3 TopRightPoint { get; private set; }
         
-        public LevelBorderSystem(ICompanySceneLoad companySceneLoad, ILevelProvider levelProvider)
+        public LevelBorderSystem(ILevelProvider levelProvider)
         {
-            _levelProvider = levelProvider;
-
-            _disposable = companySceneLoad.IsLoaded.Subscribe(OnSceneLoad);
+            _disposable = levelProvider.Level.Subscribe(OnSceneLoad);
         }
 
-        private void OnSceneLoad(bool isLoaded)
+        private void OnSceneLoad(LevelMediator levelMediator)
         {
-            if (isLoaded == false)
+            if (levelMediator == null)
             {
                 return;
             }
         
-            _level = _levelProvider.Level;
+            _level = levelMediator;
 
             OriginPoint = _level.OriginPoint.position;
             

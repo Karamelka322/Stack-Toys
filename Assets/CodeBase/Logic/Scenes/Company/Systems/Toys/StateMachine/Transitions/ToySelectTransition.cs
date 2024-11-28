@@ -1,4 +1,3 @@
-using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Input;

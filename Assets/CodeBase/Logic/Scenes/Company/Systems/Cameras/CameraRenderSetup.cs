@@ -12,7 +12,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         private readonly IDisposable _disposable;
         private readonly Camera _camera;
 
-        public CameraRenderSetup(ICompanySceneLoad sceneLoad)
+        public CameraRenderSetup(ILevelSpawner sceneLoad)
         {
             _camera = Camera.main;
             

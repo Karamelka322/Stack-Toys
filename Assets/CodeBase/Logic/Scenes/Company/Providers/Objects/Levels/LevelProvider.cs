@@ -1,30 +1,21 @@
-using System;
-using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
+using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Providers.Objects.Levels
 {
-    public class LevelProvider : ILevelProvider, IDisposable
+    public class LevelProvider : ILevelProvider
     {
-        private readonly ILevelFactory _levelFactory;
+        public ReactiveProperty<LevelMediator> Level { get; }
 
-        public LevelMediator Level { get; private set; }
-
-        public LevelProvider(ILevelFactory levelFactory)
+        public LevelProvider()
         {
-            _levelFactory = levelFactory;
-            _levelFactory.OnSpawn += OnLevelSpawn;
+            Level = new ReactiveProperty<LevelMediator>();
         }
 
-        public void Dispose()
+        public void Register(LevelMediator levelMediator)
         {
-            _levelFactory.OnSpawn -= OnLevelSpawn;
-        }
-
-        private void OnLevelSpawn(LevelMediator level)
-        {
-            Level = level;
+            Level.Value = levelMediator;
         }
     }
 }
