@@ -123,10 +123,12 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<ToyMediator, ToyRotateState, ToyRotateState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyDragState, ToyDragState.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyTowerState, ToyTowerState.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyIdleState, ToyIdleState.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToySelectTransition, ToySelectTransition.Factory>().AsSingle();
             Container.BindFactory<ToyMediator, ToyStartDragTransition, ToyStartDragTransition.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyEndDragTransition, ToyEndDragTransition.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ClickUpTransition, ClickUpTransition.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyRotationTransition, ToyRotationTransition.Factory>().AsSingle();
             Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();

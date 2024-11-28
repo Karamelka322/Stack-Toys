@@ -29,7 +29,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         public override void Enter()
         {
             _offset = ClickToWorldPosition(Input.mousePosition) - _toyMediator.transform.position;
-            
+
             _inputService.OnClick += OnClick;
         }
 

@@ -2,6 +2,7 @@ using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Factories.Babble;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -48,6 +49,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         public override void Exit()
         {
+            _toyMediator.transform.DORotate(Vector3.zero, 0.4f);
+            _toyMediator.transform.DOScale(_startScale, 0.4f);
+            
             _compositeDisposable?.Dispose();
             Object.Destroy(_babble);
         }
@@ -64,13 +68,13 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         {
             UpdateAnimationValues();
         }
-
+        
         private void UpdateAnimationValues()
         {
             _rotationAxis = Vector3.Lerp(_rotationAxis, GetRandomDirection(), Time.deltaTime);
             _scale = GetRandomScale();
         }
-     
+        
         private Vector3 GetRandomDirection()
         {
             return new Vector3(
@@ -85,7 +89,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
                 UnityEngine.Random.Range(_startScale.x - ScaleChange, _startScale.x + ScaleChange),
                 UnityEngine.Random.Range(_startScale.y - ScaleChange, _startScale.y + ScaleChange),
                 UnityEngine.Random.Range(_startScale.z - ScaleChange, _startScale.z + ScaleChange));
-        
         }
     }
 }

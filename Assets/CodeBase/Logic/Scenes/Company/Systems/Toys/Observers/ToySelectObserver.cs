@@ -23,7 +23,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
         
         private void OnToyAdd(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
-            addEvent.Value.Item2.SubscribeToEnterState<ToyRotateState>(
+            addEvent.Value.Item2.SubscribeToEnterState<ToyIdleState>(
                 () => OnToySelect(addEvent.Value.Item1));
             
             addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(
