@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -121,7 +121,209 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Grass Texture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1128
+        height: 996
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        guid: 0b97640fdf34e8545956c90206ca4e34
+        position: {x: 7.2580175, y: 775.2347, z: 0}
+        rotation: {x: 0, y: 0, z: -0.094851226, w: 0.99549145}
+        length: 240.66164
+        parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 4278190335
+      - name: bone_2
+        guid: b962d71786574cf4294ed1e66aac4071
+        position: {x: 278.81174, y: 722.9691, z: 0}
+        rotation: {x: 0, y: 0, z: -0.02749158, w: 0.99962205}
+        length: 248.06834
+        parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 4278255615
+      - name: bone_3
+        guid: 83ac5cd8cdebfa34190dd02151daab12
+        position: {x: 575.36206, y: 709.33466, z: 0}
+        rotation: {x: 0, y: 0, z: 0.027617583, w: 0.9996186}
+        length: 246.93382
+        parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 4278255360
+      - name: bone_4
+        guid: 49d89391fecef4d43bb99fd900862903
+        position: {x: 862.8227, y: 730.9226, z: 0}
+        rotation: {x: 0, y: 0, z: 0.13052316, w: 0.9914453}
+        length: 245.844
+        parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 4294967040
+      spriteID: b75baabb92f5f92419235477c759f5df
+      internalID: 2137648191
+      vertices:
+      - {x: 0, y: 0}
+      - {x: 1128, y: 0}
+      - {x: 0, y: 996}
+      - {x: 1128, y: 996}
+      - {x: 134.51332, y: 994.5228}
+      - {x: 393.56876, y: 992.2504}
+      - {x: 650.3518, y: 991.1142}
+      - {x: 857.1417, y: 994.5228}
+      - {x: 1002.5763, y: 994.5228}
+      - {x: 144.73918, y: 3.749354}
+      - {x: 393.56876, y: 0.34072948}
+      - {x: 635.581, y: 0}
+      - {x: 819.6468, y: 2.6131456}
+      - {x: 995.759, y: 2.613215}
+      indices: 000000000200000009000000010000000d00000003000000020000000400000009000000030000000d00000008000000040000000500000009000000050000000a00000009000000050000000b0000000a00000005000000060000000b000000060000000c0000000b00000006000000070000000c000000070000000d0000000c00000007000000080000000d000000
+      edges:
+      - {x: 0, y: 2}
+      - {x: 0, y: 9}
+      - {x: 1, y: 3}
+      - {x: 1, y: 13}
+      - {x: 2, y: 4}
+      - {x: 3, y: 8}
+      - {x: 4, y: 5}
+      - {x: 4, y: 9}
+      - {x: 5, y: 6}
+      - {x: 5, y: 10}
+      - {x: 6, y: 7}
+      - {x: 6, y: 11}
+      - {x: 7, y: 8}
+      - {x: 7, y: 12}
+      - {x: 8, y: 13}
+      - {x: 9, y: 10}
+      - {x: 10, y: 11}
+      - {x: 11, y: 12}
+      - {x: 12, y: 13}
+      weights:
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +334,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grass Texture_0: 2137648191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
