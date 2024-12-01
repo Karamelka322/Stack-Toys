@@ -5,6 +5,7 @@ namespace CodeBase.Data.Constants
         // Prefabs
         public const string Canvas = "Canvas";
         public const string ToyBabble = "Toy_Babble";
+        public const string ToyShadow = "Toy_Shadow";
         
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";

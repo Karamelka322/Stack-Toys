@@ -60,6 +60,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // Game - Objects
             Container.BindInterfacesTo<LevelFactory>().AsSingle();
             Container.BindInterfacesTo<ToyFactory>().AsSingle();
+            Container.BindInterfacesTo<ToyOutlineFactory>().AsSingle();
             Container.BindInterfacesTo<BabbleFactory>().AsSingle();
             Container.BindInterfacesTo<FinishLineFactory>().AsSingle();
             
@@ -95,7 +96,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindPresenters()
         {
             // Game - Effects
-            Container.Bind<ToySelectEffectPresenter>().AsSingle().NonLazy();
+            // Container.Bind<ToySelectEffectPresenter>().AsSingle().NonLazy();
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();
@@ -134,6 +135,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
             Container.BindInterfacesTo<ToySpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyDestroyer>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyShadowSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyOutlineSystem>().AsSingle().NonLazy();
 
             // Camera
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();

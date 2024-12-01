@@ -12,7 +12,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 {
     public class ToyBabbleState : BaseState
     {
-        private const float ScaleChange = 0.2f;
+        private const float ScaleChange = 0.3f;
         private const float RotationSpeed = 60f;
         private const float ScaleSpeed = 1f;
 
