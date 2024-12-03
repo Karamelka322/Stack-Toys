@@ -15,15 +15,20 @@ namespace CodeBase.UI.General.Windows.Loading
         {
             _loadingWindowFactory = loadingWindowFactory;
         }
-
+        
         public void Open()
         {
             _window = _loadingWindowFactory.Spawn();
         }
-
+        
         public void Close()
         {
-            Object.Destroy(_window);
+            if (_window == null)
+            {
+                return;
+            }
+            
+            Object.Destroy(_window.gameObject);
         }
     }
 }

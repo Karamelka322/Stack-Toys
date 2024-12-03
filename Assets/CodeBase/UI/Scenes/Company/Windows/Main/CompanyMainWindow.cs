@@ -23,6 +23,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         private CompositeDisposable _compositeDisposable;
         private CompanyMainWindowMediator _mediator;
 
+        public BoolReactiveProperty IsOpened { get; }
         public event Action<float> OnSliderChanged;
         
         public CompanyMainWindow(
@@ -35,6 +36,8 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
             _windowService = windowService;
             _toySelectObserver = toySelectObserver;
             _companyMainWindowFactory = companyMainWindowFactory;
+
+            IsOpened = new BoolReactiveProperty();
         }
 
         public override async UniTask OpenAsync()
@@ -50,6 +53,8 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
             _toySelectObserver.Toy.Subscribe(OnSelectableToyChanged).AddTo(_compositeDisposable);
             
             HideSlider();
+
+            IsOpened.Value = true;
         }
 
         public override void Close()
@@ -58,6 +63,8 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
             _mediator.Slider.onValueChanged.RemoveAllListeners();
             
             _compositeDisposable?.Dispose();
+            
+            IsOpened.Value = false;
             
             Object.Destroy(_mediator.gameObject);
         }

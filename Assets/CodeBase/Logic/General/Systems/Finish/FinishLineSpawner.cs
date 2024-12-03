@@ -1,4 +1,5 @@
 using System;
+using CodeBase.Logic.General.Unity.Finish;
 using CodeBase.Logic.Interfaces.General.Factories.Finish;
 using CodeBase.Logic.Interfaces.General.Systems.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
@@ -12,6 +13,8 @@ namespace CodeBase.Logic.General.Systems.Finish
     {
         private readonly IFinishLineFactory _finishLineFactory;
         private readonly IDisposable _disposable;
+
+        public event Action<FinishLineMediator> OnSpawn;
 
         public FinishLineSpawner(ILevelProvider levelProvider, IFinishLineFactory finishLineFactory)
         {
@@ -41,6 +44,8 @@ namespace CodeBase.Logic.General.Systems.Finish
             var finishLine = await _finishLineFactory.SpawnAsync(position, level.OriginPoint.rotation);
             
             finishLine.Height.text = $"{level.Height} m";
+            
+            OnSpawn?.Invoke(finishLine);
         }
     }
 }

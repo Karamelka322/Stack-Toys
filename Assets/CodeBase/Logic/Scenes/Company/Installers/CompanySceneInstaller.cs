@@ -20,6 +20,7 @@ using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
@@ -101,6 +102,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanyFinishWindowPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyLoadingWindowPresenter>().AsSingle().NonLazy();
         }
 
         private void BindSystems()
@@ -112,6 +114,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<CompanySceneReady>().AsSingle();
 
             // Observers
             Container.BindInterfacesTo<ToyCountObserver>().AsSingle();
