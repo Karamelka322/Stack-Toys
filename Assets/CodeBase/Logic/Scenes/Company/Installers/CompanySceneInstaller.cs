@@ -140,6 +140,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToyDestroyer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyShadowSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyOutlineSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyBuildEffectSystem>().AsSingle().NonLazy();
 
             // Camera
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();

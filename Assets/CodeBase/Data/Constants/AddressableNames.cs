@@ -13,7 +13,10 @@ namespace CodeBase.Data.Constants
 
         public const string PauseWindow = "Pause_Window";
         public const string FinishLine = "FinishLine";
-
+        
+        // Materials
+        public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
+        
         public static class MenuScene
         {
             // UI
