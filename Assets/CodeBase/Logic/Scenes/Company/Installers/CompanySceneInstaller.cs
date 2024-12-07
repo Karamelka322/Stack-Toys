@@ -11,7 +11,9 @@ using CodeBase.Logic.General.Systems.Finish;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
+using CodeBase.Logic.Scenes.Company.Presenters.Finish;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
+using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
@@ -80,24 +82,25 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindProviders()
         {
+            // Objects
+            Container.BindInterfacesTo<LevelProvider>().AsSingle();
+            Container.BindInterfacesTo<WindowCanvasProvider>().AsSingle();
+            Container.BindInterfacesTo<GameCanvasProvider>().AsSingle();
+            Container.BindInterfacesTo<ToyProvider>().AsSingle();
+            Container.BindInterfacesTo<FinishLineProvider>().AsSingle();
+            
             // Data - ScriptableObjects
             Container.BindInterfacesTo<LevelsConfigProvider>().AsSingle();
             Container.BindInterfacesTo<CameraSettingsProvider>().AsSingle();
             
             // Data - Saves
             Container.BindInterfacesTo<CompanyLevelsSaveDataProvider>().AsSingle();
-            
-            // Objects
-            Container.BindInterfacesTo<LevelProvider>().AsSingle();
-            Container.BindInterfacesTo<WindowCanvasProvider>().AsSingle();
-            Container.BindInterfacesTo<GameCanvasProvider>().AsSingle();
-            Container.BindInterfacesTo<ToyProvider>().AsSingle();
         }
 
         private void BindPresenters()
         {
             // Game - Effects
-            // Container.Bind<ToySelectEffectPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishEffectPresenter>().AsSingle().NonLazy();
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();

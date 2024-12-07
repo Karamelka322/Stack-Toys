@@ -5,14 +5,15 @@ namespace CodeBase.Data.Constants
         // Prefabs
         public const string Canvas = "Canvas";
         public const string ToyBabble = "Toy_Babble";
-        public const string ToyShadow = "Toy_Shadow";
+        public const string ToyShadow = "Toy_Shadow"; 
+        public const string PauseWindow = "Pause_Window";
+        
+        // Effects
+        public const string ToyTowerBuildEffect = "Toy_Tower_Build_Effect";
         
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
         public const string CameraSettings = "Camera_Settings";
-
-        public const string PauseWindow = "Pause_Window";
-        public const string FinishLine = "FinishLine";
         
         // Materials
         public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
@@ -29,13 +30,17 @@ namespace CodeBase.Data.Constants
         
         public static class CompanyScene
         {
-            // UI
+            // Prefabs
+            public const string FinishLine = "FinishLine";
+            
+            // UI - Elements
             public const string ToyRotator = "ToyRotator";
             public const string MainWindow = "CompanyMainWindow";
             public const string FinishWindow = "CompanyFinishWindow";
 
             // Effects
             public const string ToySelectEffect = "ToySelectEffect";
+            public const string FinishEffect = "Finish_effect";
         }
     }
 }

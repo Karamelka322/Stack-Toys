@@ -9,12 +9,13 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
     public class ToyBuildEffectSystem : IDisposable
     {
-        private const float Delay = 0.08f;
+        private const float Delay = 0.1f;
         private const float Duration = 0.4f;
         
         private readonly IToyTowerObserver _toyTowerObserver;
@@ -62,16 +63,32 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             
             try
             {
-                foreach (var toy in _toyTowerObserver.Tower)
+                for (var i = 0; i < _toyTowerObserver.Tower.Count; i++)
                 {
-                    PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
+                    var toy = _toyTowerObserver.Tower[i];
+
+                    if (i == _toyTowerObserver.Tower.Count - 1)
+                    {
+                        PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
+                        SpawnSplashAsync(toy.transform.position).Forget();
+                    }
+                    else
+                    {
+                        PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
+                    }
 
                     await UniTask.Delay(TimeSpan.FromSeconds(Delay), cancellationToken: token);
                 }
             }
             catch (OperationCanceledException e) { }
         }
-
+        
+        private async UniTask SpawnSplashAsync(Vector3 position)
+        {
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.ToyTowerBuildEffect);
+            var effect = Object.Instantiate(prefab, position, Quaternion.identity);
+        }
+        
         private static async UniTask PlayToyAnimationAsync(ToyMediator toy, Material highlightedMaterial)
         {
             var sharedMaterial = toy.MeshRenderer.sharedMaterial;
@@ -86,7 +103,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             {
                 toy.MeshRenderer.material.Lerp(toy.MeshRenderer.material, sharedMaterial, value);
             }));
-
+            
             await sequence.AsyncWaitForCompletion();
             
             if (toy != null)
@@ -94,7 +111,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
                 toy.MeshRenderer.material = sharedMaterial;
             }
         }
-
+        
         private void StopEffect()
         {
             if (_animationTokenSource?.IsCancellationRequested == false)
