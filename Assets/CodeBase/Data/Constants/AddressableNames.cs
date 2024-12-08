@@ -12,7 +12,7 @@ namespace CodeBase.Data.Constants
         public const string PauseWindow = "Pause_Window";
 
         // Effects
-        public const string ToyTowerBuildEffect = "Toy_Tower_Build_Effect";
+        // public const string ToyTowerBuildEffect = "Toy_Tower_Build_Effect";
         
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";

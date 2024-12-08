@@ -9,13 +9,11 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
     public class ToyBuildEffectSystem : IDisposable
     {
-        private const float Delay = 0.1f;
         private const float Duration = 0.4f;
         
         private readonly IToyTowerObserver _toyTowerObserver;
@@ -61,32 +59,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         {
             var highlightedMaterial = await _assetServices.LoadAsync<Material>(AddressableNames.HighlightedToyMaterial);
             
-            try
+            foreach (var toy in _toyTowerObserver.Tower)
             {
-                for (var i = 0; i < _toyTowerObserver.Tower.Count; i++)
-                {
-                    var toy = _toyTowerObserver.Tower[i];
-
-                    if (i == _toyTowerObserver.Tower.Count - 1)
-                    {
-                        PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
-                        SpawnSplashAsync(toy.transform.position).Forget();
-                    }
-                    else
-                    {
-                        PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
-                    }
-
-                    await UniTask.Delay(TimeSpan.FromSeconds(Delay), cancellationToken: token);
-                }
+                PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
             }
-            catch (OperationCanceledException e) { }
-        }
-        
-        private async UniTask SpawnSplashAsync(Vector3 position)
-        {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.ToyTowerBuildEffect);
-            var effect = Object.Instantiate(prefab, position, Quaternion.identity);
         }
         
         private static async UniTask PlayToyAnimationAsync(ToyMediator toy, Material highlightedMaterial)
