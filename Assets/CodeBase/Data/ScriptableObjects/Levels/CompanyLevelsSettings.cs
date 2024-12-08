@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace CodeBase.Data.ScriptableObjects.Levels
 {
-    [CreateAssetMenu(menuName = AssetMenuConstants.ScriptableObjects + nameof(LevelsConfig), fileName = nameof(LevelsConfig))]
-    public class LevelsConfig : ScriptableObject
+    [CreateAssetMenu(menuName = AssetMenuConstants.ScriptableObjects + nameof(CompanyLevelsSettings), fileName = nameof(CompanyLevelsSettings))]
+    public class CompanyLevelsSettings : ScriptableObject
     {
         [SerializeField, Required] 
         private LevelConfigData[] _levels;

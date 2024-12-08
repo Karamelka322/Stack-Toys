@@ -90,7 +90,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishLineProvider>().AsSingle();
             
             // Data - ScriptableObjects
-            Container.BindInterfacesTo<LevelsConfigProvider>().AsSingle();
+            Container.BindInterfacesTo<CompanyLevelsSettingProvider>().AsSingle();
             Container.BindInterfacesTo<CameraSettingsProvider>().AsSingle();
             
             // Data - Saves

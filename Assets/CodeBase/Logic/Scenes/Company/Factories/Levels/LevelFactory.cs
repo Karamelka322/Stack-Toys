@@ -8,9 +8,9 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Levels
 {
     public class LevelFactory : ILevelFactory
     {
-        private readonly ILevelsConfigProvider _levelsConfigProvider;
+        private readonly ICompanyLevelsSettingProvider _levelsConfigProvider;
 
-        public LevelFactory(ILevelsConfigProvider levelsConfigProvider)
+        public LevelFactory(ICompanyLevelsSettingProvider levelsConfigProvider)
         {
             _levelsConfigProvider = levelsConfigProvider;
         }

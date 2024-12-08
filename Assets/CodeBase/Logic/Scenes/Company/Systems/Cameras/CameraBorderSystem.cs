@@ -14,8 +14,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         private readonly Camera _camera;
         private readonly ILevelProvider _levelProvider;
 
-        public CameraBorderSystem(ICameraSettingsProvider cameraSettingsProvider, ILevelProvider levelProvider)
+        public CameraBorderSystem(
+            ICameraSettingsProvider cameraSettingsProvider,
+            ILevelProvider levelProvider,
+            ILevelBorderSystem levelBorderSystem)
         {
+            _levelBorderSystem = levelBorderSystem;
             _levelProvider = levelProvider;
             _camera = Camera.main;
             _cameraSettingsProvider = cameraSettingsProvider;
@@ -32,9 +36,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras
         public async UniTask<Vector3> GetCameraEndPointAsync()
         {
             var startPosition = await GetCameraStartPointAsync();
+            var levelHeight = await _levelBorderSystem.GetHeightAsync();
             var endPosition = startPosition;
             
-            endPosition.y = Mathf.Max(startPosition.y, _levelProvider.Level.Value.Height);
+            endPosition.y = Mathf.Max(startPosition.y, levelHeight);
 
             return endPosition;
         }

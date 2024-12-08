@@ -1,4 +1,5 @@
 using CodeBase.Logic.General.Unity.Toys;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels
@@ -10,6 +11,8 @@ namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels
         Vector3 TopLeftPoint { get; }
         Vector3 TopRightPoint { get; }
         Vector3 OriginPoint { get; }
-        Vector3 Clamp(ToyMediator toyMediator, Vector3 position);
+
+        UniTask<float> GetHeightAsync();
+        UniTask<Vector3> ClampAsync(ToyMediator toyMediator, Vector3 position);
     }
 }

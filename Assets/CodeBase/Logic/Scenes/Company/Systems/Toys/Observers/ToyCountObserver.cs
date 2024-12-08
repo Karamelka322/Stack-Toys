@@ -10,7 +10,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
 {
     public class ToyCountObserver : IToyCountObserver, IDisposable
     {
-        private readonly ILevelsConfigProvider _levelsConfigProvider;
+        private readonly ICompanyLevelsSettingProvider _levelsConfigProvider;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
         private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IToyProvider _toyProvider;
@@ -25,7 +25,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
 
         public ToyCountObserver(
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
-            ILevelsConfigProvider levelsConfigProvider,
+            ICompanyLevelsSettingProvider levelsConfigProvider,
             IToyTowerObserver toyTowerObserver,
             IToyProvider toyProvider)
         {

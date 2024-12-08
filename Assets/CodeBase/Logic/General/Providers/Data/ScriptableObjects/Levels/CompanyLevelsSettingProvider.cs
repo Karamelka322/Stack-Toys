@@ -4,18 +4,17 @@ using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
 {
-    public class LevelsConfigProvider : ILevelsConfigProvider
+    public class CompanyLevelsSettingProvider : ICompanyLevelsSettingProvider
     {
         private readonly IAssetServices _assetServices;
         private readonly AsyncLazy _prepareResourcesTask;
         
-        private LevelsConfig _config;
+        private CompanyLevelsSettings _config;
 
-        public LevelsConfigProvider(IAssetServices assetServices)
+        public CompanyLevelsSettingProvider(IAssetServices assetServices)
         {
             _assetServices = assetServices;
             _prepareResourcesTask = UniTask.Lazy(PrepareResources);
@@ -37,6 +36,13 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
             
             return _config.Levels.Length;
         }
+
+        public async UniTask<float> GetLevelHeightAsync(int index)
+        {
+            await _prepareResourcesTask;
+
+            return _config.Levels[index].Height;
+        }
         
         public async UniTask<GameObject[]> GetToyPrefabsAsync(int levelIndex)
         {
@@ -50,7 +56,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
 
         private async UniTask PrepareResources()
         {
-            _config = await _assetServices.LoadAsync<LevelsConfig>(AddressableNames.LevelsConfig);
+            _config = await _assetServices.LoadAsync<CompanyLevelsSettings>(AddressableNames.LevelsConfig);
         }
     }
 }

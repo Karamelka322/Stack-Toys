@@ -4,6 +4,7 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -16,12 +17,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         private readonly IFinishLineFactory _finishLineFactory;
         private readonly IDisposable _disposable;
         private readonly IFinishLineProvider _finishLineProvider;
+        private readonly ILevelBorderSystem _levelBorderSystem;
 
         public event Action<FinishLineMediator> OnSpawn;
 
-        public FinishLineSpawner(ILevelProvider levelProvider, IFinishLineFactory finishLineFactory,
+        public FinishLineSpawner(
+            ILevelProvider levelProvider,
+            IFinishLineFactory finishLineFactory,
+            ILevelBorderSystem levelBorderSystem,
             IFinishLineProvider finishLineProvider)
         {
+            _levelBorderSystem = levelBorderSystem;
             _finishLineProvider = finishLineProvider;
             _finishLineFactory = finishLineFactory;
 
@@ -46,10 +52,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         
         private async UniTask<FinishLineMediator> SpawnFinishLine(LevelMediator level)
         {
-            var position = level.OriginPoint.position + Vector3.up * level.Height;
+            var levelHeight = await _levelBorderSystem.GetHeightAsync();
+            var position = level.OriginPoint.position + Vector3.up * levelHeight;
             var finishLine = await _finishLineFactory.SpawnAsync(position, level.OriginPoint.rotation);
             
-            finishLine.Height.text = $"{level.Height} m";
+            finishLine.Height.text = $"{levelHeight} m";
             
             OnSpawn?.Invoke(finishLine);
 

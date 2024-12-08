@@ -38,10 +38,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             _inputService.OnClick -= OnClick;
         }
 
-        private void OnClick(Vector3 clickPosition)
+        private async void OnClick(Vector3 clickPosition)
         {
             var worldPosition = ClickToWorldPosition(clickPosition) - _offset;
-            var clampPosition = _levelBorderSystem.Clamp(_toyMediator, worldPosition);
+            var clampPosition = await _levelBorderSystem.ClampAsync(_toyMediator, worldPosition);
             
             _toyMediator.transform.position = clampPosition;
         }

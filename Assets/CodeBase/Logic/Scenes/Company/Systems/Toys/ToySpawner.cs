@@ -28,7 +28,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IToyProvider _toyProvider;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
-        private readonly ILevelsConfigProvider _levelsConfigProvider;
+        private readonly ICompanyLevelsSettingProvider _levelsConfigProvider;
         private readonly IToyCountObserver _toyCountObserver;
         private readonly IToyDestroyer _toyDestroyer;
 
@@ -44,7 +44,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             ILevelSpawner companySceneLoad,
             IToyCountObserver toyCountObserver,
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
-            ILevelsConfigProvider levelsConfigProvider,
+            ICompanyLevelsSettingProvider levelsConfigProvider,
             ILevelBorderSystem levelBorderSystem)
         {
             _toyDestroyer = toyDestroyer;

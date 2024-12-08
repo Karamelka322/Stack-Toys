@@ -8,6 +8,8 @@ namespace Editor.CodeBase
     [CustomEditor(typeof(LevelMediator))]
     public class LevelMediatorEditor : OdinEditor
     {
+        private const float _height = 10f;
+        
         private void OnSceneGUI()
         {
             var level = target as LevelMediator;
@@ -16,7 +18,7 @@ namespace Editor.CodeBase
             {
                 return;
             }
-
+            
             TrySetLevelBorderGizmo(level);
         }
 
@@ -26,12 +28,12 @@ namespace Editor.CodeBase
             {
                 return;
             }
-
+            
             var bottomLeft = level.OriginPoint.position - level.OriginPoint.right * level.Width / 2f;
             var bottomRight = level.OriginPoint.position + level.OriginPoint.right * level.Width / 2f;
             
-            var topLeft = bottomLeft + level.OriginPoint.up * level.Height;
-            var topRight = bottomRight + level.OriginPoint.up * level.Height;
+            var topLeft = bottomLeft + level.OriginPoint.up * _height;
+            var topRight = bottomRight + level.OriginPoint.up * _height;
             
             Handles.color = Color.yellow;
             
