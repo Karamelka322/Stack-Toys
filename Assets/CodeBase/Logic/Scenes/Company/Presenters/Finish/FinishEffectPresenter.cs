@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
@@ -30,21 +31,22 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Finish
             _disposable?.Dispose();
         }
 
-        private void OnFinishValueChanged(bool isFinished)
+        private async void OnFinishValueChanged(bool isFinished)
         {
             if (isFinished == false)
             {
                 return;
             }
-            
-            SpawnEffectAsync().Forget();
+
+            var effect = await SpawnEffectAsync();
+            Object.Destroy(effect, 10f);
         }
         
-        private async UniTask SpawnEffectAsync()
+        private async UniTask<GameObject> SpawnEffectAsync()
         {
             var position = _finishLineProvider.FinishLine.Value.transform.position;
             var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.CompanyScene.FinishEffect);
-            var effect = Object.Instantiate(prefab, position, Quaternion.identity);
+            return Object.Instantiate(prefab, position, Quaternion.identity);
         }
     }
 }

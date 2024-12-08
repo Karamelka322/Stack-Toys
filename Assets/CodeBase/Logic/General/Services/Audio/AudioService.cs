@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using CodeBase.Data.Constants;
+using CodeBase.Data.Enums;
+using CodeBase.Data.Models.Audio;
 using CodeBase.Logic.General.Unity.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
@@ -18,7 +20,7 @@ namespace CodeBase.Logic.General.Services.Audio
         private readonly IAssetServices _assetServices;
         private readonly AsyncLazy _prepareTask;
 
-        private readonly Dictionary<string, CancellationTokenSource> _audioClips;
+        private readonly List<AudioClipPlaybackData> _audioClips;
 
         private AudioListenerMediator _listener;
 
@@ -27,7 +29,7 @@ namespace CodeBase.Logic.General.Services.Audio
             _audioSettingsProvider = audioSettingsProvider;
             _assetServices = assetServices;
 
-            _audioClips = new Dictionary<string, CancellationTokenSource>();
+            _audioClips = new List<AudioClipPlaybackData>();
             
             _prepareTask = UniTask.Lazy(PrepareAsync);
         }
@@ -36,10 +38,10 @@ namespace CodeBase.Logic.General.Services.Audio
         {
             foreach (var audioData in _audioClips)
             {
-                if (audioData.Value.IsCancellationRequested == false)
+                if (audioData.CancellationTokenSource.IsCancellationRequested == false)
                 {
-                    audioData.Value.Cancel();
-                    audioData.Value.Dispose();
+                    audioData.CancellationTokenSource.Cancel();
+                    audioData.CancellationTokenSource.Dispose();
                 }
             }
             
@@ -91,7 +93,7 @@ namespace CodeBase.Logic.General.Services.Audio
 
             var source = await SpawnSourceAsync(audioOutputType);
             var audioClip = await _assetServices.LoadAsync<AudioClip>(addressableName);
-            var data = await _audioSettingsProvider.GetCompositionDataAsync(addressableName);
+            var data = await _audioSettingsProvider.GetAudioClipDataAsync(addressableName);
             
             source.clip = audioClip;
             source.volume = data.Volume;
@@ -99,13 +101,20 @@ namespace CodeBase.Logic.General.Services.Audio
             source.loop = isLoop;
             source.Play();
 
-            _audioClips.Add(addressableName, cancellationTokenSource);
+            var playbackData = new AudioClipPlaybackData()
+            {
+                AddressableName = addressableName,
+                CancellationTokenSource = cancellationTokenSource,
+                Source = source,
+            };
+
+            _audioClips.Add(playbackData);
             
             try
             {
                 await UniTask.WaitWhile(() => source.isPlaying, cancellationToken: cancellationTokenSource.Token);
 
-                _audioClips.Remove(addressableName);
+                _audioClips.Remove(playbackData);
                 Object.Destroy(source.gameObject);
             }
             catch (OperationCanceledException e) { }
@@ -141,11 +150,5 @@ namespace CodeBase.Logic.General.Services.Audio
             
             return listener;
         }
-    }
-    
-    public enum AudioOutputType
-    {
-        Music,
-        Sounds
     }
 }

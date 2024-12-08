@@ -5,6 +5,6 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Aud
 {
     public interface IAudioSettingsProvider
     {
-        UniTask<AudioVolumeData> GetCompositionDataAsync(string addressableKey);
+        UniTask<AudioClipSettingData> GetAudioClipDataAsync(string addressableKey);
     }
 }

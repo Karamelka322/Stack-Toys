@@ -21,7 +21,10 @@ namespace CodeBase.Data.Constants
         
         // Materials
         public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
-
+        
+        // Audio
+        public const string ToySelectSound = "ToySelect_sound";
+        
         public static class MenuScene
         {
             // UI

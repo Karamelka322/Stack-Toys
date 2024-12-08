@@ -8,8 +8,8 @@ namespace CodeBase.Data.ScriptableObjects.Audio
     public class AudioSettings : ScriptableObject
     {
         [SerializeField]
-        private AudioVolumeData[] _compositions;
+        private AudioClipSettingData[] _compositions;
 
-        public AudioVolumeData[] Compositions => _compositions;
+        public AudioClipSettingData[] Compositions => _compositions;
     }
 }

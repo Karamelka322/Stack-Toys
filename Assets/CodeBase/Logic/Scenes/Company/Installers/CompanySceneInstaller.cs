@@ -11,6 +11,7 @@ using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
+using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
@@ -100,6 +101,9 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         {
             // Game - Effects
             Container.BindInterfacesTo<FinishEffectPresenter>().AsSingle().NonLazy();
+            
+            // Sounds
+            Container.BindInterfacesTo<ToySelectSoundPresenter>().AsSingle().NonLazy();
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();

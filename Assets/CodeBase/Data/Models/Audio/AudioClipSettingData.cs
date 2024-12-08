@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 namespace CodeBase.Data.Models.Audio
 {
     [Serializable]
-    public class AudioVolumeData
+    public class AudioClipSettingData
     {
         [Required] 
         public string AddressableName;

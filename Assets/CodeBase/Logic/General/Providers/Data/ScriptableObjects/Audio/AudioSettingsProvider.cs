@@ -20,7 +20,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
             _prepareTask = UniTask.Lazy(PrepareResourcesAsync);
         }
 
-        public async UniTask<AudioVolumeData> GetCompositionDataAsync(string addressableKey)
+        public async UniTask<AudioClipSettingData> GetAudioClipDataAsync(string addressableKey)
         {
             await _prepareTask;
             
@@ -32,7 +32,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
                 }
             }
             
-            return new AudioVolumeData();
+            return new AudioClipSettingData();
         }
 
         private async UniTask PrepareResourcesAsync()
