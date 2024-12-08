@@ -1,9 +1,10 @@
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Toys;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
+namespace CodeBase.Logic.Scenes.Company.Factories.Toys
 {
     public class ToyOutlineFactory : IToyOutlineFactory
     {

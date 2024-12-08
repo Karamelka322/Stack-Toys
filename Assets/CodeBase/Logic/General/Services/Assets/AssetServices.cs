@@ -9,8 +9,8 @@ namespace CodeBase.Logic.General.Services.Assets
 {
     public class AssetServices : IAssetServices
     {
-          private readonly Dictionary<string, AsyncOperationHandle> _cache = new(64);
-
+        private readonly Dictionary<string, AsyncOperationHandle> _cache = new(64);
+        
         /// <summary>
         /// Загрузить ассет по адрессабл имени
         /// </summary>

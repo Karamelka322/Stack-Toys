@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using Cysharp.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Finish
         private readonly IAssetServices _assetServices;
         private readonly IDisposable _disposable;
         private readonly IFinishLineProvider _finishLineProvider;
-
+        
         public FinishEffectPresenter(IAssetServices assetServices, IFinishObserver finishObserver, IFinishLineProvider finishLineProvider)
         {
             _finishLineProvider = finishLineProvider;

@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.Unity.Finish;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Interfaces.General.Systems.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;

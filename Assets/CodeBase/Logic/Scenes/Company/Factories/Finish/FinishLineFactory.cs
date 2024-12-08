@@ -1,12 +1,12 @@
 using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Unity.Finish;
-using CodeBase.Logic.Interfaces.General.Factories.Finish;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeBase.Logic.General.Factories.Finish
+namespace CodeBase.Logic.Scenes.Company.Factories.Finish
 {
     public class FinishLineFactory : IFinishLineFactory
     {

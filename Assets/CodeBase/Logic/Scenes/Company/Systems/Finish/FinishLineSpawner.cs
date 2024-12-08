@@ -1,15 +1,15 @@
 using System;
 using CodeBase.Logic.General.Unity.Finish;
-using CodeBase.Logic.Interfaces.General.Factories.Finish;
-using CodeBase.Logic.Interfaces.General.Systems.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
-using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Systems.Finish
+namespace CodeBase.Logic.Scenes.Company.Systems.Finish
 {
     public class FinishLineSpawner : IFinishLineSpawner, IDisposable
     {

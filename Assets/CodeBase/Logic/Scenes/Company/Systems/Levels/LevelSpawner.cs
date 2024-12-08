@@ -5,7 +5,7 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using Cysharp.Threading.Tasks;
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Load
+namespace CodeBase.Logic.Scenes.Company.Systems.Levels
 {
     public class LevelSpawner : ILevelSpawner
     {

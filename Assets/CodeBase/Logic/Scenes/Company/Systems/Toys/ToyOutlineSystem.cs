@@ -6,7 +6,7 @@ using UniRx;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
+namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
     public class ToyOutlineSystem : IDisposable
     {

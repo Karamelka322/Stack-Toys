@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using UniRx;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
+namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 {
     public class ToyShadowSystem : IDisposable
     {

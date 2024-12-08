@@ -1,4 +1,5 @@
 using CodeBase.Logic.General.Unity.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine

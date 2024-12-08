@@ -4,20 +4,24 @@ namespace CodeBase.Data.Constants
     {
         // Prefabs
         public const string Canvas = "Canvas";
+        public const string AudioListener = "AudioListener";
+        public const string MusicSource = "MusicSource";
+        public const string SoundSource = "SoundSource";
         public const string ToyBabble = "Toy_Babble";
-        public const string ToyShadow = "Toy_Shadow"; 
+        public const string ToyShadow = "Toy_Shadow";
         public const string PauseWindow = "Pause_Window";
-        
+
         // Effects
         public const string ToyTowerBuildEffect = "Toy_Tower_Build_Effect";
         
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
         public const string CameraSettings = "Camera_Settings";
+        public const string AudioSettings = "AudioSettings";
         
         // Materials
         public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
-        
+
         public static class MenuScene
         {
             // UI
@@ -41,6 +45,12 @@ namespace CodeBase.Data.Constants
             // Effects
             public const string ToySelectEffect = "ToySelectEffect";
             public const string FinishEffect = "Finish_effect";
+            
+            // Audio
+            public const string ForestNoise_ambient = "Forest_1_ambient";
+            public const string Birds_1_ambient = "Birds_1_ambient";
+            public const string Birds_2_ambient = "Birds_2_ambient";
+            public const string Meditation_music = "Meditation_music";
         }
     }
 }

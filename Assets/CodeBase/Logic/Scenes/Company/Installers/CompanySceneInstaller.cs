@@ -1,18 +1,16 @@
 using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
-using CodeBase.Logic.General.Factories.Finish;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
-using CodeBase.Logic.General.Systems.Finish;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
-using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
@@ -22,6 +20,7 @@ using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Scenes.Company.Systems.Music;
 using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
@@ -118,6 +117,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CompanySceneReady>().AsSingle();
+            Container.BindInterfacesTo<CompanySceneMusic>().AsSingle().NonLazy();
 
             // Observers
             Container.BindInterfacesTo<ToyCountObserver>().AsSingle();

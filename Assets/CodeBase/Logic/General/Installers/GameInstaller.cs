@@ -1,5 +1,8 @@
+using CodeBase.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.General.Providers.Data.Saves;
+using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.General.Services.Assets;
+using CodeBase.Logic.General.Services.Audio;
 using CodeBase.Logic.General.Services.Files;
 using CodeBase.Logic.General.Services.Input;
 using CodeBase.Logic.General.Services.SaveLoad;
@@ -28,6 +31,7 @@ namespace CodeBase.Logic.General.Installers
         private void BindProviders()
         {
             Container.BindInterfacesTo<PlayerSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<AudioSettingsProvider>().AsSingle();
         }
 
         private void BindFactories()
@@ -50,6 +54,7 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<SaveLoadService>().AsSingle();
             Container.BindInterfacesTo<BinaryFormatter>().AsSingle();
             Container.BindInterfacesTo<WindowService>().AsSingle();
+            Container.BindInterfacesTo<AudioService>().AsSingle();
         }
 
         private void BindPresenters()

@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
+namespace CodeBase.Logic.Interfaces.Scenes.Company.Factories.Toys
 {
     public interface IToyOutlineFactory
     {
