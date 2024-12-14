@@ -8,13 +8,17 @@ using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using CodeBase.UI.Scenes.Company.Mediators.Windows.Main;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UniRx;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace CodeBase.UI.Scenes.Company.Windows.Main
 {
     public class CompanyMainWindow : BaseWindow, ICompanyMainWindow
     {
+        private const float _sliderDuration = 0.5f;
+        
         private readonly ICompanyMainWindowFactory _companyMainWindowFactory;
         private readonly IToySelectObserver _toySelectObserver;
         private readonly IWindowService _windowService;
@@ -74,6 +78,11 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
             return _mediator.Slider.value;
         }
         
+        public Quaternion SliderValueToRotation(float value)
+        {
+            return Quaternion.Euler(0, 0, 360 * value);
+        }
+
         private void OnPauseButtonClicked()
         {
             _windowService.OpenAsync<PauseWindow>().Forget();
@@ -83,23 +92,37 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         {
             if (toyMediator == null)
             {
-                HideSlider();
+                if (_toyCountObserver.NumberOfTowerBuildToys.Value == 0)
+                {
+                    HideSlider(0);
+                    SetRandomValueToSlider();
+                }
+                else
+                {
+                    HideSlider(_sliderDuration, SetRandomValueToSlider);
+                }
             }
             else
             {
                 ShowSlider();
             }
         }
+
+        private void SetRandomValueToSlider()
+        {
+            _mediator.Slider.value = UnityEngine.Random.Range(0f, 1f);
+        }
         
         private void ShowSlider()
         {
-            _mediator.Slider.value = 0;
-            _mediator.Slider.gameObject.SetActive(true);
+            DOVirtual.Float(0f, 1f, _sliderDuration, 
+                (value) => _mediator.SliderCanvasGroup.alpha = value);
         }
 
-        private void HideSlider()
+        private void HideSlider(float duration = _sliderDuration, TweenCallback onComplete = null)
         {
-            _mediator.Slider.gameObject.SetActive(false);
+            DOVirtual.Float(1f, 0f, duration, 
+                (value) => _mediator.SliderCanvasGroup.alpha = value).OnComplete(onComplete);
         }
         
         private void UpdateToyCounter(int value)

@@ -2,6 +2,7 @@ using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Factories.Babble;
+using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         private readonly ToyMediator _toyMediator;
         private readonly IBabbleFactory _babbleFactory;
+        private readonly ICompanyMainWindow _companyMainWindow;
         private readonly Vector3 _startScale;
 
         private Vector3 _scale;
@@ -26,8 +28,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         private GameObject _babble;
         private CompositeDisposable _compositeDisposable;
 
-        public ToyBabbleState(ToyMediator toyMediator, IBabbleFactory babbleFactory)
+        public ToyBabbleState(ToyMediator toyMediator, IBabbleFactory babbleFactory, ICompanyMainWindow companyMainWindow)
         {
+            _companyMainWindow = companyMainWindow;
             _babbleFactory = babbleFactory;
             _toyMediator = toyMediator;
             _startScale = toyMediator.transform.localScale;
@@ -49,7 +52,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         public override void Exit()
         {
-            _toyMediator.transform.DORotate(Vector3.zero, 0.4f);
+            var sliderValue = _companyMainWindow.GetSliderValue();
+            var sliderValueToRotation = _companyMainWindow.SliderValueToRotation(sliderValue);
+
+            _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, 0.4f);
             _toyMediator.transform.DOScale(_startScale, 0.4f);
             
             _compositeDisposable?.Dispose();

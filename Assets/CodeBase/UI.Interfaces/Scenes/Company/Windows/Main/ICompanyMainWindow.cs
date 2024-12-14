@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using UniRx;
+using UnityEngine;
 
 namespace CodeBase.UI.Interfaces.Scenes.Company.Windows.Main
 {
@@ -12,5 +13,6 @@ namespace CodeBase.UI.Interfaces.Scenes.Company.Windows.Main
         UniTask OpenAsync();
         void Close();
         float GetSliderValue();
+        Quaternion SliderValueToRotation(float value);
     }
 }

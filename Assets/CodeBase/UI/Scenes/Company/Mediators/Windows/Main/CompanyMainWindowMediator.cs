@@ -9,6 +9,9 @@ namespace CodeBase.UI.Scenes.Company.Mediators.Windows.Main
     {
         [SerializeField, Required] 
         private Slider _slider;
+        
+        [SerializeField, Required] 
+        private CanvasGroup _sliderCanvasGroup;
 
         [SerializeField, Required] 
         private Button _pauseButton;
@@ -19,5 +22,6 @@ namespace CodeBase.UI.Scenes.Company.Mediators.Windows.Main
         public Slider Slider => _slider;
         public Button PauseButton => _pauseButton;
         public TextMeshProUGUI ToyCounter => _toyCounter;
+        public CanvasGroup SliderCanvasGroup => _sliderCanvasGroup;
     }
 }

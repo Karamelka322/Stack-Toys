@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 143.07, y: 134}
+  m_SizeDelta: {x: 134, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8489752663978924078
 CanvasRenderer:
@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379210849032449804}
   - component: {fileID: 6971580949356719441}
+  - component: {fileID: 6032845836421907770}
   m_Layer: 5
   m_Name: ToyRotator - slider
   m_TagString: Untagged
@@ -276,6 +277,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &6032845836421907770
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831570856792979024}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3833284283773328662
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +879,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 84, y: 74}
+  m_SizeDelta: {x: 84, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3134088458965169903
 CanvasRenderer:
@@ -1217,5 +1230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 6971580949356719441}
+  _sliderCanvasGroup: {fileID: 6032845836421907770}
   _pauseButton: {fileID: 8828530787458503925}
   _toyCounter: {fileID: 489226503449378172}
