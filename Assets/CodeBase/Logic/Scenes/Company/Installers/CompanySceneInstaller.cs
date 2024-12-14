@@ -105,6 +105,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // Sounds
             Container.BindInterfacesTo<ToySelectSoundPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyCollisionSoundPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishSoundPresenter>().AsSingle().NonLazy();
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();

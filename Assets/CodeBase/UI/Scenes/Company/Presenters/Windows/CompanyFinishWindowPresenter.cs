@@ -10,7 +10,7 @@ namespace CodeBase.UI.Scenes.Company.Presenters.Windows
 {
     public class CompanyFinishWindowPresenter : IDisposable
     {
-        private const double Delay = 1.5d;
+        private const double Delay = 2d;
         
         private readonly IWindowService _windowService;
         private readonly IDisposable _disposable;

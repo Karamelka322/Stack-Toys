@@ -8,6 +8,7 @@ namespace CodeBase.Data.Constants
         public const string Meditation_music = "Meditation_music";
         
         public const string ToySelectSound = "ToySelect_sound";
+        public const string FinishSound = "Finish_sound";
         
         public const string ToyCollisionWithToyGroup = "toy_collision_with_toy";
         public const string ToyCollisionWithGrassGroup = "toy_collision_with_grass";
