@@ -5,7 +5,7 @@ namespace CodeBase.Data.Models.Audio
 {
     public class AudioClipPlaybackData
     {
-        public string AddressableName;
+        public string Id;
         public AudioSource Source;
         public CancellationTokenSource CancellationTokenSource;
     }

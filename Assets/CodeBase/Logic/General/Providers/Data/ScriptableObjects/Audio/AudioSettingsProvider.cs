@@ -1,5 +1,6 @@
 using CodeBase.Data.Constants;
 using CodeBase.Data.Models.Audio;
+using CodeBase.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
@@ -20,19 +21,34 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
             _prepareTask = UniTask.Lazy(PrepareResourcesAsync);
         }
 
-        public async UniTask<AudioClipSettingData> GetAudioClipDataAsync(string addressableKey)
+        public async UniTask<AudioClipEventData> GetEventDataAsync(string eventName)
         {
             await _prepareTask;
             
-            foreach (var compositionData in _config.Compositions)
+            foreach (var eventData in _config.AudioClipEvents)
             {
-                if (compositionData.AddressableName == addressableKey)
+                if (eventData.EventName == eventName)
                 {
-                    return compositionData;
+                    return eventData;
                 }
             }
             
-            return new AudioClipSettingData();
+            return new AudioClipEventData();
+        }
+        
+        public async UniTask<AudioGroupEventData> GetEventGroupDataAsync(string eventName)
+        {
+            await _prepareTask;
+            
+            foreach (var eventData in _config.AudioClipGroupEvents)
+            {
+                if (eventData.GroupId == eventName)
+                {
+                    return eventData;
+                }
+            }
+            
+            return new AudioGroupEventData();
         }
 
         private async UniTask PrepareResourcesAsync()

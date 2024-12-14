@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using CodeBase.Data.Constants;
+using System.Threading.Tasks;
 using CodeBase.Data.Enums;
 using CodeBase.Data.Models.Audio;
+using CodeBase.Logic.General.Extensions;
 using CodeBase.Logic.General.Unity.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
@@ -18,14 +19,19 @@ namespace CodeBase.Logic.General.Services.Audio
     {
         private readonly IAudioSettingsProvider _audioSettingsProvider;
         private readonly IAssetServices _assetServices;
+        private readonly IAudioFactory _audioFactory;
         private readonly AsyncLazy _prepareTask;
 
         private readonly List<AudioClipPlaybackData> _audioClips;
 
         private AudioListenerMediator _listener;
 
-        public AudioService(IAssetServices assetServices, IAudioSettingsProvider audioSettingsProvider)
+        public AudioService(
+            IAssetServices assetServices,
+            IAudioSettingsProvider audioSettingsProvider,
+            IAudioFactory audioFactory)
         {
+            _audioFactory = audioFactory;
             _audioSettingsProvider = audioSettingsProvider;
             _assetServices = assetServices;
 
@@ -48,12 +54,21 @@ namespace CodeBase.Logic.General.Services.Audio
             _audioClips.Clear();
         }
         
-        public async UniTask PlayAsync(string addressableName, AudioOutputType audioOutputType)
+        public async UniTask PlayAsync(string eventName, AudioOutputType audioOutputType)
         {
-            await PlayAsync(addressableName, audioOutputType, false);
+            await PlayAsync(eventName, audioOutputType, false);
+        }
+
+        public async UniTask PlayRandomAsync(string groupId, AudioOutputType audioOutputType)
+        {
+            var groupData = await _audioSettingsProvider.GetEventGroupDataAsync(groupId);
+            var randomAudioClipSettings = groupData.AudioClips.Random();
+            var cancellationTokenSource = new CancellationTokenSource();
+            
+            await PlayAsync(groupId, randomAudioClipSettings, audioOutputType, false, cancellationTokenSource);
         }
         
-        public async UniTask PlaySequenceAsync(string id, string[] addressableNames, AudioOutputType audioOutputType, bool isLoop)
+        public async UniTask PlaySequenceAsync(string sequenceid, string[] eventNames, AudioOutputType audioOutputType, bool isLoop)
         {
             var cancellationTokenSource = new CancellationTokenSource();
             
@@ -61,9 +76,9 @@ namespace CodeBase.Logic.General.Services.Audio
             {
                 while (cancellationTokenSource.IsCancellationRequested == false)
                 {
-                    foreach (var addressableName in addressableNames)
+                    foreach (var eventName in eventNames)
                     {
-                        await PlayAsync(addressableName, audioOutputType, false, cancellationTokenSource);
+                        await PlayAsync(eventName, audioOutputType, false, cancellationTokenSource);
 
                         if (cancellationTokenSource.IsCancellationRequested)
                         {
@@ -74,36 +89,48 @@ namespace CodeBase.Logic.General.Services.Audio
             }
             else
             {
-                foreach (var addressableName in addressableNames)
+                foreach (var eventName in eventNames)
                 {
-                    await PlayAsync(addressableName, audioOutputType, false, cancellationTokenSource);
+                    await PlayAsync(eventName, audioOutputType, false, cancellationTokenSource);
                 }
             }
         }
 
-        public async UniTask PlayAsync(string addressableName, AudioOutputType audioOutputType, bool isLoop)
+        public async UniTask PlayAsync(string eventName, AudioOutputType audioOutputType, bool isLoop)
         {
             var cancellationTokenSource = new CancellationTokenSource();
-            await PlayAsync(addressableName, audioOutputType, isLoop, cancellationTokenSource);
+            await PlayAsync(eventName, audioOutputType, isLoop, cancellationTokenSource);
         }
 
-        public async UniTask PlayAsync(string addressableName, AudioOutputType audioOutputType, bool isLoop, CancellationTokenSource cancellationTokenSource)
+        public async UniTask PlayAsync(string eventName, AudioOutputType audioOutputType, bool isLoop, CancellationTokenSource cancellationTokenSource)
         {
             await _prepareTask;
 
-            var source = await SpawnSourceAsync(audioOutputType);
-            var audioClip = await _assetServices.LoadAsync<AudioClip>(addressableName);
-            var data = await _audioSettingsProvider.GetAudioClipDataAsync(addressableName);
+            var data = await _audioSettingsProvider.GetEventDataAsync(eventName);
+
+            await PlayAsync(eventName, data.Settings, audioOutputType, isLoop, cancellationTokenSource);
+        }
+
+        public async UniTask PlayAsync(string id, AudioClipSettingData settingData, AudioOutputType audioOutputType, bool isLoop, CancellationTokenSource cancellationTokenSource)
+        {
+            await _prepareTask;
+
+            var parent = audioOutputType == AudioOutputType.Music
+                ? _listener.MusicSourceParent
+                : _listener.SoundsSourceParent;
+
+            var source = await _audioFactory.SpawnSourceAsync(audioOutputType, parent);
+            var audioClip = await _assetServices.LoadAsync<AudioClip>(settingData.AudioClip.AssetGUID);
             
             source.clip = audioClip;
-            source.volume = data.Volume;
-            source.pitch = data.Pitch;
+            source.volume = settingData.Volume;
+            source.pitch = settingData.Pitch;
             source.loop = isLoop;
             source.Play();
 
             var playbackData = new AudioClipPlaybackData()
             {
-                AddressableName = addressableName,
+                Id = id,
                 CancellationTokenSource = cancellationTokenSource,
                 Source = source,
             };
@@ -122,33 +149,7 @@ namespace CodeBase.Logic.General.Services.Audio
 
         private async UniTask PrepareAsync()
         {
-            _listener = await SpawnListenerAsync();
-        }
-        
-        private async UniTask<AudioSource> SpawnSourceAsync(AudioOutputType audioOutputType)
-        {
-            var addressableName = audioOutputType == AudioOutputType.Music 
-                ? AddressableNames.MusicSource 
-                : AddressableNames.SoundSource;
-            
-            var parent = audioOutputType == AudioOutputType.Music
-                ? _listener.MusicSourceParent
-                : _listener.SoundsSourceParent;
-            
-            var prefab = await _assetServices.LoadAsync<GameObject>(addressableName);
-            var source = Object.Instantiate(prefab, parent).GetComponent<AudioSource>();
-            
-            return source;
-        }
-        
-        private async UniTask<AudioListenerMediator> SpawnListenerAsync()
-        {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.AudioListener);
-            var listener = Object.Instantiate(prefab).GetComponent<AudioListenerMediator>();
-            
-            Object.DontDestroyOnLoad(listener.gameObject);
-            
-            return listener;
+            _listener = await _audioFactory.SpawnListenerAsync();
         }
     }
 }

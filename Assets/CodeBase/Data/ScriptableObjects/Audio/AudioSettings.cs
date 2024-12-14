@@ -1,5 +1,7 @@
+using System;
 using CodeBase.Data.Constants;
 using CodeBase.Data.Models.Audio;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CodeBase.Data.ScriptableObjects.Audio
@@ -8,8 +10,22 @@ namespace CodeBase.Data.ScriptableObjects.Audio
     public class AudioSettings : ScriptableObject
     {
         [SerializeField]
-        private AudioClipSettingData[] _compositions;
+        private AudioClipEventData[] _audioClipEvents;
 
-        public AudioClipSettingData[] Compositions => _compositions;
+        [Space, SerializeField]
+        private AudioGroupEventData[] _audioClipGroupEvents;
+        
+        public AudioClipEventData[] AudioClipEvents => _audioClipEvents;
+        public AudioGroupEventData[] AudioClipGroupEvents => _audioClipGroupEvents;
+    }
+
+    [Serializable]
+    public struct AudioGroupEventData
+    {
+        [Required] 
+        public string GroupId;
+
+        [Space, SerializeField] 
+        public AudioClipSettingData[] AudioClips;
     }
 }

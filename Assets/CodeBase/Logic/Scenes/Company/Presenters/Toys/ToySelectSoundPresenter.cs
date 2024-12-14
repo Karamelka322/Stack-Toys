@@ -8,6 +8,7 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using Cysharp.Threading.Tasks;
 using UniRx;
+using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
 {
@@ -17,11 +18,14 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
         private readonly IAudioService _audioService;
         private readonly ICompanySceneReady _companySceneReady;
 
-        public ToySelectSoundPresenter(IToySelectObserver toySelectObserver, ICompanySceneReady companySceneReady,
+        public ToySelectSoundPresenter(
+            IToySelectObserver toySelectObserver,
+            ICompanySceneReady companySceneReady,
             IAudioService audioService)
         {
             _companySceneReady = companySceneReady;
             _audioService = audioService;
+            
             _disposable = toySelectObserver.Toy.Subscribe(OnSelectedToyChanged);
         }
 

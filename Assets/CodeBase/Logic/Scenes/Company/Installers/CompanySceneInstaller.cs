@@ -121,7 +121,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CompanySceneReady>().AsSingle();
-            Container.BindInterfacesTo<CompanySceneMusic>().AsSingle().NonLazy();
+            Container.Bind<CompanySceneMusic>().AsSingle().NonLazy();
 
             // Observers
             Container.BindInterfacesTo<ToyCountObserver>().AsSingle();
