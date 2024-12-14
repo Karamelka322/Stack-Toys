@@ -36,7 +36,7 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
                 return;
             }
             
-            _audioService.PlayAsync(AddressableNames.ToySelectSound, AudioOutputType.Sounds).Forget();
+            _audioService.PlayAsync(AudioConstants.ToySelectSound, AudioOutputType.Sounds).Forget();
         }
 
         public void Dispose()

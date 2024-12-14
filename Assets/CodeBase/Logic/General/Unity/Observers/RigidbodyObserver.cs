@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace CodeBase.Logic.General.Unity.Observers
         private Rigidbody _rigidbody;
         
         public BoolReactiveProperty IsSleeping { get; } = new();
-        public List<GameObject> Collisions { get; } = new();
+        public ReactiveCollection<GameObject> Collisions { get; } = new();
 
         private void Update()
         {

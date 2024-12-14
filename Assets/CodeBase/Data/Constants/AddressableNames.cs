@@ -22,9 +22,6 @@ namespace CodeBase.Data.Constants
         // Materials
         public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
         
-        // Audio
-        public const string ToySelectSound = "ToySelect_sound";
-        
         public static class MenuScene
         {
             // UI
@@ -48,12 +45,6 @@ namespace CodeBase.Data.Constants
             // Effects
             public const string ToySelectEffect = "ToySelectEffect";
             public const string FinishEffect = "Finish_effect";
-            
-            // Audio
-            public const string ForestNoise_ambient = "Forest_1_ambient";
-            public const string Birds_1_ambient = "Birds_1_ambient";
-            public const string Birds_2_ambient = "Birds_2_ambient";
-            public const string Meditation_music = "Meditation_music";
         }
     }
 }

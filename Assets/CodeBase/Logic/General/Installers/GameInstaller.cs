@@ -38,6 +38,7 @@ namespace CodeBase.Logic.General.Installers
         {
             Container.BindInterfacesTo<LoadingWindowFactory>().AsSingle();
             Container.BindInterfacesTo<CanvasFactory>().AsSingle();
+            Container.BindInterfacesTo<AudioFactory>().AsSingle();
         }
 
         private void BindWindows()
