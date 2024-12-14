@@ -10,6 +10,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
     public class ToyRotateState : BaseState
     {
         private const float MoveToStartRotationDuration = 0.2f;
+        private const float MoveToRotationDuration = 0.01f;
         
         private readonly ToyMediator _toyMediator;
         private readonly ICompanyMainWindow _companyMainWindow;
@@ -25,11 +26,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         public override void Enter()
         {
             var sliderValue = _companyMainWindow.GetSliderValue();
-            var sliderValueToRotation = SliderValueToRotation(sliderValue);
-            
-            _toyMediator.transform.DOKill();
-            _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, MoveToStartRotationDuration);
-            
+            Rotate(sliderValue, MoveToStartRotationDuration);
+
             _companyMainWindow.OnSliderChanged += OnSliderChanged;
         }
 
@@ -38,9 +36,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             _companyMainWindow.OnSliderChanged -= OnSliderChanged;
         }
 
-        private void OnSliderChanged(float value)
+        private void OnSliderChanged(float sliderValue)
         {
-            _toyMediator.transform.rotation = SliderValueToRotation(value);
+            Rotate(sliderValue, MoveToRotationDuration);
+        }
+
+        private void Rotate(float sliderValue, float duration)
+        {
+            var sliderValueToRotation = SliderValueToRotation(sliderValue);
+            
+            _toyMediator.transform.DOKill();
+            _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, duration);
         }
 
         private Quaternion SliderValueToRotation(float value)
