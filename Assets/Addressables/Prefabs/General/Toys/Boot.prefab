@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 6592239530430951471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: 0, y: -0.117, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalScale: {x: 1.1361871, y: 1.1361871, z: 1.1361871}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 606863827181137232}
@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 9057400856407385876, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_Name
-      value: Base Toy Variant
+      value: Boot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

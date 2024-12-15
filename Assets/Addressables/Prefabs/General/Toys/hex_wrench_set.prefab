@@ -191,13 +191,28 @@ PrefabInstance:
       objectReference: {fileID: 7148138444283335012}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9777265
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9777275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.9777267
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.021
       objectReference: {fileID: 0}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
@@ -242,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 9057400856407385876, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_Name
-      value: Base Toy Variant
+      value: hex_wrench_set
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
