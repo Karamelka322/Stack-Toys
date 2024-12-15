@@ -103,7 +103,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4170545086346782904, guid: 4d1f0aeb92e35934999f7e09fd2ab20e, type: 3}
 --- !u!1001 &3949302047392469188
@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 9057400856407385876, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_Name
-      value: Base Toy Variant
+      value: watering_can
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
