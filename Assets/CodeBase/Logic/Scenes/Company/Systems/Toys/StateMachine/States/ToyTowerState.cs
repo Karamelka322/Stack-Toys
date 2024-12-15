@@ -18,7 +18,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         public override void Enter()
         {
             _toyMediator.Rigidbody.isKinematic = false;
-            _toyMediator.Collider.isTrigger = false;
+
+            foreach (var collider in _toyMediator.Colliders)
+            {
+                collider.isTrigger = false;
+            }
         }
     }
 }

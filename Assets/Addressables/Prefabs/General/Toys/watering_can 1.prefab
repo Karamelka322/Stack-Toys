@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 8018528822157354510}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 6296816319740513410}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -180,6 +190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ToyObject_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: e6d478292eaa1f64cbbc7779d5319c68,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

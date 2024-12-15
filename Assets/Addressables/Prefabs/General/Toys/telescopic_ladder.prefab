@@ -167,6 +167,16 @@ PrefabInstance:
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 4054749736529356615}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 8353762155637765977}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -220,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 9057400856407385876, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_Name
-      value: Base Toy Variant
+      value: telescopic_ladder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

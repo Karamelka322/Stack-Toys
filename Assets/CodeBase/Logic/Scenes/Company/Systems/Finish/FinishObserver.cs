@@ -45,9 +45,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (hit.collider == toyMediator.Collider)
+                foreach (var collider in toyMediator.Colliders)
                 {
-                    return true;
+                    if (hit.collider == collider)
+                    {
+                        return true;
+                    }
                 }
             }
             

@@ -6,10 +6,9 @@ using Cysharp.Threading.Tasks;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Music
 {
-    public class CompanySceneMusic
+    public class CompanySceneMusic : IDisposable
     {
         private readonly IAudioService _audioService;
-        private readonly IDisposable _disposable;
 
         public CompanySceneMusic(IAudioService audioService)
         {
@@ -37,6 +36,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Music
         private void StopPlay()
         {
             
+        }
+
+        public void Dispose()
+        {
+            // _audioService.s
         }
     }
 }

@@ -1,5 +1,4 @@
 using CodeBase.Logic.General.Unity.Observers;
-using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -14,14 +13,14 @@ namespace CodeBase.Logic.General.Unity.Toys
         private RigidbodyObserver _rigidbodyObserver;
 
         [SerializeField, Required] 
-        private Collider _collider;
-
-        [SerializeField, Required] 
         private MeshRenderer _meshRenderer;
-        
+
+        [Space, SerializeField, Required] 
+        private Collider[] _colliders;
+
         public Rigidbody Rigidbody => _rigidbody;
         public RigidbodyObserver RigidbodyObserver => _rigidbodyObserver;
-        public Collider Collider => _collider;
+        public Collider[] Colliders => _colliders;
         public MeshRenderer MeshRenderer => _meshRenderer;
     }
 }
