@@ -33,9 +33,18 @@ namespace CodeBase.CodeBase.Logic.Services.Debug
             set
             {
                 _companyLevelsSaveDataProvider.SetTargetLevel(value - 1);
-                _companySceneUnload.Unload();
-                _sceneLoadService.ReloadScene();
+                _companyLevelsSaveDataProvider.SetCurrentLevel(value - 1);
+
+                Reload();
             }
+        }
+
+        [UsedImplicitly]
+        [Category(CategoryName)]
+        public void Reload()
+        {
+            _companySceneUnload.Unload();
+            _sceneLoadService.ReloadScene();
         }
     }
 }

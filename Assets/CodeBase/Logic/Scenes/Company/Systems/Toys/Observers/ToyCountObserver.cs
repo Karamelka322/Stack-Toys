@@ -66,14 +66,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
             var toyPrefabs = await _levelsConfigProvider.GetToyPrefabsAsync(currentLevel);
 
             MaxNumberOfToys.Value = toyPrefabs.Length;
+        
+            UpdateCounters();
         }
 
         private void UpdateCounters()
         {
             NumberOfOpenToys.Value = _toyProvider.Toys.Count;
             LeftAvailableNumberOfToys.Value = MaxNumberOfToys.Value - NumberOfOpenToys.Value;
-            
-            // Debug.Log(_toyTowerObserver.Tower.Count);
             
             TowerNumberOfToys.Value = _toyTowerObserver.Tower.Count;
             NumberOfTowerBuildToys.Value = MaxNumberOfToys.Value - TowerNumberOfToys.Value;

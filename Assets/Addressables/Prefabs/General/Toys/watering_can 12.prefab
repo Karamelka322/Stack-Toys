@@ -1,5 +1,3924 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1013105529349204717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2999600470344418611}
+  m_Layer: 0
+  m_Name: Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2999600470344418611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013105529349204717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3294662082621138412}
+  - {fileID: 5891288278331912938}
+  - {fileID: 351437013665704352}
+  - {fileID: 109265810011823264}
+  - {fileID: 161121545683390392}
+  - {fileID: 8422656760841994119}
+  m_Father: {fileID: 4627228654890806634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2462173738043880602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5891288278331912938}
+  - component: {fileID: 3645886941114165878}
+  - component: {fileID: 8151535954557066287}
+  - component: {fileID: 7280071821686263757}
+  - component: {fileID: 7473567289386932903}
+  - component: {fileID: 4996755302805552056}
+  - component: {fileID: 658556249455836362}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5891288278331912938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  serializedVersion: 2
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0.00000058114523}
+  m_LocalPosition: {x: -0.166, y: -0.182, z: 0.053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!114 &3645886941114165878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 080000000a0000000b00000008000000090000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 0f0000000c0000000d0000000e0000000f0000000d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 110000001200000013000000100000001100000013000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 150000001600000017000000150000001700000014000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 1a00000018000000190000001a0000001b00000018000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 1f0000001c0000001d0000001e0000001f0000001d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 200000002100000022000000230000002000000022000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 260000002400000025000000260000002700000024000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 28000000290000002a000000280000002a0000002b000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 2c0000002d0000002e0000002c0000002e0000002f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 330000003000000031000000330000003100000032000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 360000003700000034000000360000003400000035000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 390000003a000000380000003a0000003b00000038000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 3c0000003d0000003f0000003d0000003e0000003f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 410000004200000043000000410000004300000040000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 460000004400000045000000460000004700000044000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  m_SharedVertices:
+  - m_Vertices: 000000000a00000015000000
+  - m_Vertices: 01000000090000000e000000
+  - m_Vertices: 020000001100000016000000
+  - m_Vertices: 030000000d00000012000000
+  - m_Vertices: 040000003e00000043000000
+  - m_Vertices: 05000000310000003d000000
+  - m_Vertices: 060000002d00000040000000
+  - m_Vertices: 070000002e00000030000000
+  - m_Vertices: 080000000f0000001b0000001e000000
+  - m_Vertices: 0b000000140000001800000025000000
+  - m_Vertices: 0c000000130000001d00000021000000
+  - m_Vertices: 10000000170000002000000026000000
+  - m_Vertices: 19000000240000002800000045000000
+  - m_Vertices: 1a0000001f0000002b00000036000000
+  - m_Vertices: 1c000000220000003500000039000000
+  - m_Vertices: 23000000270000003800000046000000
+  - m_Vertices: 290000002c0000004100000044000000
+  - m_Vertices: 2a0000002f0000003300000037000000
+  - m_Vertices: 32000000340000003a0000003c000000
+  - m_Vertices: 3b0000003f0000004200000047000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: -0.028686896, y: -0.12715174, z: -0.37334087}
+  - {x: 0.057103887, y: -0.12715174, z: -0.37334087}
+  - {x: -0.028686896, y: -0.12715174, z: 0.37334082}
+  - {x: 0.057103887, y: -0.12715174, z: 0.37334082}
+  - {x: 0.06759616, y: -0.03616841, z: 0.3733408}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: -0.060338795, y: -0.03616841, z: 0.3733408}
+  - {x: 0.06964782, y: -0.02925222, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: 0.06759616, y: -0.03616841, z: 0.3733408}
+  - {x: -0.058107197, y: -0.02925222, z: -0.37334087}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: 0.06964782, y: -0.02925222, z: -0.37334087}
+  - {x: -0.060338795, y: -0.03616841, z: 0.3733408}
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: -0.058107197, y: -0.02925222, z: -0.37334087}
+  - {x: -0.060338795, y: -0.03616841, z: 0.3733408}
+  - {x: -0.04963985, y: -0.07528232, z: 0.37334082}
+  - {x: 0.07854713, y: -0.07528232, z: 0.37334082}
+  - {x: 0.06759616, y: -0.03616841, z: 0.3733408}
+  - {x: 0.07854713, y: -0.07528236, z: -0.37334087}
+  - {x: 0.06964782, y: -0.02925222, z: -0.37334087}
+  - {x: 0.06759616, y: -0.03616841, z: 0.3733408}
+  - {x: 0.07854713, y: -0.07528232, z: 0.37334082}
+  - {x: -0.058107197, y: -0.02925222, z: -0.37334087}
+  - {x: 0.06964782, y: -0.02925222, z: -0.37334087}
+  - {x: 0.07854713, y: -0.07528236, z: -0.37334087}
+  - {x: -0.04963985, y: -0.07528236, z: -0.37334087}
+  - {x: -0.04963985, y: -0.07528232, z: 0.37334082}
+  - {x: -0.060338795, y: -0.03616841, z: 0.3733408}
+  - {x: -0.058107197, y: -0.02925222, z: -0.37334087}
+  - {x: -0.04963985, y: -0.07528236, z: -0.37334087}
+  - {x: -0.04963985, y: -0.07528232, z: 0.37334082}
+  - {x: -0.057290405, y: -0.10042833, z: 0.37334082}
+  - {x: 0.092184074, y: -0.10042833, z: 0.37334082}
+  - {x: 0.07854713, y: -0.07528232, z: 0.37334082}
+  - {x: -0.057290405, y: -0.10042833, z: 0.37334082}
+  - {x: -0.028686896, y: -0.12715174, z: 0.37334082}
+  - {x: 0.057103887, y: -0.12715174, z: 0.37334082}
+  - {x: 0.092184074, y: -0.10042833, z: 0.37334082}
+  - {x: 0.057103887, y: -0.12715174, z: 0.37334082}
+  - {x: 0.057103887, y: -0.12715174, z: -0.37334087}
+  - {x: 0.092184074, y: -0.100428365, z: -0.37334087}
+  - {x: 0.092184074, y: -0.10042833, z: 0.37334082}
+  - {x: 0.092184074, y: -0.100428365, z: -0.37334087}
+  - {x: 0.07854713, y: -0.07528236, z: -0.37334087}
+  - {x: 0.07854713, y: -0.07528232, z: 0.37334082}
+  - {x: 0.092184074, y: -0.10042833, z: 0.37334082}
+  - {x: -0.04963985, y: -0.07528236, z: -0.37334087}
+  - {x: 0.07854713, y: -0.07528236, z: -0.37334087}
+  - {x: 0.092184074, y: -0.100428365, z: -0.37334087}
+  - {x: -0.057290405, y: -0.100428365, z: -0.37334087}
+  - {x: 0.092184074, y: -0.100428365, z: -0.37334087}
+  - {x: 0.057103887, y: -0.12715174, z: -0.37334087}
+  - {x: -0.028686896, y: -0.12715174, z: -0.37334087}
+  - {x: -0.057290405, y: -0.100428365, z: -0.37334087}
+  - {x: -0.028686896, y: -0.12715174, z: 0.37334082}
+  - {x: -0.057290405, y: -0.10042833, z: 0.37334082}
+  - {x: -0.057290405, y: -0.100428365, z: -0.37334087}
+  - {x: -0.028686896, y: -0.12715174, z: -0.37334087}
+  - {x: -0.057290405, y: -0.10042833, z: 0.37334082}
+  - {x: -0.04963985, y: -0.07528232, z: 0.37334082}
+  - {x: -0.04963985, y: -0.07528236, z: -0.37334087}
+  - {x: -0.057290405, y: -0.100428365, z: -0.37334087}
+  m_Textures0:
+  - {x: -0.06464547, y: 0.37334082}
+  - {x: 0.051484667, y: 0.37334082}
+  - {x: -0.06464547, y: -0.37334087}
+  - {x: 0.051484667, y: -0.37334087}
+  - {x: 0.028686896, y: -0.37334087}
+  - {x: -0.057103887, y: -0.37334087}
+  - {x: 0.028686896, y: 0.37334082}
+  - {x: -0.057103887, y: 0.37334082}
+  - {x: -0.06759616, y: -0.03616844}
+  - {x: -0.051484667, y: 0.031955987}
+  - {x: 0.06464547, y: 0.031955987}
+  - {x: 0.060338795, y: -0.03616844}
+  - {x: -0.37344757, y: -0.032355275}
+  - {x: -0.3734196, y: 0.029613838}
+  - {x: 0.37326118, y: 0.029561741}
+  - {x: 0.37323636, y: -0.03922338}
+  - {x: -0.058107197, y: -0.02925222}
+  - {x: -0.06464547, y: 0.031956017}
+  - {x: 0.051484667, y: 0.031956017}
+  - {x: 0.06964782, y: -0.02925222}
+  - {x: -0.3734297, y: -0.022161063}
+  - {x: -0.3734361, y: 0.045246933}
+  - {x: 0.37324476, y: 0.045489583}
+  - {x: 0.37325445, y: -0.015660848}
+  - {x: 0.060338795, y: -0.03616844}
+  - {x: 0.04963985, y: -0.07528235}
+  - {x: -0.07854713, y: -0.07528235}
+  - {x: -0.06759616, y: -0.03616844}
+  - {x: -0.37346125, y: -0.0787417}
+  - {x: -0.37344757, y: -0.032355275}
+  - {x: 0.37323636, y: -0.03922338}
+  - {x: 0.37321955, y: -0.078793764}
+  - {x: -0.058107197, y: -0.02925222}
+  - {x: 0.06964782, y: -0.02925222}
+  - {x: 0.07854713, y: -0.07528236}
+  - {x: -0.04963985, y: -0.07528236}
+  - {x: -0.37341386, y: -0.06266956}
+  - {x: -0.3734297, y: -0.022161063}
+  - {x: 0.37325445, y: -0.015660848}
+  - {x: 0.37326697, y: -0.062426943}
+  - {x: 0.04963985, y: -0.07528235}
+  - {x: 0.057290405, y: -0.10042836}
+  - {x: -0.092184074, y: -0.10042836}
+  - {x: -0.07854713, y: -0.07528235}
+  - {x: 0.057290405, y: -0.10042836}
+  - {x: 0.028686896, y: -0.12715177}
+  - {x: -0.057103887, y: -0.12715177}
+  - {x: -0.092184074, y: -0.10042836}
+  - {x: 0.37325254, y: -0.12963714}
+  - {x: -0.37342826, y: -0.12958504}
+  - {x: -0.37348223, y: -0.10448039}
+  - {x: 0.37319857, y: -0.10453246}
+  - {x: -0.37348223, y: -0.10448039}
+  - {x: -0.37346125, y: -0.0787417}
+  - {x: 0.37321955, y: -0.078793764}
+  - {x: 0.37319857, y: -0.10453246}
+  - {x: -0.04963985, y: -0.07528236}
+  - {x: 0.07854713, y: -0.07528236}
+  - {x: 0.092184074, y: -0.100428365}
+  - {x: -0.057290405, y: -0.100428365}
+  - {x: 0.092184074, y: -0.100428365}
+  - {x: 0.057103887, y: -0.12715174}
+  - {x: -0.028686896, y: -0.12715174}
+  - {x: -0.057290405, y: -0.100428365}
+  - {x: -0.37338287, y: -0.1178735}
+  - {x: -0.3734252, y: -0.085522585}
+  - {x: 0.37325564, y: -0.08527997}
+  - {x: 0.373298, y: -0.11763084}
+  - {x: -0.3734252, y: -0.085522585}
+  - {x: -0.37341386, y: -0.06266956}
+  - {x: 0.37326697, y: -0.062426943}
+  - {x: 0.37325564, y: -0.08527997}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0.0054436065, y: -0.0001773351, z: 0.99998516, w: -1}
+  - {x: -0.0027142381, y: -0.000049920876, z: 0.99999636, w: -1}
+  - {x: -0.000016342288, y: 0.0000691003, z: 1, w: -1}
+  - {x: -0.0027142381, y: -0.000049920876, z: 0.99999636, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.0035448538, y: 0.0004645736, z: -0.9999936, w: -1}
+  - {x: 0.0017845212, y: 0.000069198686, z: -0.99999845, w: -1}
+  - {x: 0.00003474635, y: -0.00032527902, z: -1, w: -1}
+  - {x: 0.0017845212, y: 0.000069198686, z: -0.99999845, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0.0000133774365, y: 0.00006924237, z: 1, w: -1}
+  - {x: -0.002633719, y: -0.000046006044, z: 0.99999654, w: -1}
+  - {x: -0.00529319, y: -0.00017050523, z: 0.999986, w: -1}
+  - {x: -0.002633719, y: -0.000046006044, z: 0.99999654, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.0026730103, y: 0.00026838615, z: -0.9999964, w: -1}
+  - {x: 0.0052878666, y: 0.00085679267, z: -0.9999857, w: -1}
+  - {x: 0.0026730103, y: 0.00026838615, z: -0.9999964, w: -1}
+  - {x: 0.000058830417, y: -0.00031986344, z: -1, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 0.000097490716, y: 0.00007426655, z: 1, w: -1}
+  - {x: 0.00009746288, y: 0.00007427025, z: 1, w: -1}
+  - {x: 0.000097435055, y: 0.00007427394, z: 1, w: -1}
+  - {x: 0.00009746288, y: 0.00007427025, z: 1, w: -1}
+  - {x: -0.000036943504, y: 0.0000681723, z: 1, w: -1}
+  - {x: -0.000036943504, y: 0.0000681723, z: 1, w: -1}
+  - {x: -0.000036943504, y: 0.0000681723, z: 1, w: -1}
+  - {x: -0.000036943504, y: 0.0000681723, z: 1, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.00028733717, y: -0.00026845062, z: -0.99999994, w: -1}
+  - {x: 0.0002873109, y: -0.00026845085, z: -0.99999994, w: -1}
+  - {x: 0.00028728464, y: -0.00026845105, z: -0.99999994, w: -1}
+  - {x: 0.0002873109, y: -0.00026845085, z: -0.99999994, w: -1}
+  - {x: -0.00010877562, y: -0.00035757592, z: -0.99999994, w: -1}
+  - {x: -0.000108776454, y: -0.00035757868, z: -0.99999994, w: -1}
+  - {x: -0.00010877562, y: -0.00035757592, z: -0.99999994, w: -1}
+  - {x: -0.000108774766, y: -0.00035757312, z: -0.99999994, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 5796
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &8151535954557066287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504014
+  m_Size: {x: -0.113590755, y: 0.31954557, z: 0.13507372}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 1965
+  m_ShapeBox:
+    m_Center: {x: -0.056795377, y: 0.15977281, z: 0.06753686}
+    m_Extent: {x: 0.056795377, y: 0.15977278, z: 0.06753686}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504014
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &7280071821686263757
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &7473567289386932903
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Mesh: {fileID: 0}
+--- !u!64 &4996755302805552056
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &658556249455836362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462173738043880602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
+--- !u!1 &3372260701251544268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109265810011823264}
+  - component: {fileID: 1492775203362806973}
+  - component: {fileID: 5607756689072548217}
+  - component: {fileID: 8204595323117235976}
+  - component: {fileID: 6572162291082858102}
+  - component: {fileID: 8890109004386984130}
+  - component: {fileID: 6317589128099099882}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &109265810011823264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.08141254, w: 0.9966805}
+  m_LocalPosition: {x: -0.16038, y: 0.26152, z: -0.26392}
+  m_LocalScale: {x: 0.7949556, y: 0.33778906, z: 7.589}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.34}
+--- !u!114 &1492775203362806973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 08000000090000000b0000000b000000090000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 0e0000000f0000000c0000000e0000000c0000000d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 130000001000000011000000130000001100000012000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 160000001700000015000000170000001400000015000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 1b000000180000001a0000001a0000001800000019000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 1e0000001f0000001d0000001f0000001c0000001d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 230000002000000022000000200000002100000022000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 260000002400000025000000260000002700000024000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  m_SharedVertices:
+  - m_Vertices: 000000000e00000025000000
+  - m_Vertices: 010000000d00000016000000
+  - m_Vertices: 020000001d00000026000000
+  - m_Vertices: 03000000150000001e000000
+  - m_Vertices: 040000001900000020000000
+  - m_Vertices: 050000001100000018000000
+  - m_Vertices: 060000000800000021000000
+  - m_Vertices: 070000000900000010000000
+  - m_Vertices: 0a0000000c0000001300000017000000
+  - m_Vertices: 0b0000000f0000002200000024000000
+  - m_Vertices: 12000000140000001b0000001f000000
+  - m_Vertices: 1a0000001c0000002300000027000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  m_Textures0:
+  - {x: -0.08520707, y: 0.1739158}
+  - {x: -0.08520707, y: 0.21487907}
+  - {x: 0.0012990385, y: 0.1739158}
+  - {x: 0.0012990385, y: 0.21487907}
+  - {x: 0.03465248, y: -0.0012990385}
+  - {x: -0.005762717, y: -0.0012990385}
+  - {x: 0.03465248, y: 0.08520707}
+  - {x: -0.005762717, y: 0.08520707}
+  - {x: 0.038537696, y: 0.021045217}
+  - {x: -0.0013516592, y: 0.027543472}
+  - {x: 0.03284783, y: 0.17554909}
+  - {x: 0.05675229, y: 0.13891219}
+  - {x: 0.03284783, y: 0.17554909}
+  - {x: 0.081408046, y: 0.26517034}
+  - {x: 0.096858636, y: 0.22723264}
+  - {x: 0.05675229, y: 0.13891219}
+  - {x: 0.08520707, y: 0.025281696}
+  - {x: -0.0012990385, y: 0.025281696}
+  - {x: -0.0012990385, y: 0.1758104}
+  - {x: 0.08520707, y: 0.1758104}
+  - {x: -0.0012990385, y: 0.1758104}
+  - {x: -0.0012990385, y: 0.27681822}
+  - {x: 0.08520707, y: 0.27681822}
+  - {x: 0.08520707, y: 0.1758104}
+  - {x: 0.0013516592, y: 0.027543472}
+  - {x: -0.038537696, y: 0.021045217}
+  - {x: -0.05675229, y: 0.13891219}
+  - {x: -0.03284783, y: 0.17554909}
+  - {x: -0.05675229, y: 0.13891219}
+  - {x: -0.096858636, y: 0.22723264}
+  - {x: -0.081408046, y: 0.26517034}
+  - {x: -0.03284783, y: 0.17554909}
+  - {x: 0.0012990385, y: 0.03117991}
+  - {x: -0.08520707, y: 0.03117991}
+  - {x: -0.08520707, y: 0.14933711}
+  - {x: 0.0012990385, y: 0.14933711}
+  - {x: -0.08520707, y: 0.14933711}
+  - {x: -0.08520707, y: 0.24543537}
+  - {x: 0.0012990385, y: 0.24543537}
+  - {x: 0.0012990385, y: 0.14933711}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 1964
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &5607756689072548217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504019
+  m_Size: {x: -0.116824195, y: 0.22289108, z: 0.086506106}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 992
+  m_ShapeBox:
+    m_Center: {x: -0.056657784, y: 0.111445546, z: 0.041954014}
+    m_Extent: {x: 0.058412097, y: 0.111445546, z: 0.043253053}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504019
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &8204595323117235976
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &6572162291082858102
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Mesh: {fileID: 0}
+--- !u!64 &8890109004386984130
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &6317589128099099882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372260701251544268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
+--- !u!1 &4806143817439891567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3294662082621138412}
+  - component: {fileID: 369547930591113089}
+  - component: {fileID: 6945181925840460879}
+  - component: {fileID: 1487002194105397423}
+  - component: {fileID: 468958302452169452}
+  - component: {fileID: 7720363251584847162}
+  - component: {fileID: 990088163608121969}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3294662082621138412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.16867946, y: -0.24706112, z: 0.053021163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369547930591113089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 080000000a0000000b00000008000000090000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 0f0000000c0000000d0000000e0000000f0000000d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 110000001200000013000000100000001100000013000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 150000001600000017000000150000001700000014000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 1a00000018000000190000001a0000001b00000018000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 1f0000001c0000001d0000001e0000001f0000001d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 200000002100000022000000230000002000000022000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 260000002400000025000000260000002700000024000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 28000000290000002a000000280000002a0000002b000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 2c0000002d0000002e0000002c0000002e0000002f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 330000003000000031000000330000003100000032000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 360000003700000034000000360000003400000035000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 390000003a000000380000003a0000003b00000038000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 3c0000003d0000003f0000003d0000003e0000003f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 410000004200000043000000410000004300000040000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 460000004400000045000000460000004700000044000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  m_SharedVertices:
+  - m_Vertices: 000000000a00000015000000
+  - m_Vertices: 01000000090000000e000000
+  - m_Vertices: 020000001100000016000000
+  - m_Vertices: 030000000d00000012000000
+  - m_Vertices: 040000003e00000043000000
+  - m_Vertices: 05000000310000003d000000
+  - m_Vertices: 060000002d00000040000000
+  - m_Vertices: 070000002e00000030000000
+  - m_Vertices: 080000000f0000001b0000001e000000
+  - m_Vertices: 0b000000140000001800000025000000
+  - m_Vertices: 0c000000130000001d00000021000000
+  - m_Vertices: 10000000170000002000000026000000
+  - m_Vertices: 19000000240000002800000045000000
+  - m_Vertices: 1a0000001f0000002b00000036000000
+  - m_Vertices: 1c000000220000003500000039000000
+  - m_Vertices: 23000000270000003800000046000000
+  - m_Vertices: 290000002c0000004100000044000000
+  - m_Vertices: 2a0000002f0000003300000037000000
+  - m_Vertices: 32000000340000003a0000003c000000
+  - m_Vertices: 3b0000003f0000004200000047000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: -0.04267925, y: -0.1617644, z: -0.37334087}
+  - {x: 0.043111533, y: -0.1617644, z: -0.37334087}
+  - {x: -0.04267925, y: -0.1617644, z: 0.37334082}
+  - {x: 0.043111533, y: -0.1617644, z: 0.37334082}
+  - {x: 0.094994634, y: -0.07743256, z: 0.37334082}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: -0.08863033, y: -0.07743256, z: 0.37334082}
+  - {x: 0.097939365, y: -0.07051636, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: 0.37334082}
+  - {x: 0.094994634, y: -0.07743256, z: 0.37334082}
+  - {x: -0.08542733, y: -0.07051636, z: -0.37334087}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: 0.051484667, y: 0.031956017, z: -0.37334087}
+  - {x: 0.097939365, y: -0.07051636, z: -0.37334087}
+  - {x: -0.08863033, y: -0.07743256, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: 0.37334082}
+  - {x: -0.06464547, y: 0.031956017, z: -0.37334087}
+  - {x: -0.08542733, y: -0.07051636, z: -0.37334087}
+  - {x: -0.08863033, y: -0.07743256, z: 0.37334082}
+  - {x: -0.093045615, y: -0.102957055, z: 0.37334082}
+  - {x: 0.107051164, y: -0.102957055, z: 0.37334082}
+  - {x: 0.094994634, y: -0.07743256, z: 0.37334082}
+  - {x: 0.107051164, y: -0.102957055, z: -0.37334087}
+  - {x: 0.097939365, y: -0.07051636, z: -0.37334087}
+  - {x: 0.094994634, y: -0.07743256, z: 0.37334082}
+  - {x: 0.107051164, y: -0.102957055, z: 0.37334082}
+  - {x: -0.08542733, y: -0.07051636, z: -0.37334087}
+  - {x: 0.097939365, y: -0.07051636, z: -0.37334087}
+  - {x: 0.107051164, y: -0.102957055, z: -0.37334087}
+  - {x: -0.093045615, y: -0.102957055, z: -0.37334087}
+  - {x: -0.093045615, y: -0.102957055, z: 0.37334082}
+  - {x: -0.08863033, y: -0.07743256, z: 0.37334082}
+  - {x: -0.08542733, y: -0.07051636, z: -0.37334087}
+  - {x: -0.093045615, y: -0.102957055, z: -0.37334087}
+  - {x: -0.093045615, y: -0.102957055, z: 0.37334082}
+  - {x: -0.089303985, y: -0.13236071, z: 0.37334082}
+  - {x: 0.096522905, y: -0.13236071, z: 0.37334082}
+  - {x: 0.107051164, y: -0.102957055, z: 0.37334082}
+  - {x: -0.089303985, y: -0.13236071, z: 0.37334082}
+  - {x: -0.04267925, y: -0.1617644, z: 0.37334082}
+  - {x: 0.043111533, y: -0.1617644, z: 0.37334082}
+  - {x: 0.096522905, y: -0.13236071, z: 0.37334082}
+  - {x: 0.043111533, y: -0.1617644, z: 0.37334082}
+  - {x: 0.043111533, y: -0.1617644, z: -0.37334087}
+  - {x: 0.096522905, y: -0.13236071, z: -0.37334087}
+  - {x: 0.096522905, y: -0.13236071, z: 0.37334082}
+  - {x: 0.096522905, y: -0.13236071, z: -0.37334087}
+  - {x: 0.107051164, y: -0.102957055, z: -0.37334087}
+  - {x: 0.107051164, y: -0.102957055, z: 0.37334082}
+  - {x: 0.096522905, y: -0.13236071, z: 0.37334082}
+  - {x: -0.093045615, y: -0.102957055, z: -0.37334087}
+  - {x: 0.107051164, y: -0.102957055, z: -0.37334087}
+  - {x: 0.096522905, y: -0.13236071, z: -0.37334087}
+  - {x: -0.089303985, y: -0.13236071, z: -0.37334087}
+  - {x: 0.096522905, y: -0.13236071, z: -0.37334087}
+  - {x: 0.043111533, y: -0.1617644, z: -0.37334087}
+  - {x: -0.04267925, y: -0.1617644, z: -0.37334087}
+  - {x: -0.089303985, y: -0.13236071, z: -0.37334087}
+  - {x: -0.04267925, y: -0.1617644, z: 0.37334082}
+  - {x: -0.089303985, y: -0.13236071, z: 0.37334082}
+  - {x: -0.089303985, y: -0.13236071, z: -0.37334087}
+  - {x: -0.04267925, y: -0.1617644, z: -0.37334087}
+  - {x: -0.089303985, y: -0.13236071, z: 0.37334082}
+  - {x: -0.093045615, y: -0.102957055, z: 0.37334082}
+  - {x: -0.093045615, y: -0.102957055, z: -0.37334087}
+  - {x: -0.089303985, y: -0.13236071, z: -0.37334087}
+  m_Textures0:
+  - {x: -0.06464547, y: 0.37334082}
+  - {x: 0.051484667, y: 0.37334082}
+  - {x: -0.06464547, y: -0.37334087}
+  - {x: 0.051484667, y: -0.37334087}
+  - {x: 0.04267925, y: -0.37334087}
+  - {x: -0.043111533, y: -0.37334087}
+  - {x: 0.04267925, y: 0.37334082}
+  - {x: -0.043111533, y: 0.37334082}
+  - {x: -0.094994634, y: -0.07743256}
+  - {x: -0.051484667, y: 0.031956017}
+  - {x: 0.06464547, y: 0.031956017}
+  - {x: 0.08863033, y: -0.07743256}
+  - {x: -0.37356022, y: -0.05421787}
+  - {x: -0.37345573, y: 0.03958633}
+  - {x: 0.37322408, y: 0.039852783}
+  - {x: 0.3731262, y: -0.06124721}
+  - {x: -0.08542733, y: -0.07051636}
+  - {x: -0.06464547, y: 0.031956017}
+  - {x: 0.051484667, y: 0.031956017}
+  - {x: 0.097939365, y: -0.07051636}
+  - {x: -0.37340793, y: -0.06126803}
+  - {x: -0.37338975, y: 0.042443104}
+  - {x: 0.37329173, y: 0.042539496}
+  - {x: 0.37327597, y: -0.05490142}
+  - {x: 0.08863033, y: -0.07743256}
+  - {x: 0.093045615, y: -0.102957055}
+  - {x: -0.107051164, y: -0.102957055}
+  - {x: -0.094994634, y: -0.07743256}
+  - {x: -0.37358072, y: -0.08480204}
+  - {x: -0.37356022, y: -0.05421787}
+  - {x: 0.3731262, y: -0.06124721}
+  - {x: 0.3730991, y: -0.084535584}
+  - {x: -0.08542733, y: -0.07051636}
+  - {x: 0.097939365, y: -0.07051636}
+  - {x: 0.107051164, y: -0.102957055}
+  - {x: -0.093045615, y: -0.102957055}
+  - {x: -0.3734113, y: -0.0856688}
+  - {x: -0.37340793, y: -0.06126803}
+  - {x: 0.37327597, y: -0.05490142}
+  - {x: 0.37327018, y: -0.08557241}
+  - {x: 0.093045615, y: -0.102957055}
+  - {x: 0.089303985, y: -0.13236071}
+  - {x: -0.096522905, y: -0.13236071}
+  - {x: -0.107051164, y: -0.102957055}
+  - {x: 0.089303985, y: -0.13236071}
+  - {x: 0.04267925, y: -0.1617644}
+  - {x: -0.043111533, y: -0.1617644}
+  - {x: -0.096522905, y: -0.13236071}
+  - {x: 0.3732429, y: -0.15274242}
+  - {x: -0.3734369, y: -0.15300886}
+  - {x: -0.37355703, y: -0.115503624}
+  - {x: 0.37312278, y: -0.11523718}
+  - {x: -0.37355703, y: -0.115503624}
+  - {x: -0.37358072, y: -0.08480204}
+  - {x: 0.3730991, y: -0.084535584}
+  - {x: 0.37312278, y: -0.11523718}
+  - {x: -0.093045615, y: -0.102957055}
+  - {x: 0.107051164, y: -0.102957055}
+  - {x: 0.096522905, y: -0.13236071}
+  - {x: -0.089303985, y: -0.13236071}
+  - {x: 0.096522905, y: -0.13236071}
+  - {x: 0.043111533, y: -0.1617644}
+  - {x: -0.04267925, y: -0.1617644}
+  - {x: -0.089303985, y: -0.13236071}
+  - {x: -0.3733731, y: -0.15218972}
+  - {x: -0.37340844, y: -0.1152803}
+  - {x: 0.37327302, y: -0.115183905}
+  - {x: 0.3733084, y: -0.15209332}
+  - {x: -0.37340844, y: -0.1152803}
+  - {x: -0.3734113, y: -0.0856688}
+  - {x: 0.37327018, y: -0.08557241}
+  - {x: 0.37327302, y: -0.115183905}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0.0086055845, y: 0.0010214221, z: 0.99996245, w: -1}
+  - {x: -0.00417493, y: 0.00033942374, z: 0.99999124, w: -1}
+  - {x: 0.00015357486, y: -0.00038610311, z: 0.99999994, w: -1}
+  - {x: -0.00417493, y: 0.00033942374, z: 0.99999124, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.002317747, y: 0.00026926852, z: -0.9999973, w: -1}
+  - {x: 0.0011417143, y: 0.00006747086, z: -0.99999934, w: -1}
+  - {x: -0.00002753265, y: -0.00013575956, z: -1, w: -1}
+  - {x: 0.0011417143, y: 0.00006747086, z: -0.99999934, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 0.000106315354, y: -0.000378514, z: 0.99999994, w: -1}
+  - {x: -0.0041799136, y: 0.0004040653, z: 0.9999912, w: -1}
+  - {x: -0.0088171465, y: 0.0010554205, z: 0.9999606, w: -1}
+  - {x: -0.0041799136, y: 0.0004040653, z: 0.9999912, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.0013722689, y: 0.00010037027, z: -0.9999991, w: -1}
+  - {x: 0.0027467778, y: 0.0003433628, z: -0.9999962, w: -1}
+  - {x: 0.0013722689, y: 0.00010037027, z: -0.9999991, w: -1}
+  - {x: -0.000032066484, y: -0.00013654763, z: -1, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0.0005081807, y: -0.0002797604, z: 0.9999999, w: -1}
+  - {x: -0.0005081806, y: -0.00027976034, z: 0.9999999, w: -1}
+  - {x: -0.00050818064, y: -0.00027976037, z: 0.9999999, w: -1}
+  - {x: -0.0005081806, y: -0.00027976034, z: 0.9999999, w: -1}
+  - {x: -0.00012237091, y: -0.00034176136, z: 0.99999994, w: -1}
+  - {x: -0.00012237264, y: -0.0003417662, z: 0.99999994, w: -1}
+  - {x: -0.00012237091, y: -0.00034176136, z: 0.99999994, w: -1}
+  - {x: -0.00012236918, y: -0.00034175653, z: 0.99999994, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0.0001630801, y: -0.000102845755, z: -1, w: -1}
+  - {x: 0.00016308007, y: -0.00010284574, z: -1, w: -1}
+  - {x: 0.00016308008, y: -0.00010284575, z: -1, w: -1}
+  - {x: 0.00016308007, y: -0.00010284574, z: -1, w: -1}
+  - {x: 0.00001631256, y: -0.00012819254, z: -1, w: -1}
+  - {x: 0.00001631256, y: -0.00012819254, z: -1, w: -1}
+  - {x: 0.00001631256, y: -0.00012819254, z: -1, w: -1}
+  - {x: 0.00001631256, y: -0.00012819254, z: -1, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 4665
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &6945181925840460879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504014
+  m_Size: {x: -0.113590755, y: 0.31954557, z: 0.13507372}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 1965
+  m_ShapeBox:
+    m_Center: {x: -0.056795377, y: 0.15977281, z: 0.06753686}
+    m_Extent: {x: 0.056795377, y: 0.15977278, z: 0.06753686}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504014
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &1487002194105397423
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &468958302452169452
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Mesh: {fileID: 0}
+--- !u!64 &7720363251584847162
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &990088163608121969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806143817439891567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
+--- !u!1 &5107285959666609380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8422656760841994119}
+  - component: {fileID: 2659620166836319622}
+  - component: {fileID: 4575104007665202165}
+  - component: {fileID: 81331610142684492}
+  - component: {fileID: 7811301400101491038}
+  - component: {fileID: 4952998680868188416}
+  - component: {fileID: 3753806130609082485}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8422656760841994119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.2532019, w: 0.9674135}
+  m_LocalPosition: {x: -0.34137046, y: 0.33575088, z: 0.33785}
+  m_LocalScale: {x: 0.33438587, y: 0.123145215, z: 9.3647}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.334}
+--- !u!114 &2659620166836319622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 08000000090000000a000000090000000b0000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 0c0000000d0000000e0000000d0000000f0000000e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 100000001100000012000000110000001300000012000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 140000001500000016000000150000001700000016000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  m_SharedVertices:
+  - m_Vertices: 000000000d00000016000000
+  - m_Vertices: 010000000400000017000000
+  - m_Vertices: 020000000f00000010000000
+  - m_Vertices: 030000000600000011000000
+  - m_Vertices: 050000000800000015000000
+  - m_Vertices: 070000000a00000013000000
+  - m_Vertices: 090000000c00000014000000
+  - m_Vertices: 0b0000000e00000012000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: -0.086104415, y: -0.22414127, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.22414127, z: 0.00092632324}
+  - {x: -0.086104415, y: -0.000000022351742, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.000000022351742, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.22414127, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.22414127, z: -0.06401193}
+  - {x: 0.0012460127, y: -0.000000022351742, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.000000022351742, z: -0.06401193}
+  - {x: 0.0012460127, y: -0.22414127, z: -0.06401193}
+  - {x: -0.086104415, y: -0.22414127, z: -0.06401193}
+  - {x: 0.0012460127, y: -0.000000022351742, z: -0.06401193}
+  - {x: -0.086104415, y: -0.000000022351742, z: -0.06401193}
+  - {x: -0.086104415, y: -0.22414127, z: -0.06401193}
+  - {x: -0.086104415, y: -0.22414127, z: 0.00092632324}
+  - {x: -0.086104415, y: -0.000000022351742, z: -0.06401193}
+  - {x: -0.086104415, y: -0.000000022351742, z: 0.00092632324}
+  - {x: -0.086104415, y: -0.000000022351742, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.000000022351742, z: 0.00092632324}
+  - {x: -0.086104415, y: -0.000000022351742, z: -0.06401193}
+  - {x: 0.0012460127, y: -0.000000022351742, z: -0.06401193}
+  - {x: -0.086104415, y: -0.22414127, z: -0.06401193}
+  - {x: 0.0012460127, y: -0.22414127, z: -0.06401193}
+  - {x: -0.086104415, y: -0.22414127, z: 0.00092632324}
+  - {x: 0.0012460127, y: -0.22414127, z: 0.00092632324}
+  m_Textures0:
+  - {x: 0.086104415, y: -0.22414127}
+  - {x: -0.0012460127, y: -0.22414127}
+  - {x: 0.086104415, y: -0.000000022351742}
+  - {x: -0.0012460127, y: -0.000000022351742}
+  - {x: 0.00092632324, y: -0.22414127}
+  - {x: -0.06401193, y: -0.22414127}
+  - {x: 0.00092632324, y: -0.000000022351742}
+  - {x: -0.06401193, y: -0.000000022351742}
+  - {x: 0.0012460127, y: -0.22414127}
+  - {x: -0.086104415, y: -0.22414127}
+  - {x: 0.0012460127, y: -0.000000022351742}
+  - {x: -0.086104415, y: -0.000000022351742}
+  - {x: 0.06401193, y: -0.22414127}
+  - {x: -0.00092632324, y: -0.22414127}
+  - {x: 0.06401193, y: -0.000000022351742}
+  - {x: -0.00092632324, y: -0.000000022351742}
+  - {x: -0.086104415, y: 0.00092632324}
+  - {x: 0.0012460127, y: 0.00092632324}
+  - {x: -0.086104415, y: -0.06401193}
+  - {x: 0.0012460127, y: -0.06401193}
+  - {x: 0.086104415, y: -0.06401193}
+  - {x: -0.0012460127, y: -0.06401193}
+  - {x: 0.086104415, y: 0.00092632324}
+  - {x: -0.0012460127, y: 0.00092632324}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 2379
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &4575104007665202165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504026
+  m_Size: {x: -0.08735043, y: -0.22414126, z: -0.064938255}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 2379
+  m_ShapeBox:
+    m_Center: {x: -0.0424292, y: -0.11207065, z: -0.031542804}
+    m_Extent: {x: 0.043675214, y: 0.11207062, z: 0.032469127}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504026
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &81331610142684492
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &7811301400101491038
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Mesh: {fileID: 0}
+--- !u!64 &4952998680868188416
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &3753806130609082485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107285959666609380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
+--- !u!1 &8229279995643380474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161121545683390392}
+  - component: {fileID: 6975793264331844466}
+  - component: {fileID: 6488414657985776951}
+  - component: {fileID: 797101152144449838}
+  - component: {fileID: 5675458495913667636}
+  - component: {fileID: 6298322359506841474}
+  - component: {fileID: 3702799138829139942}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &161121545683390392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.5813112, w: 0.81368124}
+  m_LocalPosition: {x: -0.2515, y: 0.3428, z: -0.25708}
+  m_LocalScale: {x: 0.4303161, y: 0.27194983, z: 7.1589456}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 71.086}
+--- !u!114 &6975793264331844466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 08000000090000000b0000000b000000090000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 0e0000000f0000000c0000000e0000000c0000000d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 130000001000000011000000130000001100000012000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 160000001700000015000000170000001400000015000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 1b000000180000001a0000001a0000001800000019000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 1e0000001f0000001d0000001f0000001c0000001d000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 230000002000000022000000200000002100000022000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 260000002400000025000000260000002700000024000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  m_SharedVertices:
+  - m_Vertices: 000000000e00000025000000
+  - m_Vertices: 010000000d00000016000000
+  - m_Vertices: 020000001d00000026000000
+  - m_Vertices: 03000000150000001e000000
+  - m_Vertices: 040000001900000020000000
+  - m_Vertices: 050000001100000018000000
+  - m_Vertices: 060000000800000021000000
+  - m_Vertices: 070000000900000010000000
+  - m_Vertices: 0a0000000c0000001300000017000000
+  - m_Vertices: 0b0000000f0000002200000024000000
+  - m_Vertices: 12000000140000001b0000001f000000
+  - m_Vertices: 1a0000001c0000002300000027000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: 0.08520707}
+  - {x: -0.03284783, y: 0.17554909, z: 0.08520707}
+  - {x: 0.0013516592, y: 0.027543472, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.081408046, y: 0.26517034, z: -0.0012990385}
+  - {x: -0.03284783, y: 0.17554909, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: -0.0012990385}
+  - {x: -0.038537696, y: 0.021045217, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: 0.08520707}
+  - {x: -0.096858636, y: 0.22723264, z: -0.0012990385}
+  - {x: -0.05675229, y: 0.13891219, z: -0.0012990385}
+  m_Textures0:
+  - {x: -0.08520707, y: 0.1739158}
+  - {x: -0.08520707, y: 0.21487907}
+  - {x: 0.0012990385, y: 0.1739158}
+  - {x: 0.0012990385, y: 0.21487907}
+  - {x: 0.03465248, y: -0.0012990385}
+  - {x: -0.005762717, y: -0.0012990385}
+  - {x: 0.03465248, y: 0.08520707}
+  - {x: -0.005762717, y: 0.08520707}
+  - {x: 0.038537696, y: 0.021045217}
+  - {x: -0.0013516592, y: 0.027543472}
+  - {x: 0.03284783, y: 0.17554909}
+  - {x: 0.05675229, y: 0.13891219}
+  - {x: 0.03284783, y: 0.17554909}
+  - {x: 0.081408046, y: 0.26517034}
+  - {x: 0.096858636, y: 0.22723264}
+  - {x: 0.05675229, y: 0.13891219}
+  - {x: 0.08520707, y: 0.025281696}
+  - {x: -0.0012990385, y: 0.025281696}
+  - {x: -0.0012990385, y: 0.1758104}
+  - {x: 0.08520707, y: 0.1758104}
+  - {x: -0.0012990385, y: 0.1758104}
+  - {x: -0.0012990385, y: 0.27681822}
+  - {x: 0.08520707, y: 0.27681822}
+  - {x: 0.08520707, y: 0.1758104}
+  - {x: 0.0013516592, y: 0.027543472}
+  - {x: -0.038537696, y: 0.021045217}
+  - {x: -0.05675229, y: 0.13891219}
+  - {x: -0.03284783, y: 0.17554909}
+  - {x: -0.05675229, y: 0.13891219}
+  - {x: -0.096858636, y: 0.22723264}
+  - {x: -0.081408046, y: 0.26517034}
+  - {x: -0.03284783, y: 0.17554909}
+  - {x: 0.0012990385, y: 0.03117991}
+  - {x: -0.08520707, y: 0.03117991}
+  - {x: -0.08520707, y: 0.14933711}
+  - {x: 0.0012990385, y: 0.14933711}
+  - {x: -0.08520707, y: 0.14933711}
+  - {x: -0.08520707, y: 0.24543537}
+  - {x: 0.0012990385, y: 0.24543537}
+  - {x: 0.0012990385, y: 0.14933711}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -0.9869891, y: -0.16078743, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 0, y: 0, z: 1, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  - {x: 0, y: 0, z: -1, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 1964
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &6488414657985776951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504019
+  m_Size: {x: -0.116824195, y: 0.22289108, z: 0.086506106}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 992
+  m_ShapeBox:
+    m_Center: {x: -0.056657784, y: 0.111445546, z: 0.041954014}
+    m_Extent: {x: 0.058412097, y: 0.111445546, z: 0.043253053}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504019
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &797101152144449838
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &5675458495913667636
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Mesh: {fileID: 0}
+--- !u!64 &6298322359506841474
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &3702799138829139942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229279995643380474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
+--- !u!1 &8386682566439867795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351437013665704352}
+  - component: {fileID: 8620391517332274051}
+  - component: {fileID: 572420232298915484}
+  - component: {fileID: 6482650707605771686}
+  - component: {fileID: 6851359080469966640}
+  - component: {fileID: 9014526441543600617}
+  - component: {fileID: 7397288114587940627}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351437013665704352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000036025185, y: -0.00000028970638, z: 0.026281588, w: 0.9996546}
+  m_LocalPosition: {x: -0.016, y: -0.067, z: -0.319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999600470344418611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.012}
+--- !u!114 &8620391517332274051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 2
+  m_Faces:
+  - m_Indexes: 000000000100000002000000010000000300000002000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 040000000500000006000000050000000700000006000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 0}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: -1
+    m_TextureGroup: -1
+  - m_Indexes: 08000000090000000b0000000b000000090000000a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 0c0000000d0000000f0000000f0000000d0000000e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 100000001100000013000000130000001100000012000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 140000001500000017000000170000001500000016000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 1b00000018000000190000001b000000190000001a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 1c0000001d0000001f0000001f0000001d0000001e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 200000002100000023000000230000002100000022000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 260000002700000024000000260000002400000025000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 290000002a00000028000000280000002a0000002b000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 2c0000002d0000002e0000002c0000002e0000002f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 330000003000000032000000320000003000000031000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 360000003700000035000000350000003700000034000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 38000000390000003b0000003b000000390000003a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 3f0000003c0000003d0000003f0000003d0000003e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 400000004100000043000000430000004100000042000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 470000004400000046000000440000004500000046000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 48000000490000004b0000004b000000490000004a000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 4c0000004d0000004e0000004f0000004c0000004e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 510000005200000050000000500000005200000053000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 540000005500000056000000570000005400000056000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 590000005b00000058000000590000005a0000005b000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 5f0000005c0000005e0000005c0000005d0000005e000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 1
+  - m_Indexes: 600000006100000062000000600000006200000063000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 660000006700000064000000650000006600000064000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 2
+  - m_Indexes: 68000000690000006a000000680000006a0000006b000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 6c0000006d0000006e0000006c0000006e0000006f000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 3
+  - m_Indexes: 700000007100000073000000730000007100000072000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  - m_Indexes: 760000007700000075000000770000007400000075000000
+    m_SmoothingGroup: 0
+    m_Uv:
+      m_UseWorldSpace: 0
+      m_FlipU: 0
+      m_FlipV: 0
+      m_SwapUV: 0
+      m_Fill: 1
+      m_Scale: {x: 1, y: 1}
+      m_Offset: {x: 0, y: 0}
+      m_Rotation: 0
+      m_Anchor: 9
+    m_Material: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    m_SubmeshIndex: 0
+    m_ManualUV: 0
+    elementGroup: 0
+    m_TextureGroup: 4
+  m_SharedVertices:
+  - m_Vertices: 000000004900000054000000
+  - m_Vertices: 010000004e00000057000000
+  - m_Vertices: 020000004a00000050000000
+  - m_Vertices: 030000004d00000051000000
+  - m_Vertices: 040000003500000041000000
+  - m_Vertices: 050000002800000040000000
+  - m_Vertices: 06000000360000003d000000
+  - m_Vertices: 070000002b0000003e000000
+  - m_Vertices: 08000000150000001900000026000000
+  - m_Vertices: 09000000140000005800000070000000
+  - m_Vertices: 0a000000130000005b0000006e000000
+  - m_Vertices: 0b000000120000001a00000023000000
+  - m_Vertices: 0c00000010000000660000006d000000
+  - m_Vertices: 0d000000170000006500000071000000
+  - m_Vertices: 0e000000160000001d00000025000000
+  - m_Vertices: 0f000000110000001c00000020000000
+  - m_Vertices: 18000000270000002d00000046000000
+  - m_Vertices: 1b000000220000002e0000003b000000
+  - m_Vertices: 1e000000240000003100000045000000
+  - m_Vertices: 1f000000210000003000000038000000
+  - m_Vertices: 290000002c0000004300000047000000
+  - m_Vertices: 2a0000002f0000003a0000003f000000
+  - m_Vertices: 32000000340000004200000044000000
+  - m_Vertices: 3300000037000000390000003c000000
+  - m_Vertices: 48000000550000005d00000076000000
+  - m_Vertices: 4b000000530000005e0000006b000000
+  - m_Vertices: 4c000000520000006000000068000000
+  - m_Vertices: 4f000000560000006100000075000000
+  - m_Vertices: 590000005c0000007300000077000000
+  - m_Vertices: 5a0000005f0000006a0000006f000000
+  - m_Vertices: 62000000640000007200000074000000
+  - m_Vertices: 6300000067000000690000006c000000
+  m_SharedTextures: []
+  m_Positions:
+  - {x: 0.48009706, y: 0.16901019, z: 0.731326}
+  - {x: 0.48009712, y: 0.1690102, z: 0.0000000095434585}
+  - {x: 0.4800971, y: 0.24146006, z: 0.731326}
+  - {x: 0.48009712, y: 0.24146006, z: -0.000000011733304}
+  - {x: -0.35798892, y: 0.12603821, z: 0.000000004698074}
+  - {x: -0.35798895, y: 0.1260382, z: 0.731326}
+  - {x: -0.35798886, y: 0.18027696, z: -0.000000003739411}
+  - {x: -0.35798892, y: 0.18027695, z: 0.731326}
+  - {x: -0.14643401, y: -0.00032879077, z: 0.731326}
+  - {x: 0.062409695, y: 0.028664283, z: 0.73132604}
+  - {x: 0.062409714, y: 0.33092853, z: 0.731326}
+  - {x: -0.14643401, y: 0.34777924, z: 0.731326}
+  - {x: 0.062409732, y: 0.3309285, z: -0.0000000037857824}
+  - {x: 0.062409714, y: 0.028664285, z: 7.023897e-10}
+  - {x: -0.14643401, y: -0.00032875538, z: -0.000000002948766}
+  - {x: -0.14643398, y: 0.34777927, z: -0.000000009955752}
+  - {x: 0.062409732, y: 0.3309285, z: -0.0000000037857824}
+  - {x: -0.14643398, y: 0.34777927, z: -0.000000009955752}
+  - {x: -0.14643401, y: 0.34777924, z: 0.731326}
+  - {x: 0.062409714, y: 0.33092853, z: 0.731326}
+  - {x: 0.062409695, y: 0.028664283, z: 0.73132604}
+  - {x: -0.14643401, y: -0.00032879077, z: 0.731326}
+  - {x: -0.14643401, y: -0.00032875538, z: -0.000000002948766}
+  - {x: 0.062409714, y: 0.028664285, z: 7.023897e-10}
+  - {x: -0.2508558, y: 0.0040939627, z: 0.731326}
+  - {x: -0.14643401, y: -0.00032879077, z: 0.731326}
+  - {x: -0.14643401, y: 0.34777924, z: 0.731326}
+  - {x: -0.2508558, y: 0.31167862, z: 0.731326}
+  - {x: -0.14643398, y: 0.34777927, z: -0.000000009955752}
+  - {x: -0.14643401, y: -0.00032875538, z: -0.000000002948766}
+  - {x: -0.2508558, y: 0.0040939758, z: -0.000000003211804}
+  - {x: -0.25085577, y: 0.31167865, z: -0.000000011451055}
+  - {x: -0.14643398, y: 0.34777927, z: -0.000000009955752}
+  - {x: -0.25085577, y: 0.31167865, z: -0.000000011451055}
+  - {x: -0.2508558, y: 0.31167862, z: 0.731326}
+  - {x: -0.14643401, y: 0.34777924, z: 0.731326}
+  - {x: -0.2508558, y: 0.0040939758, z: -0.000000003211804}
+  - {x: -0.14643401, y: -0.00032875538, z: -0.000000002948766}
+  - {x: -0.14643401, y: -0.00032879077, z: 0.731326}
+  - {x: -0.2508558, y: 0.0040939627, z: 0.731326}
+  - {x: -0.35798895, y: 0.1260382, z: 0.731326}
+  - {x: -0.30306673, y: 0.04261029, z: 0.731326}
+  - {x: -0.3030667, y: 0.26670048, z: 0.7313259}
+  - {x: -0.35798892, y: 0.18027695, z: 0.731326}
+  - {x: -0.30306673, y: 0.04261029, z: 0.731326}
+  - {x: -0.2508558, y: 0.0040939627, z: 0.731326}
+  - {x: -0.2508558, y: 0.31167862, z: 0.731326}
+  - {x: -0.3030667, y: 0.26670048, z: 0.7313259}
+  - {x: -0.25085577, y: 0.31167865, z: -0.000000011451055}
+  - {x: -0.2508558, y: 0.0040939758, z: -0.000000003211804}
+  - {x: -0.30306673, y: 0.04261029, z: 8.630559e-10}
+  - {x: -0.30306667, y: 0.26670054, z: -0.00000003791737}
+  - {x: -0.30306673, y: 0.04261029, z: 8.630559e-10}
+  - {x: -0.35798892, y: 0.12603821, z: 0.000000004698074}
+  - {x: -0.35798886, y: 0.18027696, z: -0.000000003739411}
+  - {x: -0.30306667, y: 0.26670054, z: -0.00000003791737}
+  - {x: -0.25085577, y: 0.31167865, z: -0.000000011451055}
+  - {x: -0.30306667, y: 0.26670054, z: -0.00000003791737}
+  - {x: -0.3030667, y: 0.26670048, z: 0.7313259}
+  - {x: -0.2508558, y: 0.31167862, z: 0.731326}
+  - {x: -0.30306667, y: 0.26670054, z: -0.00000003791737}
+  - {x: -0.35798886, y: 0.18027696, z: -0.000000003739411}
+  - {x: -0.35798892, y: 0.18027695, z: 0.731326}
+  - {x: -0.3030667, y: 0.26670048, z: 0.7313259}
+  - {x: -0.35798895, y: 0.1260382, z: 0.731326}
+  - {x: -0.35798892, y: 0.12603821, z: 0.000000004698074}
+  - {x: -0.30306673, y: 0.04261029, z: 8.630559e-10}
+  - {x: -0.30306673, y: 0.04261029, z: 0.731326}
+  - {x: -0.30306673, y: 0.04261029, z: 8.630559e-10}
+  - {x: -0.2508558, y: 0.0040939758, z: -0.000000003211804}
+  - {x: -0.2508558, y: 0.0040939627, z: 0.731326}
+  - {x: -0.30306673, y: 0.04261029, z: 0.731326}
+  - {x: 0.2361793, y: 0.0654489, z: 0.731326}
+  - {x: 0.48009706, y: 0.16901019, z: 0.731326}
+  - {x: 0.4800971, y: 0.24146006, z: 0.731326}
+  - {x: 0.21865948, y: 0.3073321, z: 0.731326}
+  - {x: 0.21865948, y: 0.307332, z: 0.0000000087967695}
+  - {x: 0.48009712, y: 0.24146006, z: -0.000000011733304}
+  - {x: 0.48009712, y: 0.1690102, z: 0.0000000095434585}
+  - {x: 0.2361793, y: 0.06544893, z: 0.000000019839792}
+  - {x: 0.4800971, y: 0.24146006, z: 0.731326}
+  - {x: 0.48009712, y: 0.24146006, z: -0.000000011733304}
+  - {x: 0.21865948, y: 0.307332, z: 0.0000000087967695}
+  - {x: 0.21865948, y: 0.3073321, z: 0.731326}
+  - {x: 0.48009706, y: 0.16901019, z: 0.731326}
+  - {x: 0.2361793, y: 0.0654489, z: 0.731326}
+  - {x: 0.2361793, y: 0.06544893, z: 0.000000019839792}
+  - {x: 0.48009712, y: 0.1690102, z: 0.0000000095434585}
+  - {x: 0.062409695, y: 0.028664283, z: 0.73132604}
+  - {x: 0.17114511, y: 0.032242138, z: 0.7313259}
+  - {x: 0.14076017, y: 0.33764562, z: 0.73132604}
+  - {x: 0.062409714, y: 0.33092853, z: 0.731326}
+  - {x: 0.17114511, y: 0.032242138, z: 0.7313259}
+  - {x: 0.2361793, y: 0.0654489, z: 0.731326}
+  - {x: 0.21865948, y: 0.3073321, z: 0.731326}
+  - {x: 0.14076017, y: 0.33764562, z: 0.73132604}
+  - {x: 0.21865948, y: 0.307332, z: 0.0000000087967695}
+  - {x: 0.2361793, y: 0.06544893, z: 0.000000019839792}
+  - {x: 0.17114505, y: 0.03224217, z: -0.000000066860004}
+  - {x: 0.14076017, y: 0.33764553, z: 0.00000006382261}
+  - {x: 0.17114505, y: 0.03224217, z: -0.000000066860004}
+  - {x: 0.062409714, y: 0.028664285, z: 7.023897e-10}
+  - {x: 0.062409732, y: 0.3309285, z: -0.0000000037857824}
+  - {x: 0.14076017, y: 0.33764553, z: 0.00000006382261}
+  - {x: 0.21865948, y: 0.307332, z: 0.0000000087967695}
+  - {x: 0.14076017, y: 0.33764553, z: 0.00000006382261}
+  - {x: 0.14076017, y: 0.33764562, z: 0.73132604}
+  - {x: 0.21865948, y: 0.3073321, z: 0.731326}
+  - {x: 0.14076017, y: 0.33764553, z: 0.00000006382261}
+  - {x: 0.062409732, y: 0.3309285, z: -0.0000000037857824}
+  - {x: 0.062409714, y: 0.33092853, z: 0.731326}
+  - {x: 0.14076017, y: 0.33764562, z: 0.73132604}
+  - {x: 0.062409695, y: 0.028664283, z: 0.73132604}
+  - {x: 0.062409714, y: 0.028664285, z: 7.023897e-10}
+  - {x: 0.17114505, y: 0.03224217, z: -0.000000066860004}
+  - {x: 0.17114511, y: 0.032242138, z: 0.7313259}
+  - {x: 0.17114505, y: 0.03224217, z: -0.000000066860004}
+  - {x: 0.2361793, y: 0.06544893, z: 0.000000019839792}
+  - {x: 0.2361793, y: 0.0654489, z: 0.731326}
+  - {x: 0.17114511, y: 0.032242138, z: 0.7313259}
+  m_Textures0:
+  - {x: 0.7313259, y: 0.16901039}
+  - {x: -0.000000029585486, y: 0.1690104}
+  - {x: 0.7313259, y: 0.24146025}
+  - {x: -0.000000050862248, y: 0.24146025}
+  - {x: -0.0000000192865, y: 0.12603782}
+  - {x: -0.731326, y: 0.1260378}
+  - {x: -0.000000010849012, y: 0.18027657}
+  - {x: -0.731326, y: 0.18027656}
+  - {x: 0.1464342, y: -0.000328805}
+  - {x: -0.0624095, y: 0.028664269}
+  - {x: -0.06240952, y: 0.33092853}
+  - {x: 0.1464342, y: 0.34777924}
+  - {x: 0.062409732, y: 0.3309285}
+  - {x: 0.062409714, y: 0.028664285}
+  - {x: -0.14643401, y: -0.00032875538}
+  - {x: -0.14643398, y: 0.34777927}
+  - {x: 0.12583718, y: 0.0000000035106988}
+  - {x: -0.075694196, y: -0.0000000013205238}
+  - {x: -0.07569423, y: 0.731326}
+  - {x: 0.12583716, y: 0.731326}
+  - {x: -0.06012515, y: 0.73132604}
+  - {x: 0.14601079, y: 0.731326}
+  - {x: 0.1460108, y: -0.0000000027006377}
+  - {x: -0.06012517, y: -3.7535752e-11}
+  - {x: 0.25085598, y: 0.0040939483}
+  - {x: 0.1464342, y: -0.000328805}
+  - {x: 0.1464342, y: 0.34777924}
+  - {x: 0.25085598, y: 0.31167862}
+  - {x: -0.14643398, y: 0.34777927}
+  - {x: -0.14643401, y: -0.00032875538}
+  - {x: -0.2508558, y: 0.0040939758}
+  - {x: -0.25085577, y: 0.31167865}
+  - {x: -0.075694196, y: -0.0000000013205238}
+  - {x: -0.1851556, y: -0.000000003166493}
+  - {x: -0.18515563, y: 0.731326}
+  - {x: -0.07569423, y: 0.731326}
+  - {x: 0.25047433, y: -0.0000000028902782}
+  - {x: 0.1460108, y: -0.0000000027006377}
+  - {x: 0.14601079, y: 0.731326}
+  - {x: 0.25047433, y: 0.731326}
+  - {x: 0.35798913, y: 0.12603818}
+  - {x: 0.3030669, y: 0.042610276}
+  - {x: 0.30306688, y: 0.26670048}
+  - {x: 0.3579891, y: 0.18027693}
+  - {x: 0.3030669, y: 0.042610276}
+  - {x: 0.25085598, y: 0.0040939483}
+  - {x: 0.25085598, y: 0.31167862}
+  - {x: 0.30306688, y: 0.26670048}
+  - {x: -0.25085577, y: 0.31167865}
+  - {x: -0.2508558, y: 0.0040939758}
+  - {x: -0.30306673, y: 0.04261029}
+  - {x: -0.30306667, y: 0.26670054}
+  - {x: -0.30306673, y: 0.04261029}
+  - {x: -0.35798892, y: 0.12603821}
+  - {x: -0.35798886, y: 0.18027696}
+  - {x: -0.30306667, y: 0.26670054}
+  - {x: -0.1851556, y: -0.000000003166493}
+  - {x: -0.2451452, y: -0.000000030425024}
+  - {x: -0.24514525, y: 0.7313259}
+  - {x: -0.18515563, y: 0.731326}
+  - {x: -0.2451452, y: -0.000000030425024}
+  - {x: -0.31588805, y: 0.0000000020236177}
+  - {x: -0.3158881, y: 0.731326}
+  - {x: -0.24514525, y: 0.7313259}
+  - {x: 0.3663112, y: 0.731326}
+  - {x: 0.36631116, y: 0.0000000024846165}
+  - {x: 0.3053843, y: 4.1411735e-10}
+  - {x: 0.3053843, y: 0.731326}
+  - {x: 0.3053843, y: 4.1411735e-10}
+  - {x: 0.25047433, y: -0.0000000028902782}
+  - {x: 0.25047433, y: 0.731326}
+  - {x: 0.3053843, y: 0.731326}
+  - {x: -0.23617911, y: 0.06544889}
+  - {x: -0.48009688, y: 0.16901018}
+  - {x: -0.4800969, y: 0.24146004}
+  - {x: -0.21865928, y: 0.3073321}
+  - {x: 0.21865948, y: 0.307332}
+  - {x: 0.48009712, y: 0.24146006}
+  - {x: 0.48009712, y: 0.1690102}
+  - {x: 0.2361793, y: 0.06544893}
+  - {x: 0.51800877, y: 0.731326}
+  - {x: 0.51800877, y: -0.000000008391871}
+  - {x: 0.27446988, y: 0.000000014839894}
+  - {x: 0.2744699, y: 0.731326}
+  - {x: -0.46632147, y: 0.731326}
+  - {x: -0.2307078, y: 0.731326}
+  - {x: -0.2307078, y: 0.000000017996264}
+  - {x: -0.46632153, y: 0.000000004996331}
+  - {x: -0.0624095, y: 0.028664269}
+  - {x: -0.17114492, y: 0.032242123}
+  - {x: -0.14075997, y: 0.33764562}
+  - {x: -0.06240952, y: 0.33092853}
+  - {x: -0.17114492, y: 0.032242123}
+  - {x: -0.23617911, y: 0.06544889}
+  - {x: -0.21865928, y: 0.3073321}
+  - {x: -0.14075997, y: 0.33764562}
+  - {x: 0.21865948, y: 0.307332}
+  - {x: 0.2361793, y: 0.06544893}
+  - {x: 0.17114505, y: 0.03224217}
+  - {x: 0.14076017, y: 0.33764553}
+  - {x: 0.17114505, y: 0.03224217}
+  - {x: 0.062409714, y: 0.028664285}
+  - {x: 0.062409732, y: 0.3309285}
+  - {x: 0.14076017, y: 0.33764553}
+  - {x: 0.27446988, y: 0.000000014839894}
+  - {x: 0.20399073, y: 0.00000007091555}
+  - {x: 0.20399074, y: 0.73132604}
+  - {x: 0.2744699, y: 0.731326}
+  - {x: 0.20399073, y: 0.00000007091555}
+  - {x: 0.12583718, y: 0.0000000035106988}
+  - {x: 0.12583716, y: 0.731326}
+  - {x: 0.20399074, y: 0.73132604}
+  - {x: -0.06012515, y: 0.73132604}
+  - {x: -0.06012517, y: -3.7535752e-11}
+  - {x: -0.16830032, y: -0.000000067858295}
+  - {x: -0.16830038, y: 0.7313259}
+  - {x: -0.16830032, y: -0.000000067858295}
+  - {x: -0.2307078, y: 0.000000017996264}
+  - {x: -0.2307078, y: 0.731326}
+  - {x: -0.16830038, y: 0.7313259}
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents:
+  - {x: -0.000000081502144, y: 0, z: 1, w: -1}
+  - {x: -0.00000006112661, y: 1.4614123e-21, z: 1, w: -1}
+  - {x: -0.00000006112661, y: 1.4614123e-21, z: 1, w: -1}
+  - {x: -0.00000004075108, y: -4.2517464e-29, z: 1, w: -1}
+  - {x: 0.000000040751054, y: 0, z: -1, w: -1}
+  - {x: 0.0000000611266, y: 0, z: -1, w: -1}
+  - {x: 0.0000000611266, y: 0, z: -1, w: -1}
+  - {x: 0.000000081502144, y: 0, z: -1, w: -1}
+  - {x: -1, y: -0.000000011885266, z: -0.0000002854031, w: -1}
+  - {x: -1, y: -0.0000000019649509, z: -0.00000013474619, w: -1}
+  - {x: -1, y: 0.000000007955364, z: 0.000000015910729, w: -1}
+  - {x: -1, y: -0.0000000019649509, z: -0.00000013474619, w: -1}
+  - {x: 1, y: 0, z: 0.00000002834541, w: -1}
+  - {x: 1, y: 0, z: 0.000000024311266, w: -1}
+  - {x: 1, y: 0, z: 0.00000002027712, w: -1}
+  - {x: 1, y: 0, z: 0.000000024311266, w: -1}
+  - {x: 0.9967607, y: -0.08042467, z: 0.0000000063895165, w: -1}
+  - {x: 0.9967607, y: -0.08042452, z: 0.0000000031947585, w: -1}
+  - {x: 0.9967607, y: -0.08042438, z: 0, w: -1}
+  - {x: 0.9967607, y: -0.08042452, z: 0.0000000031947585, w: -1}
+  - {x: -0.9905007, y: -0.13750789, z: -1.4595668e-17, w: -1}
+  - {x: -0.9905007, y: -0.1375078, z: -0.0000000023430617, w: -1}
+  - {x: -0.9905007, y: -0.13750772, z: -0.000000004686125, w: -1}
+  - {x: -0.9905007, y: -0.1375078, z: -0.0000000023430617, w: -1}
+  - {x: -1, y: 0.0000000041038084, z: 0, w: -1}
+  - {x: -1, y: -0.000000012747003, z: 0, w: -1}
+  - {x: -1, y: -0.000000029597814, z: 0, w: -1}
+  - {x: -1, y: -0.000000012747003, z: 0, w: -1}
+  - {x: 1, y: -3.575588e-23, z: 0.000000021278744, w: -1}
+  - {x: 1, y: -2.083476e-23, z: 0.0000000113316, w: -1}
+  - {x: 1, y: 0, z: 0.0000000013844548, w: -1}
+  - {x: 1, y: -2.083476e-23, z: 0.0000000113316, w: -1}
+  - {x: 0.945113, y: 0.32674378, z: -0.0000000031738472, w: -1}
+  - {x: 0.945113, y: 0.32674378, z: -0.0000000015869236, w: -1}
+  - {x: 0.945113, y: 0.32674375, z: -7.5099503e-16, w: -1}
+  - {x: 0.945113, y: 0.32674378, z: -0.0000000015869236, w: -1}
+  - {x: -0.99910426, y: 0.042316653, z: 0, w: -1}
+  - {x: -0.99910426, y: 0.042316545, z: -1.8011242e-16, w: -1}
+  - {x: -0.99910426, y: 0.042316653, z: 0, w: -1}
+  - {x: -0.99910426, y: 0.04231676, z: 0, w: -1}
+  - {x: -1, y: 0.0000001861616, z: 0.0000007446464, w: -1}
+  - {x: -1, y: 0.00000010100908, z: 0.00000040403629, w: -1}
+  - {x: -1, y: 0.0000001861616, z: 0.0000007446464, w: -1}
+  - {x: -1, y: 0.00000027131412, z: 0.0000010852565, w: -1}
+  - {x: -1, y: -0.00000017134394, z: -0.00000068537577, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: -0.00000017134394, z: -0.00000068537577, w: -1}
+  - {x: -1, y: -0.00000034268788, z: -0.0000013707514, w: -1}
+  - {x: 1, y: 0, z: 0.00000027909422, w: -1}
+  - {x: 1, y: 1.9033256e-22, z: -0.00000009780699, w: -1}
+  - {x: 1, y: 0, z: 0.00000027909422, w: -1}
+  - {x: 1, y: 0, z: 0.00000065599545, w: -1}
+  - {x: 1, y: 0, z: -0.0000003327036, w: -1}
+  - {x: 1, y: 0, z: -0.0000003551077, w: -1}
+  - {x: 1, y: 0, z: -0.00000037751178, w: -1}
+  - {x: 1, y: 0, z: -0.0000003551077, w: -1}
+  - {x: 0.7576344, y: 0.65267915, z: -0.000000011495879, w: -1}
+  - {x: 0.7576343, y: 0.6526794, z: -0.0000000057479386, w: -1}
+  - {x: 0.7576342, y: 0.65267944, z: 0, w: -1}
+  - {x: 0.7576343, y: 0.6526794, z: -0.0000000057479386, w: -1}
+  - {x: 0.5363567, y: 0.84399146, z: -2.7777747e-16, w: -1}
+  - {x: 0.53635687, y: 0.8439913, z: 0, w: -1}
+  - {x: 0.53635705, y: 0.84399116, z: 1.7243187e-15, w: -1}
+  - {x: 0.53635687, y: 0.8439913, z: 0, w: -1}
+  - {x: -0.5498642, y: 0.8352541, z: -2.6965908e-15, w: -1}
+  - {x: -0.54986405, y: 0.8352542, z: 0, w: -1}
+  - {x: -0.5498639, y: 0.8352543, z: 0, w: -1}
+  - {x: -0.54986405, y: 0.8352542, z: 0, w: -1}
+  - {x: -0.8047237, y: 0.5936496, z: 0.000000005937559, w: -1}
+  - {x: -0.80472374, y: 0.59364957, z: 0.000000011875119, w: -1}
+  - {x: -0.8047237, y: 0.5936496, z: 0.000000005937559, w: -1}
+  - {x: -0.8047237, y: 0.5936496, z: 0, w: -1}
+  - {x: -1, y: -0.000000050750938, z: 0, w: -1}
+  - {x: -1, y: -0.000000053873972, z: 0, w: -1}
+  - {x: -1, y: -0.00000005699701, z: 0, w: -1}
+  - {x: -1, y: -0.000000053873972, z: 0, w: -1}
+  - {x: 1, y: 0, z: -0.00000008733491, w: -1}
+  - {x: 1, y: 0, z: -0.00000015252229, w: -1}
+  - {x: 1, y: 0, z: -0.00000008733491, w: -1}
+  - {x: 1, y: 0, z: -0.000000022147534, w: -1}
+  - {x: 0.96969354, y: -0.24432462, z: 0.000000005010397, w: -1}
+  - {x: 0.96969354, y: -0.24432445, z: 0.000000010020793, w: -1}
+  - {x: 0.96969354, y: -0.24432462, z: 0.000000005010397, w: -1}
+  - {x: 0.9696935, y: -0.24432482, z: -1.7665054e-15, w: -1}
+  - {x: -0.92047185, y: -0.39080897, z: -0.000000005101284, w: -1}
+  - {x: -0.92047185, y: -0.39080903, z: -1.1178918e-15, w: -1}
+  - {x: -0.92047185, y: -0.39080897, z: -0.000000005101284, w: -1}
+  - {x: -0.9204719, y: -0.39080888, z: -0.000000010202568, w: -1}
+  - {x: -1, y: -0.0000000032442549, z: 0.0000010898358, w: -1}
+  - {x: -1, y: -0.0000000057697274, z: 0.00000018435318, w: -1}
+  - {x: -1, y: -0.0000000082952, z: -0.0000007211294, w: -1}
+  - {x: -1, y: -0.0000000057697274, z: 0.00000018435318, w: -1}
+  - {x: -1, y: -0.00000001058247, z: -0.000000122935, w: -1}
+  - {x: -1, y: -0.000000060667666, z: -0.00000088382535, w: -1}
+  - {x: -1, y: -0.00000001058247, z: -0.000000122935, w: -1}
+  - {x: -1, y: 0.000000039502726, z: 0.00000063795534, w: -1}
+  - {x: 1, y: -5.9844486e-21, z: 0.00000037323642, w: -1}
+  - {x: 1, y: 0, z: 0.0000013080745, w: -1}
+  - {x: 1, y: -5.9844486e-21, z: 0.00000037323642, w: -1}
+  - {x: 1, y: -2.1147309e-20, z: -0.00000056160167, w: -1}
+  - {x: 1, y: 0, z: 0.00000009918355, w: -1}
+  - {x: 1, y: 0, z: -0.0000006208586, w: -1}
+  - {x: 1, y: 0, z: 0.00000009918355, w: -1}
+  - {x: 1, y: 0, z: 0.0000008192257, w: -1}
+  - {x: 0.9319265, y: -0.3626473, z: 0.0000000062795493, w: -1}
+  - {x: 0.9319265, y: -0.3626473, z: 0.000000012559097, w: -1}
+  - {x: 0.9319265, y: -0.3626473, z: 0.0000000062795493, w: -1}
+  - {x: 0.9319265, y: -0.3626473, z: 0, w: -1}
+  - {x: 0.9963453, y: 0.0854176, z: 0.0000000012942192, w: -1}
+  - {x: 0.9963453, y: 0.08541723, z: 0.000000002588438, w: -1}
+  - {x: 0.9963453, y: 0.0854176, z: 0.0000000012942192, w: -1}
+  - {x: 0.9963452, y: 0.08541797, z: 0, w: -1}
+  - {x: -0.99945915, y: -0.03288643, z: 0, w: -1}
+  - {x: -0.99945915, y: -0.032886583, z: 1.8704111e-16, w: -1}
+  - {x: -0.99945915, y: -0.03288674, z: 1.8067845e-16, w: -1}
+  - {x: -0.99945915, y: -0.032886583, z: 1.8704111e-16, w: -1}
+  - {x: -0.8906176, y: -0.45475304, z: 0, w: -1}
+  - {x: -0.8906175, y: -0.45475322, z: 0, w: -1}
+  - {x: -0.89061743, y: -0.4547534, z: 2.1632686e-15, w: -1}
+  - {x: -0.8906175, y: -0.45475322, z: 0, w: -1}
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 3378
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!114 &572420232298915484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 223324492693504016
+  m_Size: {x: -0.25723875, y: 0.22584778, z: 0.731326}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 1
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 1296
+  m_ShapeBox:
+    m_Center: {x: -0.12861934, y: 0.11292389, z: 0.365663}
+    m_Extent: {x: 0.12861937, y: 0.11292389, z: 0.365663}
+  references:
+    version: 2
+    RefIds:
+    - rid: 223324492693504016
+      type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
+--- !u!23 &6482650707605771686
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bbb235fff4f48426b863b36058ab66d2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 2
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &6851359080469966640
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Mesh: {fileID: 0}
+--- !u!64 &9014526441543600617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &7397288114587940627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386682566439867795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57444c075000242ea99e263cee940de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manageVisibility: 1
 --- !u!1001 &3949302047392469188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,24 +3929,44 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _collider
-      value: 
-      objectReference: {fileID: 1613479858148107376}
-    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
-        type: 3}
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 3333080505846714108}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: _colliders.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: _colliders.Array.data[0]
       value: 
-      objectReference: {fileID: 1613479858148107376}
+      objectReference: {fileID: 7720363251584847162}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 4996755302805552056}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[2]
+      value: 
+      objectReference: {fileID: 9014526441543600617}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[3]
+      value: 
+      objectReference: {fileID: 8890109004386984130}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[4]
+      value: 
+      objectReference: {fileID: 6298322359506841474}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      propertyPath: _colliders.Array.data[5]
+      value: 
+      objectReference: {fileID: 4952998680868188416}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -105,6 +4044,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4470482144587298195}
+    - targetCorrespondingSourceObject: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2999600470344418611}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a08fb8b0218ab12449b4a3fe2c78d666, type: 3}
 --- !u!4 &4627228654890806634 stripped
@@ -191,17 +4134,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToyObject_014
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: a3b881670b3bff645ac0e6878eba4047, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b881670b3bff645ac0e6878eba4047, type: 3}
---- !u!64 &1613479858148107376 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 3451118302482216456, guid: a3b881670b3bff645ac0e6878eba4047,
-    type: 3}
-  m_PrefabInstance: {fileID: 4143574089688633976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &3333080505846714108 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a3b881670b3bff645ac0e6878eba4047,
