@@ -1,3 +1,4 @@
+using CodeBase.CodeBase.Logic.Services.Debug;
 using CodeBase.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio;
@@ -56,6 +57,7 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<BinaryFormatter>().AsSingle();
             Container.BindInterfacesTo<WindowService>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
+            Container.BindInterfacesTo<DebugService>().AsSingle();
         }
 
         private void BindPresenters()

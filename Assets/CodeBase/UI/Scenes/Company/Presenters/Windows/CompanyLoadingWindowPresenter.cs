@@ -10,7 +10,7 @@ namespace CodeBase.UI.Scenes.Company.Presenters.Windows
         private readonly ILoadingWindow _loadingWindow;
         private readonly IDisposable _disposable;
 
-        public CompanyLoadingWindowPresenter(ICompanySceneReady companySceneReady, ILoadingWindow loadingWindow)
+        public CompanyLoadingWindowPresenter(ICompanySceneReadyObserver companySceneReady, ILoadingWindow loadingWindow)
         {
             _loadingWindow = loadingWindow;
 

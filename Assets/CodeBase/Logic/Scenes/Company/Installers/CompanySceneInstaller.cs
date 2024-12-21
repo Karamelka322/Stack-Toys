@@ -1,3 +1,4 @@
+using CodeBase.CodeBase.Logic.Services.Debug;
 using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
@@ -51,8 +52,9 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             BindProviders();
             BindPresenters();
             BindSystems();
+            BindDebug();
         }
-
+        
         private void BindCommands()
         {
             Container.BindInterfacesTo<ClickCommand>().AsSingle();
@@ -122,7 +124,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
-            Container.BindInterfacesTo<CompanySceneReady>().AsSingle();
+            Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
             Container.Bind<CompanySceneMusic>().AsSingle().NonLazy();
 
             // Observers
@@ -163,6 +165,11 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle().NonLazy();
             Container.Bind<PauseWindow>().AsSingle().NonLazy();
+        }
+        
+        private void BindDebug()
+        {
+            Container.BindInterfacesAndSelfTo<CompanyLevelDebug>().AsSingle().NonLazy();
         }
     }
 }

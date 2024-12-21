@@ -9,5 +9,10 @@ namespace CodeBase.Logic.General.Services.SceneLoad
         {
             SceneManager.LoadScene(sceneName);
         }
+
+        public void ReloadScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

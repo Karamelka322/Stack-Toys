@@ -16,11 +16,11 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
     {
         private readonly IDisposable _disposable;
         private readonly IAudioService _audioService;
-        private readonly ICompanySceneReady _companySceneReady;
+        private readonly ICompanySceneReadyObserver _companySceneReady;
 
         public ToySelectSoundPresenter(
             IToySelectObserver toySelectObserver,
-            ICompanySceneReady companySceneReady,
+            ICompanySceneReadyObserver companySceneReady,
             IAudioService audioService)
         {
             _companySceneReady = companySceneReady;
