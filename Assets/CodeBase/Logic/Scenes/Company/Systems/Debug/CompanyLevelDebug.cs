@@ -4,6 +4,7 @@ using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Ready;
+using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 
 namespace CodeBase.CodeBase.Logic.Services.Debug
@@ -44,7 +45,7 @@ namespace CodeBase.CodeBase.Logic.Services.Debug
         public void Reload()
         {
             _companySceneUnload.Unload();
-            _sceneLoadService.ReloadScene();
+            _sceneLoadService.ReloadSceneAsync(1f).Forget();
         }
     }
 }

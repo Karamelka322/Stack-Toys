@@ -11,7 +11,9 @@ namespace CodeBase.UI.General.Factories.Windows.Loading
         {
             var prefab = Resources.Load<GameObject>(ResourcesPaths.LoadingWindow);
             var mediator = Object.Instantiate(prefab).GetComponent<LoadingWindowMediator>();
-
+            
+            Object.DontDestroyOnLoad(mediator.gameObject);
+            
             return mediator;
         }
     }

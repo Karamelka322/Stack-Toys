@@ -1,6 +1,7 @@
 using System.Linq;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
+using UnityEngine;
 
 namespace CodeBase.Logic.General.Providers.Data.Saves
 {
@@ -35,6 +36,11 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         public int GetTargetLevel()
         {
             return _playerSaveDataProvider.GetCompanyLevelsData().TargetLevel;
+        }
+
+        public int GetNextLevelIndex()
+        {
+            return Mathf.Clamp(_playerSaveDataProvider.GetCompanyLevelsData().CurrentLevel + 1, 0, CompanyConstants.NumberOfLevels);
         }
         
         public void SetCompletedLevel(int index)

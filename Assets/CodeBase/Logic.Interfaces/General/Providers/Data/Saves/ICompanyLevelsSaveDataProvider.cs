@@ -10,5 +10,6 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Data.Saves
         int GetTargetLevel();
         void SetCurrentLevel(int levelIndex);
         void SetTargetLevel(int levelIndex);
+        int GetNextLevelIndex();
     }
 }

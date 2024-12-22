@@ -1,9 +1,8 @@
-using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
-using CodeBase.Logic.Scenes.Company.Systems.Load;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Finish;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Mediators.Windows.Finish;
@@ -16,15 +15,18 @@ namespace CodeBase.UI.Scenes.Company.Windows.Finish
 	    private readonly ICompanyFinishWindowFactory _finishWindowFactory;
 	    private readonly ISceneLoadService _sceneLoadService;
 	    private readonly ICompanySceneUnload _companySceneUnload;
+	    private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
 
 	    private CompanyFinishWindowMediator _mediator;
 
 	    public CompanyFinishWindow(
 		    ICompanyFinishWindowFactory finishWindowFactory,
+		    ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
 		    IWindowService windowService,
 		    ICompanySceneUnload companySceneUnload,
 		    ISceneLoadService sceneLoadService) : base(windowService)
 	    {
+		    _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
 		    _companySceneUnload = companySceneUnload;
 		    _sceneLoadService = sceneLoadService;
 		    _finishWindowFactory = finishWindowFactory;
@@ -39,8 +41,14 @@ namespace CodeBase.UI.Scenes.Company.Windows.Finish
 	    private void OnClickNextLevelButton()
 	    {
 		    _mediator.NextLevelButton.onClick.RemoveAllListeners();
+
+		    var nextLevelIndex = _companyLevelsSaveDataProvider.GetNextLevelIndex();
+		    
+		    _companyLevelsSaveDataProvider.SetTargetLevel(nextLevelIndex);
+		    _companyLevelsSaveDataProvider.SetCurrentLevel(nextLevelIndex);
+		    
 		    _companySceneUnload.Unload();
-		    _sceneLoadService.LoadScene(SceneNames.Company);
+		    _sceneLoadService.ReloadSceneAsync(1f).Forget();
 	    }
 	}
 }
