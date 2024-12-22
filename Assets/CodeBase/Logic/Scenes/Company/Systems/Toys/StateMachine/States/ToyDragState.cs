@@ -54,7 +54,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             var worldPositiom = ray.origin + ray.direction * distance;
             worldPositiom.z = _toyMediator.transform.position.z;
             
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * distance, Color.red);
+            UnityEngine.Debug.DrawLine(ray.origin, ray.origin + ray.direction * distance, Color.red);
             
             return worldPositiom;
         }

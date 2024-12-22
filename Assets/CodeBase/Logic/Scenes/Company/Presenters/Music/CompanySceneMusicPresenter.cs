@@ -4,22 +4,29 @@ using CodeBase.Data.Enums;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
 using Cysharp.Threading.Tasks;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Music
+namespace CodeBase.Logic.Scenes.Company.Presenters.Music
 {
-    public class CompanySceneMusic : IDisposable
+    public class CompanySceneMusicPresenter : IDisposable
     {
+        private const string AudioSequenceId = "Company_scene_birds_ambient_sequence";
+        
         private readonly IAudioService _audioService;
 
-        public CompanySceneMusic(IAudioService audioService)
+        public CompanySceneMusicPresenter(IAudioService audioService)
         {
             _audioService = audioService;
 
-            StartPlay();
+            Play();
         }
-        
-        private void StartPlay()
+
+        public void Dispose()
         {
-            _audioService.PlaySequenceAsync("Company_scene_birds_ambient_sequence", new[]
+            Stop();
+        }
+
+        private void Play()
+        {
+            _audioService.PlaySequenceAsync(AudioSequenceId, new[]
             {
                 AudioConstants.Birds_1_ambient,
                 AudioConstants.Birds_2_ambient,
@@ -33,14 +40,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Music
                 AudioOutputType.Music, true).Forget();
         }
 
-        private void StopPlay()
+        private void Stop()
         {
-            
-        }
-
-        public void Dispose()
-        {
-            // _audioService.s
+            _audioService.Stop(AudioSequenceId);
+            _audioService.Stop(AudioConstants.Meditation_music);
+            _audioService.Stop(AudioConstants.ForestNoise_ambient);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace CodeBase.Logic.General.Services.Windows
         {
             if (_stack.TryPeek(out var currentWindow) == false || currentWindow is TWindow == false)
             {
-                Debug.LogError($"Window {typeof(TWindow).Name} is not current");
+                UnityEngine.Debug.LogError($"Window {typeof(TWindow).Name} is not current");
                 return;
             }
             

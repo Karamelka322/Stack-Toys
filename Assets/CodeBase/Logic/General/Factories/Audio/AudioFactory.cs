@@ -5,7 +5,7 @@ using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Services.Audio
+namespace CodeBase.Logic.General.Factories.Audio
 {
     public class AudioFactory : IAudioFactory
     {

@@ -12,6 +12,7 @@ using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
+using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
@@ -19,10 +20,10 @@ using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
+using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
-using CodeBase.Logic.Scenes.Company.Systems.Music;
 using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
@@ -105,6 +106,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishEffectPresenter>().AsSingle().NonLazy();
             
             // Sounds
+            Container.BindInterfacesTo<CompanySceneMusicPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToySelectSoundPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyCollisionSoundPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FinishSoundPresenter>().AsSingle().NonLazy();
@@ -125,7 +127,6 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
-            Container.Bind<CompanySceneMusic>().AsSingle().NonLazy();
 
             // Observers
             Container.BindInterfacesTo<ToyCountObserver>().AsSingle();

@@ -1,6 +1,7 @@
+using CodeBase.CodeBase.Logic.Services.Debug;
 using JetBrains.Annotations;
 
-namespace CodeBase.CodeBase.Logic.Services.Debug
+namespace CodeBase.Logic.General.Services.Debug
 {
     /// <summary>
     /// Сервис для отладки игры

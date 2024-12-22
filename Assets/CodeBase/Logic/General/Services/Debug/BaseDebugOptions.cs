@@ -1,8 +1,9 @@
 using System;
+using CodeBase.CodeBase.Logic.Services.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using UniRx;
 
-namespace CodeBase.CodeBase.Logic.Services.Debug
+namespace CodeBase.Logic.General.Services.Debug
 {
     public abstract class BaseDebugOptions : IDisposable
     {

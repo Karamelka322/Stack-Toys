@@ -4,6 +4,7 @@ using System.Threading;
 using CodeBase.Data.Enums;
 using CodeBase.Data.Models.Audio;
 using CodeBase.Logic.General.Extensions;
+using CodeBase.Logic.General.Factories.Audio;
 using CodeBase.Logic.General.Unity.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
@@ -66,7 +67,25 @@ namespace CodeBase.Logic.General.Services.Audio
             
             await PlayAsync(groupId, randomAudioClipSettings, audioOutputType, false, cancellationTokenSource);
         }
-        
+
+        public void Stop(string id)
+        {
+            for (var i = 0; i < _audioClips.Count; i++)
+            {
+                var playbackData = _audioClips[i];
+                
+                if (playbackData.Id != id)
+                {
+                    continue;
+                }
+                
+                playbackData.CancellationTokenSource?.Cancel();
+                _audioClips.RemoveAt(i);
+                
+                Object.Destroy(playbackData.Source.gameObject);
+            }
+        }
+
         public async UniTask PlaySequenceAsync(string sequenceid, string[] eventNames, AudioOutputType audioOutputType, bool isLoop)
         {
             var cancellationTokenSource = new CancellationTokenSource();
