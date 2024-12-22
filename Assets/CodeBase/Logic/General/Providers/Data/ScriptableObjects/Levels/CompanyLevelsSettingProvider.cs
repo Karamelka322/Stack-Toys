@@ -24,7 +24,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
         {
             await _prepareResourcesTask;
 
-            var assetReferenceGameObject = _config.Levels[index].LevelAsset;
+            var assetReferenceGameObject = _config.Levels[index].EnvironmentAsset;
             var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
             
             return prefab;

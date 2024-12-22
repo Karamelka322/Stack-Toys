@@ -9,7 +9,7 @@ namespace CodeBase.Data.Models.Levels
     public class LevelConfigData
     {
         [SerializeField, Required]
-        private AssetReferenceGameObject _levelAsset;
+        private AssetReferenceGameObject _environmentAsset;
         
         [SerializeField]
         private float _height;
@@ -17,7 +17,7 @@ namespace CodeBase.Data.Models.Levels
         [SerializeField, Required] 
         private AssetReferenceGameObject[] _toyAssets;
         
-        public AssetReferenceGameObject LevelAsset => _levelAsset;
+        public AssetReferenceGameObject EnvironmentAsset => _environmentAsset;
         public AssetReferenceGameObject[] ToyAssets => _toyAssets;
         public float Height => _height;
     }

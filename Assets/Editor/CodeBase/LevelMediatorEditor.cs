@@ -32,8 +32,8 @@ namespace Editor.CodeBase
             var bottomLeft = level.OriginPoint.position - level.OriginPoint.right * level.Width / 2f;
             var bottomRight = level.OriginPoint.position + level.OriginPoint.right * level.Width / 2f;
             
-            var topLeft = bottomLeft + level.OriginPoint.up * _height;
-            var topRight = bottomRight + level.OriginPoint.up * _height;
+            var topLeft = bottomLeft + Vector3.up * _height;
+            var topRight = bottomRight + Vector3.up * _height;
             
             Handles.color = Color.yellow;
             
