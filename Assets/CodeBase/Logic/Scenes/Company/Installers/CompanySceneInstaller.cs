@@ -1,4 +1,3 @@
-using CodeBase.CodeBase.Logic.Services.Debug;
 using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
@@ -133,6 +132,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCollisionObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyMovementObserver>().AsSingle();
             Container.BindInterfacesTo<FinishObserver>().AsSingle();
             
             // Toy

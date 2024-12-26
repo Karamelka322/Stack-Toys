@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -20,43 +18,26 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IDisposable _disposable;
         private readonly IAssetServices _assetServices;
-        private readonly IToyDestroyer _toyDestroyer;
         
-        private CancellationTokenSource _animationTokenSource;
-
-        public ToyBuildEffectSystem(IToyTowerObserver toyTowerObserver, IToyDestroyer toyDestroyer, IAssetServices assetServices)
+        public ToyBuildEffectSystem(IToyTowerObserver toyTowerObserver, IAssetServices assetServices)
         {
-            _toyDestroyer = toyDestroyer;
             _assetServices = assetServices;
             _toyTowerObserver = toyTowerObserver;
 
-            _toyDestroyer.OnDestroyAll += OnToyDestroy;
             _disposable = toyTowerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
         }
 
         public void Dispose()
         {
-            _toyDestroyer.OnDestroyAll -= OnToyDestroy;
             _disposable?.Dispose();
-
-            StopEffect();
-        }
-
-        private void OnToyDestroy()
-        {
-            StopEffect();
         }
 
         private void OnAddToy(CollectionAddEvent<ToyMediator> addEvent)
         {
-            StopEffect();
-            
-            _animationTokenSource = new CancellationTokenSource();
-            
-            ShowEffectAsync(_animationTokenSource.Token).Forget();
+            ShowEffectAsync().Forget();
         }
 
-        private async UniTask ShowEffectAsync(CancellationToken token)
+        private async UniTask ShowEffectAsync()
         {
             var highlightedMaterial = await _assetServices.LoadAsync<Material>(AddressableNames.HighlightedToyMaterial);
             
@@ -96,15 +77,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
             await sequence.AsyncWaitForCompletion();
 
-            toy.MeshRenderer.SetMaterials(sharedMaterials);
-        }
-        
-        private void StopEffect()
-        {
-            if (_animationTokenSource?.IsCancellationRequested == false)
+            if (toy != null)
             {
-                _animationTokenSource?.Cancel();
-                _animationTokenSource?.Dispose();
+                toy.MeshRenderer.SetMaterials(sharedMaterials);
             }
         }
     }

@@ -8,7 +8,6 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using UniRx;
-using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
 {
@@ -24,15 +23,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
         public ReactiveCollection<ToyMediator> Tower { get; }
         public event Action OnTowerFallen;
 
-        public ToyTowerObserver(IToyProvider toyProvider, ILevelProvider levelProvider)
+        public ToyTowerObserver(IToyProvider toyProvider, ILevelProvider levelProvider, IToyMovementObserver toyMovementObserver)
         {
+            _levelProvider = levelProvider;
+            
             Tower = new ReactiveCollection<ToyMediator>();
             _compositeDisposable = new CompositeDisposable();
-            
-            _levelProvider = levelProvider;
 
             toyProvider.Toys.ObserveAdd().Subscribe(OnSpawnToy).AddTo(_compositeDisposable);
             toyProvider.Toys.ObserveRemove().Subscribe(OnRemoveToy).AddTo(_compositeDisposable);
+            toyMovementObserver.ToysOutsideCameraFieldOfView.ObserveAdd()
+                .Subscribe(OnToysLocatedOutsideCameraFieldOfViewChanged).AddTo(_compositeDisposable);
         }
 
         public void Dispose()
@@ -51,6 +52,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.Observers
         private void OnSpawnToy(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
             addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(() => OnToySet(addEvent.Value.Item1));
+        }
+
+        private void OnToysLocatedOutsideCameraFieldOfViewChanged(CollectionAddEvent<ToyMediator> addEvent)
+        {
+            Reset();
+            OnTowerFallen?.Invoke();
         }
         
         private void OnRemoveToy(CollectionRemoveEvent<(ToyMediator, ToyStateMachine)> addEvent)
