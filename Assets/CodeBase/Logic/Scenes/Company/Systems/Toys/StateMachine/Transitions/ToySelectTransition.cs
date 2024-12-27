@@ -1,5 +1,6 @@
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Commands;
 using CodeBase.Logic.Interfaces.General.Services.Input;
 using UnityEngine;
 using Zenject;
@@ -9,15 +10,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
     public class ToySelectTransition : BaseTransition
     {
         private const float DistanceToSelect = 1.2f;
-        
+
+        private readonly IClickCommand _clickCommand;
         private readonly IInputService _inputService;
         private readonly ToyMediator _toyMediator;
         private readonly Camera _camera;
-        
+
         private RaycastHit _raycastHit;
 
-        public ToySelectTransition(ToyMediator toyMediator, IInputService inputService)
+        public ToySelectTransition(ToyMediator toyMediator, IInputService inputService, IClickCommand clickCommand)
         {
+            _clickCommand = clickCommand;
             _camera = Camera.main;
             _inputService = inputService;
             _toyMediator = toyMediator;
@@ -37,6 +40,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
 
         private void OnClickDown(Vector3 mousePosition)
         {
+            if (_clickCommand.HasUI(mousePosition))
+            {
+                return;
+            }
+            
             var screenToWorldPoint = _camera.ScreenToWorldPoint(mousePosition);
             screenToWorldPoint.z = _toyMediator.transform.position.z;
 

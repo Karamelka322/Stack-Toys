@@ -1,3 +1,4 @@
+using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
@@ -21,8 +22,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
         private readonly ClickUpTransition.Factory _clickUpTransitionFactory;
         private readonly ToyTowerTransition.Factory _towerTransitionFactory;
         private readonly ToyRotationTransition.Factory _toyRotationTransitionFactory;
-
-        public ToyStateMachine(ToyMediator toyMediator, 
+        
+        public ToyStateMachine(
+            ToyMediator toyMediator, 
             ToyBabbleState.Factory toyBabbleStateFactory,
             ToyRotateState.Factory toyRotateStateFactory,
             ToyDragState.Factory toyDragStateFactory,
@@ -45,7 +47,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine
             _selectTransitionFactory = toySelectTransitionFactory;
             _babbleStateFactory = toyBabbleStateFactory;
             _toyMediator = toyMediator;
-            
+
             Launch();
         }
         

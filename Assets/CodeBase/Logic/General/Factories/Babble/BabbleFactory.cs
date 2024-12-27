@@ -19,14 +19,6 @@ namespace CodeBase.Logic.General.Factories.Babble
         {
             _assetServices = assetServices;
         }
-        
-        public async UniTask<GameObject> SpawnAsync(Vector3 position, Transform parent)
-        {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.ToyBabble);
-            var babble = Object.Instantiate(prefab, position, Quaternion.identity, parent);
-            
-            return babble;
-        }
 
         public async UniTask<GameObject> SpawnAsync(ToyMediator toyMediator)
         {

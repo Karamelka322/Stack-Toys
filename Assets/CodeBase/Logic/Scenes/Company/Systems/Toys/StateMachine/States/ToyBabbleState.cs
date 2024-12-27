@@ -39,7 +39,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         public class Factory : PlaceholderFactory<ToyMediator, ToyBabbleState> { }
         
         public override async void Enter()
-        {
+        {   
             _compositeDisposable = new CompositeDisposable();
             
             _babble = await _babbleFactory.SpawnAsync(_toyMediator);
@@ -49,7 +49,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
             Observable.EveryUpdate().Subscribe(OnUpdate).AddTo(_compositeDisposable);
             Observable.Interval(TimeSpan.FromSeconds(0.8f)).Subscribe(OnInterval).AddTo(_compositeDisposable);
         }
-
+    
         public override void Exit()
         {
             var sliderValue = _companyMainWindow.GetSliderValue();
