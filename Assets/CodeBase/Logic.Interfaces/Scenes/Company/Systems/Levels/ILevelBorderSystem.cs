@@ -6,10 +6,10 @@ namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels
 {
     public interface ILevelBorderSystem
     {
-        Vector3 BottomLeftPoint { get; }
-        Vector3 BottomRightPoint { get; }
-        Vector3 TopLeftPoint { get; }
-        Vector3 TopRightPoint { get; }
+        Vector3 DownLeftPoint { get; }
+        Vector3 DownRightPoint { get; }
+        Vector3 UpLeftPoint { get; }
+        Vector3 UpRightPoint { get; }
         Vector3 OriginPoint { get; }
 
         UniTask<float> GetHeightAsync();

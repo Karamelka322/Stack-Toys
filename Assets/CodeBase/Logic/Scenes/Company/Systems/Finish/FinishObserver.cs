@@ -40,8 +40,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
 
         private bool IsFinishToy(ToyMediator toyMediator)
         {
-            var direction = _levelBorderSystem.TopRightPoint - _levelBorderSystem.TopLeftPoint;
-            var ray = new Ray(_levelBorderSystem.TopLeftPoint, direction);
+            var direction = _levelBorderSystem.UpRightPoint - _levelBorderSystem.UpLeftPoint;
+            var ray = new Ray(_levelBorderSystem.UpLeftPoint, direction);
             
             if (Physics.Raycast(ray, out RaycastHit hit))
             {

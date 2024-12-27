@@ -58,6 +58,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindCommands()
         {
             Container.BindInterfacesTo<ClickCommand>().AsSingle();
+            Container.BindInterfacesTo<RayFormulas>().AsSingle();
+            Container.BindInterfacesTo<EdgeFormulas>().AsSingle();
         }
 
         private void BindFactories()

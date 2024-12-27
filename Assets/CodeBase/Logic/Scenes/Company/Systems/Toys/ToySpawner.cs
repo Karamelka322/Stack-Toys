@@ -127,7 +127,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         private Vector3 GetSpawnPoint()
         {
-            var maxHeight = _levelBorderSystem.TopLeftPoint.y;
+            var maxHeight = _levelBorderSystem.UpLeftPoint.y;
             
             var startPosition = _toyTowerObserver.Tower.Count == 0 ? 
                 _levelBorderSystem.OriginPoint :
