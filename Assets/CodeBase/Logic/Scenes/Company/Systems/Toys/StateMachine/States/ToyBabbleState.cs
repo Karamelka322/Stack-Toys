@@ -14,8 +14,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
     public class ToyBabbleState : BaseState
     {
         private const float ScaleChange = 0.3f;
-        private const float RotationSpeed = 60f;
-        private const float ScaleSpeed = 1f;
+        private const float RotationSpeed = 50f;
+        private const float ScaleSpeed = 0.5f;
 
         private readonly ToyMediator _toyMediator;
         private readonly IBabbleFactory _babbleFactory;
@@ -42,7 +42,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         {
             _compositeDisposable = new CompositeDisposable();
             
-            _babble = await _babbleFactory.SpawnAsync(_toyMediator.transform.position, _toyMediator.transform);
+            _babble = await _babbleFactory.SpawnAsync(_toyMediator);
             
             UpdateAnimationValues();
             
