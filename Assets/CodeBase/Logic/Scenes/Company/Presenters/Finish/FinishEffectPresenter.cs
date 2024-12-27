@@ -1,10 +1,8 @@
 using System;
-using System.Threading.Tasks;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
-using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
@@ -18,7 +16,8 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Finish
         private readonly IDisposable _disposable;
         private readonly IFinishLineProvider _finishLineProvider;
         
-        public FinishEffectPresenter(IAssetServices assetServices, IFinishObserver finishObserver, IFinishLineProvider finishLineProvider)
+        public FinishEffectPresenter(IAssetServices assetServices, IFinishObserver finishObserver,
+            IFinishLineProvider finishLineProvider)
         {
             _finishLineProvider = finishLineProvider;
             _assetServices = assetServices;
@@ -44,9 +43,11 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Finish
         
         private async UniTask<GameObject> SpawnEffectAsync()
         {
-            var position = _finishLineProvider.FinishLine.Value.transform.position;
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.CompanyScene.FinishEffect);
-            return Object.Instantiate(prefab, position, Quaternion.identity);
+            var finishLine = _finishLineProvider.FinishLine.Value.transform;
+            var addressableName = AddressableNames.CompanyScene.FinishEffect;
+            var prefab = await _assetServices.LoadAsync<GameObject>(addressableName);
+            
+            return Object.Instantiate(prefab, finishLine.position, finishLine.rotation);
         }
     }
 }
