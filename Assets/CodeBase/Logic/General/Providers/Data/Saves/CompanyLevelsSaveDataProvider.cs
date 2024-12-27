@@ -40,7 +40,13 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
 
         public int GetNextLevelIndex()
         {
-            return Mathf.Clamp(_playerSaveDataProvider.GetCompanyLevelsData().CurrentLevel + 1, 0, CompanyConstants.NumberOfLevels);
+            var currentLevel = _playerSaveDataProvider.GetCompanyLevelsData().CurrentLevel;
+            return GetNextLevelIndex(currentLevel);
+        }
+        
+        public int GetNextLevelIndex(int currentLevelIndex)
+        {
+            return Mathf.Clamp(currentLevelIndex + 1, 0, CompanyConstants.NumberOfLevels - 1);
         }
         
         public void SetCompletedLevel(int index)

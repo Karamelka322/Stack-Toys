@@ -25,7 +25,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             }
 
             var currentOpenedLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
-            _companyLevelsSaveDataProvider.SetCompletedLevel(currentOpenedLevel + 1);
+            var nextLevel = _companyLevelsSaveDataProvider.GetNextLevelIndex(currentOpenedLevel);
+            
+            _companyLevelsSaveDataProvider.SetCompletedLevel(nextLevel);
         }
 
         public void Dispose()

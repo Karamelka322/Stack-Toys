@@ -13,7 +13,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
         private readonly AsyncLazy _prepareResourcesTask;
         
         private CompanyLevelsSettings _config;
-
+        
         public CompanyLevelsSettingProvider(IAssetServices assetServices)
         {
             _assetServices = assetServices;
