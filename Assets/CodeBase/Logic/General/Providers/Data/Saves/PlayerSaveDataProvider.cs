@@ -1,7 +1,6 @@
 using CodeBase.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.SaveLoad;
-using UnityEngine;
 
 namespace CodeBase.Logic.General.Providers.Data.Saves
 {
@@ -19,6 +18,11 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         public ref CompanyLevelsSaveData GetCompanyLevelsData()
         {
             return ref _data.CompanyLevels;
+        }
+        
+        public void Save()
+        {
+            _saveLoadService.Save(_data);
         }
     }
 }

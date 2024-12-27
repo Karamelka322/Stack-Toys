@@ -15,6 +15,7 @@ using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Scenes.Company.Systems;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
@@ -120,16 +121,18 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindSystems()
         {
-            Container.BindInterfacesTo<LevelSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanySceneUnload>().AsSingle();
-            Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
-            Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
-            Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
-
+            
+            Container.BindInterfacesTo<LevelSpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanySceneSaver>().AsSingle().NonLazy();
+            
             // Observers
+            Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCountObserver>().AsSingle();
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
