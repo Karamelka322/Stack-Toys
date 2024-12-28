@@ -18,7 +18,7 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Toys
         public async UniTask<GameObject> SpawnAsync(Transform parent)
         {
             var prefab = await _assetServices.LoadAsync<GameObject>(
-                AddressableNames.CompanyScene.ToySelectEffect);
+                AddressableConstants.CompanyScene.ToySelectEffect);
 
             return Object.Instantiate(prefab, parent);
         }

@@ -22,7 +22,7 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Menu
         public async UniTask<MenuWindowMediator> SpawnAsync()
         {
             var canvas = await _windowService.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.MenuScene.MenuWindow);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.MenuScene.MenuWindow);
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<MenuWindowMediator>();
             
             return mediator;

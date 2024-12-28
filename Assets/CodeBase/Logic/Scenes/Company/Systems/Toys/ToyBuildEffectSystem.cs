@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UniRx;
@@ -39,7 +39,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         private async UniTask ShowEffectAsync()
         {
-            var highlightedMaterial = await _assetServices.LoadAsync<Material>(AddressableNames.HighlightedToyMaterial);
+            var highlightedMaterial = await _assetServices.LoadAsync<Material>(AddressableConstants.HighlightedToyMaterial);
             
             foreach (var toy in _toyTowerObserver.Tower)
             {

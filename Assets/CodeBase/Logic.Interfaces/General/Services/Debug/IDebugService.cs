@@ -1,4 +1,4 @@
-namespace CodeBase.CodeBase.Logic.Services.Debug
+namespace CodeBase.Logic.Interfaces.General.Services.Debug
 {
     public interface IDebugService
     {

@@ -1,6 +1,6 @@
 using System;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
-using CodeBase.Logic.Scenes.Company.Systems.Ready;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
 using CodeBase.UI.Interfaces.General.Windows.Loading;
 using Cysharp.Threading.Tasks;
 using UniRx;

@@ -22,7 +22,7 @@ namespace CodeBase.Logic.General.Factories.Babble
 
         public async UniTask<GameObject> SpawnAsync(ToyMediator toyMediator)
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.ToyBabble);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.ToyBabble);
             
             var size = toyMediator.MeshRenderer.bounds.size;
             var max = Math.Max(size.x, size.y) * ScaleFactory;

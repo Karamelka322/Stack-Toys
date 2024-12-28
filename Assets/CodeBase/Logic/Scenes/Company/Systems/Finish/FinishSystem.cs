@@ -1,5 +1,6 @@
 using System;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using UniRx;
 

@@ -22,7 +22,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
         private readonly CameraToyUnselectTransition.Factory _toyUnselectTransitionFactory;
 
         public CameraStateMachine(
-            ILevelSpawner sceneLoad, 
+            ICompanyLevelSpawner sceneLoad, 
             CameraScrollState.Factory scrollStateFactory,
             CameraToyFollowState.Factory toyFollowStateFactory,
             CameraToySelectTransition.Factory toySelectTransitionFactory,

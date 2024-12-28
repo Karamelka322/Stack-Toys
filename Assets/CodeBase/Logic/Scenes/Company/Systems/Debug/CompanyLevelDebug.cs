@@ -1,11 +1,11 @@
 using System.ComponentModel;
-using CodeBase.CodeBase.Logic.Services.Debug;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.General.Services.Debug;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
+using CodeBase.Logic.Interfaces.General.Services.Debug;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
-using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 

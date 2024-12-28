@@ -1,6 +1,7 @@
 using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
 using CodeBase.Logic.General.Factories.Toys;
+using CodeBase.Logic.General.Formulas;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
@@ -10,6 +11,9 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
+using CodeBase.Logic.Scenes.Company.Observers.Finish;
+using CodeBase.Logic.Scenes.Company.Observers.Ready;
+using CodeBase.Logic.Scenes.Company.Observers.Toys;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
 using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
@@ -24,9 +28,7 @@ using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
-using CodeBase.Logic.Scenes.Company.Systems.Ready;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
-using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
@@ -66,7 +68,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindFactories()
         {
             // Game - Objects
-            Container.BindInterfacesTo<LevelFactory>().AsSingle();
+            Container.BindInterfacesTo<CompanyLevelFactory>().AsSingle();
             Container.BindInterfacesTo<ToyFactory>().AsSingle();
             Container.BindInterfacesTo<ToyOutlineFactory>().AsSingle();
             Container.BindInterfacesTo<BabbleFactory>().AsSingle();
@@ -125,7 +127,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             
-            Container.BindInterfacesTo<LevelSpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyLevelSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();

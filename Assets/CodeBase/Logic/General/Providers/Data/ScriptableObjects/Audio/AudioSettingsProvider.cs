@@ -53,7 +53,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
 
         private async UniTask PrepareResourcesAsync()
         {
-            _config = await _assetServices.LoadAsync<AudioSettings>(AddressableNames.AudioSettings);
+            _config = await _assetServices.LoadAsync<AudioSettings>(AddressableConstants.AudioSettings);
         }
     }
 }

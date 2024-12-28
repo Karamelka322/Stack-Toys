@@ -22,7 +22,7 @@ namespace CodeBase.UI.General.Factories.Windows.Pause
         public async UniTask<PauseWindowMediator> SpawnAsync()
         {
             var canvas = await _windowCanvasProvider.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.PauseWindow);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.PauseWindow);
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<PauseWindowMediator>();
 
             return mediator;

@@ -56,7 +56,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
 
         private async UniTask PrepareResources()
         {
-            _config = await _assetServices.LoadAsync<CompanyLevelsSettings>(AddressableNames.LevelsConfig);
+            _config = await _assetServices.LoadAsync<CompanyLevelsSettings>(AddressableConstants.LevelsConfig);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using UniRx;
 using Zenject;
 

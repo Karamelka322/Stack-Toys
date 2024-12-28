@@ -27,7 +27,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
         public async UniTask<CompletedMenuLevelElement> SpawnCompletedVariantAsync(int levelIndex, Transform parent)
         {
             var prefab = await _assetServices.LoadAsync<GameObject>(
-                AddressableNames.MenuScene.CompletedLevelElement);
+                AddressableConstants.MenuScene.CompletedLevelElement);
             
             var mediator = Object.Instantiate(prefab, parent).GetComponent<MenuLevelElementMediator>();
 
@@ -37,7 +37,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
         public async UniTask<OpenedMenuLevelElement> SpawnOpenedVariantAsync(int levelIndex, Transform parent)
         {
             var prefab = await _assetServices.LoadAsync<GameObject>(
-                AddressableNames.MenuScene.OpenedLevelElement);
+                AddressableConstants.MenuScene.OpenedLevelElement);
             
             var mediator = Object.Instantiate(prefab, parent).GetComponent<MenuLevelElementMediator>();
 
@@ -47,7 +47,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
         public async UniTask<ClosedMenuLevelElement> SpawnClosedVariantAsync(int levelIndex, Transform parent)
         {
             var prefab = await _assetServices.LoadAsync<GameObject>(
-                AddressableNames.MenuScene.ClosedLevelElement);
+                AddressableConstants.MenuScene.ClosedLevelElement);
             
             var mediator = Object.Instantiate(prefab, parent).GetComponent<MenuLevelElementMediator>();
             

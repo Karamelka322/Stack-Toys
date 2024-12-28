@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Data.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using Cysharp.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Finish
         private async UniTask<GameObject> SpawnEffectAsync()
         {
             var finishLine = _finishLineProvider.FinishLine.Value.transform;
-            var addressableName = AddressableNames.CompanyScene.FinishEffect;
+            var addressableName = AddressableConstants.CompanyScene.FinishEffect;
             var prefab = await _assetServices.LoadAsync<GameObject>(addressableName);
             
             return Object.Instantiate(prefab, finishLine.position, finishLine.rotation);

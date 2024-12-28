@@ -1,6 +1,6 @@
 using System;
-using CodeBase.CodeBase.Logic.Services.Debug;
-using CodeBase.Logic.Scenes.Company.Systems.Ready;
+using CodeBase.Logic.Interfaces.General.Services.Debug;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
 using UniRx;
 
 namespace CodeBase.Logic.General.Services.Debug

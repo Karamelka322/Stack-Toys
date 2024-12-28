@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Toys;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using UniRx;
 using UnityEngine;
 using Object = UnityEngine.Object;

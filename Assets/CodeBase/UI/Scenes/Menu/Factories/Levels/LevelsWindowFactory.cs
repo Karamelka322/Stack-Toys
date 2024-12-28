@@ -32,7 +32,7 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
         public async UniTask<LevelsWindowMediator> SpawnAsync()
         {
             var canvas = await _windowService.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.MenuScene.LevelsWindow);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.MenuScene.LevelsWindow);
             
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<LevelsWindowMediator>();
             

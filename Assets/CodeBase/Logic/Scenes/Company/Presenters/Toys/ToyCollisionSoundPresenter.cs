@@ -4,7 +4,7 @@ using CodeBase.Data.Enums;
 using CodeBase.Logic.General.Unity.Floors;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
-using CodeBase.Logic.Scenes.Company.Systems.Toys.Observers;
+using CodeBase.Logic.Scenes.Company.Observers.Toys;
 using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Presenters.Toys

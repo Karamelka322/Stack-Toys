@@ -22,7 +22,7 @@ namespace CodeBase.UI.Scenes.Company.Factories.Elements.Toys
         public async UniTask<ToyRotatorMediator> SpawnAsync(Transform target)
         {
             var canvas = await _gameCanvasProvider.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.CompanyScene.ToyRotator);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.CompanyScene.ToyRotator);
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<ToyRotatorMediator>();
             
             return mediator;

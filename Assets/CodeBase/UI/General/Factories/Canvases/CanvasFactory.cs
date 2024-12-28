@@ -17,7 +17,7 @@ namespace CodeBase.UI.General.Factories.Canvases
 
         public async UniTask<Canvas> SpawnAsync(string name)
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.Canvas);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.Canvas);
             var canvas = Object.Instantiate(prefab).GetComponent<Canvas>();
             
             canvas.gameObject.name = name;

@@ -19,8 +19,8 @@ namespace CodeBase.Logic.General.Factories.Audio
         public async UniTask<AudioSource> SpawnSourceAsync(AudioOutputType audioOutputType, Transform parent)
         {
             var addressableName = audioOutputType == AudioOutputType.Music 
-                ? AddressableNames.MusicSource 
-                : AddressableNames.SoundSource;
+                ? AddressableConstants.MusicSource 
+                : AddressableConstants.SoundSource;
             
             var prefab = await _assetServices.LoadAsync<GameObject>(addressableName);
             var source = Object.Instantiate(prefab, parent).GetComponent<AudioSource>();
@@ -30,7 +30,7 @@ namespace CodeBase.Logic.General.Factories.Audio
         
         public async UniTask<AudioListenerMediator> SpawnListenerAsync()
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.AudioListener);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.AudioListener);
             var listener = Object.Instantiate(prefab).GetComponent<AudioListenerMediator>();
             
             Object.DontDestroyOnLoad(listener.gameObject);

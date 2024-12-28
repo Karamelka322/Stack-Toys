@@ -17,7 +17,7 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Toys
 
         public async UniTask<GameObject> SpawnAsync()
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.ToyShadow);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.ToyShadow);
             var shadow = Object.Instantiate(prefab);
             
             return shadow;

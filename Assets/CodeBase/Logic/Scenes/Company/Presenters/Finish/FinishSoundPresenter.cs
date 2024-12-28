@@ -2,6 +2,7 @@ using System;
 using CodeBase.Data.Constants;
 using CodeBase.Data.Enums;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using UniRx;
 

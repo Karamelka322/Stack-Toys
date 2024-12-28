@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Levels
+namespace CodeBase.Logic.Interfaces.General.Formulas
 {
     public interface IRayFormulas
     {

@@ -6,11 +6,12 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys.Observers;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -46,7 +47,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             IToyProvider toyProvider,
             IFinishObserver finishObserver,
             IToyDestroyer toyDestroyer,
-            ILevelSpawner companySceneLoad,
+            ICompanyLevelSpawner companySceneLoad,
             IToyCountObserver toyCountObserver,
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
             ICompanyLevelsSettingProvider levelsConfigProvider,

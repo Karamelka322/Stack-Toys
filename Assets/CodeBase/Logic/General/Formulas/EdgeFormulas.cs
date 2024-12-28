@@ -1,6 +1,7 @@
+using CodeBase.Logic.Interfaces.General.Formulas;
 using UnityEngine;
 
-namespace CodeBase.Logic.Scenes.Company.Systems.Levels
+namespace CodeBase.Logic.General.Formulas
 {
     public class EdgeFormulas : IEdgeFormulas
     {

@@ -37,7 +37,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras
 
         private async UniTask PrepareResourcesAsync()
         {
-            _config = await _assetServices.LoadAsync<CameraSettings>(AddressableNames.CameraSettings);
+            _config = await _assetServices.LoadAsync<CameraSettings>(AddressableConstants.CameraSettings);
         }
     }
 }

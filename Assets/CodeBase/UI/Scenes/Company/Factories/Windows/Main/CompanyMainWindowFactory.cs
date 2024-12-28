@@ -24,7 +24,7 @@ namespace CodeBase.UI.Scenes.Company.Factories.Windows.Main
         public async UniTask<CompanyMainWindowMediator> SpawnAsync()
         {
             var canvas = await _windowCanvasProvider.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableNames.CompanyScene.MainWindow);
+            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.CompanyScene.MainWindow);
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<CompanyMainWindowMediator>();
             
             return mediator;

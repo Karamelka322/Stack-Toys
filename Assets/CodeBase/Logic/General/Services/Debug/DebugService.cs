@@ -1,4 +1,4 @@
-using CodeBase.CodeBase.Logic.Services.Debug;
+using CodeBase.Logic.Interfaces.General.Services.Debug;
 using JetBrains.Annotations;
 
 namespace CodeBase.Logic.General.Services.Debug

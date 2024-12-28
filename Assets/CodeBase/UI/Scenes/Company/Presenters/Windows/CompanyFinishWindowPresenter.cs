@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.UI.Scenes.Company.Windows.Finish;
 using Cysharp.Threading.Tasks;
