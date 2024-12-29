@@ -1,4 +1,4 @@
-using CodeBase.Data.Saves;
+using CodeBase.Data.General.Saves;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.SaveLoad;
 

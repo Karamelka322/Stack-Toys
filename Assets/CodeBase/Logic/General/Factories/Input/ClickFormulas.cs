@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using CodeBase.Logic.Interfaces.General.Commands;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace CodeBase.Logic.General.Commands
+{
+    public class ClickFormulas : IClickCommand
+    {
+        private readonly PointerEventData _pointerEventData;
+        private readonly List<RaycastResult> _raycastResults;
+
+        public ClickFormulas()
+        {
+            _pointerEventData = new PointerEventData(EventSystem.current);
+            _raycastResults = new List<RaycastResult>();
+        }
+        
+        public bool HasSelect(Vector3 clickPosition, GameObject target)
+        {
+            _pointerEventData.position = clickPosition;
+            
+            EventSystem.current.RaycastAll(_pointerEventData, _raycastResults);
+
+            foreach (var raycastResult in _raycastResults)
+            {
+                if (raycastResult.gameObject == target)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        public bool HasUI(Vector3 clickPosition)
+        {
+            _pointerEventData.position = clickPosition;
+            
+            EventSystem.current.RaycastAll(_pointerEventData, _raycastResults);
+
+            return _raycastResults.Count > 0;
+        }
+    }
+}

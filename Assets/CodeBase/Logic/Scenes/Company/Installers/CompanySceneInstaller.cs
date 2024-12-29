@@ -34,14 +34,13 @@ using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
 using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
 using CodeBase.UI.General.Factories.Windows.Pause;
 using CodeBase.UI.General.Windows.Pause;
-using CodeBase.UI.Scenes.Company.Factories.Elements.Toys;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
-using CodeBase.UI.Scenes.Company.Mediators.Elements.Toys;
 using CodeBase.UI.Scenes.Company.Presenters.Windows;
 using CodeBase.UI.Scenes.Company.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Windows.Main;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace CodeBase.Logic.Scenes.Company.Installers
@@ -50,7 +49,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
     {
         public override void InstallBindings()
         {
-            BindCommands();
+            BindFormulas();
             BindFactories();
             BindProviders();
             BindPresenters();
@@ -58,9 +57,9 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             BindDebug();
         }
         
-        private void BindCommands()
+        private void BindFormulas()
         {
-            Container.BindInterfacesTo<ClickCommand>().AsSingle();
+            Container.BindInterfacesTo<ClickFormulas>().AsSingle();
             Container.BindInterfacesTo<RayFormulas>().AsSingle();
             Container.BindInterfacesTo<EdgeFormulas>().AsSingle();
         }
@@ -70,7 +69,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             // Game - Objects
             Container.BindInterfacesTo<CompanyLevelFactory>().AsSingle();
             Container.BindInterfacesTo<ToyFactory>().AsSingle();
-            Container.BindInterfacesTo<ToyOutlineFactory>().AsSingle();
+            Container.BindInterfacesTo<ToyShadowFactory>().AsSingle();
             Container.BindInterfacesTo<BabbleFactory>().AsSingle();
             Container.BindInterfacesTo<FinishLineFactory>().AsSingle();
             
@@ -78,8 +77,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToySelectEffectFactory>().AsSingle();
             
             // UI - Elements
-            Container.BindInterfacesTo<ToyRotatorFactory>().AsSingle();
-            Container.BindFactory<Transform, ToyRotatorMediator, ToyRotatorElement, ToyRotatorElement.Factory>().AsSingle();
+            Container.BindFactory<Slider, CanvasGroup, ToyRotatorElement, ToyRotatorElement.Factory>().AsSingle();
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindowFactory>().AsSingle();
@@ -124,7 +122,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindSystems()
         {
             Container.BindInterfacesTo<CompanySceneUnload>().AsSingle();
-            Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<CompanyLevelBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             
             Container.BindInterfacesTo<CompanyLevelSpawner>().AsSingle().NonLazy();
@@ -135,7 +133,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // Observers
             Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
-            Container.BindInterfacesTo<ToyCountObserver>().AsSingle();
+            Container.BindInterfacesTo<CompanyToyCountObserver>().AsSingle();
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCollisionObserver>().AsSingle();

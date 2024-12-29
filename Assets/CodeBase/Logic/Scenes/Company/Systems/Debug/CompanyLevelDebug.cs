@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Services.Debug;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.Debug;

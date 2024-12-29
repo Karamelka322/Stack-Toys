@@ -1,5 +1,5 @@
 using System;
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Factories.Babble;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
@@ -13,16 +13,16 @@ namespace CodeBase.Logic.General.Factories.Babble
     {
         private const float ScaleFactory = 1.3f;
         
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
 
-        public BabbleFactory(IAssetServices assetServices)
+        public BabbleFactory(IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
         }
 
         public async UniTask<GameObject> SpawnAsync(ToyMediator toyMediator)
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.ToyBabble);
+            var prefab = await _assetService.LoadAsync<GameObject>(AddressableConstants.ToyBabble);
             
             var size = toyMediator.MeshRenderer.bounds.size;
             var max = Math.Max(size.x, size.y) * ScaleFactory;

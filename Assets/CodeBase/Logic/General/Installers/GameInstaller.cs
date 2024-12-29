@@ -1,4 +1,3 @@
-using CodeBase.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.General.Factories.Audio;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio;
@@ -51,7 +50,7 @@ namespace CodeBase.Logic.General.Installers
         private void BindServices()
         {
             Container.BindInterfacesTo<SceneLoadService>().AsSingle();
-            Container.BindInterfacesTo<AssetServices>().AsSingle();
+            Container.BindInterfacesTo<AssetService>().AsSingle();
             Container.BindInterfacesTo<InputService>().AsSingle();
             Container.BindInterfacesTo<FileService>().AsSingle();
             Container.BindInterfacesTo<SaveLoadService>().AsSingle();

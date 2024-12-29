@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.UI.General.Mediators.Windows.Pause;
@@ -11,18 +11,18 @@ namespace CodeBase.UI.General.Factories.Windows.Pause
     public class PauseWindowFactory : IPauseWindowFactory
     {
         private readonly IWindowCanvasProvider _windowCanvasProvider;
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
 
-        public PauseWindowFactory(IAssetServices assetServices, IWindowCanvasProvider windowCanvasProvider)
+        public PauseWindowFactory(IAssetService assetService, IWindowCanvasProvider windowCanvasProvider)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
             _windowCanvasProvider = windowCanvasProvider;
         }
 
         public async UniTask<PauseWindowMediator> SpawnAsync()
         {
             var canvas = await _windowCanvasProvider.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.PauseWindow);
+            var prefab = await _assetService.LoadAsync<GameObject>(AddressableConstants.PauseWindow);
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<PauseWindowMediator>();
 
             return mediator;

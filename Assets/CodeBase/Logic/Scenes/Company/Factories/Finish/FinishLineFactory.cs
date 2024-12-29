@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Unity.Finish;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
@@ -10,16 +10,16 @@ namespace CodeBase.Logic.Scenes.Company.Factories.Finish
 {
     public class FinishLineFactory : IFinishLineFactory
     {
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
 
-        public FinishLineFactory(IAssetServices assetServices)
+        public FinishLineFactory(IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
         }
 
         public async UniTask<FinishLineMediator> SpawnAsync(Vector3 position, Quaternion rotation)
         {
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.CompanyScene.FinishLine);
+            var prefab = await _assetService.LoadAsync<GameObject>(AddressableConstants.CompanyScene.FinishLine);
             var mediator = Object.Instantiate(prefab, position, rotation).GetComponent<FinishLineMediator>();
             
             return mediator;

@@ -12,11 +12,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
         private readonly ToyMediator _toyMediator;
         private readonly IInputService _inputService;
         private readonly IClickCommand _raycastCommand;
-        private readonly ICompanyMainWindow _companyMainWindow;
+        private readonly IMainWindow _mainWindow;
 
-        public ToyRotationTransition(ToyMediator toyMediator, ICompanyMainWindow companyMainWindow)
+        public ToyRotationTransition(ToyMediator toyMediator, IMainWindow mainWindow)
         {
-            _companyMainWindow = companyMainWindow;
+            _mainWindow = mainWindow;
             _toyMediator = toyMediator;
         }
         
@@ -24,12 +24,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions
 
         public override void Enter()
         {
-            _companyMainWindow.OnSliderChanged += OnSliderChanged;
+            _mainWindow.ToyRotatorElement.OnSliderChanged += OnSliderChanged;
         }
 
         public override void Exit()
         {
-            _companyMainWindow.OnSliderChanged -= OnSliderChanged;
+            _mainWindow.ToyRotatorElement.OnSliderChanged -= OnSliderChanged;
         }
 
         private void OnSliderChanged(float value)

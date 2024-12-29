@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Canvases;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
@@ -12,13 +12,13 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
 {
     public class LevelsWindowFactory : ILevelsWindowFactory
     {
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
         private readonly IWindowCanvasProvider _windowService;
         private readonly IMenuLevelElementFactory _menuLevelElementFactory;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
 
         public LevelsWindowFactory(
-            IAssetServices assetServices,
+            IAssetService assetService,
             IWindowCanvasProvider windowService, 
             IMenuLevelElementFactory menuLevelElementFactory,
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider)
@@ -26,13 +26,13 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
             _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
             _menuLevelElementFactory = menuLevelElementFactory;
             _windowService = windowService;
-            _assetServices = assetServices;
+            _assetService = assetService;
         }
 
         public async UniTask<LevelsWindowMediator> SpawnAsync()
         {
             var canvas = await _windowService.GetCanvasAsync();
-            var prefab = await _assetServices.LoadAsync<GameObject>(AddressableConstants.MenuScene.LevelsWindow);
+            var prefab = await _assetService.LoadAsync<GameObject>(AddressableConstants.MenuScene.LevelsWindow);
             
             var mediator = Object.Instantiate(prefab, canvas.transform).GetComponent<LevelsWindowMediator>();
             

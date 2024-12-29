@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
@@ -9,17 +9,17 @@ namespace CodeBase.Logic.Scenes.Infinity.Factories.Levels
 {
     public class InfinityLevelFactory : IInfinityLevelFactory
     {
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
 
-        public InfinityLevelFactory(IAssetServices assetServices)
+        public InfinityLevelFactory(IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
         }
 
         public async UniTask<LevelMediator> SpawnAsync()
         {
             var addressableName = AddressableConstants.InfinityScene.Level;
-            var prefab = await _assetServices.LoadAsync<GameObject>(addressableName);
+            var prefab = await _assetService.LoadAsync<GameObject>(addressableName);
             var level = Object.Instantiate(prefab).GetComponent<LevelMediator>();
 
             return level;

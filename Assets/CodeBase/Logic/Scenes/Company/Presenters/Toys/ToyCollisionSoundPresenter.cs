@@ -1,6 +1,6 @@
 using System;
-using CodeBase.Data.Constants;
-using CodeBase.Data.Enums;
+using CodeBase.Data.General.Constants;
+using CodeBase.Data.General.Enums;
 using CodeBase.Logic.General.Unity.Floors;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Audio;

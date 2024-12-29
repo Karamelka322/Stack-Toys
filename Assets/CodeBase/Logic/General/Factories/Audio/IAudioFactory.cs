@@ -1,4 +1,4 @@
-using CodeBase.Data.Enums;
+using CodeBase.Data.General.Enums;
 using CodeBase.Logic.General.Unity.Audio;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

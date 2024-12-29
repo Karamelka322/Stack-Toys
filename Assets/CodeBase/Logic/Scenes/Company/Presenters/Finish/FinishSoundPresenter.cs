@@ -1,6 +1,6 @@
 using System;
-using CodeBase.Data.Constants;
-using CodeBase.Data.Enums;
+using CodeBase.Data.General.Constants;
+using CodeBase.Data.General.Enums;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;

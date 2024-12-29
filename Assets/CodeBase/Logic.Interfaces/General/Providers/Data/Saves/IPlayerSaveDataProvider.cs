@@ -1,4 +1,4 @@
-using CodeBase.Data.Saves;
+using CodeBase.Data.General.Saves;
 
 namespace CodeBase.Logic.Interfaces.General.Providers.Data.Saves
 {

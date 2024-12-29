@@ -1,23 +1,22 @@
-using CodeBase.Data.Constants;
-using CodeBase.Data.Models.Audio;
-using CodeBase.Data.ScriptableObjects.Audio;
+using CodeBase.Data.General.Constants;
+using CodeBase.Data.General.Models.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
-using AudioSettings = CodeBase.Data.ScriptableObjects.Audio.AudioSettings;
+using AudioSettings = CodeBase.Data.General.ScriptableObjects.Audio.AudioSettings;
 
 namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
 {
     public class AudioSettingsProvider : IAudioSettingsProvider
     {
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
         private readonly AsyncLazy _prepareTask;
         
         private AudioSettings _config;
 
-        public AudioSettingsProvider(IAssetServices assetServices)
+        public AudioSettingsProvider(IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
             _prepareTask = UniTask.Lazy(PrepareResourcesAsync);
         }
 
@@ -53,7 +52,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio
 
         private async UniTask PrepareResourcesAsync()
         {
-            _config = await _assetServices.LoadAsync<AudioSettings>(AddressableConstants.AudioSettings);
+            _config = await _assetService.LoadAsync<AudioSettings>(AddressableConstants.AudioSettings);
         }
     }
 }

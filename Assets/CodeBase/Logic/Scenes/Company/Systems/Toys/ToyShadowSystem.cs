@@ -14,13 +14,13 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
     {
         private static readonly Vector3 _offset = new Vector3(0, -0.05f, 1);
         
-        private readonly IToyOutlineFactory _toyOutlineFactory;
+        private readonly IToyShadowFactory _toyShadowFactory;
         private readonly CompositeDisposable _compositeDisposable;
         private readonly Dictionary<ToyMediator, GameObject> _shadows;
 
-        public ToyShadowSystem(IToyProvider toyProvider, IToyOutlineFactory toyOutlineFactory)
+        public ToyShadowSystem(IToyProvider toyProvider, IToyShadowFactory toyShadowFactory)
         {
-            _toyOutlineFactory = toyOutlineFactory;
+            _toyShadowFactory = toyShadowFactory;
             
             _shadows = new Dictionary<ToyMediator, GameObject>();
             _compositeDisposable = new CompositeDisposable();
@@ -38,7 +38,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         private async void OnToyAdd(CollectionAddEvent<(ToyMediator, ToyStateMachine)> addEvent)
         {
-            var shadow = await _toyOutlineFactory.SpawnAsync();
+            var shadow = await _toyShadowFactory.SpawnAsync();
             _shadows.Add(addEvent.Value.Item1, shadow);
         }
         

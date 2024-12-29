@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using Zenject;
 

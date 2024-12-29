@@ -13,11 +13,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
         private const float MoveToRotationDuration = 0.01f;
         
         private readonly ToyMediator _toyMediator;
-        private readonly ICompanyMainWindow _companyMainWindow;
+        private readonly IMainWindow _mainWindow;
 
-        public ToyRotateState(ToyMediator toyMediator, ICompanyMainWindow companyMainWindow)
+        public ToyRotateState(ToyMediator toyMediator, IMainWindow mainWindow)
         {
-            _companyMainWindow = companyMainWindow;
+            _mainWindow = mainWindow;
             _toyMediator = toyMediator;
         }
 
@@ -25,15 +25,15 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         public override void Enter()
         {
-            var sliderValue = _companyMainWindow.GetSliderValue();
+            var sliderValue = _mainWindow.ToyRotatorElement.GetSliderValue();
             Rotate(sliderValue, MoveToStartRotationDuration);
 
-            _companyMainWindow.OnSliderChanged += OnSliderChanged;
+            _mainWindow.ToyRotatorElement.OnSliderChanged += OnSliderChanged;
         }
 
         public override void Exit()
         {
-            _companyMainWindow.OnSliderChanged -= OnSliderChanged;
+            _mainWindow.ToyRotatorElement.OnSliderChanged -= OnSliderChanged;
         }
 
         private void OnSliderChanged(float sliderValue)
@@ -43,7 +43,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States
 
         private void Rotate(float sliderValue, float duration)
         {
-            var sliderValueToRotation = _companyMainWindow.SliderValueToRotation(sliderValue);
+            var sliderValueToRotation = _mainWindow.ToyRotatorElement.SliderValueToRotation(sliderValue);
             
             _toyMediator.transform.DOKill();
             _toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, duration);

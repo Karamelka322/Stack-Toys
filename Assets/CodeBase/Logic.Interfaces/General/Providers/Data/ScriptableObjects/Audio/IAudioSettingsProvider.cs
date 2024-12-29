@@ -1,5 +1,4 @@
-using CodeBase.Data.Models.Audio;
-using CodeBase.Data.ScriptableObjects.Audio;
+using CodeBase.Data.General.Models.Audio;
 using Cysharp.Threading.Tasks;
 
 namespace CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio

@@ -120,7 +120,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         {
             var point = GetSpawnPoint();
             var prefab = await GetToyPrefabAsync();
-            var toy = _toyFactory.Spawn(prefab, point);
+            var toy = _toyFactory.Spawn(prefab, null, point);
 
             _toyProvider.Register(toy.Item1, toy.Item2);
             OnSpawn?.Invoke(toy.Item1, toy.Item2);

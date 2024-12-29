@@ -1,4 +1,4 @@
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.UI.General.Mediators.Windows.Loading;
 using CodeBase.UI.Interfaces.General.Factories.Windows.Loading;
 using UnityEngine;

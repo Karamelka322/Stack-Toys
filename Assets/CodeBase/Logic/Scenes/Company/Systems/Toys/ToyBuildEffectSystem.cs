@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
@@ -17,11 +17,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         
         private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IDisposable _disposable;
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
         
-        public ToyBuildEffectSystem(IToyTowerObserver toyTowerObserver, IAssetServices assetServices)
+        public ToyBuildEffectSystem(IToyTowerObserver toyTowerObserver, IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
             _toyTowerObserver = toyTowerObserver;
 
             _disposable = toyTowerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
@@ -39,7 +39,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
 
         private async UniTask ShowEffectAsync()
         {
-            var highlightedMaterial = await _assetServices.LoadAsync<Material>(AddressableConstants.HighlightedToyMaterial);
+            var highlightedMaterial = await _assetService.LoadAsync<Material>(AddressableConstants.HighlightedToyMaterial);
             
             foreach (var toy in _toyTowerObserver.Tower)
             {

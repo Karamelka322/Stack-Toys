@@ -1,5 +1,5 @@
 using System;
-using CodeBase.Data.Constants;
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Services.Files.Formats;
 using CodeBase.Logic.Interfaces.General.Services.Files;
 using JetBrains.Annotations;

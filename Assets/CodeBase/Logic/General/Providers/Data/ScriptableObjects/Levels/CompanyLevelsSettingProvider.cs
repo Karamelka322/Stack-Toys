@@ -1,5 +1,5 @@
-using CodeBase.Data.Constants;
-using CodeBase.Data.ScriptableObjects.Levels;
+using CodeBase.Data.General.Constants;
+using CodeBase.Data.Scenes.Company.ScriptableObjects.Levels;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using Cysharp.Threading.Tasks;
@@ -9,14 +9,14 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
 {
     public class CompanyLevelsSettingProvider : ICompanyLevelsSettingProvider
     {
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
         private readonly AsyncLazy _prepareResourcesTask;
         
         private CompanyLevelsSettings _config;
         
-        public CompanyLevelsSettingProvider(IAssetServices assetServices)
+        public CompanyLevelsSettingProvider(IAssetService assetService)
         {
-            _assetServices = assetServices;
+            _assetService = assetService;
             _prepareResourcesTask = UniTask.Lazy(PrepareResources);
         }
 
@@ -25,7 +25,7 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
             await _prepareResourcesTask;
 
             var assetReferenceGameObject = _config.Levels[index].EnvironmentAsset;
-            var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
+            var prefab = await _assetService.LoadAsync(assetReferenceGameObject);
             
             return prefab;
         }
@@ -49,14 +49,14 @@ namespace CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels
             await _prepareResourcesTask;
 
             var assetReferenceGameObject = _config.Levels[levelIndex].ToyAssets;
-            var prefab = await _assetServices.LoadAsync(assetReferenceGameObject);
+            var prefab = await _assetService.LoadAsync(assetReferenceGameObject);
             
             return prefab;
         }
 
         private async UniTask PrepareResources()
         {
-            _config = await _assetServices.LoadAsync<CompanyLevelsSettings>(AddressableConstants.LevelsConfig);
+            _config = await _assetService.LoadAsync<CompanyLevelsSettings>(AddressableConstants.LevelsConfig);
         }
     }
 }

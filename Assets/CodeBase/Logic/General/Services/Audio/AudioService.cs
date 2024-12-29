@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using CodeBase.Data.Enums;
-using CodeBase.Data.Models.Audio;
+using CodeBase.Data.General.Enums;
+using CodeBase.Data.General.Models.Audio;
 using CodeBase.Logic.General.Extensions;
 using CodeBase.Logic.General.Factories.Audio;
 using CodeBase.Logic.General.Unity.Audio;
@@ -18,7 +18,7 @@ namespace CodeBase.Logic.General.Services.Audio
     public class AudioService : IAudioService, IDisposable
     {
         private readonly IAudioSettingsProvider _audioSettingsProvider;
-        private readonly IAssetServices _assetServices;
+        private readonly IAssetService _assetService;
         private readonly IAudioFactory _audioFactory;
         private readonly AsyncLazy _prepareTask;
 
@@ -27,13 +27,13 @@ namespace CodeBase.Logic.General.Services.Audio
         private AudioListenerMediator _listener;
 
         public AudioService(
-            IAssetServices assetServices,
+            IAssetService assetService,
             IAudioSettingsProvider audioSettingsProvider,
             IAudioFactory audioFactory)
         {
             _audioFactory = audioFactory;
             _audioSettingsProvider = audioSettingsProvider;
-            _assetServices = assetServices;
+            _assetService = assetService;
 
             _audioClips = new List<AudioClipPlaybackData>();
             
@@ -138,7 +138,7 @@ namespace CodeBase.Logic.General.Services.Audio
                 : _listener.SoundsSourceParent;
 
             var source = await _audioFactory.SpawnSourceAsync(audioOutputType, parent);
-            var audioClip = await _assetServices.LoadAsync<AudioClip>(settingData.AudioClip.AssetGUID);
+            var audioClip = await _assetService.LoadAsync<AudioClip>(settingData.AudioClip.AssetGUID);
             
             source.clip = audioClip;
             source.volume = settingData.Volume;
