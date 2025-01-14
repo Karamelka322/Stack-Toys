@@ -6,6 +6,7 @@ using CodeBase.Logic.General.Services.Audio;
 using CodeBase.Logic.General.Services.Debug;
 using CodeBase.Logic.General.Services.Files;
 using CodeBase.Logic.General.Services.Input;
+using CodeBase.Logic.General.Services.Localizations;
 using CodeBase.Logic.General.Services.SaveLoad;
 using CodeBase.Logic.General.Services.SaveLoad.Formatters;
 using CodeBase.Logic.General.Services.SceneLoad;
@@ -32,7 +33,8 @@ namespace CodeBase.Logic.General.Installers
         private void BindProviders()
         {
             Container.BindInterfacesTo<PlayerSaveDataProvider>().AsSingle();
-            Container.BindInterfacesTo<SettingsSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<AudioSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<LocalizationSaveDataProvider>().AsSingle();
             Container.BindInterfacesTo<AudioSettingsProvider>().AsSingle();
         }
 
@@ -59,6 +61,7 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<WindowService>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
             Container.BindInterfacesTo<DebugService>().AsSingle();
+            Container.BindInterfacesTo<LocalizationService>().AsSingle();
         }
 
         private void BindPresenters()

@@ -21,7 +21,7 @@ namespace CodeBase.Logic.General.Services.Audio
     public class AudioService : IAudioService, IDisposable
     {
         private readonly IAudioSettingsProvider _audioSettingsProvider;
-        private readonly ISettingsSaveDataProvider _settingsSaveDataProvider;
+        private readonly IAudioSaveDataProvider _settingsSaveDataProvider;
         private readonly IAssetService _assetService;
         private readonly IAudioFactory _audioFactory;
         private readonly AsyncLazy _prepareTask;
@@ -33,7 +33,7 @@ namespace CodeBase.Logic.General.Services.Audio
 
         public AudioService(
             IAssetService assetService,
-            ISettingsSaveDataProvider settingsSaveDataProvider,
+            IAudioSaveDataProvider settingsSaveDataProvider,
             IAudioSettingsProvider audioSettingsProvider,
             IAudioFactory audioFactory)
         {

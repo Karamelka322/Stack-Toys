@@ -1,6 +1,8 @@
 using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Providers.Data.Saves;
+using CodeBase.Logic.General.Services.Localizations;
 using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
@@ -17,20 +19,26 @@ namespace CodeBase.UI.General.Windows.Pause
         private readonly IPauseWindowFactory _pauseWindowFactory;
         private readonly ICompanySceneUnload _companySceneUnload;
         private readonly ISceneLoadService _sceneLoadService;
-        private readonly ISettingsSaveDataProvider _settingsSaveDataProvider;
+        private readonly IAudioSaveDataProvider _settingsSaveDataProvider;
+        private readonly ILocalizationService _localizationService;
         private readonly IWindowService _windowService;
         private readonly IAudioService _audioService;
+        private readonly IAssetService _assetService;
 
         private PauseWindowMediator _mediator;
 
         public PauseWindow(
             IWindowService windowService,
             IPauseWindowFactory pauseWindowFactory,
-            ISettingsSaveDataProvider settingsSaveDataProvider,
+            ILocalizationService localizationService,
+            IAudioSaveDataProvider settingsSaveDataProvider,
+            IAssetService assetService,
             IAudioService audioService,
             ICompanySceneUnload companySceneUnload,
             ISceneLoadService sceneLoadService) : base(windowService)
         {
+            _assetService = assetService;
+            _localizationService = localizationService;
             _settingsSaveDataProvider = settingsSaveDataProvider;
             _audioService = audioService;
             _windowService = windowService;
@@ -43,44 +51,104 @@ namespace CodeBase.UI.General.Windows.Pause
         {
             _mediator = await _pauseWindowFactory.SpawnAsync();
             
-            _mediator.MenuButton.onClick.AddListener(OnMenuButtonClicked);
-            _mediator.CloseButton.onClick.AddListener(OnCloseButtonClicked);
-            _mediator.MusicVolumeToggle.onValueChanged.AddListener(OnMusicVolumeToggleClicked);
-            _mediator.SoundVolumeToggle.onValueChanged.AddListener(OnSoundVolumeToggleClicked);
+            _mediator.MenuButton.onClick.AddListener(OnMenuButtonClick);
+            _mediator.CloseButton.onClick.AddListener(OnCloseButtonClick);
+            _mediator.AdsButton.onClick.AddListener(OnAdsButtonClick);
+            _mediator.LanguageButton.onClick.AddListener(OnLanguageButtonClick);
+            _mediator.MusicVolumeToggle.onValueChanged.AddListener(OnMusicVolumeToggleClick);
+            _mediator.SoundVolumeToggle.onValueChanged.AddListener(OnSoundVolumeToggleClick);
 
             _mediator.MusicVolumeToggle.isOn = _settingsSaveDataProvider.IsMusicVolumeMute() == false;
             _mediator.SoundVolumeToggle.isOn = _settingsSaveDataProvider.IsSoundsVolumeMute() == false;
-        }
 
+            await LocalizeTextAsync();
+            await LocalizeSpriteAsync();
+
+            _localizationService.OnLocaleChanged += OnLocaleChanged;
+        }
+        
         public override void Close()
         {
-            _mediator.MenuButton.onClick.RemoveListener(OnMenuButtonClicked);
-            _mediator.CloseButton.onClick.RemoveListener(OnCloseButtonClicked);
-            _mediator.MusicVolumeToggle.onValueChanged.RemoveListener(OnMusicVolumeToggleClicked);
-            _mediator.SoundVolumeToggle.onValueChanged.RemoveListener(OnSoundVolumeToggleClicked);
+            _mediator.MenuButton.onClick.RemoveListener(OnMenuButtonClick);
+            _mediator.CloseButton.onClick.RemoveListener(OnCloseButtonClick);
+            _mediator.AdsButton.onClick.RemoveListener(OnAdsButtonClick);
+            _mediator.LanguageButton.onClick.RemoveListener(OnLanguageButtonClick);
+            _mediator.MusicVolumeToggle.onValueChanged.RemoveListener(OnMusicVolumeToggleClick);
+            _mediator.SoundVolumeToggle.onValueChanged.RemoveListener(OnSoundVolumeToggleClick);
 
+            _localizationService.OnLocaleChanged -= OnLocaleChanged;
+            
             Object.Destroy(_mediator.gameObject);
         }
 
-        private void OnCloseButtonClicked()
+        private void OnCloseButtonClick()
         {
             _windowService.CloseAsync<PauseWindow>().Forget();
         }
 
-        private void OnMenuButtonClicked()
+        private void OnMenuButtonClick()
         {
             _companySceneUnload.Unload();
             _sceneLoadService.LoadScene(SceneNames.Menu);
         }
 
-        private void OnMusicVolumeToggleClicked(bool isOn)
+        private void OnAdsButtonClick()
+        {
+            // 
+        }
+
+        private void OnMusicVolumeToggleClick(bool isOn)
         {
             _audioService.SetMusicVolume(isOn ? 1f : 0f);
         }
-        
-        private void OnSoundVolumeToggleClicked(bool isOn)
+
+        private void OnSoundVolumeToggleClick(bool isOn)
         {
             _audioService.SetSoundsVolume(isOn ? 1f : 0f);
+        }
+        
+        private async void OnLanguageButtonClick()
+        {
+            var localeName = await _localizationService.GetLocaleAsync();
+            
+            if (localeName == LocalizationConstants.EnglishLocal)
+            {
+                _localizationService.SetLocaleAsync(LocalizationConstants.RussianLocal);
+            }
+            else
+            {
+                _localizationService.SetLocaleAsync(LocalizationConstants.EnglishLocal);
+            }
+        }
+
+        private void OnLocaleChanged()
+        {
+            LocalizeTextAsync().Forget();
+            LocalizeSpriteAsync().Forget();
+        }
+
+        private async UniTask LocalizeTextAsync()
+        {
+            _mediator.MusicLabel.text = await _localizationService.LocalizeAsync(LocalizationConstants.MusicKey);
+            _mediator.SoundsLabel.text = await _localizationService.LocalizeAsync(LocalizationConstants.SoundsKey);
+            _mediator.LocalizationLabel.text = await _localizationService.LocalizeAsync(LocalizationConstants.LanguageKey);
+        }
+
+        private async UniTask LocalizeSpriteAsync()
+        {
+            var localeName = await _localizationService.GetLocaleAsync();
+            Sprite flagSprite = null;
+            
+            if (localeName == LocalizationConstants.EnglishLocal)
+            {
+                flagSprite = await _assetService.LoadAsync<Sprite>(AddressableConstants.EnglishFlag);
+            }
+            else
+            {
+                flagSprite = await _assetService.LoadAsync<Sprite>(AddressableConstants.RussianFlag);
+            }
+            
+            _mediator.LanguageImage.sprite = flagSprite;
         }
     }
 }

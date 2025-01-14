@@ -1,6 +1,6 @@
 namespace CodeBase.Logic.General.Providers.Data.Saves
 {
-    public interface ISettingsSaveDataProvider
+    public interface IAudioSaveDataProvider
     {
         void SetMusicVolume(float volume);
         void SetSoundsVolume(float volume);

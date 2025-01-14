@@ -5,8 +5,9 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Data.Saves
     public interface IPlayerSaveDataProvider
     {
         ref CompanyLevelsSaveData GetCompanyLevelsData();
-        ref SettingsSaveData GetSettingsData();
+        ref AudioSaveData GetAudioData();
         
         void Save();
+        ref LocalizationSaveData GetLocalizationData();
     }
 }

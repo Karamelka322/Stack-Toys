@@ -12,9 +12,6 @@ namespace CodeBase.Data.General.Constants
         public const string ToyShadow = "Toy_Shadow";
         public const string PauseWindow = "Pause_Window";
 
-        // Effects
-        // public const string ToyTowerBuildEffect = "Toy_Tower_Build_Effect";
-        
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
         public const string CameraSettings = "Camera_Settings";
@@ -22,6 +19,10 @@ namespace CodeBase.Data.General.Constants
         
         // Materials
         public const string HighlightedToyMaterial = "Highlighted_Toys_Material";
+        
+        // Sprites
+        public const string RussianFlag = "Russian_Flag";
+        public const string EnglishFlag = "English_Flag";
         
         public static class MenuScene
         {

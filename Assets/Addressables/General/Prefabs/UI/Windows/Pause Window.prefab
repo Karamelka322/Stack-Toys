@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1321221606687958741}
   - component: {fileID: 9178776855352874309}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Frame - image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 7618447994218205683}
   - component: {fileID: 8067164856342423808}
   m_Layer: 5
-  m_Name: Checkmark
+  m_Name: Flag - image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 4130688863699472494}
   - component: {fileID: 2566054148762796566}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Frame - image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1363,9 +1363,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7044969461421649749}
-  - component: {fileID: 7724520692523440375}
+  - component: {fileID: 4853841400944091338}
+  - component: {fileID: 7859668631861089421}
+  - component: {fileID: 6330224104071499337}
   m_Layer: 5
-  m_Name: Language - switcher
+  m_Name: Language - button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,7 +1394,15 @@ RectTransform:
   m_AnchoredPosition: {x: 164.81, y: -0.000045776}
   m_SizeDelta: {x: 97.9624, y: 99.4416}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7724520692523440375
+--- !u!222 &4853841400944091338
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107785707547055675}
+  m_CullTransparentMesh: 1
+--- !u!114 &7859668631861089421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1401,7 +1411,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 5107785707547055675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6330224104071499337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107785707547055675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1432,14 +1472,10 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3243947091611116711}
-  toggleTransition: 1
-  graphic: {fileID: 8067164856342423808}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 7859668631861089421}
+  m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
 --- !u!1 &5409637605707417202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1638,7 @@ GameObject:
   - component: {fileID: 5005857981430560285}
   - component: {fileID: 3243947091611116711}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Frame - image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,7 +1685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2684,8 +2720,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87892dae98b54d7091b32639e18ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musicLabel: {fileID: 2083181731129464015}
+  _soundsLabel: {fileID: 9139448228245656951}
+  _localizationLabel: {fileID: 5582338541577061989}
   _menuButton: {fileID: 2892608718925585615}
   _closeButton: {fileID: 6341893776004236230}
   _adsButton: {fileID: 6660470299910857982}
+  _languageButton: {fileID: 6330224104071499337}
+  _languageImage: {fileID: 8067164856342423808}
   _musicVolumeToggle: {fileID: 5317674033363326344}
   _soundVolumeToggle: {fileID: 2001712749082099602}

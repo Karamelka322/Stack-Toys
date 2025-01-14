@@ -18,15 +18,19 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         public ref CompanyLevelsSaveData GetCompanyLevelsData()
         {
             _data.CompanyLevels ??= new CompanyLevelsSaveData();
-
             return ref _data.CompanyLevels;
         }
         
-        public ref SettingsSaveData GetSettingsData()
+        public ref AudioSaveData GetAudioData()
         {
-            _data.Settings ??= new SettingsSaveData();
-
-            return ref _data.Settings;
+            _data.Audio ??= new AudioSaveData();
+            return ref _data.Audio;
+        }
+        
+        public ref LocalizationSaveData GetLocalizationData()
+        {
+            _data.Localization ??= new LocalizationSaveData();
+            return ref _data.Localization;
         }
         
         public void Save()
