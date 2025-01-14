@@ -1,29 +1,36 @@
 using System;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
-using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Company.Systems
 {
     public class CompanySceneSaver : IDisposable
     {
-        private readonly ISceneLoadService _sceneLoadService;
         private readonly IPlayerSaveDataProvider _playerSaveDataProvider;
 
-        public CompanySceneSaver(ISceneLoadService sceneLoadService, IPlayerSaveDataProvider playerSaveDataProvider)
+        public CompanySceneSaver(IPlayerSaveDataProvider playerSaveDataProvider)
         {
             _playerSaveDataProvider = playerSaveDataProvider;
-            _sceneLoadService = sceneLoadService;
             
-            sceneLoadService.OnSceneReload += OnSceneReload;
+            Application.focusChanged += OnFocusChanged;
+            Application.quitting += OnClosing;
         }
-        
+
         public void Dispose()
         {
-            _sceneLoadService.OnSceneReload += OnSceneReload;
+            Application.quitting -= OnClosing;
+            Application.focusChanged -= OnFocusChanged;
         }
-        
-        private void OnSceneReload(Scene scene)
+
+        private void OnFocusChanged(bool isFocused)
+        {
+            if (isFocused == false)
+            {
+                _playerSaveDataProvider.Save();
+            }
+        }
+
+        private void OnClosing()
         {
             _playerSaveDataProvider.Save();
         }

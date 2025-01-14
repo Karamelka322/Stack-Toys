@@ -11,5 +11,7 @@ namespace CodeBase.Logic.Interfaces.General.Services.Audio
         UniTask PlaySequenceAsync(string sequenceid, string[] eventNames, AudioOutputType audioOutputType, bool isLoop);
         UniTask PlayRandomAsync(string groupId, AudioOutputType audioOutputType);
         void Stop(string id);
+        void SetMusicVolume(float volume);
+        void SetSoundsVolume(float volume);
     }
 }

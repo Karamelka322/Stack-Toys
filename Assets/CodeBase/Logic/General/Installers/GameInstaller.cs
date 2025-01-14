@@ -32,6 +32,7 @@ namespace CodeBase.Logic.General.Installers
         private void BindProviders()
         {
             Container.BindInterfacesTo<PlayerSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<SettingsSaveDataProvider>().AsSingle();
             Container.BindInterfacesTo<AudioSettingsProvider>().AsSingle();
         }
 

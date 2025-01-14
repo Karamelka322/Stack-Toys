@@ -5,6 +5,7 @@ namespace CodeBase.Data.General.Constants
         // Prefabs
         public const string Canvas = "Canvas";
         public const string AudioListener = "AudioListener";
+        public const string AudioMixer = "AudioMixer";
         public const string MusicSource = "MusicSource";
         public const string SoundSource = "SoundSource";
         public const string ToyBabble = "Toy_Babble";

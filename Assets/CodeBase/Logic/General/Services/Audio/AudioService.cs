@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using CodeBase.Data.General.Constants;
 using CodeBase.Data.General.Enums;
 using CodeBase.Data.General.Models.Audio;
 using CodeBase.Logic.General.Extensions;
 using CodeBase.Logic.General.Factories.Audio;
+using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Unity.Audio;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.Interfaces.General.Services.Assets;
 using CodeBase.Logic.Interfaces.General.Services.Audio;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Audio;
 using Object = UnityEngine.Object;
 
 namespace CodeBase.Logic.General.Services.Audio
@@ -18,19 +21,23 @@ namespace CodeBase.Logic.General.Services.Audio
     public class AudioService : IAudioService, IDisposable
     {
         private readonly IAudioSettingsProvider _audioSettingsProvider;
+        private readonly ISettingsSaveDataProvider _settingsSaveDataProvider;
         private readonly IAssetService _assetService;
         private readonly IAudioFactory _audioFactory;
         private readonly AsyncLazy _prepareTask;
 
         private readonly List<AudioClipPlaybackData> _audioClips;
 
+        private AudioMixer _audioMixer;
         private AudioListenerMediator _listener;
 
         public AudioService(
             IAssetService assetService,
+            ISettingsSaveDataProvider settingsSaveDataProvider,
             IAudioSettingsProvider audioSettingsProvider,
             IAudioFactory audioFactory)
         {
+            _settingsSaveDataProvider = settingsSaveDataProvider;
             _audioFactory = audioFactory;
             _audioSettingsProvider = audioSettingsProvider;
             _assetService = assetService;
@@ -52,6 +59,22 @@ namespace CodeBase.Logic.General.Services.Audio
             }
             
             _audioClips.Clear();
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            volume = Mathf.Clamp01(volume);
+            
+            _audioMixer.SetFloat(AudioConstants.MusicVolume, Mathf.Lerp(-80, 0, volume));
+            _settingsSaveDataProvider.SetMusicVolume(volume);
+        }
+        
+        public void SetSoundsVolume(float volume)
+        {
+            volume = Mathf.Clamp01(volume);
+            
+            _audioMixer.SetFloat(AudioConstants.SoundVolume, Mathf.Lerp(-80, 0, volume));
+            _settingsSaveDataProvider.SetSoundsVolume(volume);
         }
         
         public async UniTask PlayAsync(string eventName, AudioOutputType audioOutputType)
@@ -168,6 +191,10 @@ namespace CodeBase.Logic.General.Services.Audio
         private async UniTask PrepareAsync()
         {
             _listener = await _audioFactory.SpawnListenerAsync();
+            _audioMixer = await _assetService.LoadAsync<AudioMixer>(AddressableConstants.AudioMixer);
+            
+            SetMusicVolume(_settingsSaveDataProvider.GetMusicVolume());
+            SetSoundsVolume(_settingsSaveDataProvider.GetSoundsVolume());
         }
     }
 }

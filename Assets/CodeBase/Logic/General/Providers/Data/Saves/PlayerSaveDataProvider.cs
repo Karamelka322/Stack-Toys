@@ -17,7 +17,16 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         
         public ref CompanyLevelsSaveData GetCompanyLevelsData()
         {
+            _data.CompanyLevels ??= new CompanyLevelsSaveData();
+
             return ref _data.CompanyLevels;
+        }
+        
+        public ref SettingsSaveData GetSettingsData()
+        {
+            _data.Settings ??= new SettingsSaveData();
+
+            return ref _data.Settings;
         }
         
         public void Save()

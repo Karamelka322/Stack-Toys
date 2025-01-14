@@ -12,7 +12,19 @@ namespace CodeBase.UI.General.Mediators.Windows.Pause
         [SerializeField, Required] 
         private Button _closeButton;
         
+        [SerializeField, Required] 
+        private Button _adsButton;
+        
+        [SerializeField, Required] 
+        private Toggle _musicVolumeToggle;
+        
+        [SerializeField, Required] 
+        private Toggle _soundVolumeToggle;
+        
         public Button MenuButton => _menuButton;
         public Button CloseButton => _closeButton;
+        public Button AdsButton => _adsButton;
+        public Toggle MusicVolumeToggle => _musicVolumeToggle;
+        public Toggle SoundVolumeToggle => _soundVolumeToggle;
     }
 }

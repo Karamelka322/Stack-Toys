@@ -4,7 +4,6 @@ using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
-using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Scenes.Company.RuntimeData;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -63,7 +62,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
 
         private void OnPauseButtonClicked()
         {
-            // _windowService.OpenAsync<PauseWindow>().Forget();
+            _windowService.OpenAsync<PauseWindow>().Forget();
         }
 
         private void UpdateToyCounter(int value)
