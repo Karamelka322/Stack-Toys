@@ -6,44 +6,27 @@ using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine.SceneManagement;
 
-namespace CodeBase.UI.Scenes.Company.Presenters.Windows
+namespace CodeBase.Logic.Scenes.Menu.Systems
 {
-    public class CompanyLoadingWindowPresenter : IDisposable
+    public class MenuLoadingScreenPresenter : IDisposable
     {
-        private readonly ILoadingWindow _loadingWindow;
         private readonly IDisposable _disposable;
+        private readonly ILoadingWindow _loadingWindow;
         private readonly ISceneLoadService _sceneLoadService;
 
-        public CompanyLoadingWindowPresenter(ISceneReadyObserver sceneReadyObserver, 
+        public MenuLoadingScreenPresenter(ISceneReadyObserver sceneReadyObserver, 
             ILoadingWindow loadingWindow, ISceneLoadService sceneLoadService)
         {
             _sceneLoadService = sceneLoadService;
             _loadingWindow = loadingWindow;
 
-            _sceneLoadService.OnSceneReload += OnSceneReload;
             _sceneLoadService.OnSceneLoading += OnSceneLoading;
-            
             _disposable = sceneReadyObserver.IsReady.Subscribe(OnSceneReady);
         }
 
         public void Dispose()
         {
-            _sceneLoadService.OnSceneReload -= OnSceneReload;
-            _sceneLoadService.OnSceneLoading -= OnSceneLoading;
-            
             _disposable?.Dispose();
-        }
-
-        private void OnSceneLoading(Scene scene)
-        {
-            _loadingWindow.Open();
-            _loadingWindow.ShowAsync().Forget();
-        }
-
-        private void OnSceneReload(Scene scene)
-        {
-            _loadingWindow.Open();
-            _loadingWindow.ShowAsync().Forget();
         }
 
         private async void OnSceneReady(bool isReady)
@@ -56,6 +39,12 @@ namespace CodeBase.UI.Scenes.Company.Presenters.Windows
             await _loadingWindow.HideAsync();
             
             _loadingWindow.Close();
+        }
+
+        private void OnSceneLoading(Scene scene)
+        {
+            _loadingWindow.Open();
+            _loadingWindow.ShowAsync().Forget();
         }
     }
 }

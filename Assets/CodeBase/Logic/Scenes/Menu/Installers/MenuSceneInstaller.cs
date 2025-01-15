@@ -1,5 +1,8 @@
 using CodeBase.Logic.General.Providers.Data.Saves;
+using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
+using CodeBase.Logic.Scenes.Menu.Systems;
+using CodeBase.Logic.Scenes.Menu.Systems.Ready;
 using CodeBase.UI.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Scenes.Menu.Presenters.Menu;
@@ -17,6 +20,7 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
             BindFactories();
             BindSystems();
             BindPresenters();
+            BindObservers();
         }
 
         private void BindProviders()
@@ -26,12 +30,12 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
             
             // Data
             Container.BindInterfacesTo<CompanyLevelsSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<CompanyLevelsSettingProvider>().AsSingle();
         }
 
-        private void BindSystems()
+        private void BindObservers()
         {
-            Container.BindInterfacesTo<MenuWindow>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<LevelsWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<MenuSceneReadyObserver>().AsSingle();
         }
 
         private void BindFactories()
@@ -48,9 +52,17 @@ namespace CodeBase.Logic.Scenes.Menu.Installers
             Container.BindFactory<MenuLevelElementMediator, int, CompletedMenuLevelElement, CompletedMenuLevelElement.Factory>();
         }
 
+        private void BindSystems()
+        {
+            Container.BindInterfacesTo<MenuWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<LevelsWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<MenuSceneEnvironmentLoader>().AsSingle().NonLazy();
+        }
+
         private void BindPresenters()
         {
             Container.Bind<MenuWindowPresenter>().AsSingle().NonLazy();
+            Container.Bind<MenuLoadingScreenPresenter>().AsSingle().NonLazy();
         }
     }
 }

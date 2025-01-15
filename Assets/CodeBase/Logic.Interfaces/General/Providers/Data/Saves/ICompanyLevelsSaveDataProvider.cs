@@ -6,10 +6,9 @@ namespace CodeBase.Logic.Interfaces.General.Providers.Data.Saves
         bool HasClosedLevel(int index);
         bool HasCompletedLevel(int index);
         int GetCurrentLevel();
-        void SetCompletedLevel(int index);
-        int GetTargetLevel();
+        int GetLastOpenedLevel();
         void SetCurrentLevel(int levelIndex);
-        void SetTargetLevel(int levelIndex);
+        void SetLastOpenedLevel(int levelIndex);
         int GetNextLevelIndex();
         int GetNextLevelIndex(int currentLevelIndex);
     }

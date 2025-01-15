@@ -35,7 +35,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Debug
             get => _companyLevelsSaveDataProvider.GetCurrentLevel() + 1;
             set
             {
-                _companyLevelsSaveDataProvider.SetTargetLevel(value - 1);
+                _companyLevelsSaveDataProvider.SetLastOpenedLevel(value - 1);
                 _companyLevelsSaveDataProvider.SetCurrentLevel(value - 1);
 
                 Reload();

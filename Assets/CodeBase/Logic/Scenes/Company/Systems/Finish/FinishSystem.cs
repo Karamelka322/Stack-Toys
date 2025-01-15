@@ -1,7 +1,6 @@
 using System;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Finish
@@ -28,7 +27,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             var currentOpenedLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
             var nextLevel = _companyLevelsSaveDataProvider.GetNextLevelIndex(currentOpenedLevel);
             
-            _companyLevelsSaveDataProvider.SetCompletedLevel(nextLevel);
+            if (nextLevel > _companyLevelsSaveDataProvider.GetLastOpenedLevel())
+            {
+                _companyLevelsSaveDataProvider.SetLastOpenedLevel(nextLevel);
+            }
+            
+            _companyLevelsSaveDataProvider.SetCurrentLevel(nextLevel);
         }
 
         public void Dispose()

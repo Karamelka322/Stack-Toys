@@ -1,4 +1,3 @@
-using System.Linq;
 using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using UnityEngine;
@@ -12,8 +11,6 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         public CompanyLevelsSaveDataProvider(IPlayerSaveDataProvider playerSaveDataProvider)
         {
             _playerSaveDataProvider = playerSaveDataProvider;
-            
-            TryInitData();
         }
         
         public int GetCurrentLevel()
@@ -27,15 +24,15 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
             data.CurrentLevel = levelIndex;
         }
         
-        public void SetTargetLevel(int levelIndex)
+        public void SetLastOpenedLevel(int levelIndex)
         {
             ref var data = ref _playerSaveDataProvider.GetCompanyLevelsData();
-            data.TargetLevel = levelIndex;
+            data.LastOpenedLevel = levelIndex;
         }
         
-        public int GetTargetLevel()
+        public int GetLastOpenedLevel()
         {
-            return _playerSaveDataProvider.GetCompanyLevelsData().TargetLevel;
+            return _playerSaveDataProvider.GetCompanyLevelsData().LastOpenedLevel;
         }
 
         public int GetNextLevelIndex()
@@ -48,46 +45,20 @@ namespace CodeBase.Logic.General.Providers.Data.Saves
         {
             return Mathf.Clamp(currentLevelIndex + 1, 0, CompanyConstants.NumberOfLevels - 1);
         }
-        
-        public void SetCompletedLevel(int index)
-        {
-            ref var data = ref _playerSaveDataProvider.GetCompanyLevelsData();
-
-            if (data.CompletedLevels.Contains(index) == false && index < CompanyConstants.NumberOfLevels - 1)
-            {
-                data.CompletedLevels.Add(index);
-                data.TargetLevel = data.CompletedLevels.Max();
-            }
-        }
 
         public bool HasOpenedLevel(int index)
         {
-            return _playerSaveDataProvider.GetCompanyLevelsData().OpenedLevels.Contains(index);
+            return index <= _playerSaveDataProvider.GetCompanyLevelsData().LastOpenedLevel;
         }
 
         public bool HasClosedLevel(int index)
         {
-            return _playerSaveDataProvider.GetCompanyLevelsData().ClosedLevels.Contains(index);
+            return index > _playerSaveDataProvider.GetCompanyLevelsData().LastOpenedLevel;
         }
 
         public bool HasCompletedLevel(int index)
         {
-            return _playerSaveDataProvider.GetCompanyLevelsData().CompletedLevels.Contains(index);
-        }
-
-        private void TryInitData()
-        {
-            ref var levelsData = ref _playerSaveDataProvider.GetCompanyLevelsData();
-
-            if (levelsData.OpenedLevels.Count == 0)
-            {
-                levelsData.OpenedLevels.Add(0);
-            }
-            
-            for (int i = 1; i < CompanyConstants.NumberOfLevels; i++)
-            {
-                levelsData.ClosedLevels.Add(i);
-            }
+            return index < _playerSaveDataProvider.GetCompanyLevelsData().LastOpenedLevel;
         }
     }
 }

@@ -88,8 +88,10 @@ namespace CodeBase.UI.General.Windows.Pause
 
         private void OnMenuButtonClick()
         {
+            _localizationService.OnLocaleChanged -= OnLocaleChanged;
+            
             _companySceneUnload.Unload();
-            _sceneLoadService.LoadScene(SceneNames.Menu);
+            _sceneLoadService.LoadSceneAsync(SceneNames.Menu, 1f).Forget();
         }
 
         private void OnAdsButtonClick()

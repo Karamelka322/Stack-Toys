@@ -38,17 +38,17 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
             
             for (int i = 0; i < CompanyConstants.NumberOfLevels; i++)
             {
-                if (_companyLevelsSaveDataProvider.HasClosedLevel(i))
+                if (_companyLevelsSaveDataProvider.HasCompletedLevel(i))
+                {
+                    await _menuLevelElementFactory.SpawnCompletedVariantAsync(i, mediator.LevelsParent);
+                }
+                else if (_companyLevelsSaveDataProvider.HasClosedLevel(i))
                 {
                     await _menuLevelElementFactory.SpawnClosedVariantAsync(i, mediator.LevelsParent);
                 }
                 else if(_companyLevelsSaveDataProvider.HasOpenedLevel(i))
                 {
                     await _menuLevelElementFactory.SpawnOpenedVariantAsync(i, mediator.LevelsParent);
-                }
-                else if (_companyLevelsSaveDataProvider.HasCompletedLevel(i))
-                {
-                    await _menuLevelElementFactory.SpawnCompletedVariantAsync(i, mediator.LevelsParent);
                 }
             }
             

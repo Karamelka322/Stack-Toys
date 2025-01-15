@@ -1,5 +1,7 @@
 using CodeBase.Data.General.Constants;
+using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace CodeBase.UI.Scenes.Menu.Windows.Levels
@@ -7,20 +9,30 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
     public class CompletedMenuLevelElement
     {
         private readonly ISceneLoadService _sceneLoadService;
+        private readonly MenuLevelElementMediator _mediator;
+        private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
+        private readonly int _levelIndex;
 
-        public CompletedMenuLevelElement(MenuLevelElementMediator mediator, int levelIndex, ISceneLoadService sceneLoadService)
+        public CompletedMenuLevelElement(MenuLevelElementMediator mediator, int levelIndex,
+            ISceneLoadService sceneLoadService, ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider)
         {
+            _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
             _sceneLoadService = sceneLoadService;
+            _mediator = mediator;
+            _levelIndex = levelIndex;
             
-            mediator.Button.onClick.AddListener(OnClick);
-            mediator.Label.text = (levelIndex + 1).ToString();
+            _mediator.Button.onClick.AddListener(OnClick);
+            _mediator.Label.text = (levelIndex + 1).ToString();
         }
         
         public class Factory : PlaceholderFactory<MenuLevelElementMediator, int, CompletedMenuLevelElement> { }
-
+        
         private void OnClick()
         {
-            _sceneLoadService.LoadScene(SceneNames.Company);
+            _companyLevelsSaveDataProvider.SetCurrentLevel(_levelIndex);
+            
+            _mediator.Button.onClick.RemoveListener(OnClick);
+            _sceneLoadService.LoadSceneAsync(SceneNames.Company, 1f).Forget();
         }
     }
 }

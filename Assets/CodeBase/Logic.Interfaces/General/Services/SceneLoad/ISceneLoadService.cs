@@ -14,5 +14,8 @@ namespace CodeBase.Logic.Interfaces.General.Services.SceneLoad
         /// Закрывает и открывает текущую активную сцену
         /// </summary>
         UniTask ReloadSceneAsync(float delay);
+
+        UniTask LoadSceneAsync(string sceneName, float delay);
+        event Action<Scene> OnSceneLoading;
     }
 }

@@ -30,12 +30,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
         
         private async UniTask LoadAsync()
         {
-            var targetLevel = _companyLevelsSaveDataProvider.GetTargetLevel();
-            
-            _companyLevelsSaveDataProvider.SetCurrentLevel(targetLevel);
-            
+            var targetLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
             var level = await _levelFactory.SpawnAsync(targetLevel);
-            // var toy = await _toyFactory.SpawnAsync(level.ToyPoint.position);
             
             _levelProvider.Register(level);
             

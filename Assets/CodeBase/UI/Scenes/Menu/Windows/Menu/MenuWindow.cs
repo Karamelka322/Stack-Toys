@@ -5,6 +5,7 @@ using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
 using CodeBase.UI.Scenes.Menu.Mediators.Windows.Menu;
 using CodeBase.UI.Scenes.Menu.Windows.Levels;
 using Cysharp.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 
 namespace CodeBase.UI.Scenes.Menu.Windows.Menu
@@ -13,19 +14,25 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
     {
         private readonly IMenuWindowFactory _menuWindowFactory;
         private readonly IWindowService _windowService;
-
+        
         private MenuWindowMediator _mediator;
+        
+        public BoolReactiveProperty IsShowing { get; }
 
         public MenuWindow(IMenuWindowFactory menuWindowFactory, IWindowService windowService) : base(windowService)
         {
             _windowService = windowService;
             _menuWindowFactory = menuWindowFactory;
+
+            IsShowing = new BoolReactiveProperty();
         }
 
         public override async UniTask OpenAsync()
         {
             _mediator = await _menuWindowFactory.SpawnAsync();
             _mediator.CompanyButton.onClick.AddListener(OnCompanyButtonClicked);
+            
+            IsShowing.Value = true;
         }
 
         public override void Show()
