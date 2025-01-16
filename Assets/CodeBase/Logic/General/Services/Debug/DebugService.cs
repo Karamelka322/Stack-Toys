@@ -20,12 +20,14 @@ namespace CodeBase.Logic.General.Services.Debug
 
         public void RegisterOptionContainer(object container)
         {
+            
+#if !DISABLE_SRDEBUGGER
+
             if (container == null || SRDebug.Instance == null)
             {
                 return;
             }
             
-#if !DISABLE_SRDEBUGGER
             SRDebug.Instance.AddOptionContainer(container);
 #endif
             
@@ -33,12 +35,14 @@ namespace CodeBase.Logic.General.Services.Debug
 
         public void UnregisterOptionContainer(object container)
         {
+            
+#if !DISABLE_SRDEBUGGER
+
             if (container == null || SRDebug.Instance == null)
             {
                 return;
             }
             
-#if !DISABLE_SRDEBUGGER
             SRDebug.Instance.RemoveOptionContainer(container);
 #endif
             

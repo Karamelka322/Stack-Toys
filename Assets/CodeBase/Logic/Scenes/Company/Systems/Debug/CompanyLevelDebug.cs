@@ -26,6 +26,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Debug
             _sceneLoadService = sceneLoadService;
             _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
         }
+        
+#if !DISABLE_SRDEBUGGER
 
         [UsedImplicitly]
         [Category(CategoryName)]
@@ -49,5 +51,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Debug
             _companySceneUnload.Unload();
             _sceneLoadService.ReloadSceneAsync(1f).Forget();
         }
+
+#endif
+
     }
 }
