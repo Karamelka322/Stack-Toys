@@ -7,5 +7,11 @@ namespace CodeBase.Data.General.Saves
     {
         public float MusicVolume;
         public float SoundsVolume;
+
+        public AudioSaveData()
+        {
+            MusicVolume = 1f;
+            SoundsVolume = 1f;
+        }
     }
 }
