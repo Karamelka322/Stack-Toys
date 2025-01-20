@@ -1,4 +1,4 @@
-using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Infinity.Observers.Toys

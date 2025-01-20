@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
-using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using UniRx;
 using UnityEngine;

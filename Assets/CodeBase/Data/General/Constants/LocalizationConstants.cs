@@ -1,4 +1,4 @@
-namespace CodeBase.Logic.General.Services.Localizations
+namespace CodeBase.Data.General.Constants
 {
     public static class LocalizationConstants
     {

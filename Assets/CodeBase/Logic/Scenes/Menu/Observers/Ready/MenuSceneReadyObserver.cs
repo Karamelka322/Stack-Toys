@@ -1,11 +1,12 @@
 using System;
 using System.Threading;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
+using CodeBase.Logic.Scenes.Menu.Systems;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
 using Cysharp.Threading.Tasks;
 using UniRx;
 
-namespace CodeBase.Logic.Scenes.Menu.Systems.Ready
+namespace CodeBase.Logic.Scenes.Menu.Observers.Ready
 {
     public class MenuSceneReadyObserver : ISceneReadyObserver, IDisposable
     {

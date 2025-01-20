@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
-using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
+using CodeBase.Logic.General.StateMachines.Core;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using UniRx;

@@ -1,8 +1,8 @@
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
+using CodeBase.Logic.Scenes.Menu.Observers.Ready;
 using CodeBase.Logic.Scenes.Menu.Systems;
-using CodeBase.Logic.Scenes.Menu.Systems.Ready;
 using CodeBase.UI.Scenes.Menu.Factories.Levels;
 using CodeBase.UI.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Scenes.Menu.Presenters.Menu;

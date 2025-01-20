@@ -1,4 +1,4 @@
-namespace CodeBase.Logic.General.Providers.Data.Saves
+namespace CodeBase.Logic.Interfaces.General.Providers.Data.Saves
 {
     public interface IAudioSaveDataProvider
     {

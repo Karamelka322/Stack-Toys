@@ -1,4 +1,5 @@
 using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.General.StateMachines.Core;
 using CodeBase.Logic.Interfaces.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.Interfaces.General.Services.Input;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;

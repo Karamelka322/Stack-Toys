@@ -54,9 +54,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
             var randomToyAsset1 = toyAssets.Random();
             var randomToyAsset2 = toyAssets.Random();
             
-            var toyChoicer = await _toyChoicerFactory.SpawnAsync(randomToyAsset1, randomToyAsset2, position);
+            var toyChoicer = await _toyChoicerFactory.
+                SpawnAsync(randomToyAsset1, randomToyAsset2, position);
             
-            _toyChoicerProvider.Register(toyChoicer);
+            _toyChoicerProvider.Register(toyChoicer.Item1, toyChoicer.Item2);
         }
     }
 }

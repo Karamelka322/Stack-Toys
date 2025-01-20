@@ -1,12 +1,18 @@
-using CodeBase.Logic.General.Commands;
 using CodeBase.Logic.General.Factories.Babble;
+using CodeBase.Logic.General.Factories.Input;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Formulas;
+using CodeBase.Logic.General.Installers;
+using CodeBase.Logic.General.Observers.Toys;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
+using CodeBase.Logic.General.StateMachines.Toys;
+using CodeBase.Logic.General.StateMachines.Toys.States;
+using CodeBase.Logic.General.StateMachines.Toys.Transitions;
+using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
@@ -28,10 +34,9 @@ using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
+using CodeBase.Logic.Scenes.Company.Systems.Saver;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
-using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine;
-using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.States;
-using CodeBase.Logic.Scenes.Company.Systems.Toys.StateMachine.Transitions;
+using CodeBase.Logic.Scenes.Infinity.Installers;
 using CodeBase.UI.General.Factories.Windows.Pause;
 using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
@@ -141,24 +146,15 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<FinishObserver>().AsSingle();
             
             // Toy
-            Container.BindFactory<ToyMediator, ToyBabbleState, ToyBabbleState.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyRotateState, ToyRotateState.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyDragState, ToyDragState.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyTowerState, ToyTowerState.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyIdleState, ToyIdleState.Factory>().AsSingle();
-            
-            Container.BindFactory<ToyMediator, ToySelectTransition, ToySelectTransition.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyStartDragTransition, ToyStartDragTransition.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ClickUpTransition, ClickUpTransition.Factory>().AsSingle();
-            Container.BindFactory<ToyMediator, ToyRotationTransition, ToyRotationTransition.Factory>().AsSingle();
-            Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
-            
-            Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
-            Container.BindInterfacesTo<ToySpawner>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<ToyDestroyer>().AsSingle().NonLazy();
+            ToyStateMachineInstaller.Install(Container);
+
+            Container.BindInterfacesTo<CompanyToySpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyToyDestroyer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyShadowSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyOutlineSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyBuildEffectSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyBabbleSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyRotateAnimation>().AsSingle().NonLazy();
 
             // Camera
             Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();

@@ -1,6 +1,6 @@
 using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
-using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Toys;
 using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;

@@ -3,7 +3,7 @@ using CodeBase.Logic.Interfaces.General.Commands;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace CodeBase.Logic.General.Commands
+namespace CodeBase.Logic.General.Factories.Input
 {
     public class ClickFormulas : IClickCommand
     {

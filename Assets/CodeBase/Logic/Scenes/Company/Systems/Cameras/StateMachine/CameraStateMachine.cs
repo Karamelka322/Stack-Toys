@@ -1,5 +1,6 @@
 using System;
 using CodeBase.Logic.General.StateMachines;
+using CodeBase.Logic.General.StateMachines.Core;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;

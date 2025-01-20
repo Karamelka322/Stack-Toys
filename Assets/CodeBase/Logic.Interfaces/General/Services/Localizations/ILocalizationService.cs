@@ -1,7 +1,8 @@
 using System;
+using CodeBase.Data.General.Constants;
 using Cysharp.Threading.Tasks;
 
-namespace CodeBase.Logic.General.Services.Localizations
+namespace CodeBase.Logic.Interfaces.General.Services.Localizations
 {
     public interface ILocalizationService
     {
