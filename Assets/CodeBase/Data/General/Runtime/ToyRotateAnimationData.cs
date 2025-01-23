@@ -7,6 +7,7 @@ namespace CodeBase.Data.General.Runtime
     {
         public CompositeDisposable CompositeDisposable;
         public Vector3 StartScale;
+        public Vector3 StartRotation;
 
         public Vector3 Scale;
         public Vector3 RotationAxis;

@@ -25,6 +25,7 @@ namespace CodeBase.Logic.General.Installers
             Container.BindFactory<ToyTowerTransition, ToyTowerTransition.Factory>().AsSingle();
             
             Container.BindFactory<ToyMediator, ToyStateMachine, ToyStateMachine.Factory>().AsSingle();
+            Container.BindFactory<ToyMediator, ToyStateMachine2, ToyStateMachine2.Factory>().AsSingle();
         }
     }
 }

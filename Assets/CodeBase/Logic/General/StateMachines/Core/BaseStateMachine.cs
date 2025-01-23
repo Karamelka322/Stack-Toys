@@ -60,6 +60,11 @@ namespace CodeBase.Logic.General.StateMachines.Core
             var state = _stateTree.GetState(typeof(TState));
             _exitStateListeners.Add((state, callback));
         }
+
+        public bool HasCurrentState<TState>() where TState : BaseState
+        {
+            return _currentState.GetType() == typeof(TState);
+        }
         
         /// <summary>
         /// Войти в состояние

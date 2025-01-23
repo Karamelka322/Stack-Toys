@@ -9,7 +9,7 @@ namespace CodeBase.Logic.Interfaces.Scenes.Infinity.Factories.Toys
 {
     public interface IToyChoicerFactory
     {
-        UniTask<(ToyChoicerMediator, ToyChoicerStateMachine)> SpawnAsync(AssetReferenceGameObject toyAsset1, 
+        UniTask<ToyChoicer> SpawnAsync(AssetReferenceGameObject toyAsset1, 
             AssetReferenceGameObject toyAsset2, Vector3 position);
     }
 }

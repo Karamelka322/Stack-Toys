@@ -7,11 +7,6 @@ using UnityEngine;
 
 namespace CodeBase.Logic.General.Observers.Toys
 {
-    public interface IToyCollisionObserver
-    {
-        event Action<GameObject> OnCollision;
-    }
-
     public class ToyCollisionObserver : IToyCollisionObserver, IDisposable
     {
         private readonly CompositeDisposable _compositeDisposable;

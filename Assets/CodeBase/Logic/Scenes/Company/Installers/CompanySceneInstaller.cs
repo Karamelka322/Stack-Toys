@@ -142,9 +142,11 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCollisionObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyClickObserver>().AsSingle();
             Container.BindInterfacesTo<ToyMovementObserver>().AsSingle();
             Container.BindInterfacesTo<FinishObserver>().AsSingle();
-            
+
+
             // Toy
             ToyStateMachineInstaller.Install(Container);
 

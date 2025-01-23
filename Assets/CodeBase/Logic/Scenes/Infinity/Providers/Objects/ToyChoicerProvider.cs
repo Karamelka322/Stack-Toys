@@ -1,28 +1,26 @@
 using CodeBase.Logic.General.StateMachines.ToyChoicer;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Providers.Objects;
-using CodeBase.Logic.Scenes.Infinity.Systems.Toys;
-using CodeBase.Logic.Scenes.Infinity.Unity.Toys;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Infinity.Providers.Objects
 {
     public class ToyChoicerProvider : IToyChoicerProvider
     {
-        public ReactiveCollection<(ToyChoicerMediator, ToyChoicerStateMachine)> ToyChoicers { get; }
+        public ReactiveCollection<ToyChoicer> ToyChoicers { get; }
 
         public ToyChoicerProvider()
         {
-            ToyChoicers = new ReactiveCollection<(ToyChoicerMediator, ToyChoicerStateMachine)>();
+            ToyChoicers = new ReactiveCollection<ToyChoicer>();
         }
 
-        public void Register(ToyChoicerMediator mediator, ToyChoicerStateMachine stateMachine)
+        public void Register(ToyChoicer choicer)
         {
-            ToyChoicers.Add((mediator, stateMachine));
+            ToyChoicers.Add(choicer);
         }
-
-        public void Unregister(ToyChoicerMediator mediator, ToyChoicerStateMachine stateMachine)
+        
+        public void Unregister(ToyChoicer choicer)
         {
-            ToyChoicers.Remove((mediator, stateMachine));
+            ToyChoicers.Remove(choicer);
         }
     }
 }

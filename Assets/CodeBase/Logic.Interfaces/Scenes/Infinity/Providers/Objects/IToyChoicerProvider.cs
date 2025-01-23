@@ -7,9 +7,9 @@ namespace CodeBase.Logic.Interfaces.Scenes.Infinity.Providers.Objects
 {
     public interface IToyChoicerProvider
     {
-        ReactiveCollection<(ToyChoicerMediator, ToyChoicerStateMachine)> ToyChoicers { get; }
+        ReactiveCollection<ToyChoicer> ToyChoicers { get; }
         
-        void Register(ToyChoicerMediator mediator, ToyChoicerStateMachine stateMachine);
-        void Unregister(ToyChoicerMediator mediator, ToyChoicerStateMachine stateMachine);
+        void Register(ToyChoicer choicer);
+        void Unregister(ToyChoicer choicer);
     }
 }

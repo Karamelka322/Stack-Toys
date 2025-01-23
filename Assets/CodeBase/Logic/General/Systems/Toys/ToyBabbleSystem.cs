@@ -22,14 +22,22 @@ namespace CodeBase.Logic.General.Systems.Toys
 
         public async UniTask AddAsync(ToyMediator toyMediator)
         {
+            if (Babbles.ContainsKey(toyMediator))
+            {
+                return;
+            }
+            
             var babble = await _babbleFactory.SpawnAsync(toyMediator);
             Babbles.Add(toyMediator, babble);
         }
 
         public void Remove(ToyMediator toyMediator)
         {
-            Object.Destroy(Babbles[toyMediator]);
-            Babbles.Remove(toyMediator);
+            if (Babbles.TryGetValue(toyMediator, out var babble))
+            {
+                Object.Destroy(babble);
+                Babbles.Remove(toyMediator);
+            }
         }
     }
 }

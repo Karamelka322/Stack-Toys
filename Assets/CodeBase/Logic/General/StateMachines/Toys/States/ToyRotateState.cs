@@ -13,13 +13,11 @@ namespace CodeBase.Logic.General.StateMachines.Toys.States
         
         private readonly ToyMediator _toyMediator;
         private readonly IMainWindow _mainWindow;
-        // private readonly Vector3 _startScale;
 
         public ToyRotateState(ToyMediator toyMediator, IMainWindow mainWindow)
         {
             _mainWindow = mainWindow;
             _toyMediator = toyMediator;
-            // _startScale = toyMediator.transform.localScale;
         }
 
         public class Factory : PlaceholderFactory<ToyMediator, ToyRotateState> { }

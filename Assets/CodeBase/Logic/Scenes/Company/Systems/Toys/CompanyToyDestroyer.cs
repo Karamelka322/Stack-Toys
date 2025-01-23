@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
@@ -18,6 +19,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IFinishObserver _finishObserver;
         private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IToyCountObserver _toyCountObserver;
+        private readonly IToyShadowSystem _toyShadowSystem;
 
         public event Action OnDestroyAll;
 
@@ -25,8 +27,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             IToyTowerObserver toyTowerObserver,
             IToyCountObserver toyCountObserver,
             IFinishObserver finishObserver,
+            IToyShadowSystem toyShadowSystem,
             IToyProvider toyProvider)
         {
+            _toyShadowSystem = toyShadowSystem;
             _toyCountObserver = toyCountObserver;
             _toyTowerObserver = toyTowerObserver;
             _finishObserver = finishObserver;

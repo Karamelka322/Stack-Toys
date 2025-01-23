@@ -5,6 +5,7 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using UniRx;
+using UnityEngine;
 
 namespace CodeBase.Logic.General.Observers.Toys
 {
@@ -28,6 +29,11 @@ namespace CodeBase.Logic.General.Observers.Toys
             
             addEvent.Value.Item2.SubscribeToEnterState<ToyTowerState>(
                 () => OnToySet(addEvent.Value.Item1));
+
+            if (addEvent.Value.Item2.HasCurrentState<ToyIdleState>())
+            {
+                OnToySelect(addEvent.Value.Item1);
+            }
         }
         
         private void OnToySelect(ToyMediator toyMediator)

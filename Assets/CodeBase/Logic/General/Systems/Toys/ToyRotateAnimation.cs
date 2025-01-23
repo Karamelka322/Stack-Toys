@@ -37,6 +37,7 @@ namespace CodeBase.Logic.General.Systems.Toys
             {
                 CompositeDisposable = new CompositeDisposable(),
                 StartScale = toyMediator.transform.localScale,
+                StartRotation = toyMediator.transform.eulerAngles,
                 Scale = Vector3.zero,
                 RotationAxis = Vector3.zero,
             };
@@ -62,6 +63,7 @@ namespace CodeBase.Logic.General.Systems.Toys
             data.CompositeDisposable?.Dispose();
 
             toyMediator.transform.DOScale(data.StartScale, ResetScaleDuration);
+            toyMediator.transform.DORotate(data.StartRotation, ResetScaleDuration);
 
             _animations.Remove(toyMediator);
         }
