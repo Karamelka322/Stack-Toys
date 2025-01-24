@@ -93,9 +93,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
             Container.BindInterfacesTo<ToyClickObserver>().AsSingle();
             Container.BindInterfacesTo<InfinityToyCountObserver>().AsSingle();
-            Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyTowerBuildObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCollisionObserver>().AsSingle();
             Container.BindInterfacesTo<ToyMovementObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyTowerHeightObserver>().AsSingle();
         }
 
         private void BindSystems()

@@ -15,16 +15,16 @@ namespace CodeBase.Logic.General.Systems.Toys
     {
         private const float Duration = 0.4f;
         
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IDisposable _disposable;
         private readonly IAssetService _assetService;
         
-        public ToyBuildEffectSystem(IToyTowerObserver toyTowerObserver, IAssetService assetService)
+        public ToyBuildEffectSystem(IToyTowerBuildObserver toyTowerBuildObserver, IAssetService assetService)
         {
             _assetService = assetService;
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
 
-            _disposable = toyTowerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
+            _disposable = toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
         }
 
         public void Dispose()
@@ -41,7 +41,7 @@ namespace CodeBase.Logic.General.Systems.Toys
         {
             var highlightedMaterial = await _assetService.LoadAsync<Material>(AddressableConstants.HighlightedToyMaterial);
             
-            foreach (var toy in _toyTowerObserver.Tower)
+            foreach (var toy in _toyTowerBuildObserver.Tower)
             {
                 PlayToyAnimationAsync(toy, highlightedMaterial).Forget();
             }

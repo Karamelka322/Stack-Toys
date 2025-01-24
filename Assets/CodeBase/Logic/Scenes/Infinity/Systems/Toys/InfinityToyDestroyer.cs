@@ -16,7 +16,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
     {
         private readonly IToyChoiceObserver _toyChoiceObserver;
         private readonly IToyChoicerProvider _toyChoicerProvider;
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyProvider _toyProvider;
 
         public event Action OnDestroyAll;
@@ -25,20 +25,20 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
             IToyChoiceObserver toyChoiceObserver,
             IToyChoicerProvider toyChoicerProvider,
             IToyProvider toyProvider,
-            IToyTowerObserver toyTowerObserver)
+            IToyTowerBuildObserver toyTowerBuildObserver)
         {
             _toyProvider = toyProvider;
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
             _toyChoicerProvider = toyChoicerProvider;
             _toyChoiceObserver = toyChoiceObserver;
 
-            _toyTowerObserver.OnTowerFallen += OnTowerFallen;
+            _toyTowerBuildObserver.OnTowerFallen += OnTowerFallen;
             _toyChoiceObserver.OnChoice += OnChoice;
         }
 
         public void Dispose()
         {
-            _toyTowerObserver.OnTowerFallen -= OnTowerFallen;
+            _toyTowerBuildObserver.OnTowerFallen -= OnTowerFallen;
             _toyChoiceObserver.OnChoice -= OnChoice;
         }
 

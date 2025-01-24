@@ -4,7 +4,7 @@ using UniRx;
 
 namespace CodeBase.Logic.Interfaces.General.Observers.Toys
 {
-    public interface IToyTowerObserver
+    public interface IToyTowerBuildObserver
     {
         ReactiveCollection<ToyMediator> Tower { get; }
         event Action OnTowerFallen;

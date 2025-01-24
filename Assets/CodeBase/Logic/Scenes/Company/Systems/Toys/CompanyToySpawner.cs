@@ -25,7 +25,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private const float OffsetFromFinishLine = 1.1f;
         private const float OffsetFromTower = 2f;
         
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyFactory _toyFactory;
         private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IToyProvider _toyProvider;
@@ -41,7 +41,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         public event Action<ToyMediator, ToyStateMachine> OnSpawn;
         
         public CompanyToySpawner(
-            IToyTowerObserver toyTowerObserver,
+            IToyTowerBuildObserver toyTowerBuildObserver,
             IToyFactory toyFactory,
             IToyProvider toyProvider,
             IFinishObserver finishObserver,
@@ -60,12 +60,12 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             _toyProvider = toyProvider;
             _levelBorderSystem = levelBorderSystem;
             _toyFactory = toyFactory;
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
             
             _cancellationTokenSource = new CancellationTokenSource();
             _compositeDisposable = new CompositeDisposable();
             
-            toyTowerObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
+            toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
             companySceneLoad.IsLoaded.Subscribe(OnSceneLoad).AddTo(_compositeDisposable);
 
             _toyDestroyer.OnDestroyAll += OnTowerDestroy;
@@ -129,9 +129,9 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         {
             var maxHeight = _levelBorderSystem.UpLeftPoint.y;
             
-            var startPosition = _toyTowerObserver.Tower.Count == 0 ? 
+            var startPosition = _toyTowerBuildObserver.Tower.Count == 0 ? 
                 _levelBorderSystem.OriginPoint :
-                _toyTowerObserver.Tower.Last().transform.position;
+                _toyTowerBuildObserver.Tower.Last().transform.position;
 
             if (maxHeight > startPosition.y + DistanceToFinish)
             {

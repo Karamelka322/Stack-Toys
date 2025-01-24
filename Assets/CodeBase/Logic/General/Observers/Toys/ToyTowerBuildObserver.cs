@@ -11,7 +11,7 @@ using UniRx;
 
 namespace CodeBase.Logic.General.Observers.Toys
 {
-    public class ToyTowerObserver : IToyTowerObserver, IDisposable
+    public class ToyTowerBuildObserver : IToyTowerBuildObserver, IDisposable
     {
         private readonly IToySpawner _toySpawner;
         private readonly ILevelProvider _levelProvider;
@@ -23,7 +23,7 @@ namespace CodeBase.Logic.General.Observers.Toys
         public ReactiveCollection<ToyMediator> Tower { get; }
         public event Action OnTowerFallen;
 
-        public ToyTowerObserver(IToyProvider toyProvider, ILevelProvider levelProvider, IToyMovementObserver toyMovementObserver)
+        public ToyTowerBuildObserver(IToyProvider toyProvider, ILevelProvider levelProvider, IToyMovementObserver toyMovementObserver)
         {
             _levelProvider = levelProvider;
             

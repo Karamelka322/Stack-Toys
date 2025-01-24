@@ -17,5 +17,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Levels
         {
             return 5f;
         }
+
+        public override async UniTask<float> GetWidthAsync()
+        {
+            return 5.5f;
+        }
     }
 }

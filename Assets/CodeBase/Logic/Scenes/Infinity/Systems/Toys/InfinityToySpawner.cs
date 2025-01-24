@@ -21,16 +21,16 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
         private readonly IToyChoicerFactory _toyChoicerFactory;
         private readonly IInfinitySceneToySettingsProvider _toySettingsProvider;
         private readonly IToyChoicerProvider _toyChoicerProvider;
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyDestroyer _toyDestroyer;
 
         private readonly CompositeDisposable _compositeDisposable;
 
         public InfinityToySpawner(IToyChoicerFactory toyChoicerFactory, ILevelBorderSystem levelBorderSystem,
             IInfinitySceneToySettingsProvider toySettingsProvider, IToyChoicerProvider toyChoicerProvider,
-            IInfinityLevelSpawner levelSpawner, IToyTowerObserver toyTowerObserver, IToyDestroyer toyDestroyer)
+            IInfinityLevelSpawner levelSpawner, IToyTowerBuildObserver toyTowerBuildObserver, IToyDestroyer toyDestroyer)
         {
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
             _toyDestroyer = toyDestroyer;
             _toyChoicerProvider = toyChoicerProvider;
             _toySettingsProvider = toySettingsProvider;
@@ -41,7 +41,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
 
             _toyDestroyer.OnDestroyAll += OnDestroyAll;
             
-            toyTowerObserver.Tower.ObserveAdd().Subscribe(OnIncreasedTower).AddTo(_compositeDisposable);
+            toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnIncreasedTower).AddTo(_compositeDisposable);
             levelSpawner.IsSpawned.Subscribe(OnLevelSpawn).AddTo(_compositeDisposable);
         }
 
@@ -89,10 +89,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
         {
             Vector3 offset = Vector3.zero;
             
-            if (_toyTowerObserver.Tower.Count > 0)
+            if (_toyTowerBuildObserver.Tower.Count > 0)
             {
                 
-                offset += Vector3.up * _toyTowerObserver.Tower.Last().transform.position.y + Vector3.up;
+                offset += Vector3.up * _toyTowerBuildObserver.Tower.Last().transform.position.y + Vector3.up;
             }
             else
             {

@@ -37,6 +37,14 @@ namespace CodeBase.Logic.General.Systems.Levels
             
             _disposable = levelProvider.Level.Subscribe(OnLevelLoaded);
         }
+        
+        public void Dispose()
+        {
+            _disposable?.Dispose();
+        }
+        
+        public abstract UniTask<float> GetHeightAsync();
+        public abstract UniTask<float> GetWidthAsync();
 
         private async void OnLevelLoaded(LevelMediator levelMediator)
         {
@@ -54,8 +62,6 @@ namespace CodeBase.Logic.General.Systems.Levels
             (UpLeftPoint, UpRightPoint, DownRightPoint, DownLeftPoint) = 
                 GetBorders(_level.OriginPoint, height, _level.Width, 0f);
         }
-
-        public abstract UniTask<float> GetHeightAsync();
 
         public async UniTask<Vector3> ClampAsync(ToyMediator toyMediator, Vector3 position)
         {
@@ -90,11 +96,6 @@ namespace CodeBase.Logic.General.Systems.Levels
             }
             
             return GetClosestPointByBorder(position, upLeftPoint, upRightPoint, downRightPoint, downLeftPoint);;
-        }
-
-        public void Dispose()
-        {
-            _disposable?.Dispose();
         }
 
         private (Vector3, Vector3, Vector3, Vector3) GetBorders(Transform origin, float height, float width, float offset)

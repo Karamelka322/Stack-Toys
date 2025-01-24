@@ -140,7 +140,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
             Container.BindInterfacesTo<CompanyToyCountObserver>().AsSingle();
             Container.BindInterfacesTo<ToySelectObserver>().AsSingle();
-            Container.BindInterfacesTo<ToyTowerObserver>().AsSingle();
+            Container.BindInterfacesTo<ToyTowerBuildObserver>().AsSingle();
             Container.BindInterfacesTo<ToyCollisionObserver>().AsSingle();
             Container.BindInterfacesTo<ToyClickObserver>().AsSingle();
             Container.BindInterfacesTo<ToyMovementObserver>().AsSingle();

@@ -17,14 +17,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IToyProvider _toyProvider;
         private readonly CompositeDisposable _compositeDisposable;
         private readonly IFinishObserver _finishObserver;
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyCountObserver _toyCountObserver;
         private readonly IToyShadowSystem _toyShadowSystem;
 
         public event Action OnDestroyAll;
 
         public CompanyToyDestroyer(
-            IToyTowerObserver toyTowerObserver,
+            IToyTowerBuildObserver toyTowerBuildObserver,
             IToyCountObserver toyCountObserver,
             IFinishObserver finishObserver,
             IToyShadowSystem toyShadowSystem,
@@ -32,14 +32,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         {
             _toyShadowSystem = toyShadowSystem;
             _toyCountObserver = toyCountObserver;
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
             _finishObserver = finishObserver;
             _toyProvider = toyProvider;
             
             _compositeDisposable = new CompositeDisposable();
 
-            toyTowerObserver.Tower.ObserveAdd().Subscribe(OnAddTowerToy).AddTo(_compositeDisposable);
-            _toyTowerObserver.OnTowerFallen += OnTowerFallen;
+            toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnAddTowerToy).AddTo(_compositeDisposable);
+            _toyTowerBuildObserver.OnTowerFallen += OnTowerFallen;
         }
 
         public void Dispose()

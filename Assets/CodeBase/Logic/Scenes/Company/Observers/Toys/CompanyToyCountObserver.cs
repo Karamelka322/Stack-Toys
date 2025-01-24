@@ -12,7 +12,7 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Toys
     {
         private readonly ICompanyLevelsSettingProvider _levelsConfigProvider;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
-        private readonly IToyTowerObserver _toyTowerObserver;
+        private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyProvider _toyProvider;
 
         private readonly CompositeDisposable _compositeDisposable;
@@ -26,7 +26,7 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Toys
         public CompanyToyCountObserver(
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
             ICompanyLevelsSettingProvider levelsConfigProvider,
-            IToyTowerObserver toyTowerObserver,
+            IToyTowerBuildObserver toyTowerBuildObserver,
             IToyProvider toyProvider)
         {
             _compositeDisposable = new CompositeDisposable();
@@ -37,13 +37,13 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Toys
             NumberOfOpenToys = new IntReactiveProperty();
             MaxNumberOfToys = new IntReactiveProperty();
          
-            _toyTowerObserver = toyTowerObserver;
+            _toyTowerBuildObserver = toyTowerBuildObserver;
             _toyProvider = toyProvider;
             _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
             _levelsConfigProvider = levelsConfigProvider;
 
-            _toyTowerObserver.Tower.ObserveAdd().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
-            _toyTowerObserver.Tower.ObserveReset().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
+            _toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
+            _toyTowerBuildObserver.Tower.ObserveReset().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
             
             _toyProvider.Toys.ObserveAdd().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
             _toyProvider.Toys.ObserveRemove().Subscribe(_ => UpdateCounters()).AddTo(_compositeDisposable);
@@ -75,7 +75,7 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Toys
             NumberOfOpenToys.Value = _toyProvider.Toys.Count;
             LeftAvailableNumberOfToys.Value = MaxNumberOfToys.Value - NumberOfOpenToys.Value;
             
-            TowerNumberOfToys.Value = _toyTowerObserver.Tower.Count;
+            TowerNumberOfToys.Value = _toyTowerBuildObserver.Tower.Count;
             NumberOfTowerBuildToys.Value = MaxNumberOfToys.Value - TowerNumberOfToys.Value;
         }
     }

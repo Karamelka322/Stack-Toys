@@ -15,13 +15,13 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Finish
 
         public BoolReactiveProperty IsFinished { get; }
 
-        public FinishObserver(IToyTowerObserver towerObserver, ILevelBorderSystem levelBorderSystem)
+        public FinishObserver(IToyTowerBuildObserver towerBuildObserver, ILevelBorderSystem levelBorderSystem)
         {
             _levelBorderSystem = levelBorderSystem;
             
             IsFinished = new BoolReactiveProperty();
 
-            _disposable = towerObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
+            _disposable = towerBuildObserver.Tower.ObserveAdd().Subscribe(OnAddToy);
         }
 
         public void Dispose()

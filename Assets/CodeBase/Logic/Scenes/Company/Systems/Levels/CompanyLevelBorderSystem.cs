@@ -25,5 +25,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Levels
             var currentLevel = _companyLevelsSaveDataProvider.GetCurrentLevel();
             return await _companyLevelsSettingProvider.GetLevelHeightAsync(currentLevel);
         }
+
+        public override async UniTask<float> GetWidthAsync()
+        {
+            return 5.5f;
+        }
     }
 }
