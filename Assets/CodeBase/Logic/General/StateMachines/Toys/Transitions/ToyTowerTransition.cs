@@ -8,12 +8,12 @@ namespace CodeBase.Logic.General.StateMachines.Toys.Transitions
 {
     public class ToyTowerTransition : BaseTransition
     {
-        private readonly IClickCommand _raycastCommand;
+        private readonly IClickFormulas _raycastCommand;
         private readonly IInputService _inputService;
         
         private bool _isBlock;
         
-        public ToyTowerTransition(IInputService inputService, IClickCommand raycastCommand)
+        public ToyTowerTransition(IInputService inputService, IClickFormulas raycastCommand)
         {
             _raycastCommand = raycastCommand;
             _inputService = inputService;

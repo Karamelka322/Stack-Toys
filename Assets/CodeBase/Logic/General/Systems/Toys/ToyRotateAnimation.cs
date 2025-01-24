@@ -53,7 +53,7 @@ namespace CodeBase.Logic.General.Systems.Toys
                 _ => OnInterval(toyMediator, data)).AddTo(data.CompositeDisposable);
         }
     
-        public void Stop(ToyMediator toyMediator)
+        public void Stop(ToyMediator toyMediator, bool resetScale = true, bool resetRotation = true)
         {
             if (_animations.TryGetValue(toyMediator, out var data) == false)
             {
@@ -62,9 +62,16 @@ namespace CodeBase.Logic.General.Systems.Toys
 
             data.CompositeDisposable?.Dispose();
 
-            toyMediator.transform.DOScale(data.StartScale, ResetScaleDuration);
-            toyMediator.transform.DORotate(data.StartRotation, ResetScaleDuration);
-
+            if (resetScale)
+            {
+                toyMediator.transform.DOScale(data.StartScale, ResetScaleDuration);
+            }
+            
+            if (resetRotation)
+            {
+                toyMediator.transform.DORotate(data.StartRotation, ResetScaleDuration);
+            }
+            
             _animations.Remove(toyMediator);
         }
         

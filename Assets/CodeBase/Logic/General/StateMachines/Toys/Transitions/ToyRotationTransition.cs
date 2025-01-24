@@ -11,7 +11,7 @@ namespace CodeBase.Logic.General.StateMachines.Toys.Transitions
     {
         private readonly ToyMediator _toyMediator;
         private readonly IInputService _inputService;
-        private readonly IClickCommand _raycastCommand;
+        private readonly IClickFormulas _raycastCommand;
         private readonly IMainWindow _mainWindow;
 
         public ToyRotationTransition(ToyMediator toyMediator, IMainWindow mainWindow)

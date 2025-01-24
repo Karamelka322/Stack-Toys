@@ -5,6 +5,8 @@ using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Interfaces.General.Systems.Toys;
 using CodeBase.Logic.Scenes.Infinity.Unity.Toys;
+using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
+using DG.Tweening;
 using Zenject;
 
 namespace CodeBase.Logic.General.StateMachines.ToyChoicer
@@ -21,6 +23,7 @@ namespace CodeBase.Logic.General.StateMachines.ToyChoicer
         private readonly ToyStateMachine2.Factory _toyStateMachineFactory;
         private readonly IToyProvider _toyProvider;
         private readonly IToyBabbleSystem _toyBabbleSystem;
+        private readonly IMainWindow _mainWindow;
 
         public ToyChoicerMediator Mediator => _choicerMediator;
         
@@ -33,10 +36,12 @@ namespace CodeBase.Logic.General.StateMachines.ToyChoicer
             ToyStateMachine2.Factory toyStateMachineFactory,
             IToyProvider toyProvider,
             IToyBabbleSystem toyBabbleSystem,
+            IMainWindow mainWindow,
             IToyChoicerRotateAnimation toyChoicerRotateAnimation,
             IToyRotateAnimation toyRotateAnimation,
             IToyClickObserver toyClickObserver)
         {
+            _mainWindow = mainWindow;
             _toyBabbleSystem = toyBabbleSystem;
             _toyStateMachineFactory = toyStateMachineFactory;
             _toyProvider = toyProvider;
@@ -60,8 +65,8 @@ namespace CodeBase.Logic.General.StateMachines.ToyChoicer
         public void Dispose()
         {
             _toyChoicerRotateAnimation.Stop(_choicerMediator);
-            _toyRotateAnimation.Stop(_toy1);
-            _toyRotateAnimation.Stop(_toy2);
+            _toyRotateAnimation.Stop(_toy1, true, false);
+            _toyRotateAnimation.Stop(_toy2, true, false);
             
             _toyClickObserver.OnClickDownAsObservableRemove(_toy1);
             _toyClickObserver.OnClickDownAsObservableRemove(_toy2);
@@ -71,12 +76,14 @@ namespace CodeBase.Logic.General.StateMachines.ToyChoicer
         {
             Dispose();
             Choice(_toy1);
+            SetRandomRotation(_toy1);
         }
 
         private void OnChoiceToy2()
         {
             Dispose();
             Choice(_toy2);
+            SetRandomRotation(_toy2);
         }
 
         private void Choice(ToyMediator toyMediator)
@@ -90,6 +97,14 @@ namespace CodeBase.Logic.General.StateMachines.ToyChoicer
             _toyProvider.Register(toyMediator, stateMachine);
 
             OnChoice?.Invoke(this, toyMediator);
+        }
+
+        private void SetRandomRotation(ToyMediator toyMediator)
+        {
+            var sliderValue = _mainWindow.ToyRotatorElement.GetSliderValue();
+            var sliderValueToRotation = _mainWindow.ToyRotatorElement.SliderValueToRotation(sliderValue);
+            
+            toyMediator.transform.DORotate(sliderValueToRotation.eulerAngles, 0.2f);
         }
     }
 }

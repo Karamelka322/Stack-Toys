@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using CodeBase.Logic.General.Extensions;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
@@ -20,6 +21,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
         private readonly IToyChoicerFactory _toyChoicerFactory;
         private readonly IInfinitySceneToySettingsProvider _toySettingsProvider;
         private readonly IToyChoicerProvider _toyChoicerProvider;
+        private readonly IToyTowerObserver _toyTowerObserver;
         private readonly IToyDestroyer _toyDestroyer;
 
         private readonly CompositeDisposable _compositeDisposable;
@@ -28,6 +30,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
             IInfinitySceneToySettingsProvider toySettingsProvider, IToyChoicerProvider toyChoicerProvider,
             IInfinityLevelSpawner levelSpawner, IToyTowerObserver toyTowerObserver, IToyDestroyer toyDestroyer)
         {
+            _toyTowerObserver = toyTowerObserver;
             _toyDestroyer = toyDestroyer;
             _toyChoicerProvider = toyChoicerProvider;
             _toySettingsProvider = toySettingsProvider;
@@ -84,7 +87,19 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
 
         private Vector3 GetSpawnPoint()
         {
-            return _levelBorderSystem.OriginPoint + Vector3.up * 2f;
+            Vector3 offset = Vector3.zero;
+            
+            if (_toyTowerObserver.Tower.Count > 0)
+            {
+                
+                offset += Vector3.up * _toyTowerObserver.Tower.Last().transform.position.y + Vector3.up;
+            }
+            else
+            {
+                offset += Vector3.up * 2f;
+            }
+            
+            return _levelBorderSystem.OriginPoint + offset;
         }
     }
 }

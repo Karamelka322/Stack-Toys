@@ -11,11 +11,11 @@ namespace CodeBase.Logic.General.StateMachines.Toys.Transitions
     {
         private readonly ToyMediator _toyMediator;
         private readonly IInputService _inputService;
-        private readonly IClickCommand _raycastCommand;
+        private readonly IClickFormulas _raycastCommand;
 
         private bool _isFirstClickOnUi;
 
-        public ToyStartDragTransition(ToyMediator toyMediator, IInputService inputService, IClickCommand raycastCommand)
+        public ToyStartDragTransition(ToyMediator toyMediator, IInputService inputService, IClickFormulas raycastCommand)
         {
             _raycastCommand = raycastCommand;
             _inputService = inputService;
