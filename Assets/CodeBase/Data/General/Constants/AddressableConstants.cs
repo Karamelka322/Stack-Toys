@@ -12,6 +12,8 @@ namespace CodeBase.Data.General.Constants
         public const string ToyShadow = "Toy_Shadow";
         public const string PauseWindow = "Pause_Window";
 
+        public const string ConfettiEffect = "Finish_effect";
+
         // ScriptableObjects
         public const string LevelsConfig = "LevelsConfig";
         public const string CameraSettings = "Camera_Settings";
@@ -46,7 +48,6 @@ namespace CodeBase.Data.General.Constants
 
             // Effects
             public const string ToySelectEffect = "ToySelectEffect";
-            public const string FinishEffect = "Finish_effect";
         }
         
         public static class InfinityScene
@@ -54,6 +55,7 @@ namespace CodeBase.Data.General.Constants
             // Prefabs
             public const string Level =  "InfinityLevel";
             public const string ToyChoicer = "ToyChoicer";
+            public const string RecordLine = "RecordLine";
             
             // ScriptableObjects
             public const string ToysSettings = "InfinitySceneToysSettings";

@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines.Toys;
-using CodeBase.Logic.General.StateMachines.Toys.Transitions;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Interfaces.General.Systems.Toys;
 using CodeBase.Logic.Scenes.Infinity.Unity.Toys;
@@ -9,7 +9,7 @@ using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using DG.Tweening;
 using Zenject;
 
-namespace CodeBase.Logic.General.StateMachines.ToyChoicer
+namespace CodeBase.Logic.General.Systems.ToyChoicer
 {
     public class ToyChoicer : IDisposable
     {

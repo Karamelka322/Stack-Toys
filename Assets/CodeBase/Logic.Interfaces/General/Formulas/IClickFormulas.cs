@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Logic.Interfaces.General.Commands
+namespace CodeBase.Logic.Interfaces.General.Formulas
 {
     public interface IClickFormulas
     {

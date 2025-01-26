@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.General.Unity.Toys;
 
-namespace CodeBase.Logic.General.StateMachines.Toys.Transitions
+namespace CodeBase.Logic.Interfaces.General.Observers.Toys
 {
     public interface IToyClickObserver
     {

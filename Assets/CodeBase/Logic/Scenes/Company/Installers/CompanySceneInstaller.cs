@@ -1,5 +1,5 @@
 using CodeBase.Logic.General.Factories.Babble;
-using CodeBase.Logic.General.Factories.Input;
+using CodeBase.Logic.General.Factories.Confetti;
 using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Formulas;
 using CodeBase.Logic.General.Installers;
@@ -9,23 +9,20 @@ using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
-using CodeBase.Logic.General.StateMachines.Toys;
-using CodeBase.Logic.General.StateMachines.Toys.States;
 using CodeBase.Logic.General.StateMachines.Toys.Transitions;
 using CodeBase.Logic.General.Systems.Toys;
-using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Scenes.Company.Observers.Ready;
 using CodeBase.Logic.Scenes.Company.Observers.Toys;
+using CodeBase.Logic.Scenes.Company.Presenters.Confetti;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
 using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
-using CodeBase.Logic.Scenes.Company.Systems;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
@@ -36,7 +33,7 @@ using CodeBase.Logic.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Saver;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
-using CodeBase.Logic.Scenes.Infinity.Installers;
+using CodeBase.Logic.Scenes.Infinity.Systems.Records;
 using CodeBase.UI.General.Factories.Windows.Pause;
 using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
@@ -80,6 +77,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // Game - Effects
             Container.BindInterfacesTo<ToySelectEffectFactory>().AsSingle();
+            Container.BindInterfacesTo<ConfettiEffectFactory>().AsSingle();
             
             // UI - Elements
             Container.BindFactory<Slider, CanvasGroup, ToyRotatorElement, ToyRotatorElement.Factory>().AsSingle();
@@ -110,7 +108,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
         private void BindPresenters()
         {
             // Game - Effects
-            Container.BindInterfacesTo<FinishEffectPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanySceneConfettiEffectPresenter>().AsSingle().NonLazy();
             
             // Sounds
             Container.BindInterfacesTo<CompanySceneMusicPresenter>().AsSingle().NonLazy();

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using CodeBase.Logic.General.StateMachines.ToyChoicer;
 using CodeBase.Logic.General.StateMachines.Toys;
+using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;

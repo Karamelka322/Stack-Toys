@@ -1,4 +1,5 @@
 using System;
+using CodeBase.Logic.Interfaces.General.Services.Leaderboards;
 using Cysharp.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;

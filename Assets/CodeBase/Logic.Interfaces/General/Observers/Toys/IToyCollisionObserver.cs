@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Observers.Toys
+namespace CodeBase.Logic.Interfaces.General.Observers.Toys
 {
     public interface IToyCollisionObserver
     {

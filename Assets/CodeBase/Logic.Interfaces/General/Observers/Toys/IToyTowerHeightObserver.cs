@@ -1,6 +1,6 @@
 using UniRx;
 
-namespace CodeBase.Logic.General.Observers.Toys
+namespace CodeBase.Logic.Interfaces.General.Observers.Toys
 {
     public interface IToyTowerHeightObserver
     {

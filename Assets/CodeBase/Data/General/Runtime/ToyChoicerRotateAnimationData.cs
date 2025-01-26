@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.StateMachines.ToyChoicer
+namespace CodeBase.Data.General.Runtime
 {
     public class ToyChoicerRotateAnimationData
     {

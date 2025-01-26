@@ -1,5 +1,5 @@
 using CodeBase.Data.General.Constants;
-using CodeBase.Logic.General.StateMachines.ToyChoicer;
+using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Assets;

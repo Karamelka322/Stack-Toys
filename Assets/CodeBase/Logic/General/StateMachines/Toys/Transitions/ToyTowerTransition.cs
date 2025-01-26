@@ -1,5 +1,5 @@
 using CodeBase.Logic.General.StateMachines.Core;
-using CodeBase.Logic.Interfaces.General.Commands;
+using CodeBase.Logic.Interfaces.General.Formulas;
 using CodeBase.Logic.Interfaces.General.Services.Input;
 using UnityEngine;
 using Zenject;

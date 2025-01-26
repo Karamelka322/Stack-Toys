@@ -1,5 +1,6 @@
 using CodeBase.Logic.General.StateMachines.Core;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using Zenject;
 
 namespace CodeBase.Logic.General.StateMachines.Toys.Transitions

@@ -3,7 +3,7 @@ using CodeBase.Logic.General.Unity.Toys;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.Factories.Toys
+namespace CodeBase.Logic.Interfaces.General.Factories.Toys
 {
     public interface IToyFactory
     {

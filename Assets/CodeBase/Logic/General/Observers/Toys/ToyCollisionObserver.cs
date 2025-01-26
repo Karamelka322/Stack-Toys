@@ -1,6 +1,7 @@
 using System;
 using CodeBase.Logic.General.StateMachines.Toys;
 using CodeBase.Logic.General.Unity.Toys;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using UniRx;
 using UnityEngine;

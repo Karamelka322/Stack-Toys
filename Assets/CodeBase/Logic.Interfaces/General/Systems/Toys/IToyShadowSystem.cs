@@ -1,7 +1,7 @@
 using CodeBase.Logic.General.Unity.Toys;
 using Cysharp.Threading.Tasks;
 
-namespace CodeBase.Logic.General.Systems.Toys
+namespace CodeBase.Logic.Interfaces.General.Systems.Toys
 {
     public interface IToyShadowSystem
     {

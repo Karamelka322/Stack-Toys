@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using CodeBase.Data.General.Runtime;
+using CodeBase.Logic.Interfaces.General.Systems.Toys;
 using CodeBase.Logic.Scenes.Infinity.Unity.Toys;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.StateMachines.ToyChoicer
+namespace CodeBase.Logic.General.Systems.ToyChoicer
 {
     public class ToyChoicerRotateAnimation : IToyChoicerRotateAnimation
     {

@@ -1,5 +1,5 @@
 using System;
-using CodeBase.Logic.General.StateMachines.ToyChoicer;
+using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Observers.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Providers.Objects;

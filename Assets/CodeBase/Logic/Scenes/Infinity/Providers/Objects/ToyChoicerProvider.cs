@@ -1,4 +1,4 @@
-using CodeBase.Logic.General.StateMachines.ToyChoicer;
+using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Providers.Objects;
 using UniRx;
 

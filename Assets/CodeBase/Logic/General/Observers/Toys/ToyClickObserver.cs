@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CodeBase.Logic.General.Unity.Toys;
-using CodeBase.Logic.Interfaces.General.Commands;
+using CodeBase.Logic.Interfaces.General.Formulas;
+using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Input;
 using UnityEngine;
 
-namespace CodeBase.Logic.General.StateMachines.Toys.Transitions
+namespace CodeBase.Logic.General.Observers.Toys
 {
     public class ToyClickObserver : IToyClickObserver, IDisposable
     {

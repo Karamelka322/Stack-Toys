@@ -13,5 +13,11 @@ namespace CodeBase.Data.General.Constants
         public const string MusicKey = "music";
         public const string SoundsKey = "sounds";
         public const string LanguageKey = "language";
+        
+        public const string Meters = "meters";
+        
+        public const string PlayerRecordLineTitle = "player_record_line_title";
+        public const string WorldRecordLineTitle = "world_record_line_title";
+        public const string PlayerWorldChampionRecordLineTitle = "player_world_champion_line_title";
     }
 }

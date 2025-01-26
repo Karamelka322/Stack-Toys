@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using CodeBase.Logic.Interfaces.General.Commands;
+using CodeBase.Logic.Interfaces.General.Formulas;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace CodeBase.Logic.General.Factories.Input
+namespace CodeBase.Logic.General.Formulas
 {
     public class ClickFormulas : IClickFormulas
     {

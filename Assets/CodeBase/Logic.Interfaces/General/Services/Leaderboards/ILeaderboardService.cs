@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards.Models;
 
-namespace CodeBase.Logic.General.Services.Leaderboards
+namespace CodeBase.Logic.Interfaces.General.Services.Leaderboards
 {
     public interface ILeaderboardService
     {
