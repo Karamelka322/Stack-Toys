@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using CodeBase.Logic.General.Extensions;
 using CodeBase.Logic.General.Unity.Toys;
@@ -12,6 +13,7 @@ using CodeBase.Logic.Interfaces.Scenes.Infinity.Systems.Levels;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
 {
@@ -25,10 +27,12 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
         private readonly IToyDestroyer _toyDestroyer;
 
         private readonly CompositeDisposable _compositeDisposable;
+        private readonly List<AssetReferenceGameObject> _cache;
 
         public InfinityToySpawner(IToyChoicerFactory toyChoicerFactory, ILevelBorderSystem levelBorderSystem,
             IInfinitySceneToySettingsProvider toySettingsProvider, IToyChoicerProvider toyChoicerProvider,
-            IInfinityLevelSpawner levelSpawner, IToyTowerBuildObserver toyTowerBuildObserver, IToyDestroyer toyDestroyer)
+            IInfinityLevelSpawner levelSpawner, IToyTowerBuildObserver toyTowerBuildObserver,
+            IToyDestroyer toyDestroyer)
         {
             _toyTowerBuildObserver = toyTowerBuildObserver;
             _toyDestroyer = toyDestroyer;
@@ -38,9 +42,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
             _levelBorderSystem = levelBorderSystem;
 
             _compositeDisposable = new CompositeDisposable();
+            _cache = new List<AssetReferenceGameObject>();
 
             _toyDestroyer.OnDestroyAll += OnDestroyAll;
-            
+
             toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnIncreasedTower).AddTo(_compositeDisposable);
             levelSpawner.IsSpawned.Subscribe(OnLevelSpawn).AddTo(_compositeDisposable);
         }
@@ -76,13 +81,21 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
         {
             var toyAssets = await _toySettingsProvider.GetToysAsync();
             
-            var randomToyAsset1 = toyAssets.Random();
-            var randomToyAsset2 = toyAssets.Random();
+            var randomToyAsset1 = toyAssets.Random(_cache);
+            _cache.Add(randomToyAsset1);
+
+            var randomToyAsset2 = toyAssets.Random(_cache);
+            _cache.Add(randomToyAsset2);
             
             var toyChoicer = await _toyChoicerFactory.
                 SpawnAsync(randomToyAsset1, randomToyAsset2, GetSpawnPoint());
             
             _toyChoicerProvider.Register(toyChoicer);
+
+            if (_cache.Count >= toyAssets.Length)
+            {
+                _cache.Clear();
+            }
         }
 
         private Vector3 GetSpawnPoint()

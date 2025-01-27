@@ -78,15 +78,14 @@ namespace CodeBase.Logic.General.Systems.Levels
 
 #if UNITY_EDITOR
             
-            UnityEngine.Debug.DrawLine(UpLeftPoint, UpRightPoint, Color.red);
-            UnityEngine.Debug.DrawLine(UpRightPoint, DownRightPoint, Color.red);
-            UnityEngine.Debug.DrawLine(DownRightPoint, DownLeftPoint, Color.red);
-            UnityEngine.Debug.DrawLine(DownLeftPoint, UpLeftPoint, Color.red);
-
-            UnityEngine.Debug.DrawLine(upLeftPoint, upRightPoint, Color.yellow);
-            UnityEngine.Debug.DrawLine(upRightPoint, downRightPoint, Color.yellow);
-            UnityEngine.Debug.DrawLine(downRightPoint, downLeftPoint, Color.yellow);
-            UnityEngine.Debug.DrawLine(downLeftPoint, upLeftPoint, Color.yellow);
+            Debug.DrawLine(UpLeftPoint, UpRightPoint, Color.red);
+            Debug.DrawLine(UpRightPoint, DownRightPoint, Color.red);
+            Debug.DrawLine(DownRightPoint, DownLeftPoint, Color.red);
+            Debug.DrawLine(DownLeftPoint, UpLeftPoint, Color.red);
+            Debug.DrawLine(upLeftPoint, upRightPoint, Color.yellow);
+            Debug.DrawLine(upRightPoint, downRightPoint, Color.yellow);
+            Debug.DrawLine(downRightPoint, downLeftPoint, Color.yellow);
+            Debug.DrawLine(downLeftPoint, upLeftPoint, Color.yellow);
 
 #endif
             

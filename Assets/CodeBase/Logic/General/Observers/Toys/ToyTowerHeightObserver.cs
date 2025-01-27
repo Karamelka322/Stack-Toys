@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -11,16 +12,19 @@ namespace CodeBase.Logic.General.Observers.Toys
 {
     public class ToyTowerHeightObserver : IToyTowerHeightObserver, IDisposable
     {
+        private const float RayDistance = 5f;
+        
         private readonly IDisposable _disposable;
         private readonly IToyTowerBuildObserver _towerBuildObserver;
-        private readonly ILevelBorderSystem _levelBorderSystem;
+        private readonly ILevelProvider _levelProvider;
 
         public ReactiveProperty<float> TowerHeight { get; } 
         
-        public ToyTowerHeightObserver(IToyTowerBuildObserver towerBuildObserver, ILevelBorderSystem levelBorderSystem)
+        public ToyTowerHeightObserver(IToyTowerBuildObserver towerBuildObserver, ILevelProvider levelProvider)
         {
-            _levelBorderSystem = levelBorderSystem;
+            _levelProvider = levelProvider;
             _towerBuildObserver = towerBuildObserver;
+            
             TowerHeight = new ReactiveProperty<float>();
 
             towerBuildObserver.OnTowerFallen += OnTowerFallen;
@@ -59,16 +63,14 @@ namespace CodeBase.Logic.General.Observers.Toys
 
             var rayOrigin = new Vector3()
             {
-                x = _levelBorderSystem.UpLeftPoint.x,
+                x = (_levelProvider.Level.Value.OriginPoint.position - Vector3.left * RayDistance).x,
                 y = toy.transform.position.y,
                 z = toy.transform.position.z
             };
 
-            var levelWidth = await _levelBorderSystem.GetWidthAsync();
-
             for (int i = 0; i < counter; i++)
             {
-                var direction = Vector3.right * levelWidth;
+                var direction = Vector3.right * RayDistance;
                 var origin = rayOrigin + offset;
                 
                 // Debug.DrawRay(origin, direction, Color.cyan);
@@ -79,7 +81,7 @@ namespace CodeBase.Logic.General.Observers.Toys
                 }
                 else
                 {
-                    return origin.y - _levelBorderSystem.OriginPoint.y;
+                    return origin.y - _levelProvider.Level.Value.OriginPoint.position.y;
                 }
             }
             

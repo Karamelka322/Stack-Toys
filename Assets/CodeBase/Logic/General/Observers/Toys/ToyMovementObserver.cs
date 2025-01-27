@@ -14,11 +14,13 @@ namespace CodeBase.Logic.General.Observers.Toys
         private readonly CompositeDisposable _compositeDisposable;
         private readonly ReactiveCollection<ToyMediator> _toysOutsideCameraFieldOfView;
         private readonly Camera _camera;
+        private readonly IToySelectObserver _toySelectObserver;
 
         public IReadOnlyReactiveCollection<ToyMediator> ToysOutsideCameraFieldOfView => _toysOutsideCameraFieldOfView;
         
-        public ToyMovementObserver(IToyProvider toyProvider)
+        public ToyMovementObserver(IToyProvider toyProvider, IToySelectObserver toySelectObserver)
         {
+            _toySelectObserver = toySelectObserver;
             _toyProvider = toyProvider;
             
             _camera = Camera.main;
@@ -38,6 +40,11 @@ namespace CodeBase.Logic.General.Observers.Toys
         {
             foreach (var toy in _toyProvider.Toys)
             {
+                if (_toySelectObserver.Toy.Value == toy.Item1)
+                {
+                    continue;
+                }
+                
                 var hasLocatedWithinCameraFieldOfView = HasLocatedWithinCameraFieldOfView(toy.Item1.transform.position);
 
                 if (hasLocatedWithinCameraFieldOfView == false &&

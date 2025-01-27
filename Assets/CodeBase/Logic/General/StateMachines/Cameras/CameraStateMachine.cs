@@ -2,6 +2,7 @@ using System;
 using CodeBase.Logic.General.StateMachines;
 using CodeBase.Logic.General.StateMachines.Core;
 using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
@@ -23,7 +24,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
         private readonly CameraToyUnselectTransition.Factory _toyUnselectTransitionFactory;
 
         public CameraStateMachine(
-            ICompanyLevelSpawner sceneLoad, 
+            ISceneReadyObserver sceneReadyObserver, 
             CameraScrollState.Factory scrollStateFactory,
             CameraToyFollowState.Factory toyFollowStateFactory,
             CameraToySelectTransition.Factory toySelectTransitionFactory,
@@ -35,7 +36,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine
             _camera = Camera.main;
             _scrollStateFactory = scrollStateFactory;
             
-            _disposable = sceneLoad.IsLoaded.Subscribe(OnSceneLoaded);
+            _disposable = sceneReadyObserver.IsReady.Subscribe(OnSceneLoaded);
         }
 
         public void Dispose()

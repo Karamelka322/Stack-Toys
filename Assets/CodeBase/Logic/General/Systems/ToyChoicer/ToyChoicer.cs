@@ -26,6 +26,8 @@ namespace CodeBase.Logic.General.Systems.ToyChoicer
         private readonly IMainWindow _mainWindow;
 
         public ToyChoicerMediator Mediator => _choicerMediator;
+        public ToyMediator ToyMediator1 => _toy1;
+        public ToyMediator ToyMediator2 => _toy2;
         
         public event Action<ToyChoicer, ToyMediator> OnChoice;
 

@@ -23,7 +23,10 @@ namespace CodeBase.Logic.General.Observers.Toys
         public ReactiveCollection<ToyMediator> Tower { get; }
         public event Action OnTowerFallen;
 
-        public ToyTowerBuildObserver(IToyProvider toyProvider, ILevelProvider levelProvider, IToyMovementObserver toyMovementObserver)
+        public ToyTowerBuildObserver(
+            IToyProvider toyProvider,
+            ILevelProvider levelProvider,
+            IToyMovementObserver toyMovementObserver)
         {
             _levelProvider = levelProvider;
             

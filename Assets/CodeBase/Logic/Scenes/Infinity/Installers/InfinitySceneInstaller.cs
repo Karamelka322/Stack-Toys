@@ -4,6 +4,7 @@ using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.Formulas;
 using CodeBase.Logic.General.Installers;
 using CodeBase.Logic.General.Observers.Toys;
+using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.StateMachines.Toys;
@@ -14,6 +15,7 @@ using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Infinity.Factories.Levels;
 using CodeBase.Logic.Scenes.Infinity.Factories.Lines;
 using CodeBase.Logic.Scenes.Infinity.Factories.Toys;
@@ -69,6 +71,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             
             // Data - ScriptableObjects
             Container.BindInterfacesTo<InfinitySceneToySettingsProvider>().AsSingle();
+            Container.BindInterfacesTo<CameraSettingsProvider>().AsSingle();
         }
 
         private void BindFactories()
@@ -122,6 +125,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<InfinityToyDestroyer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinityRecordSystem>().AsSingle().NonLazy();
             
+            Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
+            
             Container.BindInterfacesTo<ToyShadowSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyOutlineSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyBabbleSystem>().AsSingle().NonLazy();
@@ -129,6 +134,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<ToyChoicerRotateAnimation>().AsSingle().NonLazy();
 
             ToyStateMachineInstaller.Install(Container);
+            CameraStateMachineInstaller.Install(Container);
             
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
         }

@@ -155,13 +155,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToyBuildEffectSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyBabbleSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyRotateAnimation>().AsSingle().NonLazy();
-
-            // Camera
-            Container.BindFactory<Camera, CameraScrollState, CameraScrollState.Factory>().AsSingle();
-            Container.BindFactory<Camera, CameraToyFollowState, CameraToyFollowState.Factory>().AsSingle();
-            Container.BindFactory<CameraToySelectTransition, CameraToySelectTransition.Factory>().AsSingle();
-            Container.BindFactory<CameraToyUnselectTransition, CameraToyUnselectTransition.Factory>().AsSingle();
-            Container.BindInterfacesTo<CameraStateMachine>().AsSingle().NonLazy();
+            
+            CameraStateMachineInstaller.Install(Container);
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
