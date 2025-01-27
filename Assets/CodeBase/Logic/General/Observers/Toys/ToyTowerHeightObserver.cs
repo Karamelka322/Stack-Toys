@@ -63,7 +63,7 @@ namespace CodeBase.Logic.General.Observers.Toys
 
             var rayOrigin = new Vector3()
             {
-                x = (_levelProvider.Level.Value.OriginPoint.position - Vector3.left * RayDistance).x,
+                x = (_levelProvider.Level.Value.OriginPoint.position + Vector3.left * RayDistance).x,
                 y = toy.transform.position.y,
                 z = toy.transform.position.z
             };

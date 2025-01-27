@@ -35,17 +35,23 @@ namespace CodeBase.Logic.Scenes.Infinity.Factories.Toys
             AssetReferenceGameObject toyAsset2, Vector3 position)
         {
             var choicerKey = AddressableConstants.InfinityScene.ToyChoicer;
-            var mediator = await SpawnAsync<ToyChoicerMediator>(choicerKey, null, position);
+            var choicerPrefab = await _assetService.LoadAsync<GameObject>(choicerKey);
             
-            var toy1 = await SpawnToyAsync(toyAsset1.AssetGUID, mediator.ToySlot1, mediator.ToySlot1.position);
-            var toy2 = await SpawnToyAsync(toyAsset2.AssetGUID, mediator.ToySlot2, mediator.ToySlot2.position);
+            var toyPrefab1 = await _assetService.LoadAsync<GameObject>(toyAsset1.AssetGUID);
+            var toyPrefab2 = await _assetService.LoadAsync<GameObject>(toyAsset2.AssetGUID);
             
-            return _toyChoicerFactory.Create(mediator, toy1, toy2);
+            var choicerMediator = Object.Instantiate(choicerPrefab, position,
+                Quaternion.identity).GetComponent<ToyChoicerMediator>();
+            
+            var toy1 = await SpawnToyAsync(toyPrefab1, choicerMediator.ToySlot1);
+            var toy2 = await SpawnToyAsync(toyPrefab2, choicerMediator.ToySlot2);
+            
+            return _toyChoicerFactory.Create(choicerMediator, toy1, toy2);
         }
 
-        private async UniTask<ToyMediator> SpawnToyAsync(string addressable, Transform parent, Vector3 position)
+        private async UniTask<ToyMediator> SpawnToyAsync(GameObject prefab, Transform parent)
         {
-            var toy = await SpawnAsync<ToyMediator>(addressable, parent, position);
+            var toy = Object.Instantiate(prefab, parent).GetComponent<ToyMediator>();
 
             await _toyShadowSystem.AddAsync(toy);
             toy.Rigidbody.isKinematic = true;
@@ -57,15 +63,6 @@ namespace CodeBase.Logic.Scenes.Infinity.Factories.Toys
             }
 
             return toy;
-        }
-        
-        private async UniTask<TComponent> SpawnAsync<TComponent>(string addressable,
-            Transform parent, Vector3 position) where TComponent : MonoBehaviour
-        {
-            var prefab = await _assetService.LoadAsync<GameObject>(addressable);
-            var component = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<TComponent>();
-            
-            return component;
         }
     }
 }
