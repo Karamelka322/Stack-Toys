@@ -10,6 +10,8 @@ namespace CodeBase.Logic.General.StateMachines.Toys.States
 {
     public class ToyDragState : BaseState
     {
+        private const float Smooth = 15f;
+        
         private readonly ILevelBorderSystem _levelBorderSystem;
         private readonly IInputService _inputService;
         private readonly ToyMediator _toyMediator;
@@ -53,7 +55,8 @@ namespace CodeBase.Logic.General.StateMachines.Toys.States
             var worldPosition = clickToWorldPosition - _offset;
             var clampPosition = await _levelBorderSystem.ClampAsync(_toyMediator, worldPosition);
             
-            _toyMediator.transform.position = clampPosition;
+            _toyMediator.transform.position = Vector3.Lerp(
+                _toyMediator.transform.position, clampPosition, Time.deltaTime * Smooth);
         }
     }
 }
