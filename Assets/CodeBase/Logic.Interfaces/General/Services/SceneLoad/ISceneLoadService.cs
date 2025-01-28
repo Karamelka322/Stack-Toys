@@ -7,6 +7,7 @@ namespace CodeBase.Logic.Interfaces.General.Services.SceneLoad
     public interface ISceneLoadService
     {
         event Action<Scene> OnSceneReload;
+        event Action<Scene> OnSceneLoading;
     
         void LoadScene(string sceneName);
         
@@ -16,6 +17,5 @@ namespace CodeBase.Logic.Interfaces.General.Services.SceneLoad
         UniTask ReloadSceneAsync(float delay);
 
         UniTask LoadSceneAsync(string sceneName, float delay);
-        event Action<Scene> OnSceneLoading;
     }
 }

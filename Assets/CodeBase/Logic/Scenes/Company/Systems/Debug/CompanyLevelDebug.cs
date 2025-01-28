@@ -17,12 +17,10 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Debug
         
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
         private readonly ISceneLoadService _sceneLoadService;
-        private readonly ICompanySceneUnload _companySceneUnload;
 
         public CompanyLevelDebug(IDebugService debugService, ISceneReadyObserver sceneReady, ISceneLoadService sceneLoadService,
-            ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider, ICompanySceneUnload companySceneUnload) : base(debugService, sceneReady)
+            ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider) : base(debugService, sceneReady)
         {
-            _companySceneUnload = companySceneUnload;
             _sceneLoadService = sceneLoadService;
             _companyLevelsSaveDataProvider = companyLevelsSaveDataProvider;
         }
@@ -48,7 +46,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Debug
         [Category(CategoryName)]
         public void Reload()
         {
-            _companySceneUnload.Unload();
             _sceneLoadService.ReloadSceneAsync(1f).Forget();
         }
 

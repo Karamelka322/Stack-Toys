@@ -9,7 +9,6 @@ using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
-using CodeBase.Logic.General.StateMachines.Toys.Transitions;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
@@ -24,22 +23,15 @@ using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.States;
-using CodeBase.Logic.Scenes.Company.Systems.Cameras.StateMachine.Transitions;
 using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Systems.Levels;
-using CodeBase.Logic.Scenes.Company.Systems.Load;
 using CodeBase.Logic.Scenes.Company.Systems.Saver;
 using CodeBase.Logic.Scenes.Company.Systems.Toys;
-using CodeBase.Logic.Scenes.Infinity.Systems.Records;
 using CodeBase.UI.General.Factories.Windows.Pause;
 using CodeBase.UI.General.Windows.Pause;
-using CodeBase.UI.Scenes.Company.Factories.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Scenes.Company.Presenters.Windows;
-using CodeBase.UI.Scenes.Company.Windows.Finish;
 using CodeBase.UI.Scenes.Company.Windows.Main;
 using UnityEngine;
 using UnityEngine.UI;
@@ -84,7 +76,6 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindowFactory>().AsSingle();
-            Container.BindInterfacesTo<CompanyFinishWindowFactory>().AsSingle();
             Container.BindInterfacesTo<PauseWindowFactory>().AsSingle();
         }
 
@@ -118,21 +109,22 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<CompanyFinishWindowPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanyLoadingWindowPresenter>().AsSingle().NonLazy();
         }
 
         private void BindSystems()
-        {
-            Container.BindInterfacesTo<CompanySceneUnload>().AsSingle();
+        {            
             Container.BindInterfacesTo<CompanyLevelBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
-            
+
             Container.BindInterfacesTo<CompanyLevelSpawner>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<FinishSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyFinishSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<FinishLineSpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyFinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanySceneSaver>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesTo<CameraDisposer>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyDisposer>().AsSingle().NonLazy();
             
             // Observers
             Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();
@@ -160,7 +152,6 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             // UI - Windows
             Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<CompanyFinishWindow>().AsSingle().NonLazy();
             Container.Bind<PauseWindow>().AsSingle().NonLazy();
         }
         

@@ -19,7 +19,6 @@ namespace CodeBase.UI.General.Windows.Pause
     public class PauseWindow : BaseWindow
     {
         private readonly IPauseWindowFactory _pauseWindowFactory;
-        private readonly ICompanySceneUnload _companySceneUnload;
         private readonly ISceneLoadService _sceneLoadService;
         private readonly IAudioSaveDataProvider _settingsSaveDataProvider;
         private readonly ILocalizationService _localizationService;
@@ -36,7 +35,6 @@ namespace CodeBase.UI.General.Windows.Pause
             IAudioSaveDataProvider settingsSaveDataProvider,
             IAssetService assetService,
             IAudioService audioService,
-            ICompanySceneUnload companySceneUnload,
             ISceneLoadService sceneLoadService) : base(windowService)
         {
             _assetService = assetService;
@@ -45,7 +43,6 @@ namespace CodeBase.UI.General.Windows.Pause
             _audioService = audioService;
             _windowService = windowService;
             _sceneLoadService = sceneLoadService;
-            _companySceneUnload = companySceneUnload;
             _pauseWindowFactory = pauseWindowFactory;
         }
 
@@ -92,7 +89,6 @@ namespace CodeBase.UI.General.Windows.Pause
         {
             _localizationService.OnLocaleChanged -= OnLocaleChanged;
             
-            _companySceneUnload.Unload();
             _sceneLoadService.LoadSceneAsync(SceneNames.Menu, 1f).Forget();
         }
 

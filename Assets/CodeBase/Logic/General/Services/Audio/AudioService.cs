@@ -112,6 +112,8 @@ namespace CodeBase.Logic.General.Services.Audio
 
         public async UniTask PlaySequenceAsync(string sequenceid, string[] eventNames, AudioOutputType audioOutputType, bool isLoop)
         {
+            await _prepareTask;
+            
             var cancellationTokenSource = new CancellationTokenSource();
             
             if (isLoop)
@@ -120,7 +122,8 @@ namespace CodeBase.Logic.General.Services.Audio
                 {
                     foreach (var eventName in eventNames)
                     {
-                        await PlayAsync(eventName, audioOutputType, false, cancellationTokenSource);
+                        var data = await _audioSettingsProvider.GetEventDataAsync(eventName);
+                        await PlayAsync(sequenceid, data.Settings, audioOutputType, false, cancellationTokenSource);
 
                         if (cancellationTokenSource.IsCancellationRequested)
                         {
@@ -133,7 +136,8 @@ namespace CodeBase.Logic.General.Services.Audio
             {
                 foreach (var eventName in eventNames)
                 {
-                    await PlayAsync(eventName, audioOutputType, false, cancellationTokenSource);
+                    var data = await _audioSettingsProvider.GetEventDataAsync(eventName);
+                    await PlayAsync(sequenceid, data.Settings, audioOutputType, false, cancellationTokenSource);
                 }
             }
         }

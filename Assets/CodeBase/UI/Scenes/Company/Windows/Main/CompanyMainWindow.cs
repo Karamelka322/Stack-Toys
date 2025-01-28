@@ -1,6 +1,7 @@
 using CodeBase.Logic.General.Services.Windows;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
+using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Interfaces.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
@@ -16,6 +17,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         private readonly ICompanyMainWindowFactory _companyMainWindowFactory;
         private readonly IWindowService _windowService;
         private readonly IToyCountObserver _toyCountObserver;
+        private readonly IFinishObserver _finishObserver;
 
         private CompositeDisposable _compositeDisposable;
         private CompanyMainWindowReferences _references;
@@ -26,8 +28,10 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         public CompanyMainWindow(
             ICompanyMainWindowFactory companyMainWindowFactory,
             IToyCountObserver toyCountObserver,
+            IFinishObserver finishObserver,
             IWindowService windowService) : base(windowService)
         {
+            _finishObserver = finishObserver;
             _toyCountObserver = toyCountObserver;
             _windowService = windowService;
             _companyMainWindowFactory = companyMainWindowFactory;
@@ -62,6 +66,11 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
 
         private void OnPauseButtonClicked()
         {
+            if (_finishObserver.IsFinished.Value)
+            {
+                return;
+            }
+            
             _windowService.OpenAsync<PauseWindow>().Forget();
         }
 

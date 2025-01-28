@@ -7,9 +7,6 @@ using CodeBase.Logic.General.Observers.Toys;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
-using CodeBase.Logic.General.StateMachines.Toys;
-using CodeBase.Logic.General.StateMachines.Toys.States;
-using CodeBase.Logic.General.StateMachines.Toys.Transitions;
 using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
@@ -24,6 +21,7 @@ using CodeBase.Logic.Scenes.Infinity.Observers.Ready;
 using CodeBase.Logic.Scenes.Infinity.Observers.Toys;
 using CodeBase.Logic.Scenes.Infinity.Presenters.Confetti;
 using CodeBase.Logic.Scenes.Infinity.Presenters.Lines;
+using CodeBase.Logic.Scenes.Infinity.Presenters.UI;
 using CodeBase.Logic.Scenes.Infinity.Providers.Data;
 using CodeBase.Logic.Scenes.Infinity.Providers.Lines;
 using CodeBase.Logic.Scenes.Infinity.Providers.Objects;
@@ -32,9 +30,12 @@ using CodeBase.Logic.Scenes.Infinity.Systems.Records;
 using CodeBase.Logic.Scenes.Infinity.Systems.Toys;
 using CodeBase.Logic.Scenes.Infinity.Unity.Lines;
 using CodeBase.Logic.Scenes.Infinity.Unity.Toys;
+using CodeBase.UI.General.Factories.Windows.Pause;
+using CodeBase.UI.General.Windows.Pause;
 using CodeBase.UI.Scenes.Company.Factories.Windows.Main;
 using CodeBase.UI.Scenes.Company.Presenters.Windows;
 using CodeBase.UI.Scenes.Company.Windows.Main;
+using CodeBase.UI.Scenes.Infinity.Windows.Main;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -90,7 +91,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             
             // UI
             Container.BindFactory<Slider, CanvasGroup, ToyRotatorElement, ToyRotatorElement.Factory>().AsSingle();
-            Container.BindInterfacesTo<CompanyMainWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<InfinityMainWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<PauseWindowFactory>().AsSingle();
             Container.BindInterfacesTo<ToyShadowFactory>().AsSingle();
             Container.BindInterfacesTo<ToySelectEffectFactory>().AsSingle();
         }
@@ -101,7 +103,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<InfinitySceneConfettiEffectPresenter>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<CompanyLoadingWindowPresenter>().AsSingle().NonLazy();
-            Container.Bind<CompanyMainWindowPresenter>().AsSingle().NonLazy();
+            Container.Bind<InfinityMainWindowPresenter>().AsSingle().NonLazy();
         }
 
         private void BindObservers()
@@ -126,6 +128,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<InfinityRecordSystem>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<ToyShadowSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyOutlineSystem>().AsSingle().NonLazy();
@@ -137,7 +140,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             ToyStateMachineInstaller.Install(Container);
             CameraStateMachineInstaller.Install(Container);
             
-            Container.BindInterfacesTo<CompanyMainWindow>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<InfinityMainWindow>().AsSingle().NonLazy();
+            Container.Bind<PauseWindow>().AsSingle().NonLazy();
         }
     }
 }
