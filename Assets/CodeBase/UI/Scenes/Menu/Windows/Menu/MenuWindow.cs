@@ -1,4 +1,5 @@
 using CodeBase.Logic.General.Services.Windows;
+using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.UI.Interfaces.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
@@ -13,13 +14,16 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
     public class MenuWindow : BaseWindow, IMenuWindow
     {
         private readonly IMenuWindowFactory _menuWindowFactory;
+        private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
         private readonly IWindowService _windowService;
-        
+
         private MenuWindowMediator _mediator;
-        
+
         public BoolReactiveProperty IsShowing { get; }
 
-        public MenuWindow(IMenuWindowFactory menuWindowFactory, IWindowService windowService) : base(windowService)
+        public MenuWindow(
+            IMenuWindowFactory menuWindowFactory,
+            IWindowService windowService) : base(windowService)
         {
             _windowService = windowService;
             _menuWindowFactory = menuWindowFactory;

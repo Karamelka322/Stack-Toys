@@ -44,7 +44,14 @@ namespace CodeBase.UI.Scenes.Menu.Factories.Levels
                 }
                 else if (_companyLevelsSaveDataProvider.HasClosedLevel(i))
                 {
-                    await _menuLevelElementFactory.SpawnClosedVariantAsync(i, mediator.LevelsParent);
+                    if (i + 1 == InfinitySceneConstants.CompanyLevelForOpenInfinityMode)
+                    {
+                        await _menuLevelElementFactory.SpawnClosedInfinityVariantAsync(i, mediator.LevelsParent);
+                    }
+                    else
+                    {
+                        await _menuLevelElementFactory.SpawnClosedVariantAsync(i, mediator.LevelsParent);
+                    }
                 }
                 else if(_companyLevelsSaveDataProvider.HasOpenedLevel(i))
                 {

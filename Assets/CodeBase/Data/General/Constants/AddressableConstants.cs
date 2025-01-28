@@ -38,6 +38,7 @@ namespace CodeBase.Data.General.Constants
             // UI - Elements
             public const string CompletedLevelElement = "CompletedLevelElement";
             public const string ClosedLevelElement = "ClosedLevelElement";
+            public const string ClosedInfinityLevelElement = "ClosedInfinityLevelElement";
             public const string OpenedLevelElement = "OpenedLevelElement";
         }
         

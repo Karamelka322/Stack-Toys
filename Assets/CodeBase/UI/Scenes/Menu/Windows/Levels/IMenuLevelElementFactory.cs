@@ -8,5 +8,6 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
         UniTask<CompletedMenuLevelElement> SpawnCompletedVariantAsync(int levelIndex, Transform parent);
         UniTask<OpenedMenuLevelElement> SpawnOpenedVariantAsync(int levelIndex, Transform parent);
         UniTask<ClosedMenuLevelElement> SpawnClosedVariantAsync(int levelIndex, Transform parent);
+        UniTask<ClosedMenuLevelElement> SpawnClosedInfinityVariantAsync(int levelIndex, Transform parent);
     }
 }

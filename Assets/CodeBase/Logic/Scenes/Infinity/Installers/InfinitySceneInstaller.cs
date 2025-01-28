@@ -11,6 +11,8 @@ using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
+using CodeBase.Logic.Scenes.Company.Presenters.Music;
+using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Infinity.Factories.Levels;
@@ -99,6 +101,11 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
 
         private void BindPresenters()
         {
+            Container.BindInterfacesTo<CompanySceneMusicPresenter>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesTo<ToySelectSoundPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyCollisionSoundPresenter>().AsSingle().NonLazy();
+            
             Container.BindInterfacesTo<RecordLinePresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinitySceneConfettiEffectPresenter>().AsSingle().NonLazy();
             

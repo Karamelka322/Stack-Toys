@@ -53,5 +53,15 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Levels
             
             return _closedMenuLevelElementFactory.Create(mediator, levelIndex);
         }
+        
+        public async UniTask<ClosedMenuLevelElement> SpawnClosedInfinityVariantAsync(int levelIndex, Transform parent)
+        {
+            var prefab = await _assetService.LoadAsync<GameObject>(
+                AddressableConstants.MenuScene.ClosedInfinityLevelElement);
+            
+            var mediator = Object.Instantiate(prefab, parent).GetComponent<MenuLevelElementMediator>();
+            
+            return _closedMenuLevelElementFactory.Create(mediator, levelIndex);
+        }
     }
 }

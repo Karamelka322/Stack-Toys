@@ -1,4 +1,3 @@
-using CodeBase.UI.Scenes.Menu.Mediators;
 using CodeBase.UI.Scenes.Menu.Mediators.Windows.Menu;
 using Cysharp.Threading.Tasks;
 
