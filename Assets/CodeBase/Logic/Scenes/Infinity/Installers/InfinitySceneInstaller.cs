@@ -132,6 +132,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<ToyBabbleSystem>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyRotateAnimation>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyChoicerRotateAnimation>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ToyBuildEffectSystem>().AsSingle().NonLazy();
 
             ToyStateMachineInstaller.Install(Container);
             CameraStateMachineInstaller.Install(Container);
