@@ -508,14 +508,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -539,6 +535,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1355,14 +1354,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -1386,6 +1381,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1962,14 +1960,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -1993,6 +1987,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2569,14 +2566,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -2600,6 +2593,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3296,14 +3292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -3327,6 +3319,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3942,14 +3937,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -3973,6 +3964,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4669,14 +4663,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -4700,6 +4690,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5276,14 +5269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106868
-  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2276
-  m_ShapeBox:
-    m_Center: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
-    m_Extent: {x: 0.5366478, y: 0.32832095, z: 0.82206845}
+  m_Size: {x: 1.0732956, y: 0.6566419, z: 1.6441369}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -5307,6 +5296,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5385,6 +5377,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
+      propertyPath: _babbleSize
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 5201695637094277793}
@@ -5395,42 +5392,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[0]
+      propertyPath: '_colliders.Array.data[0]'
       value: 
       objectReference: {fileID: 2683682059270066046}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[1]
+      propertyPath: '_colliders.Array.data[1]'
       value: 
       objectReference: {fileID: 180253491807762083}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[2]
+      propertyPath: '_colliders.Array.data[2]'
       value: 
       objectReference: {fileID: 5585935705702816130}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[3]
+      propertyPath: '_colliders.Array.data[3]'
       value: 
       objectReference: {fileID: 3552483097311439061}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[4]
+      propertyPath: '_colliders.Array.data[4]'
       value: 
       objectReference: {fileID: 3306872501593981671}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[5]
+      propertyPath: '_colliders.Array.data[5]'
       value: 
       objectReference: {fileID: 7672479442185458536}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[6]
+      propertyPath: '_colliders.Array.data[6]'
       value: 
       objectReference: {fileID: 3488382630987076261}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[7]
+      propertyPath: '_colliders.Array.data[7]'
       value: 
       objectReference: {fileID: 8906262964774584187}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,

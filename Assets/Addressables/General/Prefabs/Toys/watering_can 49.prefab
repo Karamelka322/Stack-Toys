@@ -628,14 +628,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106733
-  m_Size: {x: -0.23443684, y: 0.5456408, z: 0.365228}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 1663
-  m_ShapeBox:
-    m_Center: {x: -0.117218435, y: 0.2728204, z: 0.182614}
-    m_Extent: {x: 0.11721842, y: 0.2728204, z: 0.182614}
+  m_Size: {x: -0.23443684, y: 0.5456408, z: 0.365228}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -659,6 +655,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1028,14 +1027,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 223324510990106734
-  m_Size: {x: -0.5301949, y: 0.26845694, z: 0.81059504}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 2252
-  m_ShapeBox:
-    m_Center: {x: -0.26509744, y: 0.13422847, z: 0.40529752}
-    m_Extent: {x: 0.26509744, y: 0.13422847, z: 0.40529752}
+  m_Size: {x: -0.5301949, y: 0.26845694, z: 0.81059504}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -1059,6 +1054,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1233,6 +1231,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
+      propertyPath: _babbleSize
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 2407782315003609802}
@@ -1243,12 +1246,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[0]
+      propertyPath: '_colliders.Array.data[0]'
       value: 
       objectReference: {fileID: 7943120975864920692}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[1]
+      propertyPath: '_colliders.Array.data[1]'
       value: 
       objectReference: {fileID: 8074010665035872502}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,

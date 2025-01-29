@@ -7,6 +7,9 @@ namespace CodeBase.Logic.General.Unity.Toys
     public class ToyMediator : MonoBehaviour
     {
         [SerializeField, Required] 
+        private float _babbleSize;
+        
+        [Space, SerializeField, Required] 
         private Rigidbody _rigidbody;
         
         [SerializeField, Required]
@@ -22,5 +25,6 @@ namespace CodeBase.Logic.General.Unity.Toys
         public RigidbodyObserver RigidbodyObserver => _rigidbodyObserver;
         public Collider[] Colliders => _colliders;
         public MeshRenderer MeshRenderer => _meshRenderer;
+        public float BabbleSize => _babbleSize;
     }
 }

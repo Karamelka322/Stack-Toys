@@ -15,6 +15,11 @@ PrefabInstance:
       objectReference: {fileID: 1372544421336447442}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
+      propertyPath: _babbleSize
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
+        type: 3}
       propertyPath: _meshRenderer
       value: 
       objectReference: {fileID: 3110018733311808350}
@@ -25,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969285767750869619, guid: a08fb8b0218ab12449b4a3fe2c78d666,
         type: 3}
-      propertyPath: _colliders.Array.data[0]
+      propertyPath: '_colliders.Array.data[0]'
       value: 
       objectReference: {fileID: 1372544421336447442}
     - target: {fileID: 8573035904137657774, guid: a08fb8b0218ab12449b4a3fe2c78d666,
@@ -188,12 +193,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8630e8fbf02f08a43924f0d24bd0a35b,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7002b5121a625e240a8000b310215650, type: 2}
     - target: {fileID: -7511558181221131132, guid: 8630e8fbf02f08a43924f0d24bd0a35b,
         type: 3}
-      propertyPath: m_Materials.Array.data[5]
+      propertyPath: 'm_Materials.Array.data[5]'
       value: 
       objectReference: {fileID: 2100000, guid: 7002b5121a625e240a8000b310215650, type: 2}
     - target: {fileID: 919132149155446097, guid: 8630e8fbf02f08a43924f0d24bd0a35b,

@@ -13,7 +13,6 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
     {
         private const float _sliderDuration = 0.5f;
         
-        private readonly IToyCountObserver _toyCountObserver;
         private readonly Slider _slider;
         private readonly CanvasGroup _canvasGroup;
         private readonly IToySelectObserver _toySelectObserver;
@@ -21,12 +20,10 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
 
         public event Action<float> OnSliderChanged;
 
-        public ToyRotatorElement(Slider slider, CanvasGroup canvasGroup, 
-            IToyCountObserver toyCountObserver, IToySelectObserver toySelectObserver)
+        public ToyRotatorElement(Slider slider, CanvasGroup canvasGroup, IToySelectObserver toySelectObserver)
         {
             _canvasGroup = canvasGroup;
             _slider = slider;
-            _toyCountObserver = toyCountObserver;
             
             _slider.onValueChanged.AddListener(OnSliderChangedInvoke);
             _disposable = toySelectObserver.Toy.Subscribe(OnSelectableToyChanged);
@@ -55,15 +52,7 @@ namespace CodeBase.UI.Scenes.Company.Windows.Main
         {
             if (toyMediator == null)
             {
-                if (_toyCountObserver.NumberOfTowerBuildToys.Value == 0)
-                {
-                    HideSlider(0);
-                    SetRandomValueToSlider();
-                }
-                else
-                {
-                    HideSlider(_sliderDuration, SetRandomValueToSlider);
-                }
+                HideSlider(_sliderDuration, SetRandomValueToSlider);
             }
             else
             {
