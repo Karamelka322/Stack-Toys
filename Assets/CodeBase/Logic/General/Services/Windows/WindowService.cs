@@ -93,6 +93,7 @@ namespace CodeBase.Logic.General.Services.Windows
         private void OnSceneUnloaded(Scene scene)
         {
             _windows.Clear();
+            _stack.Clear();
         }
     }
 }

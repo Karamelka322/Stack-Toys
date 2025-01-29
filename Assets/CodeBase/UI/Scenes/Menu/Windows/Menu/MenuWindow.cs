@@ -1,5 +1,7 @@
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.General.Services.Windows;
 using CodeBase.Logic.Interfaces.General.Providers.Data.Saves;
+using CodeBase.Logic.Interfaces.General.Services.SceneLoad;
 using CodeBase.Logic.Interfaces.General.Services.Windows;
 using CodeBase.UI.Interfaces.Scenes.Menu.Factories.Menu;
 using CodeBase.UI.Interfaces.Scenes.Menu.Windows.Menu;
@@ -15,6 +17,7 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
     {
         private readonly IMenuWindowFactory _menuWindowFactory;
         private readonly ICompanyLevelsSaveDataProvider _companyLevelsSaveDataProvider;
+        private readonly ISceneLoadService _sceneLoadService;
         private readonly IWindowService _windowService;
 
         private MenuWindowMediator _mediator;
@@ -23,8 +26,10 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
 
         public MenuWindow(
             IMenuWindowFactory menuWindowFactory,
+            ISceneLoadService sceneLoadService,
             IWindowService windowService) : base(windowService)
         {
+            _sceneLoadService = sceneLoadService;
             _windowService = windowService;
             _menuWindowFactory = menuWindowFactory;
 
@@ -34,7 +39,9 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
         public override async UniTask OpenAsync()
         {
             _mediator = await _menuWindowFactory.SpawnAsync();
-            _mediator.CompanyButton.onClick.AddListener(OnCompanyButtonClicked);
+            
+            _mediator.CompanyButton.onClick.AddListener(OnCompanyButtonClick);
+            _mediator.InfinityModeButton.onClick.AddListener(OnInfinityButtonClick);
             
             IsShowing.Value = true;
         }
@@ -52,12 +59,22 @@ namespace CodeBase.UI.Scenes.Menu.Windows.Menu
         public override void Close()
         {
             _mediator.CompanyButton.onClick.RemoveAllListeners();
+            _mediator.InfinityModeButton.onClick.RemoveAllListeners();
+            
             Object.Destroy(_mediator.gameObject);
         }
 
-        private async void OnCompanyButtonClicked()
+        private async void OnCompanyButtonClick()
         {
             await _windowService.OpenAsync<LevelsWindow>();
+        }
+        
+        private void OnInfinityButtonClick()
+        {
+            _mediator.CompanyButton.onClick.RemoveAllListeners();
+            _mediator.InfinityModeButton.onClick.RemoveAllListeners();
+            
+            _sceneLoadService.LoadSceneAsync(SceneNames.Infinity, 1f);
         }
     }
 }

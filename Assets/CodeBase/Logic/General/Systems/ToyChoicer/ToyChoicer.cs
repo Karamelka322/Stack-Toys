@@ -64,12 +64,22 @@ namespace CodeBase.Logic.General.Systems.ToyChoicer
 
         public void Dispose()
         {
-            _toyChoicerRotateAnimation.Stop(_choicerMediator);
-            _toyRotateAnimation.Stop(_toy1, true, false);
-            _toyRotateAnimation.Stop(_toy2, true, false);
-            
-            _toyClickObserver.OnClickDownAsObservableRemove(_toy1);
-            _toyClickObserver.OnClickDownAsObservableRemove(_toy2);
+            if (_choicerMediator != null)
+            {
+                _toyChoicerRotateAnimation.Stop(_choicerMediator);
+            }
+
+            if (_toy1 != null)
+            {
+                _toyRotateAnimation.Stop(_toy1, true, false);
+                _toyClickObserver.OnClickDownAsObservableRemove(_toy1);
+            }
+
+            if (_toy2 != null)
+            {
+                _toyRotateAnimation.Stop(_toy2, true, false);
+                _toyClickObserver.OnClickDownAsObservableRemove(_toy2);
+            }
         }
         
         private void OnChoiceToy1()
