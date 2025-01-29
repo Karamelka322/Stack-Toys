@@ -5,6 +5,6 @@ namespace CodeBase.Logic.Interfaces.General.Factories.Confetti
 {
     public interface IConfettiEffectFactory
     {
-        UniTask<GameObject> SpawnAsync(Vector3 position);
+        UniTask<GameObject> SpawnAsync(Vector3 position, Quaternion rotation);
     }
 }

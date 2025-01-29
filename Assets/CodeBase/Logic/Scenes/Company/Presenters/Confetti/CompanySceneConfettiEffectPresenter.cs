@@ -33,7 +33,10 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Confetti
                 return;
             }
 
-            await _confettiEffectFactory.SpawnAsync(_finishLineProvider.Line.Value.GetPosition());
+            var position = _finishLineProvider.Line.Value.GetPosition();
+            var rotation = _finishLineProvider.Line.Value.GetRotation();
+            
+            await _confettiEffectFactory.SpawnAsync(position, rotation);
         }
     }
 }

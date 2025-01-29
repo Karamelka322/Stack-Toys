@@ -15,15 +15,15 @@ namespace CodeBase.Logic.General.Factories.Confetti
             _assetService = assetService;
         }
 
-        public async UniTask<GameObject> SpawnAsync(Vector3 position)
+        public async UniTask<GameObject> SpawnAsync(Vector3 position, Quaternion rotation)
         {
             var addressableName = AddressableConstants.ConfettiEffect;
             var prefab = await _assetService.LoadAsync<GameObject>(addressableName);
-
-            var effect = UnityEngine.Object.Instantiate(prefab, position, Quaternion.identity);
-
-            UnityEngine.Object.Destroy(effect, 10f);
-        
+            
+            var effect = Object.Instantiate(prefab, position, rotation);
+            
+            Object.Destroy(effect, 10f);
+            
             return effect;
         }
     }

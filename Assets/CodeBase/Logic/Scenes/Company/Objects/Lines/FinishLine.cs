@@ -45,6 +45,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             return _mediator.transform.position;
         }
 
+        public Quaternion GetRotation()
+        {
+            return _mediator.transform.rotation;
+        }
+
         private void OnLocaleChanged()
         {
             SetHeightAsync(_height).Forget();

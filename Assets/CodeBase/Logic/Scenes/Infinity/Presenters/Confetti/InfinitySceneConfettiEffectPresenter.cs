@@ -3,6 +3,7 @@ using CodeBase.Logic.Interfaces.General.Factories.Confetti;
 using CodeBase.Logic.Interfaces.Scenes.Infinity.Systems.Records;
 using CodeBase.Logic.Scenes.Infinity.Providers.Lines;
 using UniRx;
+using UnityEngine;
 
 namespace CodeBase.Logic.Scenes.Infinity.Presenters.Confetti
 {
@@ -34,7 +35,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Presenters.Confetti
             }
 
             var position = _recordLineProvider.PlayerRecordLine.Value.GetPosition();
-            var effect = await _confettiEffectFactory.SpawnAsync(position);
+            var effect = await _confettiEffectFactory.SpawnAsync(position, Quaternion.identity);
         }
     }
 }
