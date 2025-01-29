@@ -10,7 +10,7 @@ using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Observers.Ready
 {
-    public class CompanySceneReadyObserver : ICompanySceneReadyObserver, IDisposable
+    public class CompanySceneReadyObserver : ISceneReadyObserver, IDisposable
     {
         private readonly ILevelProvider _levelProvider;
         private readonly IToyProvider _toyProvider;

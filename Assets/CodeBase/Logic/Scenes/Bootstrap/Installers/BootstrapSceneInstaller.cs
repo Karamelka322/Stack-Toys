@@ -1,3 +1,4 @@
+using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.Scenes.Bootstrap.Systems;
 using CodeBase.Logic.Scenes.Bootstrap.Systems.Ready;
 using Zenject;
@@ -13,7 +14,10 @@ namespace CodeBase.Logic.Scenes.Bootstrap.Installers
 
         private void BindSystems()
         {
-            Container.BindInterfacesTo<BootstrapSceneReady>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanyLevelsSaveDataProvider>().AsSingle();
+            Container.BindInterfacesTo<BootstrapSceneReadyObserver>().AsSingle();
+            
+            Container.BindInterfacesTo<OpenFirstSceneSystem>().AsSingle().NonLazy();
         }
     }
 }
