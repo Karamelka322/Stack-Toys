@@ -708,6 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backButton: {fileID: 938925880529922516}
   _levelsParent: {fileID: 4043545484328065752}
+  _title: {fileID: 528917972193926083}
 --- !u!1001 &7135069991149946319
 PrefabInstance:
   m_ObjectHideFlags: 0
