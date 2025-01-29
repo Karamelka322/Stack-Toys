@@ -2,8 +2,8 @@ using System;
 using System.Threading;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Ready;
-using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Lines;
 using CodeBase.UI.Interfaces.Scenes.Company.Windows.Main;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -45,7 +45,7 @@ namespace CodeBase.Logic.Scenes.Company.Observers.Ready
                 await UniTask.WaitWhile(() => _levelProvider.Level.Value == null,
                     cancellationToken: _cancellationTokenSource.Token);
                 
-                await UniTask.WaitWhile(() => _finishLineProvider.FinishLine.Value == null,
+                await UniTask.WaitWhile(() => _finishLineProvider.Line.Value == null,
                     cancellationToken: _cancellationTokenSource.Token);
                 
                 await UniTask.WaitWhile(() => _toyProvider.Toys.Count == 0,

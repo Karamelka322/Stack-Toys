@@ -1,7 +1,7 @@
 using System;
 using CodeBase.Logic.Interfaces.General.Factories.Confetti;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
-using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Lines;
 using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Presenters.Confetti
@@ -33,7 +33,7 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Confetti
                 return;
             }
 
-            await _confettiEffectFactory.SpawnAsync(_finishLineProvider.FinishLine.Value.transform.position);
+            await _confettiEffectFactory.SpawnAsync(_finishLineProvider.Line.Value.GetPosition());
         }
     }
 }

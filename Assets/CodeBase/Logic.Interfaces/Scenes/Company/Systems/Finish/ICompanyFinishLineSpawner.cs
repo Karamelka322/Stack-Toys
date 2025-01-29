@@ -5,6 +5,5 @@ namespace CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish
 {
     public interface ICompanyFinishLineSpawner
     {
-        event Action<FinishLineMediator> OnSpawn;
     }
 }

@@ -14,6 +14,7 @@ namespace CodeBase.Data.General.Constants
         public const string SoundsKey = "sounds";
         public const string LanguageKey = "language";
         
+        public const string Finish = "finish";
         public const string Meters = "meters";
         
         public const string PlayerRecordLineTitle = "player_record_line_title";

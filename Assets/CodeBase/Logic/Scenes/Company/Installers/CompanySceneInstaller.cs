@@ -11,6 +11,8 @@ using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Systems.Toys;
+using CodeBase.Logic.General.Unity.Finish;
+using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
@@ -21,8 +23,8 @@ using CodeBase.Logic.Scenes.Company.Presenters.Confetti;
 using CodeBase.Logic.Scenes.Company.Presenters.Finish;
 using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
-using CodeBase.Logic.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Scenes.Company.Providers.Objects.Lines;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
@@ -68,6 +70,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ToyShadowFactory>().AsSingle();
             Container.BindInterfacesTo<BabbleFactory>().AsSingle();
             Container.BindInterfacesTo<FinishLineFactory>().AsSingle();
+            
+            Container.BindFactory<FinishLineMediator, FinishLine, FinishLine.Factory>().AsSingle();
             
             // Game - Effects
             Container.BindInterfacesTo<ToySelectEffectFactory>().AsSingle();
@@ -128,6 +132,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             
             Container.BindInterfacesTo<CameraDisposer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyDisposer>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FinishLineDisposer>().AsSingle().NonLazy();
             
             // Observers
             Container.BindInterfacesTo<CompanySceneReadyObserver>().AsSingle();

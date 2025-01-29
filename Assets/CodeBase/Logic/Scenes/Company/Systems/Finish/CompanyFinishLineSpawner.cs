@@ -1,9 +1,9 @@
 using System;
+using System.Threading.Tasks;
 using CodeBase.Logic.General.Systems.Levels;
-using CodeBase.Logic.General.Unity.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
-using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Lines;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
@@ -18,8 +18,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         private readonly IDisposable _disposable;
         private readonly IFinishLineProvider _finishLineProvider;
         private readonly ILevelSizeSystem _levelSizeSystem;
-
-        public event Action<FinishLineMediator> OnSpawn;
 
         public CompanyFinishLineSpawner(
             ILevelProvider levelProvider,
@@ -50,16 +48,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             _finishLineProvider.Register(finishLine);
         }
         
-        private async UniTask<FinishLineMediator> SpawnFinishLine(LevelMediator level)
+        private async UniTask<FinishLine> SpawnFinishLine(LevelMediator level)
         {
             var height = await _levelSizeSystem.GetHeightAsync();
             var position = level.OriginPoint.position + Vector3.up * height;
             var finishLine = await _finishLineFactory.SpawnAsync(position, level.OriginPoint.rotation);
             
-            finishLine.Height.text = $"{height} m";
+            finishLine.SetHeightAsync(height).Forget();
             
-            OnSpawn?.Invoke(finishLine);
-
             return finishLine;
         }
     }

@@ -1,4 +1,4 @@
-using CodeBase.Logic.General.Unity.Finish;
+using CodeBase.Logic.Scenes.Company.Systems.Finish;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -6,6 +6,6 @@ namespace CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish
 {
     public interface IFinishLineFactory
     {
-        UniTask<FinishLineMediator> SpawnAsync(Vector3 position, Quaternion rotation);
+        UniTask<FinishLine> SpawnAsync(Vector3 position, Quaternion rotation);
     }
 }
