@@ -13,7 +13,7 @@ namespace CodeBase.Logic.General.Services.Localizations
     public class LocalizationService : ILocalizationService, IDisposable
     {
         private readonly ILocalizationSaveDataProvider _localizationSaveDataProvider;
-        private readonly AsyncLazy _prepareResourcesTask;
+        private readonly AsyncLazy _initializeTask;
 
         public event Action OnLocaleChanged;
         
@@ -21,8 +21,7 @@ namespace CodeBase.Logic.General.Services.Localizations
         {
             _localizationSaveDataProvider = localizationSaveDataProvider;
             
-            LocalizationSettings.Instance.OnSelectedLocaleChanged += OnSelectedLocaleChanged;
-            _prepareResourcesTask = UniTask.Lazy(PrepareResourcesAsync);
+            _initializeTask = UniTask.Lazy(InitializeAsync);
         }
 
         public void Dispose()
@@ -32,7 +31,7 @@ namespace CodeBase.Logic.General.Services.Localizations
 
         public async UniTask SetLocaleAsync(string localeName)
         {
-            await _prepareResourcesTask;
+            await _initializeTask;
             
             var settings = LocalizationSettings.Instance;
 
@@ -44,14 +43,14 @@ namespace CodeBase.Logic.General.Services.Localizations
 
         public async UniTask<string> GetLocaleAsync()
         {
-            await _prepareResourcesTask;
+            await _initializeTask;
             
             return LocalizationSettings.Instance.GetSelectedLocale().LocaleName;
         }
 
         public async UniTask<string> LocalizeAsync(string key, string tableId = LocalizationConstants.General)
         {
-            await _prepareResourcesTask;
+            await _initializeTask;
             
             var table = await GetTableAsync(tableId);
             var entry = table.GetEntry(key);
@@ -88,12 +87,16 @@ namespace CodeBase.Logic.General.Services.Localizations
             return await LocalizationSettings.StringDatabase.GetTableAsync(tableId).Task.AsUniTask();
         }
 
-        private async UniTask PrepareResourcesAsync()
+        private async UniTask InitializeAsync()
         {
             await LocalizationSettings.InitializationOperation.Task.AsUniTask();
-
+            
             var localeName = _localizationSaveDataProvider.GetLocale();
-            SetLocaleAsync(localeName).Forget();
+            var locale = GetLocale(localeName);
+            
+            LocalizationSettings.Instance.SetSelectedLocale(locale);
+            
+            LocalizationSettings.Instance.OnSelectedLocaleChanged += OnSelectedLocaleChanged;
         }
         
         private void OnSelectedLocaleChanged(Locale locale)
