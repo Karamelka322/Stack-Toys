@@ -9,6 +9,7 @@ using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Levels;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
+using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
@@ -56,6 +57,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<ClickFormulas>().AsSingle();
             Container.BindInterfacesTo<RayFormulas>().AsSingle();
             Container.BindInterfacesTo<EdgeFormulas>().AsSingle();
+            Container.BindInterfacesTo<CameraFormulas>().AsSingle();
         }
 
         private void BindFactories()
@@ -114,7 +116,8 @@ namespace CodeBase.Logic.Scenes.Company.Installers
 
         private void BindSystems()
         {            
-            Container.BindInterfacesTo<CompanyLevelBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<CompanyLevelSizeSystem>().AsSingle();
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
 
             Container.BindInterfacesTo<CompanyLevelSpawner>().AsSingle().NonLazy();

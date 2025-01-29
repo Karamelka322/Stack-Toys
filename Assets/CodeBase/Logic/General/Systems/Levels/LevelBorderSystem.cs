@@ -11,13 +11,14 @@ using UnityEngine;
 
 namespace CodeBase.Logic.General.Systems.Levels
 {
-    public abstract class BaseLevelBorderSystem : ILevelBorderSystem, IDisposable
+    public class LevelBorderSystem : ILevelBorderSystem, IDisposable
     {
         private const float TopBorder = 4f;
 
         private readonly IEdgeFormulas _edgeFormulas;
         private readonly IRayFormulas _rayFormulas;
         private readonly IDisposable _disposable;
+        private readonly ILevelSizeSystem _levelSizeSystem;
 
         private LevelMediator _level;
 
@@ -27,11 +28,13 @@ namespace CodeBase.Logic.General.Systems.Levels
         public Vector3 UpLeftPoint { get; private set; }
         public Vector3 UpRightPoint { get; private set; }
         
-        public BaseLevelBorderSystem(
+        public LevelBorderSystem(
             ILevelProvider levelProvider, 
             IRayFormulas rayFormulas,
+            ILevelSizeSystem levelSizeSystem,
             IEdgeFormulas edgeFormulas)
         {
+            _levelSizeSystem = levelSizeSystem;
             _edgeFormulas = edgeFormulas;
             _rayFormulas = rayFormulas;
             
@@ -43,35 +46,16 @@ namespace CodeBase.Logic.General.Systems.Levels
             _disposable?.Dispose();
         }
         
-        public abstract UniTask<float> GetHeightAsync();
-        public abstract UniTask<float> GetWidthAsync();
-
-        private async void OnLevelLoaded(LevelMediator levelMediator)
-        {
-            if (levelMediator == null)
-            {
-                return;
-            }
-        
-            _level = levelMediator;
-
-            OriginPoint = _level.OriginPoint.position;
-            
-            var height = await GetHeightAsync();
-            
-            (UpLeftPoint, UpRightPoint, DownRightPoint, DownLeftPoint) = 
-                GetBorders(_level.OriginPoint, height, _level.Width, 0f);
-        }
-
         public async UniTask<Vector3> ClampAsync(ToyMediator toyMediator, Vector3 position)
         {
             var size = toyMediator.MeshRenderer.bounds.size;
             var averageSize = Mathf.Max(size.x, size.y) / 2f;
 
-            var levelHeight = await GetHeightAsync();
+            var height = await _levelSizeSystem.GetHeightAsync();
+            var width = await _levelSizeSystem.GetWidthAsync();
             
             var (upLeftPoint, upRightPoint, downRightPoint, downLeftPoint) = 
-                GetBorders(_level.OriginPoint, levelHeight + TopBorder, _level.Width, averageSize);
+                GetBorders(_level.OriginPoint, height + TopBorder, width, averageSize);
             
             upLeftPoint.y = Math.Max(upLeftPoint.y, upRightPoint.y);
             upRightPoint.y = Math.Max(upLeftPoint.y, upRightPoint.y);
@@ -95,6 +79,24 @@ namespace CodeBase.Logic.General.Systems.Levels
             }
             
             return GetClosestPointByBorder(position, upLeftPoint, upRightPoint, downRightPoint, downLeftPoint);;
+        }
+
+        private async void OnLevelLoaded(LevelMediator levelMediator)
+        {
+            if (levelMediator == null)
+            {
+                return;
+            }
+        
+            _level = levelMediator;
+
+            OriginPoint = _level.OriginPoint.position;
+            
+            var height = await _levelSizeSystem.GetHeightAsync();
+            var width = await _levelSizeSystem.GetWidthAsync();
+            
+            (UpLeftPoint, UpRightPoint, DownRightPoint, DownLeftPoint) = 
+                GetBorders(_level.OriginPoint, height, width, 0f);
         }
 
         private (Vector3, Vector3, Vector3, Vector3) GetBorders(Transform origin, float height, float width, float offset)

@@ -9,6 +9,7 @@ namespace Editor.CodeBase
     public class LevelMediatorEditor : OdinEditor
     {
         private const float _height = 10f;
+        private const float _width = 5.5f;
         
         private void OnSceneGUI()
         {
@@ -29,8 +30,8 @@ namespace Editor.CodeBase
                 return;
             }
             
-            var bottomLeft = level.OriginPoint.position - level.OriginPoint.right * level.Width / 2f;
-            var bottomRight = level.OriginPoint.position + level.OriginPoint.right * level.Width / 2f;
+            var bottomLeft = level.OriginPoint.position - level.OriginPoint.right * _width / 2f;
+            var bottomRight = level.OriginPoint.position + level.OriginPoint.right * _width / 2f;
             
             var topLeft = bottomLeft + Vector3.up * _height;
             var topRight = bottomRight + Vector3.up * _height;

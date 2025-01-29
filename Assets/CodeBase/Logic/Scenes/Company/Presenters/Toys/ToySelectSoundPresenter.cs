@@ -16,14 +16,14 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
     {
         private readonly IDisposable _disposable;
         private readonly IAudioService _audioService;
-        private readonly ICompanySceneReadyObserver _companySceneReady;
+        private readonly ISceneReadyObserver _sceneReadyObserver;
 
         public ToySelectSoundPresenter(
             IToySelectObserver toySelectObserver,
-            ICompanySceneReadyObserver companySceneReady,
+            ISceneReadyObserver sceneReadyObserver,
             IAudioService audioService)
         {
-            _companySceneReady = companySceneReady;
+            _sceneReadyObserver = sceneReadyObserver;
             _audioService = audioService;
             
             _disposable = toySelectObserver.Toy.Subscribe(OnSelectedToyChanged);
@@ -31,7 +31,7 @@ namespace CodeBase.Logic.Scenes.Company.Presenters.Toys
 
         private void OnSelectedToyChanged(ToyMediator toyMediator)
         {
-            if (_companySceneReady.IsReady.Value == false)
+            if (_sceneReadyObserver.IsReady.Value == false)
             {
                 return;
             }

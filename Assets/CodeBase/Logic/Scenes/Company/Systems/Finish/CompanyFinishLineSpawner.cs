@@ -1,10 +1,10 @@
 using System;
+using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Unity.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.FinishLine;
 using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Finish;
-using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using CodeBase.Logic.Scenes.Company.Unity;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -17,17 +17,17 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         private readonly IFinishLineFactory _finishLineFactory;
         private readonly IDisposable _disposable;
         private readonly IFinishLineProvider _finishLineProvider;
-        private readonly ILevelBorderSystem _levelBorderSystem;
+        private readonly ILevelSizeSystem _levelSizeSystem;
 
         public event Action<FinishLineMediator> OnSpawn;
 
         public CompanyFinishLineSpawner(
             ILevelProvider levelProvider,
             IFinishLineFactory finishLineFactory,
-            ILevelBorderSystem levelBorderSystem,
+            ILevelSizeSystem levelSizeSystem,
             IFinishLineProvider finishLineProvider)
         {
-            _levelBorderSystem = levelBorderSystem;
+            _levelSizeSystem = levelSizeSystem;
             _finishLineProvider = finishLineProvider;
             _finishLineFactory = finishLineFactory;
 
@@ -52,11 +52,11 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         
         private async UniTask<FinishLineMediator> SpawnFinishLine(LevelMediator level)
         {
-            var levelHeight = await _levelBorderSystem.GetHeightAsync();
-            var position = level.OriginPoint.position + Vector3.up * levelHeight;
+            var height = await _levelSizeSystem.GetHeightAsync();
+            var position = level.OriginPoint.position + Vector3.up * height;
             var finishLine = await _finishLineFactory.SpawnAsync(position, level.OriginPoint.rotation);
             
-            finishLine.Height.text = $"{levelHeight} m";
+            finishLine.Height.text = $"{height} m";
             
             OnSpawn?.Invoke(finishLine);
 

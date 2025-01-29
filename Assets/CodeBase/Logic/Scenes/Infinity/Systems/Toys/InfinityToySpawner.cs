@@ -82,18 +82,15 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
                 await UniTask.WaitWhile(() => _levelSpawner.IsSpawned.Value == false, 
                     cancellationToken: _cancellationTokenSource.Token);
                 
-                await UniTask.WaitWhile(() => _recordLineProvider.PlayerRecordLine.Value == null, 
-                    cancellationToken: _cancellationTokenSource.Token);
-                
-                await UniTask.WaitWhile(() => _recordLineProvider.WorldRecordLine.Value == null, 
-                    cancellationToken: _cancellationTokenSource.Token);
+                // await UniTask.WaitWhile(() => _recordLineProvider.PlayerRecordLine.Value == null, 
+                //     cancellationToken: _cancellationTokenSource.Token);
+                //
+                // await UniTask.WaitWhile(() => _recordLineProvider.WorldRecordLine.Value == null, 
+                //     cancellationToken: _cancellationTokenSource.Token);
                 
                 SpawnAsync().Forget();
             }
-            catch (OperationCanceledException e)
-            {
-                
-            }
+            catch (OperationCanceledException e) { }
         }
         
         private void OnIncreasedTower(CollectionAddEvent<ToyMediator> addEvent)
@@ -141,18 +138,25 @@ namespace CodeBase.Logic.Scenes.Infinity.Systems.Toys
             }
 
             var position = _levelBorderSystem.OriginPoint + towerOffset;
-            var playerRecordLine = _recordLineProvider.PlayerRecordLine.Value.GetPosition();
             
-            if (Vector3.Distance(position, playerRecordLine) < LineMinDistance)
+            if (_recordLineProvider.PlayerRecordLine.Value != null)
             {
-                position = playerRecordLine + Vector3.up * LineOffset;
+                var playerRecordLine = _recordLineProvider.PlayerRecordLine.Value.GetPosition();
+            
+                if (Vector3.Distance(position, playerRecordLine) < LineMinDistance)
+                {
+                    position = playerRecordLine + Vector3.up * LineOffset;
+                }   
             }
-            
-            var worldRecordLine = _recordLineProvider.WorldRecordLine.Value.GetPosition();
-            
-            if (Vector3.Distance(position, worldRecordLine) < LineMinDistance)
+
+            if (_recordLineProvider.WorldRecordLine.Value != null)
             {
-                position = worldRecordLine + Vector3.up * LineOffset;
+                var worldRecordLine = _recordLineProvider.WorldRecordLine.Value.GetPosition();
+            
+                if (Vector3.Distance(position, worldRecordLine) < LineMinDistance)
+                {
+                    position = worldRecordLine + Vector3.up * LineOffset;
+                }   
             }
             
             return position;

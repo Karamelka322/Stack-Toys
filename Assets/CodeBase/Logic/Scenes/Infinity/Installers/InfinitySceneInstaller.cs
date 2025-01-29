@@ -7,6 +7,7 @@ using CodeBase.Logic.General.Observers.Toys;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Cameras;
 using CodeBase.Logic.General.Providers.Objects.Canvases;
 using CodeBase.Logic.General.Providers.Objects.Toys;
+using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Systems.ToyChoicer;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
@@ -61,6 +62,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             Container.BindInterfacesTo<ClickFormulas>().AsSingle();
             Container.BindInterfacesTo<RayFormulas>().AsSingle();
             Container.BindInterfacesTo<EdgeFormulas>().AsSingle();
+            Container.BindInterfacesTo<CameraFormulas>().AsSingle();
         }
 
         private void BindProviders()
@@ -128,11 +130,12 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
 
         private void BindSystems()
         {
-            Container.BindInterfacesTo<InfinityLevelBorderSystem>().AsSingle();
+            Container.BindInterfacesTo<InfinityLevelSizeSystem>().AsSingle();
             Container.BindInterfacesTo<InfinityLevelSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinityToySpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinityToyDestroyer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinityRecordSystem>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<LevelBorderSystem>().AsSingle();
             
             Container.BindInterfacesTo<CameraBorderSystem>().AsSingle();
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();

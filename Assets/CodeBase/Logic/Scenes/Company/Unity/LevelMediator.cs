@@ -11,11 +11,7 @@ namespace CodeBase.Logic.Scenes.Company.Unity
         [SerializeField, Required] 
         private Transform _originPoint;
         
-        [SerializeField, Required] 
-        private float _width;
-
         public GameObject Floor => _floor;
         public Transform OriginPoint => _originPoint;
-        public float Width => _width;
     }
 }

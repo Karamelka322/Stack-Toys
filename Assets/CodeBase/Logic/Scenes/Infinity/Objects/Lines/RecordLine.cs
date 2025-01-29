@@ -80,14 +80,10 @@ namespace CodeBase.Logic.Scenes.Infinity.Objects.Lines
         
         public void SetLineAlpha(float alpha)
         {
-            _mediator.Line.alpha = alpha;
-        }
-
-        public void SetAlpha(float alpha)
-        {
-            _mediator.Title.alpha = alpha;
-            _mediator.Height.alpha = alpha;
-            _mediator.Line.alpha = alpha;
+            var color = _mediator.Line.color;
+            color.a = alpha;
+            
+            _mediator.Line.color = color;
         }
 
         public void PlayShow()
@@ -96,7 +92,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Objects.Lines
             {
                 _mediator.Title.alpha = alpha;
                 _mediator.Height.alpha = alpha;
-                _mediator.Line.alpha = alpha;
+                
+                SetLineAlpha(alpha);
             });
         }
         
@@ -106,7 +103,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Objects.Lines
             {
                 _mediator.Title.alpha = alpha;
                 _mediator.Height.alpha = alpha;
-                _mediator.Line.alpha = alpha;
+                
+                SetLineAlpha(alpha);
             });
         }
         
@@ -118,14 +116,22 @@ namespace CodeBase.Logic.Scenes.Infinity.Objects.Lines
             {
                 _mediator.Title.alpha = _mediator.Title.alpha > 0 ? alpha : 0;
                 _mediator.Height.alpha = _mediator.Height.alpha > 0 ? alpha : 0;
-                _mediator.Line.alpha = _mediator.Line.alpha > 0 ? alpha : 0;
+                
+                if (_mediator.Line.color.a > 0)
+                {
+                    SetLineAlpha(alpha);
+                }
             }));
             
             _sequence.Append(DOVirtual.Float(0.3f, 1f, 0.5f, alpha =>
             {
                 _mediator.Title.alpha = _mediator.Title.alpha > 0 ? alpha : 0;
                 _mediator.Height.alpha = _mediator.Height.alpha > 0 ? alpha : 0;
-                _mediator.Line.alpha = _mediator.Line.alpha > 0 ? alpha : 0;
+
+                if (_mediator.Line.color.a > 0)
+                {
+                    SetLineAlpha(alpha);
+                }
             }));
             
             _sequence.SetLoops(-1);

@@ -64,12 +64,12 @@ namespace CodeBase.Logic.Scenes.Infinity.Presenters.Lines
                 return;
             }
 
-            if (_recordSystem.PlayerRecord.Value != 0)
+            if (_recordSystem.WorldRecord.Value != 0)
             {
                 PlayerRecordLine = await SpawnLineAsync(_recordSystem.PlayerRecord.Value,
                     LocalizationConstants.PlayerRecordLineTitle);
             }
-
+            
             if (_recordSystem.WorldRecord.Value != 0)
             {
                 WorldRecordLine = await SpawnLineAsync(_recordSystem.WorldRecord.Value,
@@ -179,7 +179,8 @@ namespace CodeBase.Logic.Scenes.Infinity.Presenters.Lines
                 return;
             }
 
-            if (_recordSystem.PlayerRecord.Value >= _recordSystem.WorldRecord.Value)
+            if (_recordSystem.PlayerRecord.Value == 0 || 
+                _recordSystem.PlayerRecord.Value >= _recordSystem.WorldRecord.Value)
             {
                 await PlayerRecordLine.StopImpulseAsync();
                 
