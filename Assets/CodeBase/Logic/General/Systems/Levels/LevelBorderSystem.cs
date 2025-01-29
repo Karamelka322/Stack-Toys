@@ -22,6 +22,8 @@ namespace CodeBase.Logic.General.Systems.Levels
 
         private LevelMediator _level;
 
+        public BoolReactiveProperty IsReady { get; }
+        
         public Vector3 OriginPoint { get; private set; }
         public Vector3 DownLeftPoint { get; private set; }
         public Vector3 DownRightPoint { get; private set; }
@@ -37,6 +39,8 @@ namespace CodeBase.Logic.General.Systems.Levels
             _levelSizeSystem = levelSizeSystem;
             _edgeFormulas = edgeFormulas;
             _rayFormulas = rayFormulas;
+
+            IsReady = new BoolReactiveProperty();
             
             _disposable = levelProvider.Level.Subscribe(OnLevelLoaded);
         }
@@ -97,6 +101,8 @@ namespace CodeBase.Logic.General.Systems.Levels
             
             (UpLeftPoint, UpRightPoint, DownRightPoint, DownLeftPoint) = 
                 GetBorders(_level.OriginPoint, height, width, 0f);
+
+            IsReady.Value = true;
         }
 
         private (Vector3, Vector3, Vector3, Vector3) GetBorders(Transform origin, float height, float width, float offset)

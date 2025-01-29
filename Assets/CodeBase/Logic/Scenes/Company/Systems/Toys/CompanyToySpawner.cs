@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Threading;
-using CodeBase.Logic.General.Factories.Toys;
 using CodeBase.Logic.General.StateMachines.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Factories.Toys;
@@ -35,6 +34,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IToyCountObserver _toyCountObserver;
         private readonly IFinishObserver _finishObserver;
         private readonly IToyDestroyer _toyDestroyer;
+        private readonly ICompanyLevelSpawner _companySceneLoad;
 
         private readonly CompositeDisposable _compositeDisposable;
         private readonly CancellationTokenSource _cancellationTokenSource;
@@ -53,6 +53,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             ICompanyLevelsSettingProvider levelsConfigProvider,
             ILevelBorderSystem levelBorderSystem)
         {
+            _companySceneLoad = companySceneLoad;
             _finishObserver = finishObserver;
             _toyDestroyer = toyDestroyer;
             _toyCountObserver = toyCountObserver;
@@ -67,9 +68,27 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             _compositeDisposable = new CompositeDisposable();
             
             toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
-            companySceneLoad.IsLoaded.Subscribe(OnSceneLoad).AddTo(_compositeDisposable);
+
+            InitializeAsync().Forget();
 
             _toyDestroyer.OnDestroyAll += OnTowerDestroy;
+        }
+
+        private async UniTask InitializeAsync()
+        {
+            try
+            {
+                await UniTask.WaitWhile(() => _companySceneLoad.IsLoaded.Value == null,
+                    cancellationToken: _cancellationTokenSource.Token);
+                
+                await UniTask.WaitWhile(() => _levelBorderSystem.IsReady.Value == false,
+                    cancellationToken: _cancellationTokenSource.Token);
+                
+                _toyDestroyer.OnDestroyAll += OnTowerDestroy;
+                
+                SpawnAsync().Forget();
+            }
+            catch (OperationCanceledException e) { }
         }
 
         public void Dispose()
@@ -80,17 +99,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
         }
-
-        private void OnSceneLoad(bool isLoaded)
-        {
-            if (isLoaded == false)
-            {
-                return;
-            }
-
-            SpawnAsync().Forget();
-        }
-
+        
         private async void OnIncreaseToyTower(CollectionAddEvent<ToyMediator> toy)
         {
             if (_toyCountObserver.LeftAvailableNumberOfToys.Value > 0)
