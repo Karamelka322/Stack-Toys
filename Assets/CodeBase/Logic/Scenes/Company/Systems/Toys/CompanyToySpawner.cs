@@ -70,8 +70,15 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             toyTowerBuildObserver.Tower.ObserveAdd().Subscribe(OnIncreaseToyTower).AddTo(_compositeDisposable);
 
             InitializeAsync().Forget();
+        }
 
-            _toyDestroyer.OnDestroyAll += OnTowerDestroy;
+        public void Dispose()
+        {
+            _toyDestroyer.OnDestroyAll -= OnTowerDestroy;
+            
+            _compositeDisposable?.Dispose();
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource?.Dispose();
         }
 
         private async UniTask InitializeAsync()
@@ -91,15 +98,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             catch (OperationCanceledException e) { }
         }
 
-        public void Dispose()
-        {
-            _toyDestroyer.OnDestroyAll -= OnTowerDestroy;
-            
-            _compositeDisposable?.Dispose();
-            _cancellationTokenSource?.Cancel();
-            _cancellationTokenSource?.Dispose();
-        }
-        
         private async void OnIncreaseToyTower(CollectionAddEvent<ToyMediator> toy)
         {
             if (_toyCountObserver.LeftAvailableNumberOfToys.Value > 0)
