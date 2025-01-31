@@ -8,6 +8,6 @@ namespace CodeBase.Logic.Interfaces.General.Observers.Toys
         /// <summary>
         /// Список игрушек которые находятся за переделами камеры
         /// </summary>
-        IReadOnlyReactiveCollection<ToyMediator> ToysOutsideCameraFieldOfView { get; }
+        IReadOnlyReactiveCollection<ToyMediator> ToysDroppedOutLevel { get; }
     }
 }

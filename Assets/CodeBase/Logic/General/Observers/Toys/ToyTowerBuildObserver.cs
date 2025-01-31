@@ -35,7 +35,7 @@ namespace CodeBase.Logic.General.Observers.Toys
 
             toyProvider.Toys.ObserveAdd().Subscribe(OnSpawnToy).AddTo(_compositeDisposable);
             toyProvider.Toys.ObserveRemove().Subscribe(OnRemoveToy).AddTo(_compositeDisposable);
-            toyMovementObserver.ToysOutsideCameraFieldOfView.ObserveAdd()
+            toyMovementObserver.ToysDroppedOutLevel.ObserveAdd()
                 .Subscribe(OnToysLocatedOutsideCameraFieldOfViewChanged).AddTo(_compositeDisposable);
         }
 

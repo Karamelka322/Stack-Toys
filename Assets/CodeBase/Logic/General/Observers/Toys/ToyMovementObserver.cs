@@ -1,23 +1,26 @@
 using System;
 using CodeBase.Logic.General.Formulas;
 using CodeBase.Logic.General.StateMachines.Toys;
+using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
+using CodeBase.Logic.Interfaces.Scenes.Company.Providers.Objects.Levels;
+using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Levels;
 using UniRx;
-using UnityEngine;
 
 namespace CodeBase.Logic.General.Observers.Toys
 {
     public class ToyMovementObserver : IToyMovementObserver, IDisposable
     {
         private readonly IToyProvider _toyProvider;
-        private readonly CompositeDisposable _compositeDisposable;
-        private readonly ReactiveCollection<ToyMediator> _toysOutsideCameraFieldOfView;
         private readonly IToySelectObserver _toySelectObserver;
         private readonly ICameraFormulas _cameraFormulas;
 
-        public IReadOnlyReactiveCollection<ToyMediator> ToysOutsideCameraFieldOfView => _toysOutsideCameraFieldOfView;
+        private readonly CompositeDisposable _compositeDisposable;
+        private readonly ReactiveCollection<ToyMediator> _toysDroppedOutLevel;
+
+        public IReadOnlyReactiveCollection<ToyMediator> ToysDroppedOutLevel => _toysDroppedOutLevel;
         
         public ToyMovementObserver(
             IToyProvider toyProvider,
@@ -28,7 +31,7 @@ namespace CodeBase.Logic.General.Observers.Toys
             _toySelectObserver = toySelectObserver;
             _toyProvider = toyProvider;
             
-            _toysOutsideCameraFieldOfView = new ReactiveCollection<ToyMediator>();
+            _toysDroppedOutLevel = new ReactiveCollection<ToyMediator>();
             _compositeDisposable = new CompositeDisposable();
 
             _toyProvider.Toys.ObserveRemove().Subscribe(OnRemoveToy).AddTo(_compositeDisposable);
@@ -43,19 +46,18 @@ namespace CodeBase.Logic.General.Observers.Toys
         private void OnUpdate(long tick)
         {
             foreach (var toy in _toyProvider.Toys)
-            {
+            {                
                 if (_toySelectObserver.Toy.Value == toy.Item1)
                 {
                     continue;
                 }
                 
-                var hasLocatedWithinCameraFieldOfView = _cameraFormulas.
-                    HasLocatedWithinCameraFieldOfView(toy.Item1.transform.position);
+                var hasLocatedWithinCameraWidth = _cameraFormulas.
+                    HasLocatedWithinCameraWidth(toy.Item1.transform.position);
 
-                if (hasLocatedWithinCameraFieldOfView == false &&
-                    _toysOutsideCameraFieldOfView.Contains(toy.Item1) == false)
+                if (hasLocatedWithinCameraWidth == false && _toysDroppedOutLevel.Contains(toy.Item1) == false)
                 {
-                    _toysOutsideCameraFieldOfView.Add(toy.Item1);
+                    _toysDroppedOutLevel.Add(toy.Item1);
                     return;
                 }
             }
@@ -63,9 +65,9 @@ namespace CodeBase.Logic.General.Observers.Toys
 
         private void OnRemoveToy(CollectionRemoveEvent<(ToyMediator, ToyStateMachine)> removeEvent)
         {
-            if (_toysOutsideCameraFieldOfView.Contains(removeEvent.Value.Item1))
+            if (_toysDroppedOutLevel.Contains(removeEvent.Value.Item1))
             {
-                _toysOutsideCameraFieldOfView.Remove(removeEvent.Value.Item1);
+                _toysDroppedOutLevel.Remove(removeEvent.Value.Item1);
             }
         }
     }

@@ -61,6 +61,11 @@ namespace CodeBase.Logic.General.Observers.Toys
             
             foreach (var observable in _observables.ToArray())
             {
+                if (observable.Key == null)
+                {
+                    continue;
+                }
+                
                 var screenToWorldPoint = _clickFormulas.ClickToWorldPosition(_camera,
                     mousePosition, observable.Key.transform);
                 
