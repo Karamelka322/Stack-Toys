@@ -24,6 +24,7 @@ using CodeBase.Logic.Scenes.Infinity.Observers.Ready;
 using CodeBase.Logic.Scenes.Infinity.Observers.Toys;
 using CodeBase.Logic.Scenes.Infinity.Presenters.Confetti;
 using CodeBase.Logic.Scenes.Infinity.Presenters.Lines;
+using CodeBase.Logic.Scenes.Infinity.Presenters.Sounds;
 using CodeBase.Logic.Scenes.Infinity.Presenters.UI;
 using CodeBase.Logic.Scenes.Infinity.Providers.Data;
 using CodeBase.Logic.Scenes.Infinity.Providers.Lines;
@@ -107,6 +108,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Installers
             
             Container.BindInterfacesTo<ToySelectSoundPresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyCollisionSoundPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<NewRecordSoundPresenter>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<RecordLinePresenter>().AsSingle().NonLazy();
             Container.BindInterfacesTo<InfinitySceneConfettiEffectPresenter>().AsSingle().NonLazy();
