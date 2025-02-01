@@ -34,10 +34,30 @@ namespace CodeBase.Logic.General.Systems.ToyChoicer
             _animations.Add(toyChoicerMediator, data);
             
             Observable.EveryUpdate()
-                .Subscribe((_) => OnUpdate(toyChoicerMediator, data)).AddTo(data.CompositeDisposable);
+                .Subscribe((_) =>
+                {
+                    if (toyChoicerMediator != null)
+                    {
+                        OnUpdate(toyChoicerMediator, data);
+                    }
+                    else
+                    {
+                        data.CompositeDisposable?.Dispose();
+                    }
+                }).AddTo(data.CompositeDisposable);
             
             Observable.Interval(TimeSpan.FromSeconds(RotateDuration))
-                .Subscribe((_) => OnInterval(toyChoicerMediator, data)).AddTo(data.CompositeDisposable);
+                .Subscribe((_) =>
+                {
+                    if (toyChoicerMediator != null)
+                    {
+                        OnInterval(toyChoicerMediator, data);
+                    }
+                    else
+                    {
+                        data.CompositeDisposable?.Dispose();
+                    }
+                }).AddTo(data.CompositeDisposable);
         }
 
         public void Stop(ToyChoicerMediator toyChoicerMediator)

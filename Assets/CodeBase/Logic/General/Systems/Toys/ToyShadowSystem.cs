@@ -54,7 +54,7 @@ namespace CodeBase.Logic.General.Systems.Toys
         {
             foreach (var pair in _shadows)
             {
-                if (pair.Key.gameObject == null)
+                if (pair.Key != null)
                 {
                     pair.Value.transform.position = pair.Key.transform.position + _offset;
                 }
