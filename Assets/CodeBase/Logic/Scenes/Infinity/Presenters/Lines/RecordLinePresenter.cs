@@ -64,7 +64,7 @@ namespace CodeBase.Logic.Scenes.Infinity.Presenters.Lines
                 return;
             }
 
-            if (_recordSystem.WorldRecord.Value != 0)
+            if (_recordSystem.PlayerRecord.Value != 0)
             {
                 PlayerRecordLine = await SpawnLineAsync(_recordSystem.PlayerRecord.Value,
                     LocalizationConstants.PlayerRecordLineTitle);
