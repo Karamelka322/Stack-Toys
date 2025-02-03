@@ -12,7 +12,6 @@ using CodeBase.Logic.General.Providers.Objects.Toys;
 using CodeBase.Logic.General.Systems.Levels;
 using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Finish;
-using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Scenes.Company.Factories.Finish;
 using CodeBase.Logic.Scenes.Company.Factories.Levels;
 using CodeBase.Logic.Scenes.Company.Factories.Toys;
@@ -25,6 +24,7 @@ using CodeBase.Logic.Scenes.Company.Presenters.Music;
 using CodeBase.Logic.Scenes.Company.Presenters.Toys;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Levels;
 using CodeBase.Logic.Scenes.Company.Providers.Objects.Lines;
+using CodeBase.Logic.Scenes.Company.Systems.Analytics;
 using CodeBase.Logic.Scenes.Company.Systems.Cameras;
 using CodeBase.Logic.Scenes.Company.Systems.Debug;
 using CodeBase.Logic.Scenes.Company.Systems.Finish;
@@ -129,6 +129,7 @@ namespace CodeBase.Logic.Scenes.Company.Installers
             Container.BindInterfacesTo<CameraRenderSetup>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanyFinishLineSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CompanySceneSaver>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CompanySceneAnalytics>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<CameraDisposer>().AsSingle().NonLazy();
             Container.BindInterfacesTo<ToyDisposer>().AsSingle().NonLazy();

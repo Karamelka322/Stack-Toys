@@ -1,10 +1,8 @@
 using System;
 using System.Linq;
-using CodeBase.Logic.General.Systems.Toys;
 using CodeBase.Logic.General.Unity.Toys;
 using CodeBase.Logic.Interfaces.General.Observers.Toys;
 using CodeBase.Logic.Interfaces.General.Providers.Objects.Toys;
-using CodeBase.Logic.Interfaces.General.Systems.Toys;
 using CodeBase.Logic.Interfaces.Scenes.Company.Observers.Finish;
 using CodeBase.Logic.Interfaces.Scenes.Company.Systems.Toys;
 using Cysharp.Threading.Tasks;
@@ -20,7 +18,6 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
         private readonly IFinishObserver _finishObserver;
         private readonly IToyTowerBuildObserver _toyTowerBuildObserver;
         private readonly IToyCountObserver _toyCountObserver;
-        private readonly IToyShadowSystem _toyShadowSystem;
 
         public event Action OnDestroyAll;
 
@@ -28,10 +25,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Toys
             IToyTowerBuildObserver toyTowerBuildObserver,
             IToyCountObserver toyCountObserver,
             IFinishObserver finishObserver,
-            IToyShadowSystem toyShadowSystem,
             IToyProvider toyProvider)
         {
-            _toyShadowSystem = toyShadowSystem;
             _toyCountObserver = toyCountObserver;
             _toyTowerBuildObserver = toyTowerBuildObserver;
             _finishObserver = finishObserver;

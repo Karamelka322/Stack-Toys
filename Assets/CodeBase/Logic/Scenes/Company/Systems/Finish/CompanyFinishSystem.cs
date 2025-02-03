@@ -9,7 +9,12 @@ using UniRx;
 
 namespace CodeBase.Logic.Scenes.Company.Systems.Finish
 {
-    public class CompanyFinishSystem : IDisposable
+    public interface ICompanyFinishSystem
+    {
+        event Action<int> OnLevelComplete;
+    }
+
+    public class CompanyFinishSystem : IDisposable, ICompanyFinishSystem
     {
         private const float _delayForOpenNextScene = 4f;
         
@@ -17,6 +22,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
         private readonly IDisposable _disposable;
         private readonly ISceneLoadService _sceneLoadService;
 
+        public event Action<int> OnLevelComplete;
+        
         public CompanyFinishSystem(
             ICompanyLevelsSaveDataProvider companyLevelsSaveDataProvider,
             IFinishObserver finishObserver,
@@ -44,6 +51,8 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Finish
             }
             
             _companyLevelsSaveDataProvider.SetCurrentLevel(nextLevel);
+            
+            OnLevelComplete?.Invoke(currentOpenedLevel);
             
             await OpenNextSceneAsync(currentOpenedLevel);
         }
