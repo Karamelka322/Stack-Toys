@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648867011101",
+    "project_id": "tower-balance-f6dd7",
+    "storage_bucket": "tower-balance-f6dd7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648867011101:android:9b2b7395e25a16418344f4",
+        "android_client_info": {
+          "package_name": "com.lines_of_life.stack_toys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN10SLdWfFAmpXUQsUTZPu11_CRIXpPG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
