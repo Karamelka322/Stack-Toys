@@ -47,8 +47,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Analytics
             
             _analyticService.RegisterEvent(
                 AnalyticConstants.CompanyLevelTowerFallenEvent, 
-                new AnalyticsParameterData(AnalyticConstants.CompanyLevelParameter, currentLevel),
-                new AnalyticsParameterData(AnalyticConstants.TowerFallenParameter, 1));
+                new AnalyticsParameterData(AnalyticConstants.CompanyLevelParameter, currentLevel));
         }
     }
 }

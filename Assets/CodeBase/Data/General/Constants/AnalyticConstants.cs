@@ -8,6 +8,5 @@ namespace CodeBase.Logic.General.Services.Analytics
         
         // Parameters
         public const string CompanyLevelParameter = "company_level";
-        public const string TowerFallenParameter = "tower_fallen";
     }
 }
