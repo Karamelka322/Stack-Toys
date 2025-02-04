@@ -43,7 +43,7 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Analytics
         {
             var levelNumber = _companyLevelsSaveDataProvider.GetCurrentLevel() + 1;
             
-            _analyticService.RegisterEvent($"{AnalyticConstants.CompanyLevelFinishedEvent}_{levelNumber}");
+            _analyticService.RegisterEvent($"{AnalyticConstants.CompanyLevelTowerFallenEvent}_{levelNumber}");
         }
     }
 }
