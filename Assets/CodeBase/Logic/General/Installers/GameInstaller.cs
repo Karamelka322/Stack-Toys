@@ -4,6 +4,7 @@ using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio;
 using CodeBase.Logic.General.Services.Analytics;
 using CodeBase.Logic.General.Services.Assets;
 using CodeBase.Logic.General.Services.Audio;
+using CodeBase.Logic.General.Services.Crashlytics;
 using CodeBase.Logic.General.Services.Debug;
 using CodeBase.Logic.General.Services.Files;
 using CodeBase.Logic.General.Services.Input;
@@ -66,6 +67,7 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<LocalizationService>().AsSingle();
             Container.BindInterfacesTo<LeaderboardService>().AsSingle();
             Container.BindInterfacesTo<AnalyticService>().AsSingle();
+            Container.Bind<CrashlyticsService>().AsSingle().NonLazy();
         }
 
         private void BindPresenters()
