@@ -36,18 +36,14 @@ namespace CodeBase.Logic.Scenes.Company.Systems.Analytics
 
         private void OnLevelComplete(int levelIndex)
         {
-            _analyticService.RegisterEvent(
-                AnalyticConstants.CompanyLevelFinishedEvent, 
-                AnalyticConstants.CompanyLevelParameter, levelIndex + 1);
+            _analyticService.RegisterEvent($"{AnalyticConstants.CompanyLevelFinishedEvent}_{levelIndex + 1}");
         }
 
         private void OnDestroyToys()
         {
-            var currentLevel = _companyLevelsSaveDataProvider.GetCurrentLevel() + 1;
+            var levelNumber = _companyLevelsSaveDataProvider.GetCurrentLevel() + 1;
             
-            _analyticService.RegisterEvent(
-                AnalyticConstants.CompanyLevelTowerFallenEvent, 
-                new AnalyticsParameterData(AnalyticConstants.CompanyLevelParameter, currentLevel));
+            _analyticService.RegisterEvent($"{AnalyticConstants.CompanyLevelFinishedEvent}_{levelNumber}");
         }
     }
 }
