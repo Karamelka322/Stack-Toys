@@ -1,6 +1,8 @@
 using CodeBase.Logic.General.Factories.Audio;
+using CodeBase.Logic.General.Presenters.Advertisements;
 using CodeBase.Logic.General.Providers.Data.Saves;
 using CodeBase.Logic.General.Providers.Data.ScriptableObjects.Audio;
+using CodeBase.Logic.General.Services.Advertisements;
 using CodeBase.Logic.General.Services.Analytics;
 using CodeBase.Logic.General.Services.Assets;
 using CodeBase.Logic.General.Services.Audio;
@@ -67,12 +69,15 @@ namespace CodeBase.Logic.General.Installers
             Container.BindInterfacesTo<LocalizationService>().AsSingle();
             Container.BindInterfacesTo<LeaderboardService>().AsSingle();
             Container.BindInterfacesTo<AnalyticService>().AsSingle();
+            Container.BindInterfacesTo<AdvertisementService>().AsSingle();
+            
             Container.Bind<CrashlyticsService>().AsSingle().NonLazy();
         }
 
         private void BindPresenters()
         {
             Container.Bind<StartLoadingScreenPresenter>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<AdvertisementPresenter>().AsSingle().NonLazy();
         }
     }
 }
