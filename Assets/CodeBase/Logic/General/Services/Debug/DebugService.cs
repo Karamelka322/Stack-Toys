@@ -1,3 +1,4 @@
+using CodeBase.Data.General.Constants;
 using CodeBase.Logic.Interfaces.General.Services.Debug;
 using JetBrains.Annotations;
 
@@ -11,41 +12,36 @@ namespace CodeBase.Logic.General.Services.Debug
     {
         public DebugService()
         {
-            
-#if !DISABLE_SRDEBUGGER
-            SRDebug.Init();
-#endif
-
+            if (BuildConstants.Debug)
+            {
+                SRDebug.Init();
+            }
         }
 
         public void RegisterOptionContainer(object container)
         {
-            
-#if !DISABLE_SRDEBUGGER
-
-            if (container == null || SRDebug.Instance == null)
+            if (BuildConstants.Debug)
             {
-                return;
+                if (container == null || SRDebug.Instance == null)
+                {
+                    return;
+                }
+            
+                SRDebug.Instance.AddOptionContainer(container);
             }
-            
-            SRDebug.Instance.AddOptionContainer(container);
-#endif
-            
         }
 
         public void UnregisterOptionContainer(object container)
         {
-            
-#if !DISABLE_SRDEBUGGER
-
-            if (container == null || SRDebug.Instance == null)
+            if (BuildConstants.Debug)
             {
-                return;
+                if (container == null || SRDebug.Instance == null)
+                {
+                    return;
+                }
+            
+                SRDebug.Instance.RemoveOptionContainer(container);
             }
-            
-            SRDebug.Instance.RemoveOptionContainer(container);
-#endif
-            
         }
     }
 }

@@ -7,6 +7,6 @@ namespace CodeBase.Logic.General.Services.Advertisements
     {
         BoolReactiveProperty IsShowing { get; }
         
-        UniTask ShowInterstitialAsync();
+        UniTask TryShowInterstitialAsync();
     }
 }

@@ -45,7 +45,7 @@ namespace CodeBase.Logic.General.Services.Advertisements
             _loader.OnAdFailedToLoad -= OnFailedToLoad;
         }
 
-        public async UniTask ShowAsync()
+        public async UniTask TryShowAsync()
         {
             if (Application.isEditor)
             {

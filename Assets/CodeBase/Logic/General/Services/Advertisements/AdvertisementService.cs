@@ -1,4 +1,5 @@
 using System;
+using CodeBase.Data.General.Constants;
 using Cysharp.Threading.Tasks;
 using UniRx;
 
@@ -13,7 +14,11 @@ namespace CodeBase.Logic.General.Services.Advertisements
         public AdvertisementService()
         {
             IsShowing = new BoolReactiveProperty();
-            _interstitialModule = new InterstitialAdvertisementModule();
+
+            if (BuildConstants.Advertisements)
+            {
+                _interstitialModule = new InterstitialAdvertisementModule();
+            }
         }
 
         public void Dispose()
@@ -22,13 +27,16 @@ namespace CodeBase.Logic.General.Services.Advertisements
             IsShowing?.Dispose();
         }
 
-        public async UniTask ShowInterstitialAsync()
+        public async UniTask TryShowInterstitialAsync()
         {
-            IsShowing.Value = true;
+            if(BuildConstants.Advertisements)
+            {
+                IsShowing.Value = true;
             
-            await _interstitialModule.ShowAsync();
+                await _interstitialModule.TryShowAsync();
             
-            IsShowing.Value = false;
+                IsShowing.Value = false;
+            }
         }
     }
 }
