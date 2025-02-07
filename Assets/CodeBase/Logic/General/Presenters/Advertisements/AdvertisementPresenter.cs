@@ -7,7 +7,7 @@ namespace CodeBase.Logic.General.Presenters.Advertisements
 {
     public class AdvertisementPresenter : IDisposable
     {
-        private const float _time = 120f;
+        private const float _time = 110f;
         
         private readonly IAdvertisementService _advertisementService;
         private readonly IDisposable _disposable;
@@ -31,7 +31,7 @@ namespace CodeBase.Logic.General.Presenters.Advertisements
                 return;
             }
             
-            _advertisementService.ShowInterstitialAsync().Forget();
+            _advertisementService.TryShowInterstitialAsync().Forget();
         }
     }
 }
